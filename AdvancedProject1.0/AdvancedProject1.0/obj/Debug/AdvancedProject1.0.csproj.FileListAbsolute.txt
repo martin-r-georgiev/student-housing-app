@@ -1,0 +1,14 @@
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe.config
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.pdb
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.formLogin.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Properties.Resources.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csproj.GenerateResource.cache
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.exe
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.pdb
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.TenantMain.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csprojAssemblyReference.cache
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.CleaningSchedule.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Groceries.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.ReportPopup.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Social.resources

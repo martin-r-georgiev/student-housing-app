@@ -1,0 +1,120 @@
+﻿namespace AdvancedProject1._0
+{
+    partial class AdminMain
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.btnHouseRules = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.lblHousingName = new System.Windows.Forms.Label();
+            this.btnEvents = new System.Windows.Forms.Button();
+            this.btnSocial = new System.Windows.Forms.Button();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // btnHouseRules
+            // 
+            this.btnHouseRules.Location = new System.Drawing.Point(274, 108);
+            this.btnHouseRules.Name = "btnHouseRules";
+            this.btnHouseRules.Size = new System.Drawing.Size(80, 80);
+            this.btnHouseRules.TabIndex = 13;
+            this.btnHouseRules.Text = "Update House Rules";
+            this.btnHouseRules.UseVisualStyleBackColor = true;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(397, 13);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(48, 42);
+            this.btnLogout.TabIndex = 12;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // lblHousingName
+            // 
+            this.lblHousingName.AutoSize = true;
+            this.lblHousingName.Location = new System.Drawing.Point(163, 28);
+            this.lblHousingName.Name = "lblHousingName";
+            this.lblHousingName.Size = new System.Drawing.Size(85, 13);
+            this.lblHousingName.TabIndex = 11;
+            this.lblHousingName.Text = "Housing Agency";
+            // 
+            // btnEvents
+            // 
+            this.btnEvents.Location = new System.Drawing.Point(63, 108);
+            this.btnEvents.Name = "btnEvents";
+            this.btnEvents.Size = new System.Drawing.Size(80, 80);
+            this.btnEvents.TabIndex = 10;
+            this.btnEvents.Text = "Events";
+            this.btnEvents.UseVisualStyleBackColor = true;
+            // 
+            // btnSocial
+            // 
+            this.btnSocial.Location = new System.Drawing.Point(168, 108);
+            this.btnSocial.Name = "btnSocial";
+            this.btnSocial.Size = new System.Drawing.Size(80, 80);
+            this.btnSocial.TabIndex = 8;
+            this.btnSocial.Text = "Reports";
+            this.btnSocial.UseVisualStyleBackColor = true;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Location = new System.Drawing.Point(163, 74);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(84, 13);
+            this.lblWelcome.TabIndex = 14;
+            this.lblWelcome.Text = "Welcome Admin";
+            // 
+            // AdminMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(457, 246);
+            this.Controls.Add(this.lblWelcome);
+            this.Controls.Add(this.btnHouseRules);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.lblHousingName);
+            this.Controls.Add(this.btnEvents);
+            this.Controls.Add(this.btnSocial);
+            this.Name = "AdminMain";
+            this.Text = "AdminMain";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button btnHouseRules;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Label lblHousingName;
+        private System.Windows.Forms.Button btnEvents;
+        private System.Windows.Forms.Button btnSocial;
+        private System.Windows.Forms.Label lblWelcome;
+    }
+}
