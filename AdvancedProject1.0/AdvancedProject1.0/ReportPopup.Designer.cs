@@ -42,6 +42,7 @@
             this.btnSendReport.TabIndex = 0;
             this.btnSendReport.Text = "Send";
             this.btnSendReport.UseVisualStyleBackColor = true;
+            this.btnSendReport.Click += new System.EventHandler(this.btnSendReport_Click);
             // 
             // tbHouseNr
             // 

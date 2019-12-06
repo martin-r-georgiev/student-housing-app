@@ -12,3 +12,8 @@ E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProje
 E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Groceries.resources
 E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.ReportPopup.resources
 E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Social.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.AdminMain.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Events.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.EventsPopup.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.HouseRules.resources
+E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Reports.resources

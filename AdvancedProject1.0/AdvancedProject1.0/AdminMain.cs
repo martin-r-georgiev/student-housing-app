@@ -16,5 +16,32 @@ namespace AdvancedProject1._0
         {
             InitializeComponent();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            formLogin loginScreen = new formLogin();
+            loginScreen.Show();
+            this.Hide();
+        }
+
+        private void btnEvents_Click(object sender, EventArgs e)
+        {
+            Events eventScreen = new Events();
+            eventScreen.Show();
+            this.Hide();
+        }
+
+        private void btnHouseRules_Click(object sender, EventArgs e)
+        {
+            HouseRules houseRulesScreen = new HouseRules();
+            houseRulesScreen.Show();
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            Reports reportsScreen = new Reports();
+            reportsScreen.Show();
+            this.Hide();
+        }
     }
 }

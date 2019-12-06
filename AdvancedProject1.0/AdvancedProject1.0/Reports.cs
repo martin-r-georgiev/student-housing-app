@@ -16,5 +16,12 @@ namespace AdvancedProject1._0
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            AdminMain adminMainScreen = new AdminMain();
+            adminMainScreen.Show();
+            this.Hide();
+        }
     }
 }

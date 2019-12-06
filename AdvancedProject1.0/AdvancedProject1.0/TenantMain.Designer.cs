@@ -46,6 +46,7 @@
             this.btnCleaning.TabIndex = 0;
             this.btnCleaning.Text = "Cleaning";
             this.btnCleaning.UseVisualStyleBackColor = true;
+            this.btnCleaning.Click += new System.EventHandler(this.btnCleaning_Click);
             // 
             // btnSocial
             // 
@@ -55,6 +56,7 @@
             this.btnSocial.TabIndex = 1;
             this.btnSocial.Text = "Social";
             this.btnSocial.UseVisualStyleBackColor = true;
+            this.btnSocial.Click += new System.EventHandler(this.btnSocial_Click);
             // 
             // btnGroceries
             // 
@@ -64,6 +66,7 @@
             this.btnGroceries.TabIndex = 2;
             this.btnGroceries.Text = "Groceries";
             this.btnGroceries.UseVisualStyleBackColor = true;
+            this.btnGroceries.Click += new System.EventHandler(this.btnGroceries_Click);
             // 
             // btnEvents
             // 
@@ -73,6 +76,7 @@
             this.btnEvents.TabIndex = 3;
             this.btnEvents.Text = "Events";
             this.btnEvents.UseVisualStyleBackColor = true;
+            this.btnEvents.Click += new System.EventHandler(this.btnEvents_Click);
             // 
             // lblHousingName
             // 
@@ -91,6 +95,7 @@
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnHouseRules
             // 

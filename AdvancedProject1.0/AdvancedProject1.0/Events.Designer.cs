@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblHeader = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +45,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnAddEvent = new System.Windows.Forms.Button();
+            this.rbAdmin = new System.Windows.Forms.RadioButton();
+            this.rbTenant = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -64,32 +66,14 @@
             this.panel1.Size = new System.Drawing.Size(502, 110);
             this.panel1.TabIndex = 0;
             // 
-            // btnBack
+            // lblInfo
             // 
-            this.btnBack.Location = new System.Drawing.Point(12, 12);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 104);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lblHeader
-            // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.lblHeader.Location = new System.Drawing.Point(132, 3);
-            this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(82, 25);
-            this.lblHeader.TabIndex = 1;
-            this.lblHeader.Text = "Header";
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(134, 72);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(25, 13);
+            this.lblInfo.TabIndex = 3;
+            this.lblInfo.Text = "Info";
             // 
             // lblDate
             // 
@@ -101,14 +85,33 @@
             this.lblDate.TabIndex = 2;
             this.lblDate.Text = "Date and Time";
             // 
-            // lblInfo
+            // lblHeader
             // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(134, 72);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(25, 13);
-            this.lblInfo.TabIndex = 3;
-            this.lblInfo.Text = "Info";
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.lblHeader.Location = new System.Drawing.Point(132, 3);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(82, 25);
+            this.lblHeader.TabIndex = 1;
+            this.lblHeader.Text = "Header";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(107, 104);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // panel2
             // 
@@ -214,12 +217,37 @@
             this.btnAddEvent.TabIndex = 5;
             this.btnAddEvent.Text = "Add Event";
             this.btnAddEvent.UseVisualStyleBackColor = true;
+            this.btnAddEvent.Click += new System.EventHandler(this.btnAddEvent_Click);
+            // 
+            // rbAdmin
+            // 
+            this.rbAdmin.AutoSize = true;
+            this.rbAdmin.Location = new System.Drawing.Point(120, 15);
+            this.rbAdmin.Name = "rbAdmin";
+            this.rbAdmin.Size = new System.Drawing.Size(54, 17);
+            this.rbAdmin.TabIndex = 6;
+            this.rbAdmin.TabStop = true;
+            this.rbAdmin.Text = "Admin";
+            this.rbAdmin.UseVisualStyleBackColor = true;
+            // 
+            // rbTenant
+            // 
+            this.rbTenant.AutoSize = true;
+            this.rbTenant.Location = new System.Drawing.Point(236, 15);
+            this.rbTenant.Name = "rbTenant";
+            this.rbTenant.Size = new System.Drawing.Size(59, 17);
+            this.rbTenant.TabIndex = 7;
+            this.rbTenant.TabStop = true;
+            this.rbTenant.Text = "Tenant";
+            this.rbTenant.UseVisualStyleBackColor = true;
             // 
             // Events
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 435);
+            this.Controls.Add(this.rbTenant);
+            this.Controls.Add(this.rbAdmin);
             this.Controls.Add(this.btnAddEvent);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -237,6 +265,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -259,5 +288,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnAddEvent;
+        private System.Windows.Forms.RadioButton rbAdmin;
+        private System.Windows.Forms.RadioButton rbTenant;
     }
 }

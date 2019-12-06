@@ -32,7 +32,19 @@ namespace AdvancedProject1._0
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            if (rbAdmin.Checked)
+            {
+                //Add check for username + pass
+                AdminMain adminMainScreen = new AdminMain();
+                adminMainScreen.Show();
+                this.Hide();
+            } else
+            {
+                //Add variable for storing who this is + check for house nr.
+                TenantMain tenantMainScreen = new TenantMain();
+                tenantMainScreen.Show();
+                this.Hide();
+            }
         }
     }
 }

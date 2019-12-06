@@ -16,5 +16,12 @@ namespace AdvancedProject1._0
         {
             InitializeComponent();
         }
+
+        private void btnSendReport_Click(object sender, EventArgs e)
+        {
+            // code
+
+            this.Hide();
+        }
     }
 }

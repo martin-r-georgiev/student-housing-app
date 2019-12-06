@@ -16,5 +16,10 @@ namespace AdvancedProject1._0
         {
             InitializeComponent();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

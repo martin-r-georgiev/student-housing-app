@@ -32,7 +32,7 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblHousingName = new System.Windows.Forms.Label();
             this.btnEvents = new System.Windows.Forms.Button();
-            this.btnSocial = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -44,6 +44,7 @@
             this.btnHouseRules.TabIndex = 13;
             this.btnHouseRules.Text = "Update House Rules";
             this.btnHouseRules.UseVisualStyleBackColor = true;
+            this.btnHouseRules.Click += new System.EventHandler(this.btnHouseRules_Click);
             // 
             // btnLogout
             // 
@@ -53,6 +54,7 @@
             this.btnLogout.TabIndex = 12;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // lblHousingName
             // 
@@ -71,15 +73,17 @@
             this.btnEvents.TabIndex = 10;
             this.btnEvents.Text = "Events";
             this.btnEvents.UseVisualStyleBackColor = true;
+            this.btnEvents.Click += new System.EventHandler(this.btnEvents_Click);
             // 
-            // btnSocial
+            // btnReports
             // 
-            this.btnSocial.Location = new System.Drawing.Point(168, 108);
-            this.btnSocial.Name = "btnSocial";
-            this.btnSocial.Size = new System.Drawing.Size(80, 80);
-            this.btnSocial.TabIndex = 8;
-            this.btnSocial.Text = "Reports";
-            this.btnSocial.UseVisualStyleBackColor = true;
+            this.btnReports.Location = new System.Drawing.Point(168, 108);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(80, 80);
+            this.btnReports.TabIndex = 8;
+            this.btnReports.Text = "Reports";
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // lblWelcome
             // 
@@ -100,7 +104,7 @@
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblHousingName);
             this.Controls.Add(this.btnEvents);
-            this.Controls.Add(this.btnSocial);
+            this.Controls.Add(this.btnReports);
             this.Name = "AdminMain";
             this.Text = "AdminMain";
             this.ResumeLayout(false);
@@ -114,7 +118,7 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblHousingName;
         private System.Windows.Forms.Button btnEvents;
-        private System.Windows.Forms.Button btnSocial;
+        private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Label lblWelcome;
     }
 }

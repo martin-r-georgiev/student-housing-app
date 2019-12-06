@@ -16,5 +16,18 @@ namespace AdvancedProject1._0
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            TenantMain tenantMainScreen = new TenantMain();
+            tenantMainScreen.Show();
+            this.Hide();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ReportPopup reportPopupScreen = new ReportPopup();
+            reportPopupScreen.Show();
+        }
     }
 }
