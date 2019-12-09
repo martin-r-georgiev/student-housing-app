@@ -12,7 +12,6 @@ namespace AdvancedProject1._0
 {
     public partial class Social : Form
     {
-<<<<<<< Updated upstream
         private TenantMain mainForm = null;
         string chat;
         List<string> chatLines;
@@ -39,7 +38,6 @@ namespace AdvancedProject1._0
 
         private void Social_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(mainForm.studentID);
             RefreshListbox();
         }
 

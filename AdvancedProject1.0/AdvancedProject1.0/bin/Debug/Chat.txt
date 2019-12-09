@@ -2,8 +2,7 @@ Kak e
 Nz brat
 Asd
 Kur
-<<<<<<< Updated upstream
-=======
+Updated upstream
 ASd
->>>>>>> Stashed changes
+Stashed changes
 sdfsdf
