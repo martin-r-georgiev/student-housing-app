@@ -105,6 +105,7 @@
             this.btnHouseRules.TabIndex = 6;
             this.btnHouseRules.Text = "House Rules";
             this.btnHouseRules.UseVisualStyleBackColor = true;
+            this.btnHouseRules.Click += new System.EventHandler(this.btnHouseRules_Click);
             // 
             // lblWelcome
             // 

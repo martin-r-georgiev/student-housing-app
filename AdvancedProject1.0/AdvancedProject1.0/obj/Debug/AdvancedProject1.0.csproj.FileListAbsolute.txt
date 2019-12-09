@@ -17,6 +17,7 @@ E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProje
 E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.EventsPopup.resources
 E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.HouseRules.resources
 E:\Projects\Uni\AD\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Reports.resources
+<<<<<<< Updated upstream
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\HousingDB.mdf
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\HousingDB_log.ldf
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe.config
@@ -38,3 +39,26 @@ D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csproj.GenerateResource.cache
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.exe
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.pdb
+=======
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\HousingDB.mdf
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\HousingDB_log.ldf
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe.config
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.pdb
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csprojAssemblyReference.cache
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.AdminMain.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.CleaningSchedule.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Events.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.EventsPopup.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Groceries.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.HouseRules.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.formLogin.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Properties.Resources.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.ReportPopup.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Reports.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Social.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.TenantMain.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csproj.GenerateResource.cache
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.exe
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.pdb
+>>>>>>> Stashed changes
