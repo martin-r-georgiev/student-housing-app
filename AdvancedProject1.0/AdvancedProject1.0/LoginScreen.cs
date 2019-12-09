@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Data.SqlClient;
+
 namespace AdvancedProject1._0
 {
     public partial class formLogin : Form
@@ -17,34 +19,41 @@ namespace AdvancedProject1._0
             InitializeComponent();
         }
 
-        private void rbTenant_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbTenant.Checked)
-            {
-                lblName.Text = "First Name";
-                lblPass.Text = "Apartment Nr.";
-            } else
-            {
-                lblName.Text = "Username";
-                lblPass.Text = "Password";
-            }
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (rbAdmin.Checked)
+            //Creating & opening SQL Connection to database
+            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Environment.CurrentDirectory}\\HousingDB.mdf;Integrated Security=True");
+            con.Open();
+
+            SqlCommand cmd;
+            SqlDataReader dataReader;
+
+            cmd = new SqlCommand($"SELECT username, password, firstName, isAdmin FROM Users WHERE username=@Username AND password=@Password", con);
+            cmd.Parameters.AddWithValue("@Username", tbName.Text);
+            cmd.Parameters.AddWithValue("@Password", tbPass.Text);
+            dataReader = cmd.ExecuteReader();
+
+            if(dataReader.Read()) //Checking if the reader returns a value (YES = Matching login credentials)
             {
-                //Add check for username + pass
-                AdminMain adminMainScreen = new AdminMain();
-                adminMainScreen.Show();
-                this.Hide();
-            } else
-            {
-                //Add variable for storing who this is + check for house nr.
-                TenantMain tenantMainScreen = new TenantMain();
-                tenantMainScreen.Show();
-                this.Hide();
+                MessageBox.Show($"Successfully logged in. Welcome, {dataReader.GetString(2)}.");
+                if(dataReader.GetBoolean(3)) //Checking if user is an administrator
+                {
+                    //Opening the administrator's main menu
+                    AdminMain adminMainScreen = new AdminMain();
+                    adminMainScreen.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    //Opening the tenant's main menu
+                    TenantMain tenantMainScreen = new TenantMain();
+                    tenantMainScreen.Show();
+                    this.Hide();
+                }
             }
+            else MessageBox.Show("Failed login attempt. Please try again.");
+
+            con.Close();
         }
     }
 }

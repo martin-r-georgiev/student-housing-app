@@ -43,5 +43,12 @@ namespace AdvancedProject1._0
             reportsScreen.Show();
             this.Hide();
         }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            AdminAdd addScreen = new AdminAdd();
+            addScreen.Show();
+            this.Hide();
+        }
     }
 }

@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAdd.Designer.cs">
+      <DependentUpon>AdminAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
       <DependentUpon>TenantMain.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="AdminAdd.resx">
+      <DependentUpon>AdminAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminMain.resx">
       <DependentUpon>AdminMain.cs</DependentUpon>
     </EmbeddedResource>
