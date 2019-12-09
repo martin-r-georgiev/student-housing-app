@@ -12,6 +12,7 @@ namespace AdvancedProject1._0
 {
     public partial class TenantMain : Form
     {
+<<<<<<< Updated upstream
         public string studentID = "test123";
         HouseRulesInfo houseRules;
 

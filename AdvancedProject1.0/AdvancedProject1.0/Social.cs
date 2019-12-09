@@ -12,6 +12,7 @@ namespace AdvancedProject1._0
 {
     public partial class Social : Form
     {
+<<<<<<< Updated upstream
         private TenantMain mainForm = null;
         string chat;
         List<string> chatLines;
