@@ -137,6 +137,7 @@
     <Compile Include="TenantMain.Designer.cs">
       <DependentUpon>TenantMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <EmbeddedResource Include="AdminMain.resx">
       <DependentUpon>AdminMain.cs</DependentUpon>
     </EmbeddedResource>
