@@ -97,10 +97,13 @@
     <Compile Include="HouseRules.Designer.cs">
       <DependentUpon>HouseRules.cs</DependentUpon>
     </Compile>
-    <Compile Include="HUnitDataSet.Designer.cs">
+    <Compile Include="HousingDataset.cs">
+      <DependentUpon>HousingDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HousingDataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HUnitDataSet.xsd</DependentUpon>
+      <DependentUpon>HousingDataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>
@@ -176,16 +179,16 @@
     <EmbeddedResource Include="TenantMain.resx">
       <DependentUpon>TenantMain.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="HUnitDataSet.xsc">
-      <DependentUpon>HUnitDataSet.xsd</DependentUpon>
+    <None Include="HousingDataset.xsc">
+      <DependentUpon>HousingDataset.xsd</DependentUpon>
     </None>
-    <None Include="HUnitDataSet.xsd">
+    <None Include="HousingDataset.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HUnitDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>HousingDataset.Designer.cs</LastGenOutput>
     </None>
-    <None Include="HUnitDataSet.xss">
-      <DependentUpon>HUnitDataSet.xsd</DependentUpon>
+    <None Include="HousingDataset.xss">
+      <DependentUpon>HousingDataset.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -201,12 +204,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HousingUnits.mdf">
+    <Content Include="HousingDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="HousingUnits_log.ldf">
+    <Content Include="HousingDB_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>HousingUnits.mdf</DependentUpon>
+      <DependentUpon>HousingDB.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
