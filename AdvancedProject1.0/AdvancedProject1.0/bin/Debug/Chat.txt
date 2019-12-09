@@ -1,0 +1,9 @@
+Kak e
+Nz brat
+Asd
+Kur
+<<<<<<< Updated upstream
+=======
+ASd
+>>>>>>> Stashed changes
+sdfsdf

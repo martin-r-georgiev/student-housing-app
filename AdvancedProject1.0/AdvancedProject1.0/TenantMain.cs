@@ -13,9 +13,12 @@ namespace AdvancedProject1._0
     public partial class TenantMain : Form
     {
         public string studentID = "test123";
+        HouseRulesInfo houseRules;
+
         public TenantMain()
         {
             InitializeComponent();
+            houseRules = new HouseRulesInfo();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -51,6 +54,11 @@ namespace AdvancedProject1._0
             Social socialScreen = new Social(this);
             socialScreen.Show();
             this.Hide();
+        }
+
+        private void btnHouseRules_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(houseRules.GetRules());
         }
     }
 }

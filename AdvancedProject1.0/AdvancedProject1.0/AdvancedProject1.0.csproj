@@ -97,6 +97,7 @@
     <Compile Include="HouseRules.Designer.cs">
       <DependentUpon>HouseRules.cs</DependentUpon>
     </Compile>
+    <Compile Include="HouseRulesInfo.cs" />
     <Compile Include="HousingDataset.cs">
       <DependentUpon>HousingDataset.xsd</DependentUpon>
     </Compile>
