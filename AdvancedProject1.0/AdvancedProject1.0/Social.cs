@@ -12,9 +12,17 @@ namespace AdvancedProject1._0
 {
     public partial class Social : Form
     {
-        public Social()
+        private TenantMain mainForm = null;
+
+        public Social(TenantMain calledForm)
         {
             InitializeComponent();
+            mainForm = calledForm as TenantMain;
+        }
+
+        private void Social_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show(mainForm.studentID);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -29,5 +37,6 @@ namespace AdvancedProject1._0
             ReportPopup reportPopupScreen = new ReportPopup();
             reportPopupScreen.Show();
         }
+
     }
 }

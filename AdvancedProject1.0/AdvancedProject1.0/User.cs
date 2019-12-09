@@ -27,5 +27,15 @@ namespace AdvancedProject1._0
             string student_id = $"{houseNr}_{num}_{fname}_{lname}";
             studentID = student_id;
         }
+
+        public void LoadFromDB(string userID)
+        {
+
+        }
+
+        public void SaveToDB()
+        {
+
+        }
     }
 }

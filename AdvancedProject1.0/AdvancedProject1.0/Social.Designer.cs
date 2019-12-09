@@ -38,32 +38,37 @@
             // lbChat
             // 
             this.lbChat.FormattingEnabled = true;
-            this.lbChat.Location = new System.Drawing.Point(12, 51);
+            this.lbChat.ItemHeight = 16;
+            this.lbChat.Location = new System.Drawing.Point(16, 63);
+            this.lbChat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lbChat.Name = "lbChat";
-            this.lbChat.Size = new System.Drawing.Size(352, 303);
+            this.lbChat.Size = new System.Drawing.Size(468, 372);
             this.lbChat.TabIndex = 0;
             // 
             // tbChat
             // 
-            this.tbChat.Location = new System.Drawing.Point(12, 368);
+            this.tbChat.Location = new System.Drawing.Point(16, 453);
+            this.tbChat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbChat.Name = "tbChat";
-            this.tbChat.Size = new System.Drawing.Size(279, 20);
+            this.tbChat.Size = new System.Drawing.Size(371, 22);
             this.tbChat.TabIndex = 1;
             // 
             // btnSendChat
             // 
-            this.btnSendChat.Location = new System.Drawing.Point(297, 368);
+            this.btnSendChat.Location = new System.Drawing.Point(396, 453);
+            this.btnSendChat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSendChat.Name = "btnSendChat";
-            this.btnSendChat.Size = new System.Drawing.Size(67, 20);
+            this.btnSendChat.Size = new System.Drawing.Size(89, 25);
             this.btnSendChat.TabIndex = 2;
             this.btnSendChat.Text = "Send";
             this.btnSendChat.UseVisualStyleBackColor = true;
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(379, 38);
+            this.btnReport.Location = new System.Drawing.Point(505, 47);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(88, 57);
+            this.btnReport.Size = new System.Drawing.Size(117, 70);
             this.btnReport.TabIndex = 3;
             this.btnReport.Text = "Report";
             this.btnReport.UseVisualStyleBackColor = true;
@@ -71,9 +76,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(12, 9);
+            this.btnBack.Location = new System.Drawing.Point(16, 11);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(49, 36);
+            this.btnBack.Size = new System.Drawing.Size(65, 44);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -81,16 +87,18 @@
             // 
             // Social
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 417);
+            this.ClientSize = new System.Drawing.Size(639, 513);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnSendChat);
             this.Controls.Add(this.tbChat);
             this.Controls.Add(this.lbChat);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Social";
             this.Text = "Social";
+            this.Load += new System.EventHandler(this.Social_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

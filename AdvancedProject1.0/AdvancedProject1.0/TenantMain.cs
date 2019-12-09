@@ -12,6 +12,7 @@ namespace AdvancedProject1._0
 {
     public partial class TenantMain : Form
     {
+        public string studentID = "test123";
         public TenantMain()
         {
             InitializeComponent();
@@ -47,7 +48,7 @@ namespace AdvancedProject1._0
 
         private void btnSocial_Click(object sender, EventArgs e)
         {
-            Social socialScreen = new Social();
+            Social socialScreen = new Social(this);
             socialScreen.Show();
             this.Hide();
         }
