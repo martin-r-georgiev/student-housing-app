@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblFirsttoBuy = new System.Windows.Forms.Label();
-            this.lblSecondtoBuy = new System.Windows.Forms.Label();
+            this.lblCurrentToBuy = new System.Windows.Forms.Label();
+            this.lblNextToBuy = new System.Windows.Forms.Label();
             this.lbGroceries = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbAddProduct = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbPaid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.lbHistory = new System.Windows.Forms.ListBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblFirsttoBuy
+            // lblCurrentToBuy
             // 
-            this.lblFirsttoBuy.AutoSize = true;
-            this.lblFirsttoBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.lblFirsttoBuy.Location = new System.Drawing.Point(7, 90);
-            this.lblFirsttoBuy.Name = "lblFirsttoBuy";
-            this.lblFirsttoBuy.Size = new System.Drawing.Size(59, 25);
-            this.lblFirsttoBuy.TabIndex = 0;
-            this.lblFirsttoBuy.Text = "John";
+            this.lblCurrentToBuy.AutoSize = true;
+            this.lblCurrentToBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.lblCurrentToBuy.Location = new System.Drawing.Point(7, 90);
+            this.lblCurrentToBuy.Name = "lblCurrentToBuy";
+            this.lblCurrentToBuy.Size = new System.Drawing.Size(59, 25);
+            this.lblCurrentToBuy.TabIndex = 0;
+            this.lblCurrentToBuy.Text = "John";
             // 
-            // lblSecondtoBuy
+            // lblNextToBuy
             // 
-            this.lblSecondtoBuy.AutoSize = true;
-            this.lblSecondtoBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblSecondtoBuy.Location = new System.Drawing.Point(13, 130);
-            this.lblSecondtoBuy.Name = "lblSecondtoBuy";
-            this.lblSecondtoBuy.Size = new System.Drawing.Size(53, 18);
-            this.lblSecondtoBuy.TabIndex = 1;
-            this.lblSecondtoBuy.Text = "Steven";
+            this.lblNextToBuy.AutoSize = true;
+            this.lblNextToBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblNextToBuy.Location = new System.Drawing.Point(13, 130);
+            this.lblNextToBuy.Name = "lblNextToBuy";
+            this.lblNextToBuy.Size = new System.Drawing.Size(53, 18);
+            this.lblNextToBuy.TabIndex = 1;
+            this.lblNextToBuy.Text = "Steven";
             // 
             // lbGroceries
             // 
@@ -68,12 +68,13 @@
             this.lbGroceries.Size = new System.Drawing.Size(150, 251);
             this.lbGroceries.TabIndex = 2;
             // 
-            // textBox1
+            // tbAddProduct
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.tbAddProduct.Location = new System.Drawing.Point(103, 23);
+            this.tbAddProduct.Multiline = true;
+            this.tbAddProduct.Name = "tbAddProduct";
+            this.tbAddProduct.Size = new System.Drawing.Size(100, 20);
+            this.tbAddProduct.TabIndex = 4;
             // 
             // btnAdd
             // 
@@ -83,13 +84,14 @@
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
-            // textBox2
+            // tbPaid
             // 
-            this.textBox2.Location = new System.Drawing.Point(153, 306);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
+            this.tbPaid.Location = new System.Drawing.Point(153, 306);
+            this.tbPaid.Name = "tbPaid";
+            this.tbPaid.Size = new System.Drawing.Size(100, 20);
+            this.tbPaid.TabIndex = 6;
             // 
             // label1
             // 
@@ -108,6 +110,7 @@
             this.btnConfirm.TabIndex = 8;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // lbHistory
             // 
@@ -129,19 +132,20 @@
             // 
             // Groceries
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 432);
+            this.ClientSize = new System.Drawing.Size(575, 404);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lbHistory);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbPaid);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbAddProduct);
             this.Controls.Add(this.lbGroceries);
-            this.Controls.Add(this.lblSecondtoBuy);
-            this.Controls.Add(this.lblFirsttoBuy);
+            this.Controls.Add(this.lblNextToBuy);
+            this.Controls.Add(this.lblCurrentToBuy);
             this.Name = "Groceries";
             this.Text = "Groceries";
             this.ResumeLayout(false);
@@ -151,12 +155,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblFirsttoBuy;
-        private System.Windows.Forms.Label lblSecondtoBuy;
+        private System.Windows.Forms.Label lblCurrentToBuy;
+        private System.Windows.Forms.Label lblNextToBuy;
         private System.Windows.Forms.ListBox lbGroceries;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbAddProduct;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbPaid;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.ListBox lbHistory;

@@ -17,11 +17,74 @@ namespace AdvancedProject1._0
             InitializeComponent();
         }
 
+        List<String> Product = new List<String>();
+        List<double> Balance = new List<double>();
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             TenantMain tenantMainScreen = new TenantMain();
             tenantMainScreen.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnAdd;
+            if (tbAddProduct.TextLength == 0)
+            {
+                MessageBox.Show("Specify a product to add!");
+            }
+            else
+            {
+                Product.Add(tbAddProduct.Text);
+                RefreshProductList();
+                tbAddProduct.Text = "";
+            }
+        }
+
+        private void BtnConfirm_Click(object sender, EventArgs e)
+        {
+            if (tbPaid.TextLength != 0 && lbGroceries.Items.Count != 0)
+            {
+                double tbPrice;
+                if (Double.TryParse(tbPaid.Text, out tbPrice))
+                {
+                    //TO DO: Add the balance to current Name of person buying and remove from all others      --      lbl + price
+                    //TO DO: Add to lbHistory
+                    Balance.Add(tbPrice);
+                    RefreshHistoryList();
+                    ClearGroceries();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Add at least one product and specify a price!");
+            }
+        }
+
+        void RefreshProductList()
+        {
+            lbGroceries.Items.Clear();
+            foreach (String product in Product)
+            {
+                lbGroceries.Items.Add(product);
+            }
+        }
+
+        void RefreshHistoryList()
+        {
+            lbHistory.Items.Clear();
+            foreach (double price in Balance)
+            {
+                lbHistory.Items.Add(price);
+            }
+        }
+
+        void ClearGroceries()
+        {
+            Product.Clear();
+            lbGroceries.Items.Clear();
+            tbPaid.Text = "";
         }
     }
 }

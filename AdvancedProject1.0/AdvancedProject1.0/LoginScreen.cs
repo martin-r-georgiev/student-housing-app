@@ -22,6 +22,8 @@ namespace AdvancedProject1._0
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //Allows usage of ENTER on keyboard
+            this.AcceptButton = btnLogin;           
             //Creating & opening SQL Connection to database
             SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
             con.Open();
@@ -55,6 +57,18 @@ namespace AdvancedProject1._0
             else MessageBox.Show("Failed login attempt. Please try again.");
 
             con.Close();
+        }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowHide.Checked == true)
+            {
+                tbPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tbPass.UseSystemPasswordChar = true;
+            }
         }
     }
 }

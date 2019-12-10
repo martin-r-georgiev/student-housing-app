@@ -33,67 +33,75 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.cbShowHide = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(107, 75);
-            this.tbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbName.Location = new System.Drawing.Point(72, 66);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(162, 22);
+            this.tbName.Size = new System.Drawing.Size(122, 20);
             this.tbName.TabIndex = 2;
             // 
             // tbPass
             // 
-            this.tbPass.Location = new System.Drawing.Point(107, 129);
-            this.tbPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPass.Location = new System.Drawing.Point(72, 110);
             this.tbPass.Name = "tbPass";
-            this.tbPass.PasswordChar = '•';
-            this.tbPass.Size = new System.Drawing.Size(162, 22);
+            this.tbPass.Size = new System.Drawing.Size(122, 20);
             this.tbPass.TabIndex = 3;
+            this.tbPass.UseSystemPasswordChar = true;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(150, 55);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(104, 50);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(73, 17);
+            this.lblName.Size = new System.Drawing.Size(55, 13);
             this.lblName.TabIndex = 4;
             this.lblName.Text = "Username";
             // 
             // lblPass
             // 
             this.lblPass.AutoSize = true;
-            this.lblPass.Location = new System.Drawing.Point(150, 109);
-            this.lblPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPass.Location = new System.Drawing.Point(104, 94);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(69, 17);
+            this.lblPass.Size = new System.Drawing.Size(53, 13);
             this.lblPass.TabIndex = 5;
             this.lblPass.Text = "Password";
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(107, 174);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Location = new System.Drawing.Point(72, 146);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(162, 28);
+            this.btnLogin.Size = new System.Drawing.Size(122, 23);
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // cbShowHide
+            // 
+            this.cbShowHide.AutoSize = true;
+            this.cbShowHide.Location = new System.Drawing.Point(200, 113);
+            this.cbShowHide.Name = "cbShowHide";
+            this.cbShowHide.Size = new System.Drawing.Size(53, 17);
+            this.cbShowHide.TabIndex = 7;
+            this.cbShowHide.Text = "Show";
+            this.cbShowHide.UseVisualStyleBackColor = true;
+            this.cbShowHide.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
+            // 
             // formLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.btnLogin;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 252);
+            this.ClientSize = new System.Drawing.Size(298, 215);
+            this.Controls.Add(this.cbShowHide);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.tbName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "formLogin";
             this.Text = "Login Screen";
             this.ResumeLayout(false);
@@ -107,6 +115,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.CheckBox cbShowHide;
     }
 }
 

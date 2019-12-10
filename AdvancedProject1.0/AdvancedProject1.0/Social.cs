@@ -56,11 +56,18 @@ namespace AdvancedProject1._0
 
         private void btnSendChat_Click(object sender, EventArgs e)
         {
+            //Allows usage of ENTER on keyboard
+            this.AcceptButton = btnSendChat;
             string newLine = $"{tbChat.Text}\n";
             chat += newLine;
             System.IO.File.WriteAllText(@"Chat.txt", chat);
             RefreshListbox();
             tbChat.Text = "";
+        }
+
+        private void LbChat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
