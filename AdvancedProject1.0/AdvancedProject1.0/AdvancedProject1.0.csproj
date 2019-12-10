@@ -215,11 +215,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HousingDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="HousingDB.mdf" />
     <Content Include="HousingDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>HousingDB.mdf</DependentUpon>
     </Content>
   </ItemGroup>

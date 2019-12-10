@@ -19,8 +19,6 @@ C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\Adva
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csproj.GenerateResource.cache
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.exe
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.pdb
-D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\HousingDB.mdf
-D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\HousingDB_log.ldf
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe.config
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.pdb

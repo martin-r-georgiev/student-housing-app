@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,13 +37,10 @@ namespace AdvancedProject1._0
 
         public void AddToDB()
         {
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Environment.CurrentDirectory}\\HousingDB.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
             con.Open();
 
-            SqlDataAdapter adapter = new SqlDataAdapter();
-
-            using (SqlCommand cmd = new SqlCommand($"INSERT INTO Users (username, password, firstName, lastName, houseID, studentID)" +
-            $" values (@user, @pass, @fname, @lname, @hnum, @sID)", con))
+            using (SqlCommand cmd = new SqlCommand($"INSERT INTO Users (username, password, firstName, lastName, houseID, studentID) VALUES (@user, @pass, @fname, @lname, @hnum, @sID)", con))
             {
                 cmd.Parameters.AddWithValue("@user", this.username);
                 cmd.Parameters.AddWithValue("@pass", this.password);
