@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace AdvancedProject1._0
 {
@@ -17,16 +19,18 @@ namespace AdvancedProject1._0
             InitializeComponent();
         }
 
+        List<User> userList = new List<User>();
+
         private void btnAddNewTenant_Click(object sender, EventArgs e)
         {
             //TO DO: Check for empty textboxes
             User newUser = new User(tbUsername.Text, tbPassword.Text,
-            tbFirstName.Text, tbLastName.Text);
+            tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
             if(!cbAdmin.Checked) newUser.SetHouseID(Convert.ToInt32(tbHouseUnit.Text));
             try
             {
-                newUser.InsertToDB(cbAdmin.Checked);
-                MessageBox.Show("Successfully added new tenant.");
+                newUser.InsertToDatabase();
+                MessageBox.Show("Successfully added new user.");
             }
             catch (Exception ex)
             {
@@ -65,6 +69,33 @@ namespace AdvancedProject1._0
                 lblHouseUnit.Visible = true;
                 tbHouseUnit.Visible = true;
             }
+        }
+
+        private void btnRemoveUser_Click(object sender, EventArgs e)
+        {
+            userList[cmbUserList.SelectedIndex].RemoveFromDatabase();
+            cmbUserList.SelectedIndex = -1;
+        }
+
+        private void cmbUserList_DropDown(object sender, EventArgs e)
+        {
+            cmbUserList.Items.Clear();
+            userList.Clear();
+
+            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand($"SELECT firstName, lastName, userID, isAdmin FROM Users", con);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            while(dataReader.Read())
+            {
+                if(dataReader.GetBoolean(3)) cmbUserList.Items.Add($"[Admin] {dataReader.GetString(0)} {dataReader.GetString(1)}");
+                else cmbUserList.Items.Add($"{dataReader.GetString(0)} {dataReader.GetString(1)}");
+                User newUser = new User(dataReader.GetString(2));
+                userList.Add(newUser);
+            }
+            con.Close();
         }
     }
 }

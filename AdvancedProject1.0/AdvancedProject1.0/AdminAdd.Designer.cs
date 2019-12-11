@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabTenant = new System.Windows.Forms.TabPage();
+            this.tabUser = new System.Windows.Forms.TabPage();
+            this.cbAdmin = new System.Windows.Forms.CheckBox();
             this.cbShowHide = new System.Windows.Forms.CheckBox();
             this.btnAddNewTenant = new System.Windows.Forms.Button();
             this.tbHouseUnit = new System.Windows.Forms.TextBox();
@@ -44,14 +45,15 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.tabHouseUnit = new System.Windows.Forms.TabPage();
             this.btnBack = new System.Windows.Forms.Button();
-            this.cbAdmin = new System.Windows.Forms.CheckBox();
+            this.btnRemoveUser = new System.Windows.Forms.Button();
+            this.cmbUserList = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
-            this.tabTenant.SuspendLayout();
+            this.tabUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabTenant);
+            this.tabControl1.Controls.Add(this.tabUser);
             this.tabControl1.Controls.Add(this.tabHouseUnit);
             this.tabControl1.Location = new System.Drawing.Point(15, 64);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -60,35 +62,48 @@
             this.tabControl1.Size = new System.Drawing.Size(748, 357);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabTenant
+            // tabUser
             // 
-            this.tabTenant.Controls.Add(this.cbAdmin);
-            this.tabTenant.Controls.Add(this.cbShowHide);
-            this.tabTenant.Controls.Add(this.btnAddNewTenant);
-            this.tabTenant.Controls.Add(this.tbHouseUnit);
-            this.tabTenant.Controls.Add(this.lblHouseUnit);
-            this.tabTenant.Controls.Add(this.tbLastName);
-            this.tabTenant.Controls.Add(this.lblLastName);
-            this.tabTenant.Controls.Add(this.tbFirstName);
-            this.tabTenant.Controls.Add(this.lblFirstName);
-            this.tabTenant.Controls.Add(this.tbPassword);
-            this.tabTenant.Controls.Add(this.lblPassword);
-            this.tabTenant.Controls.Add(this.tbUsername);
-            this.tabTenant.Controls.Add(this.lblUsername);
-            this.tabTenant.Location = new System.Drawing.Point(4, 25);
-            this.tabTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabTenant.Name = "tabTenant";
-            this.tabTenant.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabTenant.Size = new System.Drawing.Size(740, 328);
-            this.tabTenant.TabIndex = 0;
-            this.tabTenant.Text = "Add user";
-            this.tabTenant.UseVisualStyleBackColor = true;
+            this.tabUser.Controls.Add(this.cmbUserList);
+            this.tabUser.Controls.Add(this.btnRemoveUser);
+            this.tabUser.Controls.Add(this.cbAdmin);
+            this.tabUser.Controls.Add(this.cbShowHide);
+            this.tabUser.Controls.Add(this.btnAddNewTenant);
+            this.tabUser.Controls.Add(this.tbHouseUnit);
+            this.tabUser.Controls.Add(this.lblHouseUnit);
+            this.tabUser.Controls.Add(this.tbLastName);
+            this.tabUser.Controls.Add(this.lblLastName);
+            this.tabUser.Controls.Add(this.tbFirstName);
+            this.tabUser.Controls.Add(this.lblFirstName);
+            this.tabUser.Controls.Add(this.tbPassword);
+            this.tabUser.Controls.Add(this.lblPassword);
+            this.tabUser.Controls.Add(this.tbUsername);
+            this.tabUser.Controls.Add(this.lblUsername);
+            this.tabUser.Location = new System.Drawing.Point(4, 25);
+            this.tabUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabUser.Name = "tabUser";
+            this.tabUser.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabUser.Size = new System.Drawing.Size(740, 328);
+            this.tabUser.TabIndex = 0;
+            this.tabUser.Text = "User Controls";
+            this.tabUser.UseVisualStyleBackColor = true;
+            // 
+            // cbAdmin
+            // 
+            this.cbAdmin.AutoSize = true;
+            this.cbAdmin.Location = new System.Drawing.Point(156, 17);
+            this.cbAdmin.Name = "cbAdmin";
+            this.cbAdmin.Size = new System.Drawing.Size(113, 21);
+            this.cbAdmin.TabIndex = 12;
+            this.cbAdmin.Text = "Administrator";
+            this.cbAdmin.UseVisualStyleBackColor = true;
+            this.cbAdmin.CheckedChanged += new System.EventHandler(this.cbAdmin_CheckedChanged);
             // 
             // cbShowHide
             // 
             this.cbShowHide.AutoSize = true;
             this.cbShowHide.Location = new System.Drawing.Point(327, 75);
-            this.cbShowHide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbShowHide.Margin = new System.Windows.Forms.Padding(4);
             this.cbShowHide.Name = "cbShowHide";
             this.cbShowHide.Size = new System.Drawing.Size(64, 21);
             this.cbShowHide.TabIndex = 11;
@@ -98,10 +113,10 @@
             // 
             // btnAddNewTenant
             // 
-            this.btnAddNewTenant.Location = new System.Drawing.Point(544, 267);
+            this.btnAddNewTenant.Location = new System.Drawing.Point(156, 258);
             this.btnAddNewTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddNewTenant.Name = "btnAddNewTenant";
-            this.btnAddNewTenant.Size = new System.Drawing.Size(156, 39);
+            this.btnAddNewTenant.Size = new System.Drawing.Size(151, 39);
             this.btnAddNewTenant.TabIndex = 10;
             this.btnAddNewTenant.Text = "Add";
             this.btnAddNewTenant.UseVisualStyleBackColor = true;
@@ -207,7 +222,7 @@
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(15, 15);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(100, 28);
             this.btnBack.TabIndex = 2;
@@ -215,16 +230,25 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
-            // cbAdmin
+            // btnRemoveUser
             // 
-            this.cbAdmin.AutoSize = true;
-            this.cbAdmin.Location = new System.Drawing.Point(156, 17);
-            this.cbAdmin.Name = "cbAdmin";
-            this.cbAdmin.Size = new System.Drawing.Size(113, 21);
-            this.cbAdmin.TabIndex = 12;
-            this.cbAdmin.Text = "Administrator";
-            this.cbAdmin.UseVisualStyleBackColor = true;
-            this.cbAdmin.CheckedChanged += new System.EventHandler(this.cbAdmin_CheckedChanged);
+            this.btnRemoveUser.Location = new System.Drawing.Point(506, 57);
+            this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemoveUser.Name = "btnRemoveUser";
+            this.btnRemoveUser.Size = new System.Drawing.Size(193, 39);
+            this.btnRemoveUser.TabIndex = 13;
+            this.btnRemoveUser.Text = "Remove";
+            this.btnRemoveUser.UseVisualStyleBackColor = true;
+            this.btnRemoveUser.Click += new System.EventHandler(this.btnRemoveUser_Click);
+            // 
+            // cmbUserList
+            // 
+            this.cmbUserList.FormattingEnabled = true;
+            this.cmbUserList.Location = new System.Drawing.Point(506, 17);
+            this.cmbUserList.Name = "cmbUserList";
+            this.cmbUserList.Size = new System.Drawing.Size(193, 24);
+            this.cmbUserList.TabIndex = 14;
+            this.cmbUserList.DropDown += new System.EventHandler(this.cmbUserList_DropDown);
             // 
             // AdminAdd
             // 
@@ -237,8 +261,8 @@
             this.Name = "AdminAdd";
             this.Text = "AdminAdd";
             this.tabControl1.ResumeLayout(false);
-            this.tabTenant.ResumeLayout(false);
-            this.tabTenant.PerformLayout();
+            this.tabUser.ResumeLayout(false);
+            this.tabUser.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -246,7 +270,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabTenant;
+        private System.Windows.Forms.TabPage tabUser;
         private System.Windows.Forms.TabPage tabHouseUnit;
         private System.Windows.Forms.TextBox tbHouseUnit;
         private System.Windows.Forms.Label lblHouseUnit;
@@ -262,5 +286,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.CheckBox cbShowHide;
         private System.Windows.Forms.CheckBox cbAdmin;
+        private System.Windows.Forms.Button btnRemoveUser;
+        private System.Windows.Forms.ComboBox cmbUserList;
     }
 }
