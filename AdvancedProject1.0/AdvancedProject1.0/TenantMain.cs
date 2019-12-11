@@ -13,13 +13,14 @@ namespace AdvancedProject1._0
     public partial class TenantMain : Form
     {
 
-        public string studentID = "test123";
         HouseRulesInfo houseRules;
+        User loggedInUser;
 
-        public TenantMain()
+        public TenantMain(string userKey)
         {
             InitializeComponent();
             houseRules = new HouseRulesInfo();
+            loggedInUser = new User(userKey);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

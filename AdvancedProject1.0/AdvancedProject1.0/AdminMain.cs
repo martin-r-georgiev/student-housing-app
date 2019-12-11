@@ -12,9 +12,12 @@ namespace AdvancedProject1._0
 {
     public partial class AdminMain : Form
     {
-        public AdminMain()
+        User loggedInUser;
+
+        public AdminMain(string userKey)
         {
             InitializeComponent();
+            loggedInUser = new User(userKey);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
