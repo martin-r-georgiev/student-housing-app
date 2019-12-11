@@ -12,7 +12,6 @@ namespace AdvancedProject1._0
 {
     public partial class AdminAdd : Form
     {
-        int counter = 0;
         public AdminAdd()
         {
             InitializeComponent();
@@ -20,18 +19,19 @@ namespace AdvancedProject1._0
 
         private void btnAddNewTenant_Click(object sender, EventArgs e)
         {
-                //TO DO: Check for empty textboxes
-                User newUser = new User(++counter, tbUsername.Text, tbPassword.Text,
-                tbFirstName.Text, tbLastName.Text, Convert.ToInt32(tbHouseUnit.Text));
-                try
-                {
-                    newUser.AddToDB();
-                    MessageBox.Show("Successfully added new tenant.");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            //TO DO: Check for empty textboxes
+            User newUser = new User(tbUsername.Text, tbPassword.Text,
+            tbFirstName.Text, tbLastName.Text);
+            if(!cbAdmin.Checked) newUser.SetHouseID(Convert.ToInt32(tbHouseUnit.Text));
+            try
+            {
+                newUser.InsertToDB(cbAdmin.Checked);
+                MessageBox.Show("Successfully added new tenant.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
@@ -39,16 +39,6 @@ namespace AdvancedProject1._0
             AdminMain adminMainScreen = new AdminMain();
             adminMainScreen.Show();
             this.Close();
-        }
-
-        private void BtnShowHide_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cbShowHide_CheckedChanged(object sender, EventArgs e)
@@ -60,6 +50,20 @@ namespace AdvancedProject1._0
             else
             {
                 tbPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void cbAdmin_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbAdmin.Checked)
+            {
+                lblHouseUnit.Visible = false;
+                tbHouseUnit.Visible = false;
+            }
+            else
+            {
+                lblHouseUnit.Visible = true;
+                tbHouseUnit.Visible = true;
             }
         }
     }

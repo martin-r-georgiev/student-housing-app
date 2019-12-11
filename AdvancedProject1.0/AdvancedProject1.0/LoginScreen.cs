@@ -15,6 +15,8 @@ namespace AdvancedProject1._0
 {
     public partial class formLogin : Form
     {
+        public static string userKey;
+
         public formLogin()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace AdvancedProject1._0
             SqlCommand cmd;
             SqlDataReader dataReader;
 
-            cmd = new SqlCommand($"SELECT username, password, firstName, isAdmin FROM Users WHERE username=@Username AND password=@Password", con);
+            cmd = new SqlCommand($"SELECT username, password, firstName, isAdmin, userID FROM Users WHERE username=@Username AND password=@Password", con);
             cmd.Parameters.AddWithValue("@Username", tbName.Text);
             cmd.Parameters.AddWithValue("@Password", tbPass.Text);
             dataReader = cmd.ExecuteReader();
@@ -39,7 +41,8 @@ namespace AdvancedProject1._0
             if(dataReader.Read()) //Checking if the reader returns a value (YES = Matching login credentials)
             {
                 MessageBox.Show($"Successfully logged in. Welcome, {dataReader.GetString(2)}.");
-                if(dataReader.GetBoolean(3)) //Checking if user is an administrator
+                userKey = dataReader.GetString(4);
+                if (dataReader.GetBoolean(3)) //Checking if user is an administrator
                 {
                     //Opening the administrator's main menu
                     AdminMain adminMainScreen = new AdminMain();
