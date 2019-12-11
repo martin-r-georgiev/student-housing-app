@@ -15,9 +15,13 @@ namespace AdvancedProject1._0
         public Groceries()
         {
             InitializeComponent();
+            productString = System.IO.File.ReadAllText(@"Groceries.txt");
+            Product = new List<string>();
+            Product = productString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            RefreshProductList();
         }
-
-        List<String> Product = new List<String>();
+        string productString;
+        List<String> Product;
         List<double> Balance = new List<double>();
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -36,7 +40,8 @@ namespace AdvancedProject1._0
             }
             else
             {
-                Product.Add(tbAddProduct.Text);
+                productString += $"{tbAddProduct.Text}\n";
+                System.IO.File.WriteAllText(@"Groceries.txt", productString);
                 RefreshProductList();
                 tbAddProduct.Text = "";
             }
@@ -64,6 +69,7 @@ namespace AdvancedProject1._0
 
         void RefreshProductList()
         {
+            Product = productString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
             lbGroceries.Items.Clear();
             foreach (String product in Product)
             {
@@ -85,6 +91,18 @@ namespace AdvancedProject1._0
             Product.Clear();
             lbGroceries.Items.Clear();
             tbPaid.Text = "";
+        }
+
+        private void lbGroceries_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbGroceries.SelectedIndex > -1)
+            {
+                string itemToDelete = lbGroceries.SelectedItem.ToString();
+                Product.Remove(itemToDelete);
+                System.IO.File.WriteAllLines(@"Groceries.txt",Product.ToArray());
+                productString = System.IO.File.ReadAllText(@"Groceries.txt");
+                RefreshProductList();
+            }
         }
     }
 }

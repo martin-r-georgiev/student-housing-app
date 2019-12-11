@@ -67,6 +67,7 @@
             this.lbGroceries.Name = "lbGroceries";
             this.lbGroceries.Size = new System.Drawing.Size(150, 251);
             this.lbGroceries.TabIndex = 2;
+            this.lbGroceries.DoubleClick += new System.EventHandler(this.lbGroceries_DoubleClick);
             // 
             // tbAddProduct
             // 
