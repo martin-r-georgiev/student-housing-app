@@ -1,5 +1,3 @@
-C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\HousingDB.mdf
-C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\HousingDB_log.ldf
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe.config
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.pdb
@@ -60,3 +58,4 @@ C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csproj.CoreCompileInputs.cache
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.exe
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.pdb
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.AdminAdd.resources

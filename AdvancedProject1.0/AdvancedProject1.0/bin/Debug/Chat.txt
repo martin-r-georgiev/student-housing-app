@@ -2,9 +2,7 @@ Kak e
 Nz brat
 Asd
 Kur
-Updated upstream
 ASd
-Stashed changes
 sdfsdf
 zdr
 test 12/10
@@ -18,3 +16,4 @@ asd
 teast
 send with Enter works
 
+sdfg
