@@ -14,10 +14,10 @@ namespace AdvancedProject1._0
     {
         User loggedInUser;
 
-        public AdminMain(string userKey)
+        public AdminMain()
         {
             InitializeComponent();
-            loggedInUser = new User(userKey);
+            loggedInUser = new User(formLogin.userKey);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

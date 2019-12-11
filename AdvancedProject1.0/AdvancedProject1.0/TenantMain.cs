@@ -16,11 +16,11 @@ namespace AdvancedProject1._0
         HouseRulesInfo houseRules;
         User loggedInUser;
 
-        public TenantMain(string userKey)
+        public TenantMain()
         {
             InitializeComponent();
             houseRules = new HouseRulesInfo();
-            loggedInUser = new User(userKey);
+            loggedInUser = new User(formLogin.userKey);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

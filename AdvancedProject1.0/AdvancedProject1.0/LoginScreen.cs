@@ -15,6 +15,8 @@ namespace AdvancedProject1._0
 {
     public partial class formLogin : Form
     {
+        public static string userKey;
+
         public formLogin()
         {
             InitializeComponent();
@@ -39,17 +41,18 @@ namespace AdvancedProject1._0
             if(dataReader.Read()) //Checking if the reader returns a value (YES = Matching login credentials)
             {
                 MessageBox.Show($"Successfully logged in. Welcome, {dataReader.GetString(2)}.");
-                if(dataReader.GetBoolean(3)) //Checking if user is an administrator
+                userKey = dataReader.GetString(4);
+                if (dataReader.GetBoolean(3)) //Checking if user is an administrator
                 {
                     //Opening the administrator's main menu
-                    AdminMain adminMainScreen = new AdminMain(dataReader.GetString(4));
+                    AdminMain adminMainScreen = new AdminMain();
                     adminMainScreen.Show();
                     this.Hide();
                 }
                 else
                 {
                     //Opening the tenant's main menu
-                    TenantMain tenantMainScreen = new TenantMain(dataReader.GetString(4));
+                    TenantMain tenantMainScreen = new TenantMain();
                     tenantMainScreen.Show();
                     this.Hide();
                 }

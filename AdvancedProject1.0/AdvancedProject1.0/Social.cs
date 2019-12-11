@@ -26,7 +26,7 @@ namespace AdvancedProject1._0
             }
         }
 
-        public Social(formLogin calledForm)
+        public Social(TenantMain calledForm)
         {
             InitializeComponent();
             mainForm = calledForm as TenantMain;
