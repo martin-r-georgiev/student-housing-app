@@ -16,7 +16,7 @@ namespace AdvancedProject1._0
         private string lastName;
         private string userID;
         private int houseID;
-        bool userAdmin;
+        private bool userAdmin;
         
         public User(string user, string pass, string fname, string lname, bool isAdmin)
         {

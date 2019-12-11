@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabUser = new System.Windows.Forms.TabPage();
+            this.cmbUserList = new System.Windows.Forms.ComboBox();
+            this.btnRemoveUser = new System.Windows.Forms.Button();
             this.cbAdmin = new System.Windows.Forms.CheckBox();
             this.cbShowHide = new System.Windows.Forms.CheckBox();
             this.btnAddNewTenant = new System.Windows.Forms.Button();
@@ -45,10 +47,16 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.tabHouseUnit = new System.Windows.Forms.TabPage();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnRemoveUser = new System.Windows.Forms.Button();
-            this.cmbUserList = new System.Windows.Forms.ComboBox();
+            this.lblUnitID = new System.Windows.Forms.Label();
+            this.tbUnitID = new System.Windows.Forms.TextBox();
+            this.btnAddUnit = new System.Windows.Forms.Button();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbCapacity = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabUser.SuspendLayout();
+            this.tabHouseUnit.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -87,6 +95,26 @@
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Controls";
             this.tabUser.UseVisualStyleBackColor = true;
+            // 
+            // cmbUserList
+            // 
+            this.cmbUserList.FormattingEnabled = true;
+            this.cmbUserList.Location = new System.Drawing.Point(506, 17);
+            this.cmbUserList.Name = "cmbUserList";
+            this.cmbUserList.Size = new System.Drawing.Size(193, 24);
+            this.cmbUserList.TabIndex = 14;
+            this.cmbUserList.DropDown += new System.EventHandler(this.cmbUserList_DropDown);
+            // 
+            // btnRemoveUser
+            // 
+            this.btnRemoveUser.Location = new System.Drawing.Point(506, 57);
+            this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemoveUser.Name = "btnRemoveUser";
+            this.btnRemoveUser.Size = new System.Drawing.Size(193, 39);
+            this.btnRemoveUser.TabIndex = 13;
+            this.btnRemoveUser.Text = "Remove";
+            this.btnRemoveUser.UseVisualStyleBackColor = true;
+            this.btnRemoveUser.Click += new System.EventHandler(this.btnRemoveUser_Click);
             // 
             // cbAdmin
             // 
@@ -210,6 +238,13 @@
             // 
             // tabHouseUnit
             // 
+            this.tabHouseUnit.Controls.Add(this.tbCapacity);
+            this.tabHouseUnit.Controls.Add(this.label2);
+            this.tabHouseUnit.Controls.Add(this.tbAddress);
+            this.tabHouseUnit.Controls.Add(this.label1);
+            this.tabHouseUnit.Controls.Add(this.btnAddUnit);
+            this.tabHouseUnit.Controls.Add(this.tbUnitID);
+            this.tabHouseUnit.Controls.Add(this.lblUnitID);
             this.tabHouseUnit.Location = new System.Drawing.Point(4, 25);
             this.tabHouseUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHouseUnit.Name = "tabHouseUnit";
@@ -230,25 +265,63 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
-            // btnRemoveUser
+            // lblUnitID
             // 
-            this.btnRemoveUser.Location = new System.Drawing.Point(506, 57);
-            this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRemoveUser.Name = "btnRemoveUser";
-            this.btnRemoveUser.Size = new System.Drawing.Size(193, 39);
-            this.btnRemoveUser.TabIndex = 13;
-            this.btnRemoveUser.Text = "Remove";
-            this.btnRemoveUser.UseVisualStyleBackColor = true;
-            this.btnRemoveUser.Click += new System.EventHandler(this.btnRemoveUser_Click);
+            this.lblUnitID.AutoSize = true;
+            this.lblUnitID.Location = new System.Drawing.Point(60, 91);
+            this.lblUnitID.Name = "lblUnitID";
+            this.lblUnitID.Size = new System.Drawing.Size(54, 17);
+            this.lblUnitID.TabIndex = 0;
+            this.lblUnitID.Text = "Unit ID:";
             // 
-            // cmbUserList
+            // tbUnitID
             // 
-            this.cmbUserList.FormattingEnabled = true;
-            this.cmbUserList.Location = new System.Drawing.Point(506, 17);
-            this.cmbUserList.Name = "cmbUserList";
-            this.cmbUserList.Size = new System.Drawing.Size(193, 24);
-            this.cmbUserList.TabIndex = 14;
-            this.cmbUserList.DropDown += new System.EventHandler(this.cmbUserList_DropDown);
+            this.tbUnitID.Location = new System.Drawing.Point(130, 88);
+            this.tbUnitID.Name = "tbUnitID";
+            this.tbUnitID.Size = new System.Drawing.Size(100, 22);
+            this.tbUnitID.TabIndex = 1;
+            // 
+            // btnAddUnit
+            // 
+            this.btnAddUnit.Location = new System.Drawing.Point(130, 244);
+            this.btnAddUnit.Name = "btnAddUnit";
+            this.btnAddUnit.Size = new System.Drawing.Size(104, 40);
+            this.btnAddUnit.TabIndex = 2;
+            this.btnAddUnit.Text = "Add";
+            this.btnAddUnit.UseVisualStyleBackColor = true;
+            this.btnAddUnit.Click += new System.EventHandler(this.btnAddUnit_Click);
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.Location = new System.Drawing.Point(130, 134);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(100, 22);
+            this.tbAddress.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(60, 136);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Address:";
+            // 
+            // tbCapacity
+            // 
+            this.tbCapacity.Location = new System.Drawing.Point(130, 178);
+            this.tbCapacity.Name = "tbCapacity";
+            this.tbCapacity.Size = new System.Drawing.Size(100, 22);
+            this.tbCapacity.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(60, 180);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Capacity:";
             // 
             // AdminAdd
             // 
@@ -263,6 +336,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabUser.ResumeLayout(false);
             this.tabUser.PerformLayout();
+            this.tabHouseUnit.ResumeLayout(false);
+            this.tabHouseUnit.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -288,5 +363,12 @@
         private System.Windows.Forms.CheckBox cbAdmin;
         private System.Windows.Forms.Button btnRemoveUser;
         private System.Windows.Forms.ComboBox cmbUserList;
+        private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAddUnit;
+        private System.Windows.Forms.TextBox tbUnitID;
+        private System.Windows.Forms.Label lblUnitID;
+        private System.Windows.Forms.TextBox tbCapacity;
+        private System.Windows.Forms.Label label2;
     }
 }

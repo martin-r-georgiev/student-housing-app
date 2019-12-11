@@ -25,7 +25,7 @@ namespace AdvancedProject1._0
         {
             //TO DO: Check for empty textboxes
             User newUser = new User(tbUsername.Text, tbPassword.Text,
-            tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
+                           tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
             if(!cbAdmin.Checked) newUser.SetHouseID(Convert.ToInt32(tbHouseUnit.Text));
             try
             {
@@ -96,6 +96,22 @@ namespace AdvancedProject1._0
                 userList.Add(newUser);
             }
             con.Close();
+        }
+
+        private void btnAddUnit_Click(object sender, EventArgs e)
+        {
+            //TO DO: Check for empty textboxes
+            HouseUnit newUnit = new HouseUnit(Convert.ToInt32(tbUnitID.Text),
+                                tbAddress.Text, Convert.ToInt32(tbCapacity.Text));
+            try
+            {
+                //newUnit ???
+                MessageBox.Show("Successfully added new house unit.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

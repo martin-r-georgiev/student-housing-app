@@ -104,6 +104,7 @@
       <DependentUpon>HouseRules.cs</DependentUpon>
     </Compile>
     <Compile Include="HouseRulesInfo.cs" />
+    <Compile Include="HouseUnit.cs" />
     <Compile Include="HousingDataset.cs">
       <DependentUpon>HousingDataset.xsd</DependentUpon>
     </Compile>
