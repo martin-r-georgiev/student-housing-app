@@ -76,6 +76,11 @@ namespace AdvancedProject1._0
             return this.unitID;
         }
 
+        public List<User> Tenants()
+        {
+            return this.tenantList;
+        }
+
         public void AddTenant(User newTenant)
         {
             bool isUnique = true, atCapacity = false;

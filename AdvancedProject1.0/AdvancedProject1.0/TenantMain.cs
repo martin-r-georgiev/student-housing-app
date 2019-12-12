@@ -22,6 +22,15 @@ namespace AdvancedProject1._0
             houseRules = new HouseRulesInfo();
             loggedInUser = new User(formLogin.userKey);
             lblWelcome.Text = $"Welcome, {loggedInUser.GetFirstName()}!";
+            /* (Example) How to use the HouseUnit class to iterate through tenants
+            HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
+            string test = "";
+            foreach(User tenant in newUnit.Tenants())
+            {
+                test += $"{tenant.GetFirstName()},";
+            }
+            MessageBox.Show(test);
+            */
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
