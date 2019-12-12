@@ -30,7 +30,7 @@ namespace AdvancedProject1._0
         {
             AdminMain adminMainScreen = new AdminMain();
             adminMainScreen.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Reports_Load(object sender, EventArgs e)

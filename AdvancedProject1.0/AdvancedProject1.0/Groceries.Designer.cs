@@ -38,23 +38,25 @@
             this.btnConfirm = new System.Windows.Forms.Button();
             this.lbHistory = new System.Windows.Forms.ListBox();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblCurrentToBuy
             // 
             this.lblCurrentToBuy.AutoSize = true;
-            this.lblCurrentToBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.lblCurrentToBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblCurrentToBuy.Location = new System.Drawing.Point(12, 90);
             this.lblCurrentToBuy.Name = "lblCurrentToBuy";
-            this.lblCurrentToBuy.Size = new System.Drawing.Size(59, 25);
+            this.lblCurrentToBuy.Size = new System.Drawing.Size(69, 29);
             this.lblCurrentToBuy.TabIndex = 0;
             this.lblCurrentToBuy.Text = "John";
             // 
             // lblNextToBuy
             // 
             this.lblNextToBuy.AutoSize = true;
-            this.lblNextToBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblNextToBuy.Location = new System.Drawing.Point(13, 130);
+            this.lblNextToBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblNextToBuy.Location = new System.Drawing.Point(30, 124);
             this.lblNextToBuy.Name = "lblNextToBuy";
             this.lblNextToBuy.Size = new System.Drawing.Size(53, 18);
             this.lblNextToBuy.TabIndex = 1;
@@ -63,7 +65,7 @@
             // lbGroceries
             // 
             this.lbGroceries.FormattingEnabled = true;
-            this.lbGroceries.Location = new System.Drawing.Point(103, 49);
+            this.lbGroceries.Location = new System.Drawing.Point(159, 57);
             this.lbGroceries.Name = "lbGroceries";
             this.lbGroceries.Size = new System.Drawing.Size(150, 251);
             this.lbGroceries.TabIndex = 2;
@@ -71,7 +73,7 @@
             // 
             // tbAddProduct
             // 
-            this.tbAddProduct.Location = new System.Drawing.Point(103, 23);
+            this.tbAddProduct.Location = new System.Drawing.Point(159, 31);
             this.tbAddProduct.Multiline = true;
             this.tbAddProduct.Name = "tbAddProduct";
             this.tbAddProduct.Size = new System.Drawing.Size(100, 20);
@@ -79,17 +81,17 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(209, 21);
+            this.btnAdd.Location = new System.Drawing.Point(265, 29);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(44, 23);
             this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "+";
+            this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // tbPaid
             // 
-            this.tbPaid.Location = new System.Drawing.Point(153, 306);
+            this.tbPaid.Location = new System.Drawing.Point(209, 314);
             this.tbPaid.Name = "tbPaid";
             this.tbPaid.Size = new System.Drawing.Size(100, 20);
             this.tbPaid.TabIndex = 6;
@@ -97,7 +99,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(108, 309);
+            this.label1.Location = new System.Drawing.Point(164, 317);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 7;
@@ -105,7 +107,7 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(103, 332);
+            this.btnConfirm.Location = new System.Drawing.Point(159, 340);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(150, 37);
             this.btnConfirm.TabIndex = 8;
@@ -116,27 +118,46 @@
             // lbHistory
             // 
             this.lbHistory.FormattingEnabled = true;
-            this.lbHistory.Location = new System.Drawing.Point(288, 49);
+            this.lbHistory.Location = new System.Drawing.Point(344, 57);
             this.lbHistory.Name = "lbHistory";
             this.lbHistory.Size = new System.Drawing.Size(153, 251);
             this.lbHistory.TabIndex = 9;
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(12, 21);
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(49, 43);
+            this.btnBack.Size = new System.Drawing.Size(49, 31);
             this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(156, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Add product:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(341, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 13;
             // 
             // Groceries
             // 
             this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 404);
+            this.ClientSize = new System.Drawing.Size(554, 404);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lbHistory);
             this.Controls.Add(this.btnConfirm);
@@ -148,7 +169,7 @@
             this.Controls.Add(this.lblNextToBuy);
             this.Controls.Add(this.lblCurrentToBuy);
             this.Name = "Groceries";
-            this.Text = "Groceries";
+            this.Load += new System.EventHandler(this.Groceries_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +187,7 @@
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.ListBox lbHistory;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

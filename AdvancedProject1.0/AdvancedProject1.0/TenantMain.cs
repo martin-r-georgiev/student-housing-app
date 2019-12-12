@@ -28,35 +28,35 @@ namespace AdvancedProject1._0
         {
             formLogin loginScreen = new formLogin();
             loginScreen.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnCleaning_Click(object sender, EventArgs e)
         {
             CleaningSchedule cleaningScheduleScreen = new CleaningSchedule();
             cleaningScheduleScreen.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnGroceries_Click(object sender, EventArgs e)
         {
             Groceries groceriesScreen = new Groceries();
             groceriesScreen.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnEvents_Click(object sender, EventArgs e)
         {
             Events eventScreen = new Events();
             eventScreen.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnSocial_Click(object sender, EventArgs e)
         {
             Social socialScreen = new Social(this);
             socialScreen.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnHouseRules_Click(object sender, EventArgs e)

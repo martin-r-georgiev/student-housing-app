@@ -25,6 +25,7 @@ namespace AdvancedProject1._0
         private void btnAddNewTenant_Click(object sender, EventArgs e)
         {
             //TO DO: Check for empty textboxes
+            //TO DO: Clear textboxes
             User newUser = new User(tbUsername.Text, tbPassword.Text,
                            tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
             if(!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.SetHouseID(unitList[cmbHouseUnits.SelectedIndex].GetUnitID());
@@ -108,6 +109,7 @@ namespace AdvancedProject1._0
         private void btnAddUnit_Click(object sender, EventArgs e)
         {
             //TO DO: Check for empty textboxes
+            //TO DO: Clear textboxes
             SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
             SqlCommand cmd;
             SqlDataReader dataReader;

@@ -12,17 +12,20 @@ namespace AdvancedProject1._0
 {
     public partial class Groceries : Form
     {
+        string productString;
+        User loggedInUser;
+        List<String> Product;
+        List<double> Balance = new List<double>();
+
         public Groceries()
         {
             InitializeComponent();
+            loggedInUser = new User(formLogin.userKey);
             productString = System.IO.File.ReadAllText(@"Groceries.txt");
             Product = new List<string>();
             Product = productString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
             RefreshProductList();
         }
-        string productString;
-        List<String> Product;
-        List<double> Balance = new List<double>();
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -43,7 +46,7 @@ namespace AdvancedProject1._0
                 productString += $"{tbAddProduct.Text}\n";
                 System.IO.File.WriteAllText(@"Groceries.txt", productString);
                 RefreshProductList();
-                tbAddProduct.Text = "";
+                tbAddProduct.Clear();
             }
         }
 
@@ -90,7 +93,7 @@ namespace AdvancedProject1._0
         {
             Product.Clear();
             lbGroceries.Items.Clear();
-            tbPaid.Text = "";
+            tbPaid.Clear();
         }
 
         private void lbGroceries_DoubleClick(object sender, EventArgs e)
@@ -103,6 +106,17 @@ namespace AdvancedProject1._0
                 productString = System.IO.File.ReadAllText(@"Groceries.txt");
                 RefreshProductList();
             }
+        }
+
+        private void Groceries_Load(object sender, EventArgs e)
+        {
+            //HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
+            //string test = "";
+            //foreach (User tenant in newUnit.)
+            //{
+            //    test += $"{tenant.GetFirstName()},";
+            //}
+            //MessageBox.Show(test);
         }
     }
 }
