@@ -118,13 +118,13 @@ namespace AdvancedProject1._0
             SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
             con.Open();
 
-            SqlCommand cmd = new SqlCommand($"SELECT firstName, lastName, userID, isAdmin FROM Users", con);
+            SqlCommand cmd = new SqlCommand($"SELECT firstName, lastName, userID, isAdmin, houseID FROM Users", con);
             SqlDataReader dataReader = cmd.ExecuteReader();
 
             while(dataReader.Read())
             {
                 if(dataReader.GetBoolean(3)) cmbUserList.Items.Add($"[Admin] {dataReader.GetString(0)} {dataReader.GetString(1)}");
-                else cmbUserList.Items.Add($"{dataReader.GetString(0)} {dataReader.GetString(1)}");
+                else cmbUserList.Items.Add($"{dataReader.GetString(0)} {dataReader.GetString(1)} | Unit ID: {dataReader.GetValue(4)}");
                 User newUser = new User(dataReader.GetString(2));
                 userList.Add(newUser);
             }

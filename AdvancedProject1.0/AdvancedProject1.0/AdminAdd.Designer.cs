@@ -108,19 +108,19 @@
             // cmbUserList
             // 
             this.cmbUserList.FormattingEnabled = true;
-            this.cmbUserList.Location = new System.Drawing.Point(529, 21);
+            this.cmbUserList.Location = new System.Drawing.Point(465, 21);
             this.cmbUserList.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUserList.Name = "cmbUserList";
-            this.cmbUserList.Size = new System.Drawing.Size(190, 24);
+            this.cmbUserList.Size = new System.Drawing.Size(254, 24);
             this.cmbUserList.TabIndex = 14;
             this.cmbUserList.DropDown += new System.EventHandler(this.cmbUserList_DropDown);
             // 
             // btnRemoveUser
             // 
-            this.btnRemoveUser.Location = new System.Drawing.Point(529, 70);
+            this.btnRemoveUser.Location = new System.Drawing.Point(489, 72);
             this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnRemoveUser.Name = "btnRemoveUser";
-            this.btnRemoveUser.Size = new System.Drawing.Size(191, 48);
+            this.btnRemoveUser.Size = new System.Drawing.Size(207, 48);
             this.btnRemoveUser.TabIndex = 13;
             this.btnRemoveUser.Text = "Remove";
             this.btnRemoveUser.UseVisualStyleBackColor = true;
