@@ -245,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 435);
+            this.ClientSize = new System.Drawing.Size(711, 405);
             this.Controls.Add(this.rbTenant);
             this.Controls.Add(this.rbAdmin);
             this.Controls.Add(this.btnAddEvent);

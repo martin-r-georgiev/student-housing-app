@@ -44,7 +44,7 @@
             // 
             this.lblCurrentToBuy.AutoSize = true;
             this.lblCurrentToBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.lblCurrentToBuy.Location = new System.Drawing.Point(7, 90);
+            this.lblCurrentToBuy.Location = new System.Drawing.Point(12, 90);
             this.lblCurrentToBuy.Name = "lblCurrentToBuy";
             this.lblCurrentToBuy.Size = new System.Drawing.Size(59, 25);
             this.lblCurrentToBuy.TabIndex = 0;
@@ -118,7 +118,7 @@
             this.lbHistory.FormattingEnabled = true;
             this.lbHistory.Location = new System.Drawing.Point(288, 49);
             this.lbHistory.Name = "lbHistory";
-            this.lbHistory.Size = new System.Drawing.Size(150, 251);
+            this.lbHistory.Size = new System.Drawing.Size(153, 251);
             this.lbHistory.TabIndex = 9;
             // 
             // btnBack
@@ -136,7 +136,7 @@
             this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 404);
+            this.ClientSize = new System.Drawing.Size(556, 404);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lbHistory);
             this.Controls.Add(this.btnConfirm);
