@@ -21,6 +21,7 @@ namespace AdvancedProject1._0
             InitializeComponent();
             houseRules = new HouseRulesInfo();
             loggedInUser = new User(formLogin.userKey);
+            lblWelcome.Text = $"Welcome, {loggedInUser.GetFirstName()}!";
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
