@@ -35,7 +35,6 @@
             this.cbAdmin = new System.Windows.Forms.CheckBox();
             this.cbShowHide = new System.Windows.Forms.CheckBox();
             this.btnAddNewTenant = new System.Windows.Forms.Button();
-            this.tbHouseUnit = new System.Windows.Forms.TextBox();
             this.lblHouseUnit = new System.Windows.Forms.Label();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
@@ -46,14 +45,15 @@
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.tabHouseUnit = new System.Windows.Forms.TabPage();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.lblUnitID = new System.Windows.Forms.Label();
-            this.tbUnitID = new System.Windows.Forms.TextBox();
-            this.btnAddUnit = new System.Windows.Forms.Button();
-            this.tbAddress = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tbCapacity = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAddUnit = new System.Windows.Forms.Button();
+            this.tbUnitID = new System.Windows.Forms.TextBox();
+            this.lblUnitID = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.cmbHouseUnits = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.tabHouseUnit.SuspendLayout();
@@ -63,21 +63,21 @@
             // 
             this.tabControl1.Controls.Add(this.tabUser);
             this.tabControl1.Controls.Add(this.tabHouseUnit);
-            this.tabControl1.Location = new System.Drawing.Point(11, 52);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Location = new System.Drawing.Point(15, 64);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(561, 290);
+            this.tabControl1.Size = new System.Drawing.Size(748, 357);
             this.tabControl1.TabIndex = 0;
             // 
             // tabUser
             // 
+            this.tabUser.Controls.Add(this.cmbHouseUnits);
             this.tabUser.Controls.Add(this.cmbUserList);
             this.tabUser.Controls.Add(this.btnRemoveUser);
             this.tabUser.Controls.Add(this.cbAdmin);
             this.tabUser.Controls.Add(this.cbShowHide);
             this.tabUser.Controls.Add(this.btnAddNewTenant);
-            this.tabUser.Controls.Add(this.tbHouseUnit);
             this.tabUser.Controls.Add(this.lblHouseUnit);
             this.tabUser.Controls.Add(this.tbLastName);
             this.tabUser.Controls.Add(this.lblLastName);
@@ -88,9 +88,9 @@
             this.tabUser.Controls.Add(this.tbUsername);
             this.tabUser.Controls.Add(this.lblUsername);
             this.tabUser.Location = new System.Drawing.Point(4, 25);
-            this.tabUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabUser.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabUser.Name = "tabUser";
-            this.tabUser.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabUser.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabUser.Size = new System.Drawing.Size(740, 328);
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Controls";
@@ -99,18 +99,19 @@
             // cmbUserList
             // 
             this.cmbUserList.FormattingEnabled = true;
-            this.cmbUserList.Location = new System.Drawing.Point(506, 17);
+            this.cmbUserList.Location = new System.Drawing.Point(529, 21);
+            this.cmbUserList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbUserList.Name = "cmbUserList";
-            this.cmbUserList.Size = new System.Drawing.Size(193, 24);
+            this.cmbUserList.Size = new System.Drawing.Size(190, 24);
             this.cmbUserList.TabIndex = 14;
             this.cmbUserList.DropDown += new System.EventHandler(this.cmbUserList_DropDown);
             // 
             // btnRemoveUser
             // 
-            this.btnRemoveUser.Location = new System.Drawing.Point(506, 57);
-            this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemoveUser.Location = new System.Drawing.Point(529, 70);
+            this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnRemoveUser.Name = "btnRemoveUser";
-            this.btnRemoveUser.Size = new System.Drawing.Size(193, 39);
+            this.btnRemoveUser.Size = new System.Drawing.Size(191, 48);
             this.btnRemoveUser.TabIndex = 13;
             this.btnRemoveUser.Text = "Remove";
             this.btnRemoveUser.UseVisualStyleBackColor = true;
@@ -119,7 +120,8 @@
             // cbAdmin
             // 
             this.cbAdmin.AutoSize = true;
-            this.cbAdmin.Location = new System.Drawing.Point(156, 17);
+            this.cbAdmin.Location = new System.Drawing.Point(156, 16);
+            this.cbAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbAdmin.Name = "cbAdmin";
             this.cbAdmin.Size = new System.Drawing.Size(113, 21);
             this.cbAdmin.TabIndex = 12;
@@ -130,10 +132,10 @@
             // cbShowHide
             // 
             this.cbShowHide.AutoSize = true;
-            this.cbShowHide.Location = new System.Drawing.Point(327, 75);
-            this.cbShowHide.Margin = new System.Windows.Forms.Padding(4);
+            this.cbShowHide.Location = new System.Drawing.Point(324, 72);
+            this.cbShowHide.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cbShowHide.Name = "cbShowHide";
-            this.cbShowHide.Size = new System.Drawing.Size(53, 17);
+            this.cbShowHide.Size = new System.Drawing.Size(64, 21);
             this.cbShowHide.TabIndex = 11;
             this.cbShowHide.Text = "Show";
             this.cbShowHide.UseVisualStyleBackColor = true;
@@ -141,8 +143,8 @@
             // 
             // btnAddNewTenant
             // 
-            this.btnAddNewTenant.Location = new System.Drawing.Point(156, 258);
-            this.btnAddNewTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddNewTenant.Location = new System.Drawing.Point(156, 251);
+            this.btnAddNewTenant.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnAddNewTenant.Name = "btnAddNewTenant";
             this.btnAddNewTenant.Size = new System.Drawing.Size(151, 39);
             this.btnAddNewTenant.TabIndex = 10;
@@ -150,94 +152,81 @@
             this.btnAddNewTenant.UseVisualStyleBackColor = true;
             this.btnAddNewTenant.Click += new System.EventHandler(this.btnAddNewTenant_Click);
             // 
-            // tbHouseUnit
-            // 
-            this.tbHouseUnit.Location = new System.Drawing.Point(117, 161);
-            this.tbHouseUnit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbHouseUnit.Name = "tbHouseUnit";
-            this.tbHouseUnit.Size = new System.Drawing.Size(114, 20);
-            this.tbHouseUnit.TabIndex = 9;
-            // 
             // lblHouseUnit
             // 
             this.lblHouseUnit.AutoSize = true;
-            this.lblHouseUnit.Location = new System.Drawing.Point(44, 161);
-            this.lblHouseUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHouseUnit.Location = new System.Drawing.Point(59, 198);
             this.lblHouseUnit.Name = "lblHouseUnit";
-            this.lblHouseUnit.Size = new System.Drawing.Size(63, 13);
+            this.lblHouseUnit.Size = new System.Drawing.Size(82, 17);
             this.lblHouseUnit.TabIndex = 8;
             this.lblHouseUnit.Text = "House Unit:";
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(117, 121);
-            this.tbLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbLastName.Location = new System.Drawing.Point(156, 149);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(114, 20);
+            this.tbLastName.Size = new System.Drawing.Size(151, 22);
             this.tbLastName.TabIndex = 7;
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(44, 121);
-            this.lblLastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLastName.Location = new System.Drawing.Point(59, 149);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(61, 13);
+            this.lblLastName.Size = new System.Drawing.Size(80, 17);
             this.lblLastName.TabIndex = 6;
             this.lblLastName.Text = "Last Name:";
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(117, 99);
-            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFirstName.Location = new System.Drawing.Point(156, 122);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(114, 20);
+            this.tbFirstName.Size = new System.Drawing.Size(151, 22);
             this.tbFirstName.TabIndex = 5;
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(44, 99);
-            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFirstName.Location = new System.Drawing.Point(59, 122);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(60, 13);
+            this.lblFirstName.Size = new System.Drawing.Size(80, 17);
             this.lblFirstName.TabIndex = 4;
             this.lblFirstName.Text = "First Name:";
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(117, 58);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPassword.Location = new System.Drawing.Point(156, 71);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(114, 20);
+            this.tbPassword.Size = new System.Drawing.Size(151, 22);
             this.tbPassword.TabIndex = 3;
             this.tbPassword.UseSystemPasswordChar = true;
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(44, 58);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPassword.Location = new System.Drawing.Point(59, 71);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(56, 13);
+            this.lblPassword.Size = new System.Drawing.Size(73, 17);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password:";
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(117, 35);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUsername.Location = new System.Drawing.Point(156, 43);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(114, 20);
+            this.tbUsername.Size = new System.Drawing.Size(151, 22);
             this.tbUsername.TabIndex = 1;
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(44, 35);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsername.Location = new System.Drawing.Point(59, 43);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(58, 13);
+            this.lblUsername.Size = new System.Drawing.Size(77, 17);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username:";
             // 
@@ -251,91 +240,107 @@
             this.tabHouseUnit.Controls.Add(this.tbUnitID);
             this.tabHouseUnit.Controls.Add(this.lblUnitID);
             this.tabHouseUnit.Location = new System.Drawing.Point(4, 25);
-            this.tabHouseUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabHouseUnit.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabHouseUnit.Name = "tabHouseUnit";
-            this.tabHouseUnit.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabHouseUnit.Size = new System.Drawing.Size(553, 264);
+            this.tabHouseUnit.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabHouseUnit.Size = new System.Drawing.Size(740, 328);
             this.tabHouseUnit.TabIndex = 1;
             this.tabHouseUnit.Text = "Add House Unit";
             this.tabHouseUnit.UseVisualStyleBackColor = true;
             // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(15, 15);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 2;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
-            // 
-            // lblUnitID
-            // 
-            this.lblUnitID.AutoSize = true;
-            this.lblUnitID.Location = new System.Drawing.Point(60, 91);
-            this.lblUnitID.Name = "lblUnitID";
-            this.lblUnitID.Size = new System.Drawing.Size(54, 17);
-            this.lblUnitID.TabIndex = 0;
-            this.lblUnitID.Text = "Unit ID:";
-            // 
-            // tbUnitID
-            // 
-            this.tbUnitID.Location = new System.Drawing.Point(130, 88);
-            this.tbUnitID.Name = "tbUnitID";
-            this.tbUnitID.Size = new System.Drawing.Size(100, 22);
-            this.tbUnitID.TabIndex = 1;
-            // 
-            // btnAddUnit
-            // 
-            this.btnAddUnit.Location = new System.Drawing.Point(130, 244);
-            this.btnAddUnit.Name = "btnAddUnit";
-            this.btnAddUnit.Size = new System.Drawing.Size(104, 40);
-            this.btnAddUnit.TabIndex = 2;
-            this.btnAddUnit.Text = "Add";
-            this.btnAddUnit.UseVisualStyleBackColor = true;
-            this.btnAddUnit.Click += new System.EventHandler(this.btnAddUnit_Click);
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.Location = new System.Drawing.Point(130, 134);
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(100, 22);
-            this.tbAddress.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 136);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Address:";
-            // 
             // tbCapacity
             // 
-            this.tbCapacity.Location = new System.Drawing.Point(130, 178);
+            this.tbCapacity.Location = new System.Drawing.Point(156, 168);
+            this.tbCapacity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbCapacity.Name = "tbCapacity";
-            this.tbCapacity.Size = new System.Drawing.Size(100, 22);
+            this.tbCapacity.Size = new System.Drawing.Size(132, 22);
             this.tbCapacity.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 180);
+            this.label2.Location = new System.Drawing.Point(63, 171);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Capacity:";
             // 
+            // tbAddress
+            // 
+            this.tbAddress.Location = new System.Drawing.Point(156, 114);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(132, 22);
+            this.tbAddress.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(63, 116);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Address:";
+            // 
+            // btnAddUnit
+            // 
+            this.btnAddUnit.Location = new System.Drawing.Point(156, 249);
+            this.btnAddUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddUnit.Name = "btnAddUnit";
+            this.btnAddUnit.Size = new System.Drawing.Size(139, 49);
+            this.btnAddUnit.TabIndex = 2;
+            this.btnAddUnit.Text = "Add";
+            this.btnAddUnit.UseVisualStyleBackColor = true;
+            this.btnAddUnit.Click += new System.EventHandler(this.btnAddUnit_Click);
+            // 
+            // tbUnitID
+            // 
+            this.tbUnitID.Location = new System.Drawing.Point(156, 57);
+            this.tbUnitID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUnitID.Name = "tbUnitID";
+            this.tbUnitID.Size = new System.Drawing.Size(132, 22);
+            this.tbUnitID.TabIndex = 1;
+            // 
+            // lblUnitID
+            // 
+            this.lblUnitID.AutoSize = true;
+            this.lblUnitID.Location = new System.Drawing.Point(63, 61);
+            this.lblUnitID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUnitID.Name = "lblUnitID";
+            this.lblUnitID.Size = new System.Drawing.Size(54, 17);
+            this.lblUnitID.TabIndex = 0;
+            this.lblUnitID.Text = "Unit ID:";
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(20, 18);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(100, 28);
+            this.btnBack.TabIndex = 2;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
+            // 
+            // cmbHouseUnits
+            // 
+            this.cmbHouseUnits.FormattingEnabled = true;
+            this.cmbHouseUnits.Location = new System.Drawing.Point(156, 195);
+            this.cmbHouseUnits.Name = "cmbHouseUnits";
+            this.cmbHouseUnits.Size = new System.Drawing.Size(151, 24);
+            this.cmbHouseUnits.TabIndex = 15;
+            this.cmbHouseUnits.DropDown += new System.EventHandler(this.cmbHouseUnits_DropDown);
+            // 
             // AdminAdd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 362);
+            this.ClientSize = new System.Drawing.Size(787, 446);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminAdd";
             this.Text = "AdminAdd";
             this.tabControl1.ResumeLayout(false);
@@ -352,7 +357,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabUser;
         private System.Windows.Forms.TabPage tabHouseUnit;
-        private System.Windows.Forms.TextBox tbHouseUnit;
         private System.Windows.Forms.Label lblHouseUnit;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label lblLastName;
@@ -375,5 +379,6 @@
         private System.Windows.Forms.Label lblUnitID;
         private System.Windows.Forms.TextBox tbCapacity;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbHouseUnits;
     }
 }

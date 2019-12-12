@@ -132,6 +132,11 @@ namespace AdvancedProject1._0
             con.Close();
         }
 
+        public int GetHouseID()
+        {
+            return this.houseID;
+        }
+
         private void SetUserID(string newUserID)
         {
             SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
