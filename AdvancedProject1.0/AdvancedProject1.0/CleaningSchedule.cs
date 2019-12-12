@@ -21,7 +21,7 @@ namespace AdvancedProject1._0
         {
             TenantMain tenantMainScreen = new TenantMain();
             tenantMainScreen.Show();
-            this.Hide();
+            this.Close(); //h
         }
     }
 }

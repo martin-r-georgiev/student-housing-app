@@ -29,12 +29,12 @@ namespace AdvancedProject1._0
             {
                 TenantMain tenantMainScreen = new TenantMain();
                 tenantMainScreen.Show();
-                this.Hide();
+                this.Close();
             } else
             {
                 AdminMain adminMainScreen = new AdminMain();
                 adminMainScreen.Show();
-                this.Hide();
+                this.Close(); //h
             }
         }
     }

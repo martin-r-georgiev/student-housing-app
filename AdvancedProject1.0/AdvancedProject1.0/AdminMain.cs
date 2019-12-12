@@ -24,14 +24,14 @@ namespace AdvancedProject1._0
         {
             formLogin loginScreen = new formLogin();
             loginScreen.Show();
-            this.Hide();
+            this.Close();  //h
         }
 
         private void btnEvents_Click(object sender, EventArgs e)
         {
             Events eventScreen = new Events();
             eventScreen.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnHouseRules_Click(object sender, EventArgs e)
@@ -44,14 +44,14 @@ namespace AdvancedProject1._0
         {
             Reports reportsScreen = new Reports();
             reportsScreen.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             AdminAdd addScreen = new AdminAdd();
             addScreen.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

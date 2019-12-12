@@ -40,17 +40,21 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnAllPaid = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCurrentToBuy
             // 
             this.lblCurrentToBuy.AutoSize = true;
             this.lblCurrentToBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCurrentToBuy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblCurrentToBuy.Location = new System.Drawing.Point(12, 90);
             this.lblCurrentToBuy.Name = "lblCurrentToBuy";
-            this.lblCurrentToBuy.Size = new System.Drawing.Size(69, 29);
+            this.lblCurrentToBuy.Size = new System.Drawing.Size(54, 29);
             this.lblCurrentToBuy.TabIndex = 0;
-            this.lblCurrentToBuy.Text = "John";
+            this.lblCurrentToBuy.Text = "text";
             // 
             // lblNextToBuy
             // 
@@ -58,16 +62,20 @@
             this.lblNextToBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblNextToBuy.Location = new System.Drawing.Point(30, 124);
             this.lblNextToBuy.Name = "lblNextToBuy";
-            this.lblNextToBuy.Size = new System.Drawing.Size(53, 18);
+            this.lblNextToBuy.Size = new System.Drawing.Size(31, 18);
             this.lblNextToBuy.TabIndex = 1;
-            this.lblNextToBuy.Text = "Steven";
+            this.lblNextToBuy.Text = "text";
             // 
             // lbGroceries
             // 
+            this.lbGroceries.BackColor = System.Drawing.SystemColors.Window;
+            this.lbGroceries.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbGroceries.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbGroceries.FormattingEnabled = true;
-            this.lbGroceries.Location = new System.Drawing.Point(159, 57);
+            this.lbGroceries.ItemHeight = 18;
+            this.lbGroceries.Location = new System.Drawing.Point(159, 76);
             this.lbGroceries.Name = "lbGroceries";
-            this.lbGroceries.Size = new System.Drawing.Size(150, 251);
+            this.lbGroceries.Size = new System.Drawing.Size(160, 234);
             this.lbGroceries.TabIndex = 2;
             this.lbGroceries.DoubleClick += new System.EventHandler(this.lbGroceries_DoubleClick);
             // 
@@ -117,10 +125,12 @@
             // 
             // lbHistory
             // 
+            this.lbHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHistory.FormattingEnabled = true;
-            this.lbHistory.Location = new System.Drawing.Point(344, 57);
+            this.lbHistory.ItemHeight = 20;
+            this.lbHistory.Location = new System.Drawing.Point(371, 55);
             this.lbHistory.Name = "lbHistory";
-            this.lbHistory.Size = new System.Drawing.Size(153, 251);
+            this.lbHistory.Size = new System.Drawing.Size(396, 284);
             this.lbHistory.TabIndex = 9;
             // 
             // btnBack
@@ -150,12 +160,44 @@
             this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 13;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(156, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(132, 18);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Products to buy:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(368, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Payments to be done:";
+            // 
+            // btnAllPaid
+            // 
+            this.btnAllPaid.Location = new System.Drawing.Point(617, 340);
+            this.btnAllPaid.Name = "btnAllPaid";
+            this.btnAllPaid.Size = new System.Drawing.Size(150, 37);
+            this.btnAllPaid.TabIndex = 16;
+            this.btnAllPaid.Text = "Mark all as paid";
+            this.btnAllPaid.UseVisualStyleBackColor = true;
+            this.btnAllPaid.Click += new System.EventHandler(this.btnAllPaid_Click);
+            // 
             // Groceries
             // 
             this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 404);
+            this.ClientSize = new System.Drawing.Size(788, 391);
+            this.Controls.Add(this.btnAllPaid);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBack);
@@ -189,5 +231,8 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnAllPaid;
     }
 }
