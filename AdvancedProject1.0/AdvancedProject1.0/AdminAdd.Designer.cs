@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabUser = new System.Windows.Forms.TabPage();
+            this.cmbHouseUnits = new System.Windows.Forms.ComboBox();
             this.cmbUserList = new System.Windows.Forms.ComboBox();
             this.btnRemoveUser = new System.Windows.Forms.Button();
             this.cbAdmin = new System.Windows.Forms.CheckBox();
@@ -53,7 +54,6 @@
             this.tbUnitID = new System.Windows.Forms.TextBox();
             this.lblUnitID = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.cmbHouseUnits = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabUser.SuspendLayout();
             this.tabHouseUnit.SuspendLayout();
@@ -96,11 +96,20 @@
             this.tabUser.Text = "User Controls";
             this.tabUser.UseVisualStyleBackColor = true;
             // 
+            // cmbHouseUnits
+            // 
+            this.cmbHouseUnits.FormattingEnabled = true;
+            this.cmbHouseUnits.Location = new System.Drawing.Point(156, 195);
+            this.cmbHouseUnits.Name = "cmbHouseUnits";
+            this.cmbHouseUnits.Size = new System.Drawing.Size(151, 24);
+            this.cmbHouseUnits.TabIndex = 15;
+            this.cmbHouseUnits.DropDown += new System.EventHandler(this.cmbHouseUnits_DropDown);
+            // 
             // cmbUserList
             // 
             this.cmbUserList.FormattingEnabled = true;
             this.cmbUserList.Location = new System.Drawing.Point(529, 21);
-            this.cmbUserList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbUserList.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUserList.Name = "cmbUserList";
             this.cmbUserList.Size = new System.Drawing.Size(190, 24);
             this.cmbUserList.TabIndex = 14;
@@ -121,7 +130,7 @@
             // 
             this.cbAdmin.AutoSize = true;
             this.cbAdmin.Location = new System.Drawing.Point(156, 16);
-            this.cbAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.cbAdmin.Name = "cbAdmin";
             this.cbAdmin.Size = new System.Drawing.Size(113, 21);
             this.cbAdmin.TabIndex = 12;
@@ -133,7 +142,7 @@
             // 
             this.cbShowHide.AutoSize = true;
             this.cbShowHide.Location = new System.Drawing.Point(324, 72);
-            this.cbShowHide.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbShowHide.Margin = new System.Windows.Forms.Padding(5);
             this.cbShowHide.Name = "cbShowHide";
             this.cbShowHide.Size = new System.Drawing.Size(64, 21);
             this.cbShowHide.TabIndex = 11;
@@ -251,7 +260,7 @@
             // tbCapacity
             // 
             this.tbCapacity.Location = new System.Drawing.Point(156, 168);
-            this.tbCapacity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCapacity.Margin = new System.Windows.Forms.Padding(4);
             this.tbCapacity.Name = "tbCapacity";
             this.tbCapacity.Size = new System.Drawing.Size(132, 22);
             this.tbCapacity.TabIndex = 6;
@@ -269,7 +278,7 @@
             // tbAddress
             // 
             this.tbAddress.Location = new System.Drawing.Point(156, 114);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(132, 22);
             this.tbAddress.TabIndex = 4;
@@ -287,7 +296,7 @@
             // btnAddUnit
             // 
             this.btnAddUnit.Location = new System.Drawing.Point(156, 249);
-            this.btnAddUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddUnit.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddUnit.Name = "btnAddUnit";
             this.btnAddUnit.Size = new System.Drawing.Size(139, 49);
             this.btnAddUnit.TabIndex = 2;
@@ -298,7 +307,7 @@
             // tbUnitID
             // 
             this.tbUnitID.Location = new System.Drawing.Point(156, 57);
-            this.tbUnitID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUnitID.Margin = new System.Windows.Forms.Padding(4);
             this.tbUnitID.Name = "tbUnitID";
             this.tbUnitID.Size = new System.Drawing.Size(132, 22);
             this.tbUnitID.TabIndex = 1;
@@ -316,22 +325,13 @@
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(20, 18);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(5);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(100, 28);
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
-            // 
-            // cmbHouseUnits
-            // 
-            this.cmbHouseUnits.FormattingEnabled = true;
-            this.cmbHouseUnits.Location = new System.Drawing.Point(156, 195);
-            this.cmbHouseUnits.Name = "cmbHouseUnits";
-            this.cmbHouseUnits.Size = new System.Drawing.Size(151, 24);
-            this.cmbHouseUnits.TabIndex = 15;
-            this.cmbHouseUnits.DropDown += new System.EventHandler(this.cmbHouseUnits_DropDown);
             // 
             // AdminAdd
             // 
@@ -343,6 +343,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminAdd";
             this.Text = "AdminAdd";
+            this.Load += new System.EventHandler(this.AdminAdd_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabUser.ResumeLayout(false);
             this.tabUser.PerformLayout();

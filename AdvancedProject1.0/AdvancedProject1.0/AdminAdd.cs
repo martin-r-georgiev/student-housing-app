@@ -14,24 +14,43 @@ namespace AdvancedProject1._0
 {
     public partial class AdminAdd : Form
     {
+        List<User> userList = new List<User>();
+        List<HouseUnit> unitList = new List<HouseUnit>();
+
         public AdminAdd()
         {
             InitializeComponent();
         }
 
-        List<User> userList = new List<User>();
-        List<HouseUnit> unitList = new List<HouseUnit>();
+        private void AdminAdd_Load(object sender, EventArgs e)
+        {
+            unitList.Clear();
+
+            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand($"SELECT unitID FROM HUnitTable", con);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                HouseUnit newUnit = new HouseUnit(dataReader.GetInt32(0));
+                unitList.Add(newUnit);
+            }
+            con.Close();
+        }
 
         private void btnAddNewTenant_Click(object sender, EventArgs e)
         {
             //TO DO: Check for empty textboxes
+
             User newUser = new User(tbUsername.Text, tbPassword.Text,
                            tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
             if(!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.SetHouseID(unitList[cmbHouseUnits.SelectedIndex].GetUnitID());
             try
             {
                 newUser.InsertToDatabase();
-                unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
+                if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
                 MessageBox.Show("Successfully added new user.");
             }
             catch (Exception ex)
@@ -79,7 +98,14 @@ namespace AdvancedProject1._0
             {
                 userList[cmbUserList.SelectedIndex].RemoveFromDatabase();
                 HouseUnit unit = new HouseUnit(userList[cmbUserList.SelectedIndex].GetHouseID());
-                unitList[unitList.IndexOf(unit)].RemoveTenant(userList[cmbUserList.SelectedIndex].GetUserID());
+                //TO DO: FIX BUG (OutOfRange Exception for unitList.IndexOf()
+                if (unitList.IndexOf(unit) >= 0)
+                {
+                    unitList[unitList.IndexOf(unit)].RemoveTenant(userList[cmbUserList.SelectedIndex].GetUserID());
+                    unitList.Remove(unit);
+                    MessageBox.Show("I AM WITHIN RANGE");
+                }
+                else MessageBox.Show("I AM OUT OF RANGE");
             }
             cmbUserList.SelectedIndex = -1;
         }
