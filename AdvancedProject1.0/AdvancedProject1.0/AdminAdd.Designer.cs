@@ -99,29 +99,29 @@
             // cmbHouseUnits
             // 
             this.cmbHouseUnits.FormattingEnabled = true;
-            this.cmbHouseUnits.Location = new System.Drawing.Point(117, 158);
-            this.cmbHouseUnits.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbHouseUnits.Location = new System.Drawing.Point(156, 195);
             this.cmbHouseUnits.Name = "cmbHouseUnits";
-            this.cmbHouseUnits.Size = new System.Drawing.Size(114, 21);
+            this.cmbHouseUnits.Size = new System.Drawing.Size(151, 24);
             this.cmbHouseUnits.TabIndex = 15;
             this.cmbHouseUnits.DropDown += new System.EventHandler(this.cmbHouseUnits_DropDown);
             // 
             // cmbUserList
             // 
             this.cmbUserList.FormattingEnabled = true;
-            this.cmbUserList.Location = new System.Drawing.Point(397, 17);
+            this.cmbUserList.Location = new System.Drawing.Point(465, 21);
+            this.cmbUserList.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUserList.Name = "cmbUserList";
-            this.cmbUserList.Size = new System.Drawing.Size(144, 21);
+            this.cmbUserList.Size = new System.Drawing.Size(254, 24);
             this.cmbUserList.TabIndex = 14;
             this.cmbUserList.DropDown += new System.EventHandler(this.cmbUserList_DropDown);
             this.cmbUserList.SelectedIndexChanged += new System.EventHandler(this.CmbUserList_SelectedIndexChanged);
             // 
             // btnRemoveUser
             // 
-            this.btnRemoveUser.Location = new System.Drawing.Point(397, 57);
-            this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemoveUser.Location = new System.Drawing.Point(489, 72);
+            this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnRemoveUser.Name = "btnRemoveUser";
-            this.btnRemoveUser.Size = new System.Drawing.Size(143, 39);
+            this.btnRemoveUser.Size = new System.Drawing.Size(207, 48);
             this.btnRemoveUser.TabIndex = 13;
             this.btnRemoveUser.Text = "Remove";
             this.btnRemoveUser.UseVisualStyleBackColor = true;
@@ -130,7 +130,8 @@
             // cbAdmin
             // 
             this.cbAdmin.AutoSize = true;
-            this.cbAdmin.Location = new System.Drawing.Point(117, 13);
+            this.cbAdmin.Location = new System.Drawing.Point(156, 16);
+            this.cbAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.cbAdmin.Name = "cbAdmin";
             this.cbAdmin.Size = new System.Drawing.Size(86, 17);
             this.cbAdmin.TabIndex = 12;
@@ -141,8 +142,8 @@
             // cbShowHide
             // 
             this.cbShowHide.AutoSize = true;
-            this.cbShowHide.Location = new System.Drawing.Point(243, 58);
-            this.cbShowHide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbShowHide.Location = new System.Drawing.Point(324, 72);
+            this.cbShowHide.Margin = new System.Windows.Forms.Padding(5);
             this.cbShowHide.Name = "cbShowHide";
             this.cbShowHide.Size = new System.Drawing.Size(53, 17);
             this.cbShowHide.TabIndex = 11;
@@ -264,7 +265,8 @@
             // 
             // tbCapacity
             // 
-            this.tbCapacity.Location = new System.Drawing.Point(117, 136);
+            this.tbCapacity.Location = new System.Drawing.Point(156, 168);
+            this.tbCapacity.Margin = new System.Windows.Forms.Padding(4);
             this.tbCapacity.Name = "tbCapacity";
             this.tbCapacity.Size = new System.Drawing.Size(100, 20);
             this.tbCapacity.TabIndex = 6;
@@ -280,7 +282,8 @@
             // 
             // tbAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(117, 93);
+            this.tbAddress.Location = new System.Drawing.Point(156, 114);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(100, 20);
             this.tbAddress.TabIndex = 4;
@@ -296,7 +299,8 @@
             // 
             // btnAddUnit
             // 
-            this.btnAddUnit.Location = new System.Drawing.Point(117, 202);
+            this.btnAddUnit.Location = new System.Drawing.Point(156, 249);
+            this.btnAddUnit.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddUnit.Name = "btnAddUnit";
             this.btnAddUnit.Size = new System.Drawing.Size(104, 40);
             this.btnAddUnit.TabIndex = 2;
@@ -306,7 +310,8 @@
             // 
             // tbUnitID
             // 
-            this.tbUnitID.Location = new System.Drawing.Point(117, 46);
+            this.tbUnitID.Location = new System.Drawing.Point(156, 57);
+            this.tbUnitID.Margin = new System.Windows.Forms.Padding(4);
             this.tbUnitID.Name = "tbUnitID";
             this.tbUnitID.Size = new System.Drawing.Size(100, 20);
             this.tbUnitID.TabIndex = 1;
@@ -322,8 +327,8 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(15, 15);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Location = new System.Drawing.Point(20, 18);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(5);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 2;
@@ -341,6 +346,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminAdd";
             this.Text = "AdminAdd";
+            this.Load += new System.EventHandler(this.AdminAdd_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabUser.ResumeLayout(false);
             this.tabUser.PerformLayout();
