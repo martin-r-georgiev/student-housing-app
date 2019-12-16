@@ -76,6 +76,17 @@ namespace AdvancedProject1._0
             return this.unitID;
         }
 
+        public string GetInfo()
+        {
+            return $"House Unit [{this.unitID}]: {this.people}/{this.capacity}";
+        }
+
+        public bool IsAtCapacity()
+        {
+            if (this.people >= this.capacity) return true;
+            else return false;
+        }
+
         public List<User> Tenants()
         {
             return this.tenantList;
@@ -83,7 +94,7 @@ namespace AdvancedProject1._0
 
         public void AddTenant(User newTenant)
         {
-            bool isUnique = true, atCapacity = false;
+            bool isUnique = true;
             foreach(User tenant in tenantList)
             {
                 if(newTenant.GetUserID() == tenant.GetUserID())
@@ -93,9 +104,7 @@ namespace AdvancedProject1._0
                 }
             }
 
-            if (this.people + 1 > this.capacity) atCapacity = true;
-
-            if(isUnique && !atCapacity)
+            if(isUnique && !IsAtCapacity())
             {
                 SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
                 con.Open();

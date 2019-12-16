@@ -48,10 +48,14 @@ namespace AdvancedProject1._0
             if(!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.SetHouseID(unitList[cmbHouseUnits.SelectedIndex].GetUnitID());
             try
             {
-                newUser.InsertToDatabase();
-                if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
-                MessageBox.Show("Successfully added new user.");
-                RefreshText();
+                if (!unitList[cmbHouseUnits.SelectedIndex].IsAtCapacity())
+                {
+                    newUser.InsertToDatabase();
+                    MessageBox.Show("Successfully added new user.");
+                    if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
+                    RefreshText();
+                }
+                else MessageBox.Show("This housing unit has reached its tenant capacity.");
             }
             catch (Exception ex)
             {
@@ -178,8 +182,9 @@ namespace AdvancedProject1._0
 
             while (dataReader.Read())
             {
-                cmbHouseUnits.Items.Add($"Housing Unit [{dataReader.GetInt32(0)}]");
-                HouseUnit newUnit = new HouseUnit(dataReader.GetInt32(0));
+                //cmbHouseUnits.Items.Add($"Housing Unit [{dataReader.GetInt32(0)}]");
+                HouseUnit newUnit = new HouseUnit(dataReader.GetInt32(0)); 
+                cmbHouseUnits.Items.Add(newUnit.GetInfo());
                 unitList.Add(newUnit);
             }
             con.Close();

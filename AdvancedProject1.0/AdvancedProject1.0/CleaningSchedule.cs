@@ -23,5 +23,14 @@ namespace AdvancedProject1._0
             tenantMainScreen.Show();
             this.Close(); //h
         }
+
+        private void CleaningSchedule_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
