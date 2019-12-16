@@ -29,7 +29,7 @@ namespace AdvancedProject1._0
             AddToHistory();
             RefreshProductList();
             lblCurrentToBuy.Text = Residents[0];
-            lblNextToBuy.Text = Residents[2];
+            lblNextToBuy.Text = Residents[Residents.Count - 1];
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -100,6 +100,7 @@ namespace AdvancedProject1._0
             lbGroceries.Items.Clear();
             tbPaid.Clear();
             System.IO.File.WriteAllText(@"Groceries.txt", String.Empty);
+            productString = System.IO.File.ReadAllText(@"Groceries.txt");
         }
 
         void AddToHistory()

@@ -64,10 +64,10 @@
             this.tabControl1.Controls.Add(this.tabUser);
             this.tabControl1.Controls.Add(this.tabHouseUnit);
             this.tabControl1.Location = new System.Drawing.Point(11, 52);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(561, 290);
+            this.tabControl1.Size = new System.Drawing.Size(766, 290);
             this.tabControl1.TabIndex = 0;
             // 
             // tabUser
@@ -91,7 +91,7 @@
             this.tabUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabUser.Name = "tabUser";
             this.tabUser.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabUser.Size = new System.Drawing.Size(553, 264);
+            this.tabUser.Size = new System.Drawing.Size(758, 264);
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Controls";
             this.tabUser.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             this.cmbHouseUnits.FormattingEnabled = true;
             this.cmbHouseUnits.Location = new System.Drawing.Point(156, 195);
             this.cmbHouseUnits.Name = "cmbHouseUnits";
-            this.cmbHouseUnits.Size = new System.Drawing.Size(151, 24);
+            this.cmbHouseUnits.Size = new System.Drawing.Size(151, 21);
             this.cmbHouseUnits.TabIndex = 15;
             this.cmbHouseUnits.DropDown += new System.EventHandler(this.cmbHouseUnits_DropDown);
             // 
@@ -111,7 +111,7 @@
             this.cmbUserList.Location = new System.Drawing.Point(465, 21);
             this.cmbUserList.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUserList.Name = "cmbUserList";
-            this.cmbUserList.Size = new System.Drawing.Size(254, 24);
+            this.cmbUserList.Size = new System.Drawing.Size(254, 21);
             this.cmbUserList.TabIndex = 14;
             this.cmbUserList.DropDown += new System.EventHandler(this.cmbUserList_DropDown);
             this.cmbUserList.SelectedIndexChanged += new System.EventHandler(this.CmbUserList_SelectedIndexChanged);
@@ -175,7 +175,7 @@
             // tbLastName
             // 
             this.tbLastName.Location = new System.Drawing.Point(117, 121);
-            this.tbLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(2);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(114, 20);
             this.tbLastName.TabIndex = 7;
@@ -193,7 +193,7 @@
             // tbFirstName
             // 
             this.tbFirstName.Location = new System.Drawing.Point(117, 99);
-            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(114, 20);
             this.tbFirstName.TabIndex = 5;
@@ -211,7 +211,7 @@
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(117, 58);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(114, 20);
             this.tbPassword.TabIndex = 3;
@@ -230,7 +230,7 @@
             // tbUsername
             // 
             this.tbUsername.Location = new System.Drawing.Point(117, 35);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(2);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(114, 20);
             this.tbUsername.TabIndex = 1;
@@ -257,7 +257,7 @@
             this.tabHouseUnit.Location = new System.Drawing.Point(4, 22);
             this.tabHouseUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHouseUnit.Name = "tabHouseUnit";
-            this.tabHouseUnit.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabHouseUnit.Padding = new System.Windows.Forms.Padding(2);
             this.tabHouseUnit.Size = new System.Drawing.Size(553, 264);
             this.tabHouseUnit.TabIndex = 1;
             this.tabHouseUnit.Text = "Add House Unit";
@@ -340,10 +340,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 362);
+            this.ClientSize = new System.Drawing.Size(860, 362);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminAdd";
             this.Text = "AdminAdd";
             this.Load += new System.EventHandler(this.AdminAdd_Load);

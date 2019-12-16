@@ -51,15 +51,15 @@ namespace AdvancedProject1._0
             {
                 if (index < 10)
                 {
-                    string reporterName = GetReportString(rep, true);
-                    string report = GetReportString(rep, false);
+                    string reporterName = rep.Split('-')[0];
+                    string report = rep.Split('-')[1];
 
                     Panel tempPanel = new Panel();
                     tempPanel.Name = $"{index}";
                     tempPanel.Size = new System.Drawing.Size(290, 120);
                     tempPanel.BackColor = Color.Green;
                     tempPanel.Location = new System.Drawing.Point(20 + (index / 5) * 320, 50 + (index % 5) * 140);
-
+                    tempPanel.MouseHover += new EventHandler(Panel_MouseHover);
                     Label tempHeaderLbl = new Label();
                     tempHeaderLbl.Location = new Point(10, 10);
                     tempHeaderLbl.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Bold);
@@ -68,6 +68,7 @@ namespace AdvancedProject1._0
                     tempPanel.Controls.Add(tempHeaderLbl);
 
                     Label tempReportLbl = new Label();
+                    tempReportLbl.Name = index.ToString();
                     tempReportLbl.Location = new Point(10, 30);
                     tempReportLbl.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
                     tempReportLbl.Size = new Size(270, 80);
@@ -76,9 +77,19 @@ namespace AdvancedProject1._0
                     tempPanel.Controls.Add(tempReportLbl);
                     index++;
                     Controls.Add(tempPanel);
-                    panelList.Add(tempPanel);
+                    panelList.Add(tempPanel);  // Maybe unnecessary
                 }
             }
         }
+
+        protected void Panel_MouseHover(object sender, EventArgs e)
+        {
+            this.Size = new System.Drawing.Size(580, 240);
+        }
+
+        protected void Panel_MouseDoubleClick(object sender, EventArgs e)
+        {
+
+        }   
     }
 }
