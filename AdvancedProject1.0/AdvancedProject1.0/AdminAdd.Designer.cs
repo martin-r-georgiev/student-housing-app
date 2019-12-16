@@ -95,7 +95,6 @@
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Controls";
             this.tabUser.UseVisualStyleBackColor = true;
-            this.tabUser.Click += new System.EventHandler(this.TabUser_Click);
             // 
             // cmbHouseUnits
             // 
@@ -105,7 +104,6 @@
             this.cmbHouseUnits.Size = new System.Drawing.Size(186, 24);
             this.cmbHouseUnits.TabIndex = 15;
             this.cmbHouseUnits.DropDown += new System.EventHandler(this.cmbHouseUnits_DropDown);
-            this.cmbHouseUnits.SelectedIndexChanged += new System.EventHandler(this.CmbHouseUnits_SelectedIndexChanged);
             // 
             // cmbUserList
             // 
@@ -116,7 +114,6 @@
             this.cmbUserList.Size = new System.Drawing.Size(276, 24);
             this.cmbUserList.TabIndex = 14;
             this.cmbUserList.DropDown += new System.EventHandler(this.cmbUserList_DropDown);
-            this.cmbUserList.SelectedIndexChanged += new System.EventHandler(this.CmbUserList_SelectedIndexChanged);
             // 
             // btnRemoveUser
             // 

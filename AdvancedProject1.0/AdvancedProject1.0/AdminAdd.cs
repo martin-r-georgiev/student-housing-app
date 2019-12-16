@@ -191,16 +191,6 @@ namespace AdvancedProject1._0
 
         }
 
-        private void CmbUserList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TabUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void RefreshText()
         {
             tbUsername.Clear();
@@ -208,11 +198,6 @@ namespace AdvancedProject1._0
             tbFirstName.Clear();
             tbLastName.Clear();
             cmbHouseUnits.ResetText();
-        }
-
-        private void CmbHouseUnits_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
