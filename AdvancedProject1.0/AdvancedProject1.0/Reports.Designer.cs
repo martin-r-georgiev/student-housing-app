@@ -48,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(647, 826);
             this.Controls.Add(this.btnBack);
             this.Name = "Reports";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reports";
             this.ResumeLayout(false);
 

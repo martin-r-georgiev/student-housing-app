@@ -130,6 +130,7 @@
             this.Controls.Add(this.btnSocial);
             this.Controls.Add(this.btnCleaning);
             this.Name = "TenantMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TenantMain";
             this.ResumeLayout(false);
             this.PerformLayout();

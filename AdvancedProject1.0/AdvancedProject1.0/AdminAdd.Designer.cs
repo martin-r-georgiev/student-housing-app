@@ -95,15 +95,17 @@
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Controls";
             this.tabUser.UseVisualStyleBackColor = true;
+            this.tabUser.Click += new System.EventHandler(this.TabUser_Click);
             // 
             // cmbHouseUnits
             // 
             this.cmbHouseUnits.FormattingEnabled = true;
-            this.cmbHouseUnits.Location = new System.Drawing.Point(156, 195);
+            this.cmbHouseUnits.Location = new System.Drawing.Point(117, 158);
             this.cmbHouseUnits.Name = "cmbHouseUnits";
             this.cmbHouseUnits.Size = new System.Drawing.Size(151, 21);
             this.cmbHouseUnits.TabIndex = 15;
             this.cmbHouseUnits.DropDown += new System.EventHandler(this.cmbHouseUnits_DropDown);
+            this.cmbHouseUnits.SelectedIndexChanged += new System.EventHandler(this.CmbHouseUnits_SelectedIndexChanged);
             // 
             // cmbUserList
             // 
@@ -118,10 +120,10 @@
             // 
             // btnRemoveUser
             // 
-            this.btnRemoveUser.Location = new System.Drawing.Point(489, 72);
+            this.btnRemoveUser.Location = new System.Drawing.Point(465, 64);
             this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnRemoveUser.Name = "btnRemoveUser";
-            this.btnRemoveUser.Size = new System.Drawing.Size(207, 48);
+            this.btnRemoveUser.Size = new System.Drawing.Size(188, 48);
             this.btnRemoveUser.TabIndex = 13;
             this.btnRemoveUser.Text = "Remove";
             this.btnRemoveUser.UseVisualStyleBackColor = true;
@@ -142,7 +144,7 @@
             // cbShowHide
             // 
             this.cbShowHide.AutoSize = true;
-            this.cbShowHide.Location = new System.Drawing.Point(324, 72);
+            this.cbShowHide.Location = new System.Drawing.Point(238, 64);
             this.cbShowHide.Margin = new System.Windows.Forms.Padding(5);
             this.cbShowHide.Name = "cbShowHide";
             this.cbShowHide.Size = new System.Drawing.Size(53, 17);
@@ -258,14 +260,14 @@
             this.tabHouseUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHouseUnit.Name = "tabHouseUnit";
             this.tabHouseUnit.Padding = new System.Windows.Forms.Padding(2);
-            this.tabHouseUnit.Size = new System.Drawing.Size(553, 264);
+            this.tabHouseUnit.Size = new System.Drawing.Size(758, 264);
             this.tabHouseUnit.TabIndex = 1;
             this.tabHouseUnit.Text = "Add House Unit";
             this.tabHouseUnit.UseVisualStyleBackColor = true;
             // 
             // tbCapacity
             // 
-            this.tbCapacity.Location = new System.Drawing.Point(156, 168);
+            this.tbCapacity.Location = new System.Drawing.Point(134, 139);
             this.tbCapacity.Margin = new System.Windows.Forms.Padding(4);
             this.tbCapacity.Name = "tbCapacity";
             this.tbCapacity.Size = new System.Drawing.Size(100, 20);
@@ -282,7 +284,7 @@
             // 
             // tbAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(156, 114);
+            this.tbAddress.Location = new System.Drawing.Point(134, 94);
             this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(100, 20);
@@ -299,7 +301,7 @@
             // 
             // btnAddUnit
             // 
-            this.btnAddUnit.Location = new System.Drawing.Point(156, 249);
+            this.btnAddUnit.Location = new System.Drawing.Point(130, 191);
             this.btnAddUnit.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddUnit.Name = "btnAddUnit";
             this.btnAddUnit.Size = new System.Drawing.Size(104, 40);
@@ -310,7 +312,7 @@
             // 
             // tbUnitID
             // 
-            this.tbUnitID.Location = new System.Drawing.Point(156, 57);
+            this.tbUnitID.Location = new System.Drawing.Point(134, 50);
             this.tbUnitID.Margin = new System.Windows.Forms.Padding(4);
             this.tbUnitID.Name = "tbUnitID";
             this.tbUnitID.Size = new System.Drawing.Size(100, 20);
@@ -345,6 +347,7 @@
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAdd";
             this.Load += new System.EventHandler(this.AdminAdd_Load);
             this.tabControl1.ResumeLayout(false);

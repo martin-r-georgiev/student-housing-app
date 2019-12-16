@@ -51,6 +51,7 @@ namespace AdvancedProject1._0
                 newUser.InsertToDatabase();
                 if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
                 MessageBox.Show("Successfully added new user.");
+                RefreshText();
             }
             catch (Exception ex)
             {
@@ -123,7 +124,7 @@ namespace AdvancedProject1._0
             while(dataReader.Read())
             {
                 if(dataReader.GetBoolean(3)) cmbUserList.Items.Add($"[Admin] {dataReader.GetString(0)} {dataReader.GetString(1)}");
-                else cmbUserList.Items.Add($"{dataReader.GetString(0)} {dataReader.GetString(1)} | Unit ID: {dataReader.GetValue(4)}");
+                else cmbUserList.Items.Add($"[-{dataReader.GetValue(4)}-]  {dataReader.GetString(0)} {dataReader.GetString(1)}");
                 User newUser = new User(dataReader.GetString(2));
                 userList.Add(newUser);
             }
@@ -186,6 +187,25 @@ namespace AdvancedProject1._0
         }
 
         private void CmbUserList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TabUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RefreshText()
+        {
+            tbUsername.Clear();
+            tbPassword.Clear();
+            tbFirstName.Clear();
+            tbLastName.Clear();
+            cmbHouseUnits.ResetText();
+        }
+
+        private void CmbHouseUnits_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

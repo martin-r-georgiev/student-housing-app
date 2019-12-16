@@ -103,6 +103,7 @@
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.tbName);
             this.Name = "formLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Screen";
             this.ResumeLayout(false);
             this.PerformLayout();

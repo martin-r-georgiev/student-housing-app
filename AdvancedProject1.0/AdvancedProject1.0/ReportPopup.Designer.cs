@@ -58,6 +58,7 @@
             this.Controls.Add(this.tbReport);
             this.Controls.Add(this.btnSendReport);
             this.Name = "ReportPopup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReportPopup";
             this.ResumeLayout(false);
             this.PerformLayout();

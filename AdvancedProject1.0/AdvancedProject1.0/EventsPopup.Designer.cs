@@ -119,6 +119,7 @@
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.dtpEvent);
             this.Name = "EventsPopup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EventsPopup";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

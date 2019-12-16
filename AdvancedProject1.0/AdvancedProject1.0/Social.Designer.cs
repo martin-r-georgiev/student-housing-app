@@ -93,6 +93,7 @@
             this.Controls.Add(this.tbChat);
             this.Controls.Add(this.lbChat);
             this.Name = "Social";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Social";
             this.Load += new System.EventHandler(this.Social_Load);
             this.ResumeLayout(false);

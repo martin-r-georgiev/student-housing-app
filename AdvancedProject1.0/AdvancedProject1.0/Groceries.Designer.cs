@@ -130,8 +130,9 @@
             this.lbHistory.ItemHeight = 20;
             this.lbHistory.Location = new System.Drawing.Point(371, 55);
             this.lbHistory.Name = "lbHistory";
-            this.lbHistory.Size = new System.Drawing.Size(396, 284);
+            this.lbHistory.Size = new System.Drawing.Size(414, 284);
             this.lbHistory.TabIndex = 9;
+            this.lbHistory.DoubleClick += new System.EventHandler(this.lbHistory_DoubleClick);
             // 
             // btnBack
             // 
@@ -181,7 +182,7 @@
             // 
             // btnAllPaid
             // 
-            this.btnAllPaid.Location = new System.Drawing.Point(617, 340);
+            this.btnAllPaid.Location = new System.Drawing.Point(635, 345);
             this.btnAllPaid.Name = "btnAllPaid";
             this.btnAllPaid.Size = new System.Drawing.Size(150, 37);
             this.btnAllPaid.TabIndex = 16;
@@ -194,7 +195,7 @@
             this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 391);
+            this.ClientSize = new System.Drawing.Size(805, 391);
             this.Controls.Add(this.btnAllPaid);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -211,6 +212,7 @@
             this.Controls.Add(this.lblNextToBuy);
             this.Controls.Add(this.lblCurrentToBuy);
             this.Name = "Groceries";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Groceries_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

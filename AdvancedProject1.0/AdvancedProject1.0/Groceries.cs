@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AdvancedProject1._0
@@ -14,6 +9,7 @@ namespace AdvancedProject1._0
     {
         //TO DO: ADD LB HISTORY TO TXT FILE
         string productString;
+        int counter;
         User loggedInUser;
         List<String> Product;
         List<double> Balance = new List<double>();
@@ -28,8 +24,8 @@ namespace AdvancedProject1._0
             Product = productString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
             AddToHistory();
             RefreshProductList();
-            lblCurrentToBuy.Text = Residents[0];
-            lblNextToBuy.Text = Residents[Residents.Count - 1];
+            counter = 0;
+            NameSwap();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -69,12 +65,13 @@ namespace AdvancedProject1._0
                         {
                             if (!name.Contains(loggedInUser.GetFirstName()))
                             {
-                                Balance[Residents.IndexOf(name)] -= Math.Round(tbPrice / Residents.Count, 2);
+                                Balance[Residents.IndexOf(name)] += Math.Round(tbPrice / Residents.Count, 2);
                             }
                         }
                     }
                     RefreshHistory();
                     ClearGroceries();
+                    NameSwap();
                 }
             }
             else
@@ -122,16 +119,32 @@ namespace AdvancedProject1._0
             {
                 if (loggedInUser.GetFirstName() == lblCurrentToBuy.Text && !name.Contains(lblCurrentToBuy.Text))
                 {
-                    string msg = name + "\tpay " + "\t" + "$ " + Balance[Residents.IndexOf(name)] + $"  to {lblCurrentToBuy.Text}";
+                    string msg = name + "\tto pay " + "\t" + "$ " + Balance[Residents.IndexOf(name)] + $"  to {lblCurrentToBuy.Text}";
                     lbHistory.Items.Add(msg);
                 }
                 else if (loggedInUser.GetFirstName() != lblCurrentToBuy.Text && !name.Contains(loggedInUser.GetFirstName()))
                 {
-                    string msg = name + "\tpay " + "\t" + "$ " + Balance[Residents.IndexOf(name)] + $"  to {loggedInUser.GetFirstName()}";
+                    string msg = name + "\tto pay " + "\t" + "$ " + Balance[Residents.IndexOf(name)] + $"  to {loggedInUser.GetFirstName()}";
                     lbHistory.Items.Add(msg);
                 }
             }
             lbHistory.Items.Add("________________________________________________________");
+        }
+
+        void NameSwap()
+        {
+            if (counter < (Residents.Count() - 1))
+            {
+                lblCurrentToBuy.Text = Residents[counter];
+                lblNextToBuy.Text = Residents[counter + 1];
+                counter++;
+            }
+            else if (counter >= (Residents.Count() - 1))
+            {
+                counter = 0;
+                lblCurrentToBuy.Text = Residents[Residents.Count() - 1];
+                lblNextToBuy.Text = Residents[counter];
+            }
         }
 
         private void lbGroceries_DoubleClick(object sender, EventArgs e)
@@ -152,7 +165,34 @@ namespace AdvancedProject1._0
 
         private void btnAllPaid_Click(object sender, EventArgs e)
         {
-            lbHistory.Items.Clear();
+            string checkName = loggedInUser.GetFirstName();
+            for (int i = lbHistory.Items.Count - 1; i >= 0; --i)
+            {
+                if (lbHistory.Items[i].ToString().Contains(checkName))
+                {
+                    lbHistory.Items.RemoveAt(i);
+                }
+            }
+        }
+
+        private void lbHistory_DoubleClick(object sender, EventArgs e)
+        {
+            foreach (string name in Residents)
+            {
+                if (lbHistory.SelectedIndex > -1)
+                {
+                    string checkName = loggedInUser.GetFirstName();
+                    if (lbHistory.Items[lbHistory.SelectedIndex].ToString().Contains(checkName))
+                    {
+                        lbHistory.Items.RemoveAt(lbHistory.SelectedIndex);
+                    }
+                }
+            }
+
+            if (lbHistory.SelectedIndex > -1 && lbHistory.Items[lbHistory.SelectedIndex].ToString().Contains("____"))
+            {
+                MessageBox.Show("Irremovable object");
+            }
         }
     }
 }

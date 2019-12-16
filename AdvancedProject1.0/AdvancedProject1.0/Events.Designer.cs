@@ -254,6 +254,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel1);
             this.Name = "Events";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Events";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

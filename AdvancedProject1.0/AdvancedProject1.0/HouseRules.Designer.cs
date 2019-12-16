@@ -35,19 +35,17 @@
             // 
             // rtbHouseRules
             // 
-            this.rtbHouseRules.Location = new System.Drawing.Point(16, 15);
-            this.rtbHouseRules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtbHouseRules.Location = new System.Drawing.Point(12, 12);
             this.rtbHouseRules.Name = "rtbHouseRules";
-            this.rtbHouseRules.Size = new System.Drawing.Size(361, 426);
+            this.rtbHouseRules.Size = new System.Drawing.Size(272, 347);
             this.rtbHouseRules.TabIndex = 0;
             this.rtbHouseRules.Text = "";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(391, 15);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Location = new System.Drawing.Point(293, 12);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 92);
+            this.btnUpdate.Size = new System.Drawing.Size(75, 75);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -55,10 +53,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(391, 114);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(293, 93);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 92);
+            this.btnCancel.Size = new System.Drawing.Size(75, 75);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -66,14 +63,14 @@
             // 
             // HouseRules
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 468);
+            this.ClientSize = new System.Drawing.Size(380, 380);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.rtbHouseRules);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "HouseRules";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HouseRules";
             this.Load += new System.EventHandler(this.HouseRules_Load);
             this.ResumeLayout(false);
