@@ -42,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnAllPaid = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCurrentToBuy
@@ -180,23 +179,12 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Payments to be done:";
             // 
-            // btnAllPaid
-            // 
-            this.btnAllPaid.Location = new System.Drawing.Point(635, 345);
-            this.btnAllPaid.Name = "btnAllPaid";
-            this.btnAllPaid.Size = new System.Drawing.Size(150, 37);
-            this.btnAllPaid.TabIndex = 16;
-            this.btnAllPaid.Text = "Mark all as paid";
-            this.btnAllPaid.UseVisualStyleBackColor = true;
-            this.btnAllPaid.Click += new System.EventHandler(this.btnAllPaid_Click);
-            // 
             // Groceries
             // 
             this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 391);
-            this.Controls.Add(this.btnAllPaid);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -235,6 +223,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnAllPaid;
     }
 }
