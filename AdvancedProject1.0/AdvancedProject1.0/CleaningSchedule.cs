@@ -12,17 +12,22 @@ namespace AdvancedProject1._0
 {
     public partial class CleaningSchedule : Form
     {
+        User loggedInUser;
+
         void PopulateCalendar()
         {
             CalendarItem[] itemList = new CalendarItem[31];
             CalendarItem today = new CalendarItem();
+            CalendarItem.unitID = loggedInUser.GetHouseID();
             DateTime now = DateTime.Now;
             DateTime startDate = new DateTime(now.Year, now.Month, 1);
             DateTime endDate = startDate.AddMonths(1).AddDays(-1);
             for (int i = 0; startDate <= endDate; i++)
             {
                 itemList[i] = new CalendarItem();
+                itemList[i].RawDate = startDate;
                 itemList[i].Date = startDate.ToString("d MMMM, yyyy");
+                itemList[i].LoadEvents();
                 if (DateTime.Compare(startDate, DateTime.Today) == 0)
                 {
                     itemList[i].Date += " (Today)";
@@ -34,7 +39,7 @@ namespace AdvancedProject1._0
                 CalendarPanel.Controls.Add(itemList[i]);
                 startDate = startDate.AddDays(1);
             }
-            itemList[1].AddEvent("Cleaning", Color.LimeGreen);
+            /*itemList[1].AddEvent("Cleaning", Color.LimeGreen);
             itemList[1].AddEvent("Calendar", Color.Purple, Color.White);
             itemList[0].AddEvent("LAN Party", Color.Black, Color.White);
             itemList[2].AddEvent("Overflow Test", Color.Red);
@@ -44,11 +49,14 @@ namespace AdvancedProject1._0
             itemList[2].AddEvent("Overflow Test", Color.Red);
             itemList[2].AddEvent("Overflow Test", Color.Red);
             itemList[2].AddEvent("Overflow Test", Color.Red);
+            itemList[4].AddEvent("ID test", Color.Red);*/
+
         }
 
         public CleaningSchedule()
         {
             InitializeComponent();
+            loggedInUser = new User(formLogin.userKey);
             PopulateCalendar();
         }
 
