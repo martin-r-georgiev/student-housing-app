@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace AdvancedProject1._0
 {
@@ -22,6 +24,7 @@ namespace AdvancedProject1._0
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
+        private string _id;
         private Color _panelColor;
         private Color _textColor;
         private string _title;
@@ -44,6 +47,12 @@ namespace AdvancedProject1._0
             set { _title = value; lblTitle.Text = _title; }
         }
 
+        public string Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
         private void lblTitle_MouseEnter(object sender, EventArgs e)
         {
             //Changing background color on mouse hover
@@ -56,6 +65,20 @@ namespace AdvancedProject1._0
             this.BackColor = _panelColor;
         }
 
+        private void RemoveEventFromDB()
+        {
+            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+            con.Open();
+
+            using (SqlCommand cmd = new SqlCommand($"DELETE CalendarEvents WHERE Id=@eventID", con))
+            {
+                cmd.Parameters.AddWithValue("@eventID", this.Id);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            con.Close();
+        }
+
         private void lblTitle_DoubleClick(object sender, EventArgs e)
         {
             //Double-clicking item to mark it as complete
@@ -63,6 +86,7 @@ namespace AdvancedProject1._0
             _textColor = Color.Black;
             this.BackColor = _panelColor;
             lblTitle.ForeColor = _textColor;
+            RemoveEventFromDB();
             parentPanel.Controls.Remove(this);
         }
     }
