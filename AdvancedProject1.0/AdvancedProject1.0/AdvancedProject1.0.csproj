@@ -73,6 +73,18 @@
     <Compile Include="AdminMain.Designer.cs">
       <DependentUpon>AdminMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="calendarEventItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="calendarEventItem.Designer.cs">
+      <DependentUpon>calendarEventItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalendarItem.Designer.cs">
+      <DependentUpon>CalendarItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="CleaningSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMain.resx">
       <DependentUpon>AdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="calendarEventItem.resx">
+      <DependentUpon>calendarEventItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalendarItem.resx">
+      <DependentUpon>CalendarItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CleaningSchedule.resx">
       <DependentUpon>CleaningSchedule.cs</DependentUpon>
