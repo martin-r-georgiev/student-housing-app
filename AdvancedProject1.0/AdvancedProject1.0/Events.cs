@@ -12,9 +12,11 @@ namespace AdvancedProject1._0
 {
     public partial class Events : Form
     {
+        User loggedInUser;
         public Events()
         {
             InitializeComponent();
+            //loggedInUser = new User()
         }
 
         private void btnAddEvent_Click(object sender, EventArgs e)

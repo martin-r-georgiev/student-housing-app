@@ -201,7 +201,6 @@
             this.Controls.Add(this.lblCurrentToBuy);
             this.Name = "Groceries";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Groceries_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
