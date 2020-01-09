@@ -154,17 +154,21 @@ namespace AdvancedProject1._0
             }
             else
             {
-                HouseUnit newUnit = new HouseUnit(Convert.ToInt32(tbUnitID.Text),
-                                tbAddress.Text, Convert.ToInt32(tbCapacity.Text));
-                try
+                if (tbUnitID.Text.Length == 3)
                 {
-                    newUnit.InsertToDatabase();
-                    MessageBox.Show("Successfully added new house unit.");
+                    HouseUnit newUnit = new HouseUnit(Convert.ToInt32(tbUnitID.Text),
+                                    tbAddress.Text, Convert.ToInt32(tbCapacity.Text));
+                    try
+                    {
+                        newUnit.InsertToDatabase();
+                        MessageBox.Show("Successfully added new house unit.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                else MessageBox.Show("Please use a 3-Digit House Unit ID");
             }
             con.Close();    
         }

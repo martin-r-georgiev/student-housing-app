@@ -86,8 +86,8 @@ namespace AdvancedProject1._0
             _textColor = Color.Black;
             this.BackColor = _panelColor;
             lblTitle.ForeColor = _textColor;
-            RemoveEventFromDB();
-            parentPanel.Controls.Remove(this);
+            //RemoveEventFromDB();
+            //parentPanel.Controls.Remove(this);
         }
     }
 }
