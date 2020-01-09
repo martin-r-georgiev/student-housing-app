@@ -10,6 +10,8 @@ namespace AdvancedProject1._0
         //TO DO: ADD LB HISTORY TO TXT FILE
         string historyString;
         string productString;
+        string[] productStrings;
+        string currentProducts;
         int counter;
         User loggedInUser;
         List<String> Product;
@@ -27,6 +29,7 @@ namespace AdvancedProject1._0
             buyHistory = historyString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
             Product = new List<string>();
             Product = productString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            if (!CheckForCorrectGroceries()) CheckForCorrectGroceries();
             RefreshHistory();
             AddToHistory();
             RefreshProductList();
@@ -51,10 +54,8 @@ namespace AdvancedProject1._0
             }
             else
             {
-                productString += $"{tbAddProduct.Text}\n";
-                System.IO.File.WriteAllText(@"Groceries.txt", productString);
+                SendMessage();
                 RefreshProductList();
-                tbAddProduct.Clear();
             }
         }
 
@@ -87,10 +88,58 @@ namespace AdvancedProject1._0
             }
             
         }
+        private bool CheckForCorrectGroceries()
+        {
+            productStrings = productString.Split('~');
+            for (int i = 0; i < productStrings.Length; i++)
+            {
+                if (productStrings[i].Split(':')[0].Contains(loggedInUser.GetHouseID().ToString()))
+                {
+                    currentProducts = productStrings[i].Substring(4);
+                    return true;
+                }
+            }
+            productString += $"{loggedInUser.GetHouseID()}:\n~";
+            System.IO.File.WriteAllText(@"Groceries.txt", productString);
+            return false;
+        }
+        private void SendMessage()
+        {
+            string newProd = $"{tbAddProduct.Text}";
+            productStrings = productString.Split('~');
 
+                Product.Add(newProd);
+                //Add the new line to a list
+                for (int i = 0; i < productStrings.Length; i++)
+                {
+                    if (productStrings[i].Split(':')[0].Contains(loggedInUser.GetHouseID().ToString()))
+                    {
+                    productStrings[i] = loggedInUser.GetHouseID().ToString() + ":\n";
+                        foreach (string s in Product)
+                        productStrings[i] += s + "\n";
+                        currentProducts = productStrings[i].Substring(4); //use this variable for refreshing the listbox for memory purposes
+                    }
+                }
+            
+            //Add the chat list to the current chat array
+
+            List<string> chatList = new List<string>();
+            for (int i = 0; i < productStrings.Length; i++)
+            {
+                if (productStrings[i].Contains(":"))
+                    chatList.Add(productStrings[i]);
+            }
+            //remove all the empty entries
+
+            productString = "~";
+            foreach (string s in chatList)
+                productString += s + "~";
+            System.IO.File.WriteAllText(@"Groceries.txt", productString);
+            tbAddProduct.Text = "";
+        }
         void RefreshProductList()
         {
-            Product = productString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            Product = currentProducts.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
             lbGroceries.Items.Clear();
             foreach (String product in Product)
             {

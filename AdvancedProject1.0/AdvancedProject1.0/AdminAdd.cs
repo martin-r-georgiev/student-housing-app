@@ -43,26 +43,28 @@ namespace AdvancedProject1._0
         private void btnAddNewTenant_Click(object sender, EventArgs e)
         {
             //TO DO: Check for empty textboxes/if username exits and clear textboxes after button press
-            User newUser = new User(tbUsername.Text, tbPassword.Text,
-                           tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
-            if(!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.SetHouseID(unitList[cmbHouseUnits.SelectedIndex].GetUnitID());
-            try
+            if (tbUsername.Text.Length > 0 && tbPassword.Text.Length > 0 && tbFirstName.Text.Length > 0 && tbLastName.Text.Length > 0)
             {
-                if (!unitList[cmbHouseUnits.SelectedIndex].IsAtCapacity())
+                User newUser = new User(tbUsername.Text, tbPassword.Text,
+                               tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
+                if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.SetHouseID(unitList[cmbHouseUnits.SelectedIndex].GetUnitID());
+                try
                 {
-                    newUser.InsertToDatabase();
-                    MessageBox.Show("Successfully added new user.");
-                    if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
-                    RefreshText();
+                    if (!unitList[cmbHouseUnits.SelectedIndex].IsAtCapacity())
+                    {
+                        newUser.InsertToDatabase();
+                        MessageBox.Show("Successfully added new user.");
+                        if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
+                        RefreshText();
+                    }
+                    else MessageBox.Show("This housing unit has reached its tenant capacity.");
                 }
-                else MessageBox.Show("This housing unit has reached its tenant capacity.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
-
         private void BtnBack_Click(object sender, EventArgs e)
         {
             AdminMain adminMainScreen = new AdminMain();
@@ -139,38 +141,44 @@ namespace AdvancedProject1._0
         {
             //TO DO: Check for empty textboxes
             //TO DO: Clear textboxes
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            SqlCommand cmd;
-            SqlDataReader dataReader;
-            con.Open();
-
-            cmd = new SqlCommand($"SELECT userID FROM UnitUserList WHERE unitID=@unitID", con);
-            cmd.Parameters.AddWithValue("@unitID", Convert.ToInt32(tbUnitID.Text));
-            dataReader = cmd.ExecuteReader();
-
-            if (dataReader.Read())
+            if (Int32.TryParse(tbUnitID.Text, out int unitID) && Int32.TryParse(tbCapacity.Text, out int cap) && tbAddress.Text.Length > 0)
             {
-                MessageBox.Show("A housing unit already exists with that ID. Please change its value to another one.");
-            }
-            else
-            {
-                if (tbUnitID.Text.Length == 3)
+                SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+                SqlCommand cmd;
+                SqlDataReader dataReader;
+                con.Open();
+
+                cmd = new SqlCommand($"SELECT userID FROM UnitUserList WHERE unitID=@unitID", con);
+                cmd.Parameters.AddWithValue("@unitID", unitID);
+                dataReader = cmd.ExecuteReader();
+
+                if (dataReader.Read())
                 {
-                    HouseUnit newUnit = new HouseUnit(Convert.ToInt32(tbUnitID.Text),
-                                    tbAddress.Text, Convert.ToInt32(tbCapacity.Text));
-                    try
-                    {
-                        newUnit.InsertToDatabase();
-                        MessageBox.Show("Successfully added new house unit.");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                    MessageBox.Show("A housing unit already exists with that ID. Please change its value to another one.");
                 }
-                else MessageBox.Show("Please use a 3-Digit House Unit ID");
+                else
+                {
+                    if (tbUnitID.Text.Length == 3)
+                    {
+                        HouseUnit newUnit = new HouseUnit(unitID,
+                                        tbAddress.Text, cap);
+                        try
+                        {
+                            newUnit.InsertToDatabase();
+                            MessageBox.Show("Successfully added new house unit.");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    else MessageBox.Show("Please use a 3-Digit House Unit ID");
+                }
+                con.Close();
+                tbAddress.Clear();
+                tbCapacity.Clear();
+                tbUnitID.Clear();
             }
-            con.Close();    
         }
 
         private void cmbHouseUnits_DropDown(object sender, EventArgs e)
