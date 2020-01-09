@@ -7,8 +7,6 @@ namespace AdvancedProject1._0
 {
     public partial class Groceries : Form
     {
-        //TO DO: ADD LB HISTORY TO TXT FILE
-        string historyString;
         string productString;
         string[] productStrings;
         string currentProducts;
@@ -16,19 +14,19 @@ namespace AdvancedProject1._0
         User loggedInUser;
         List<String> Product;
         List<String> buyHistory;
-        List<double> Balance = new List<double>();
         List<string> Residents = new List<string>();
+        Payments allPayments;
 
         public Groceries()
         {
             InitializeComponent();
             loggedInUser = new User(formLogin.userKey);
             productString = System.IO.File.ReadAllText(@"Groceries.txt");
-            historyString = System.IO.File.ReadAllText(@"HistoryToPay.txt");
             buyHistory = new List<String>();
-            buyHistory = historyString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            buyHistory = Payments.GetPaymentsOfUnit(loggedInUser.GetHouseID());
             Product = new List<string>();
             Product = productString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+
             if (!CheckForCorrectGroceries()) CheckForCorrectGroceries();
             RefreshHistory();
             AddToHistory();
@@ -73,7 +71,7 @@ namespace AdvancedProject1._0
                         {
                             if (!name.Contains(loggedInUser.GetFirstName()))
                             {
-                                Balance[Residents.IndexOf(name)] += Math.Round(tbPrice / Residents.Count, 2);
+                                Payment newPayment = new Payment(name, loggedInUser.GetFirstName(), Math.Round(tbPrice / Residents.Count, 2), loggedInUser.GetHouseID());
                             }
                         }
                     }
@@ -87,6 +85,31 @@ namespace AdvancedProject1._0
                 MessageBox.Show("Add at least one product and specify a price!");
             }
             
+        }
+       
+        private void lbGroceries_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbGroceries.SelectedIndex > -1)
+            {
+                string itemToDelete = lbGroceries.SelectedItem.ToString();
+                Product.Remove(itemToDelete);
+                SaveNewText();
+                RefreshProductList();
+            }
+        }
+
+        private void lbHistory_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbHistory.SelectedIndex > -1)
+            {
+                if (lbHistory.Items[lbHistory.SelectedIndex].ToString().Split('$')[1].Contains(loggedInUser.GetFirstName()))
+                {
+                    allPayments = new Payments();
+                    allPayments.RemovePayment(lbHistory.SelectedItem.ToString());
+                    RefreshHistory();
+                }
+                else MessageBox.Show("Only the person who payed can remove entries");
+            }
         }
         private bool CheckForCorrectGroceries()
         {
@@ -103,24 +126,20 @@ namespace AdvancedProject1._0
             System.IO.File.WriteAllText(@"Groceries.txt", productString);
             return false;
         }
-        private void SendMessage()
+        private void SaveNewText()
         {
-            string newProd = $"{tbAddProduct.Text}";
             productStrings = productString.Split('~');
-
-                Product.Add(newProd);
-                //Add the new line to a list
-                for (int i = 0; i < productStrings.Length; i++)
+            for (int i = 0; i < productStrings.Length; i++)
+            {
+                if (productStrings[i].Split(':')[0].Contains(loggedInUser.GetHouseID().ToString()))
                 {
-                    if (productStrings[i].Split(':')[0].Contains(loggedInUser.GetHouseID().ToString()))
-                    {
                     productStrings[i] = loggedInUser.GetHouseID().ToString() + ":\n";
-                        foreach (string s in Product)
+                    foreach (string s in Product)
                         productStrings[i] += s + "\n";
-                        currentProducts = productStrings[i].Substring(4); //use this variable for refreshing the listbox for memory purposes
-                    }
+                    currentProducts = productStrings[i].Substring(4); //use this variable for refreshing the listbox for memory purposes
                 }
-            
+            }
+
             //Add the chat list to the current chat array
 
             List<string> chatList = new List<string>();
@@ -135,6 +154,13 @@ namespace AdvancedProject1._0
             foreach (string s in chatList)
                 productString += s + "~";
             System.IO.File.WriteAllText(@"Groceries.txt", productString);
+        }
+        private void SendMessage()
+        {
+            string newProd = $"{tbAddProduct.Text}";
+            Product.Add(newProd);
+            //Add the new line to a list
+            SaveNewText();
             tbAddProduct.Text = "";
         }
         void RefreshProductList()
@@ -152,8 +178,7 @@ namespace AdvancedProject1._0
             Product.Clear();
             lbGroceries.Items.Clear();
             tbPaid.Clear();
-            System.IO.File.WriteAllText(@"Groceries.txt", String.Empty);
-            productString = System.IO.File.ReadAllText(@"Groceries.txt");
+            SaveNewText();
         }
 
         void AddToHistory()
@@ -163,31 +188,15 @@ namespace AdvancedProject1._0
             {
                 string name = $"{tenant.GetFirstName()}";
                 Residents.Add(name);
-                Balance.Add(0);
             }
         }
 
         void RefreshHistory()
         {
-            foreach (string name in Residents)
-            {
-                if (loggedInUser.GetFirstName() == lblCurrentToBuy.Text && !name.Contains(lblCurrentToBuy.Text))
-                {
-                    string msg = name + "\tto pay " + "\t" + "$ " + Balance[Residents.IndexOf(name)] + $"  -> {lblCurrentToBuy.Text}\n";
-                    historyString += msg;
-                }
-                else if (loggedInUser.GetFirstName() != lblCurrentToBuy.Text && !name.Contains(loggedInUser.GetFirstName()))
-                {
-                    string msg = name + "\tto pay " + "\t" + "$ " + Balance[Residents.IndexOf(name)] + $"  -> {loggedInUser.GetFirstName()}\n";
-                    historyString += msg;
-                }
-            }
-            historyString += "________________________________________________________\n";
-            buyHistory = historyString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            buyHistory = Payments.GetPaymentsOfUnit(loggedInUser.GetHouseID());
             lbHistory.Items.Clear();
-            foreach (string s in buyHistory) 
+            foreach (string s in buyHistory)
                 lbHistory.Items.Add(s);
-            System.IO.File.WriteAllText(@"HistoryToPay.txt", historyString);
         }
 
         void NameSwap()
@@ -206,44 +215,5 @@ namespace AdvancedProject1._0
             }
         }
 
-        private void lbGroceries_DoubleClick(object sender, EventArgs e)
-        {
-            if (lbGroceries.SelectedIndex > -1)
-            {
-                string itemToDelete = lbGroceries.SelectedItem.ToString();
-                Product.Remove(itemToDelete);
-                System.IO.File.WriteAllLines(@"Groceries.txt",Product.ToArray());
-                productString = System.IO.File.ReadAllText(@"Groceries.txt");
-                RefreshProductList();
-            }
-        }
-
-        private void Groceries_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void lbHistory_DoubleClick(object sender, EventArgs e)
-        {
-            foreach (string name in Residents)
-            {
-                if (lbHistory.SelectedIndex > -1)
-                {
-                    string checkName = loggedInUser.GetFirstName();
-                    if (lbHistory.Items[lbHistory.SelectedIndex].ToString().Contains("____")) MessageBox.Show("Irremovable object");
-                    else if (lbHistory.Items[lbHistory.SelectedIndex].ToString().Split('>')[1].Contains(checkName))
-                    {
-                        buyHistory.Remove(lbHistory.SelectedItem.ToString());
-                        System.IO.File.WriteAllLines(@"HistoryToPay.txt", buyHistory.ToArray());
-                        historyString = System.IO.File.ReadAllText(@"HistoryToPay.txt");
-                        lbHistory.Items.Clear();
-                        foreach (string s in buyHistory)
-                            lbHistory.Items.Add(s);
-
-                    }
-                    else MessageBox.Show("Only the person who payed can remove entries");
-                        
-                }
-            }
-        }
     }
 }
