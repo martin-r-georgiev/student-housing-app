@@ -103,6 +103,7 @@
     <Compile Include="EventsPopup.Designer.cs">
       <DependentUpon>EventsPopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventType.cs" />
     <Compile Include="Groceries.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +197,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ReportPopup.resx">
       <DependentUpon>ReportPopup.cs</DependentUpon>
@@ -238,6 +240,13 @@
     <Content Include="HousingDB_log.ldf">
       <DependentUpon>HousingDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Washing.png" />
+    <None Include="Resources\Study.png" />
+    <None Include="Resources\Party.png" />
+    <None Include="Resources\Garbage.png" />
+    <None Include="Resources\Gaming.png" />
+    <None Include="Resources\Dishes.png" />
+    <None Include="Resources\Cleaning.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -251,5 +260,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

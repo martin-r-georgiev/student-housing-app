@@ -41,7 +41,7 @@
             // btnCleaning
             // 
             this.btnCleaning.Location = new System.Drawing.Point(65, 137);
-            this.btnCleaning.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCleaning.Margin = new System.Windows.Forms.Padding(4);
             this.btnCleaning.Name = "btnCleaning";
             this.btnCleaning.Size = new System.Drawing.Size(107, 98);
             this.btnCleaning.TabIndex = 0;
@@ -52,7 +52,7 @@
             // btnSocial
             // 
             this.btnSocial.Location = new System.Drawing.Point(409, 137);
-            this.btnSocial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSocial.Margin = new System.Windows.Forms.Padding(4);
             this.btnSocial.Name = "btnSocial";
             this.btnSocial.Size = new System.Drawing.Size(107, 98);
             this.btnSocial.TabIndex = 1;
@@ -63,7 +63,7 @@
             // btnGroceries
             // 
             this.btnGroceries.Location = new System.Drawing.Point(180, 137);
-            this.btnGroceries.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGroceries.Margin = new System.Windows.Forms.Padding(4);
             this.btnGroceries.Name = "btnGroceries";
             this.btnGroceries.Size = new System.Drawing.Size(107, 98);
             this.btnGroceries.TabIndex = 2;
@@ -74,7 +74,7 @@
             // btnEvents
             // 
             this.btnEvents.Location = new System.Drawing.Point(295, 137);
-            this.btnEvents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEvents.Margin = new System.Windows.Forms.Padding(4);
             this.btnEvents.Name = "btnEvents";
             this.btnEvents.Size = new System.Drawing.Size(107, 98);
             this.btnEvents.TabIndex = 3;
@@ -95,7 +95,7 @@
             // btnLogout
             // 
             this.btnLogout.Location = new System.Drawing.Point(560, 20);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(64, 52);
             this.btnLogout.TabIndex = 5;
@@ -106,7 +106,7 @@
             // btnHouseRules
             // 
             this.btnHouseRules.Location = new System.Drawing.Point(13, 305);
-            this.btnHouseRules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHouseRules.Margin = new System.Windows.Forms.Padding(4);
             this.btnHouseRules.Name = "btnHouseRules";
             this.btnHouseRules.Size = new System.Drawing.Size(65, 59);
             this.btnHouseRules.TabIndex = 6;
@@ -137,7 +137,7 @@
             this.Controls.Add(this.btnGroceries);
             this.Controls.Add(this.btnSocial);
             this.Controls.Add(this.btnCleaning);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TenantMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TenantMain";

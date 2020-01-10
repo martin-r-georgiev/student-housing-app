@@ -14,8 +14,21 @@ namespace AdvancedProject1._0
     {
         User loggedInUser;
 
+        public void ChangeDescription(string description)
+        {
+            if (!string.IsNullOrEmpty(description)) rtbDescription.Text = description;
+            else rtbDescription.Text = "No event description";
+
+        }
+
+        public void ChangePicture(Image img)
+        {
+            pbEventImage.Image = img;
+        }
+
         void PopulateCalendar()
         {
+            CalendarPanel.Controls.Clear();
             CalendarItem[] itemList = new CalendarItem[31];
             CalendarItem today = new CalendarItem();
             CalendarItem.unitID = loggedInUser.GetHouseID();
@@ -50,7 +63,6 @@ namespace AdvancedProject1._0
             itemList[2].AddEvent("Overflow Test", Color.Red);
             itemList[2].AddEvent("Overflow Test", Color.Red);
             itemList[4].AddEvent("ID test", Color.Red);*/
-
         }
 
         public CleaningSchedule()
@@ -67,13 +79,17 @@ namespace AdvancedProject1._0
             this.Close(); //h
         }
 
-        private void CleaningSchedule_Load(object sender, EventArgs e)
+        private void btnAddEvent_Click(object sender, EventArgs e)
         {
+            EventsPopup eventsPopupScreen = new EventsPopup();
+
+            eventsPopupScreen.FormClosed += new FormClosedEventHandler(eventsPopupScreen_FormClosed);
+            eventsPopupScreen.Show();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void eventsPopupScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            PopulateCalendar();
         }
     }
 }
