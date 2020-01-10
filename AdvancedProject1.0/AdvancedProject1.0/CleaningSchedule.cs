@@ -95,7 +95,13 @@ namespace AdvancedProject1._0
         private void btnGenerateSchedule_Click(object sender, EventArgs e)
         {
             SchedulePopup scheduleForm = new SchedulePopup();
+            scheduleForm.FormClosed += new FormClosedEventHandler(scheduleForm_FormClosed);
             scheduleForm.Show();
+        }
+
+        private void scheduleForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            PopulateCalendar();
         }
     }
 }

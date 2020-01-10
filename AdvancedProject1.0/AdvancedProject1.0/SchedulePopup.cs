@@ -39,13 +39,12 @@ namespace AdvancedProject1._0
             int order = 0;
             DateTime nextMonday = GetNextWeekday(DateTime.Today, DayOfWeek.Monday);
             MessageBox.Show(GetNextWeekday(nextMonday, DayOfWeek.Wednesday).ToString());
-            /*foreach(User tenant in tenantUnit.Tenants())
+            for(int i = 0; i < 7; i++)
             {
-                switch(tbGarbage.Value)
-                {
-                    case Frequency: <put code here>; break;
-                }
-            }*/
+                CalendarItem.AddEventToDB(nextMonday, Color.DarkBlue, Color.White, "Temporary", "No event description", Properties.Resources.Cleaning);
+                nextMonday = nextMonday.AddDays(tbGarbage.Value);
+            }
+            this.Close();
         }
     }
 }
