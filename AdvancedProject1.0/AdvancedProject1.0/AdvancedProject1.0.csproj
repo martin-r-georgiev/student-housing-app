@@ -146,6 +146,12 @@
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
+    <Compile Include="SchedulePopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SchedulePopup.Designer.cs">
+      <DependentUpon>SchedulePopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Social.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SchedulePopup.resx">
+      <DependentUpon>SchedulePopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Social.resx">
       <DependentUpon>Social.cs</DependentUpon>

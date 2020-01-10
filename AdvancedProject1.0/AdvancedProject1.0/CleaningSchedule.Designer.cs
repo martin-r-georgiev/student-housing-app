@@ -34,6 +34,7 @@
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.btnAddEvent = new System.Windows.Forms.Button();
             this.pbEventImage = new System.Windows.Forms.PictureBox();
+            this.btnGenerateSchedule = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbEventImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,11 +97,22 @@
             this.pbEventImage.TabIndex = 8;
             this.pbEventImage.TabStop = false;
             // 
+            // btnGenerateSchedule
+            // 
+            this.btnGenerateSchedule.Location = new System.Drawing.Point(1120, 547);
+            this.btnGenerateSchedule.Name = "btnGenerateSchedule";
+            this.btnGenerateSchedule.Size = new System.Drawing.Size(201, 42);
+            this.btnGenerateSchedule.TabIndex = 9;
+            this.btnGenerateSchedule.Text = "Generate Cleaning Schedule";
+            this.btnGenerateSchedule.UseVisualStyleBackColor = true;
+            this.btnGenerateSchedule.Click += new System.EventHandler(this.btnGenerateSchedule_Click);
+            // 
             // CleaningSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1381, 658);
+            this.Controls.Add(this.btnGenerateSchedule);
             this.Controls.Add(this.pbEventImage);
             this.Controls.Add(this.btnAddEvent);
             this.Controls.Add(this.rtbDescription);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.RichTextBox rtbDescription;
         private System.Windows.Forms.Button btnAddEvent;
         private System.Windows.Forms.PictureBox pbEventImage;
+        private System.Windows.Forms.Button btnGenerateSchedule;
     }
 }

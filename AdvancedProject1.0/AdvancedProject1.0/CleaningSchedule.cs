@@ -91,5 +91,11 @@ namespace AdvancedProject1._0
         {
             PopulateCalendar();
         }
+
+        private void btnGenerateSchedule_Click(object sender, EventArgs e)
+        {
+            SchedulePopup scheduleForm = new SchedulePopup();
+            scheduleForm.Show();
+        }
     }
 }
