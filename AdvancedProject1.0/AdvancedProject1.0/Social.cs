@@ -14,15 +14,27 @@ namespace AdvancedProject1._0
     {
         private TenantMain mainForm = null;
         string chat;
+        string[] chats;
+        string currentHouseUnitChat;
+        string generalChat;
+        List<string> generalChatLines;
         List<string> chatLines;
+        User loggedInUser;
 
         void RefreshListbox()
         {
-            chatLines = chat.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
-            lbChat.Items.Clear();
-            foreach (string line in chatLines)
+            if (tcChats.SelectedIndex == 1)
             {
-                lbChat.Items.Add(line);
+                chatLines = currentHouseUnitChat.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+                lbChat.Items.Clear();
+                foreach (string line in chatLines)
+                    lbChat.Items.Add(line);
+            } else if (tcChats.SelectedIndex == 0)
+            {
+                generalChatLines = generalChat.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+                lbGeneralChat.Items.Clear();
+                foreach (string line in generalChatLines)
+                    lbGeneralChat.Items.Add(line);
             }
         }
 
@@ -30,9 +42,15 @@ namespace AdvancedProject1._0
         {
             InitializeComponent();
             mainForm = calledForm as TenantMain;
+            loggedInUser = new User(formLogin.userKey);
+            tp2.Text = $"House Unit {loggedInUser.GetHouseID()}";
             chat = System.IO.File.ReadAllText(@"Chat.txt");
+            generalChat = chat.Split('~')[1].Substring(4);
+            if (!CheckForCorrectChat()) CheckForCorrectChat();
             chatLines = new List<string>();
-            chatLines = chat.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            chatLines = currentHouseUnitChat.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+            generalChatLines = new List<string>();
+            generalChatLines = generalChat.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
             //Split it on every new line, remove all empty entries, put all in a list
         }
 
@@ -58,16 +76,84 @@ namespace AdvancedProject1._0
         {
             //Allows usage of ENTER on keyboard
             this.AcceptButton = btnSendChat;
-            string newLine = $"{tbChat.Text}\n";
-            chat += newLine;
-            System.IO.File.WriteAllText(@"Chat.txt", chat);
-            RefreshListbox();
-            tbChat.Text = "";
+            if (!tbChat.Text.Contains("~"))
+            {
+                SendMessage();
+                RefreshListbox();
+            }
+            else MessageBox.Show("Invalid key entered. (~)");
         }
 
         private void LbChat_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private bool CheckForCorrectChat()
+        {
+            chats = chat.Split('~');
+            for (int i = 0; i < chats.Length; i++)
+            {
+                if (chats[i].Split(':')[0].Contains(loggedInUser.GetHouseID().ToString()))
+                {
+                    currentHouseUnitChat = chats[i].Substring(4);
+                    return true;
+                }
+            }
+            chat += $"{loggedInUser.GetHouseID()}: \n~ \n";
+            System.IO.File.WriteAllText(@"Chat.txt", chat);
+            MessageBox.Show($"Welcome to the new chat of house unit {loggedInUser.GetHouseID()}");
+            return false;
+        }
+        private void SendMessage()
+        {
+            string newLine = $"{tbChat.Text}";
+            chats = chat.Split('~');
+
+            if (tcChats.SelectedIndex == 0)
+            {
+                generalChatLines.Add(newLine);
+                chats[1] = "ALL:\n";
+                foreach (string s in generalChatLines)
+                    chats[1] += s + "\n";
+                generalChat = chats[1].Substring(4);
+            }
+
+            if (tcChats.SelectedIndex == 1)
+            {
+
+                chatLines.Add(newLine);
+                //Add the new line to a list
+                for (int i = 0; i < chats.Length; i++)
+                {
+                    if (chats[i].Split(':')[0].Contains(loggedInUser.GetHouseID().ToString()))
+                    {
+                        chats[i] = loggedInUser.GetHouseID().ToString() + ":\n";
+                        foreach (string s in chatLines)
+                            chats[i] += s + "\n";
+                        currentHouseUnitChat = chats[i].Substring(4); //use this variable for refreshing the listbox for memory purposes
+                    }
+                }
+            }
+            //Add the chat list to the current chat array
+
+            List<string> chatList = new List<string>();
+            for (int i = 0; i < chats.Length; i++)
+            {
+                if (chats[i].Contains(":"))
+                    chatList.Add(chats[i]);
+            }
+            //remove all the empty entries
+
+            chat = "~";
+            foreach (string s in chatList)
+                chat += s + "~";
+            System.IO.File.WriteAllText(@"Chat.txt", chat);
+            tbChat.Text = "";
+        }
+
+        private void tcChats_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshListbox();
         }
     }
 }
