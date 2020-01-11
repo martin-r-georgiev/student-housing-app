@@ -281,7 +281,7 @@ namespace AdvancedProject1._0
         private void CalendarItem_SizeChanged(object sender, EventArgs e)
         {
             foreach(Control control in calendarEventList.Controls)
-            { 
+            {
                 control.Width = calendarEventList.Width - 5;
             }
         }

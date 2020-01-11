@@ -27,8 +27,6 @@ namespace AdvancedProject1._0
         private string _id;
         private Color _panelColor;
         private Color _textColor;
-        private Color _originalBackground;
-        private Color _originalTextColor;
         private string _title;
         private string description;
         private bool completed;

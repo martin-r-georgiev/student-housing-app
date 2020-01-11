@@ -67,7 +67,7 @@
             this.CalendarPanel.AutoScroll = true;
             this.CalendarPanel.Location = new System.Drawing.Point(17, 70);
             this.CalendarPanel.Name = "CalendarPanel";
-            this.CalendarPanel.Size = new System.Drawing.Size(1230, 714);
+            this.CalendarPanel.Size = new System.Drawing.Size(1228, 714);
             this.CalendarPanel.TabIndex = 4;
             this.CalendarPanel.SizeChanged += new System.EventHandler(this.CalendarPanel_SizeChanged);
             // 
