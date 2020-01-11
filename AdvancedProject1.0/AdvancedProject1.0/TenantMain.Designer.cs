@@ -44,12 +44,10 @@
             // 
             // btnCleaning
             // 
-<<<<<<< Updated upstream
             this.btnCleaning.Location = new System.Drawing.Point(65, 137);
             this.btnCleaning.Margin = new System.Windows.Forms.Padding(4);
             this.btnCleaning.Name = "btnCleaning";
             this.btnCleaning.Size = new System.Drawing.Size(107, 98);
-=======
             this.btnCleaning.BackColor = System.Drawing.Color.Transparent;
             this.btnCleaning.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCleaning.BackgroundImage")));
             this.btnCleaning.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -58,19 +56,16 @@
             this.btnCleaning.Location = new System.Drawing.Point(171, 222);
             this.btnCleaning.Name = "btnCleaning";
             this.btnCleaning.Size = new System.Drawing.Size(100, 100);
->>>>>>> Stashed changes
             this.btnCleaning.TabIndex = 0;
             this.btnCleaning.UseVisualStyleBackColor = false;
             this.btnCleaning.Click += new System.EventHandler(this.btnCleaning_Click);
             // 
             // btnSocial
             // 
-<<<<<<< Updated upstream
             this.btnSocial.Location = new System.Drawing.Point(409, 137);
             this.btnSocial.Margin = new System.Windows.Forms.Padding(4);
             this.btnSocial.Name = "btnSocial";
             this.btnSocial.Size = new System.Drawing.Size(107, 98);
-=======
             this.btnSocial.BackColor = System.Drawing.Color.Transparent;
             this.btnSocial.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSocial.BackgroundImage")));
             this.btnSocial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -79,19 +74,16 @@
             this.btnSocial.Location = new System.Drawing.Point(488, 222);
             this.btnSocial.Name = "btnSocial";
             this.btnSocial.Size = new System.Drawing.Size(100, 100);
->>>>>>> Stashed changes
             this.btnSocial.TabIndex = 1;
             this.btnSocial.UseVisualStyleBackColor = false;
             this.btnSocial.Click += new System.EventHandler(this.btnSocial_Click);
             // 
             // btnGroceries
             // 
-<<<<<<< Updated upstream
             this.btnGroceries.Location = new System.Drawing.Point(180, 137);
             this.btnGroceries.Margin = new System.Windows.Forms.Padding(4);
             this.btnGroceries.Name = "btnGroceries";
             this.btnGroceries.Size = new System.Drawing.Size(107, 98);
-=======
             this.btnGroceries.BackColor = System.Drawing.Color.Transparent;
             this.btnGroceries.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGroceries.BackgroundImage")));
             this.btnGroceries.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -100,34 +92,15 @@
             this.btnGroceries.Location = new System.Drawing.Point(330, 222);
             this.btnGroceries.Name = "btnGroceries";
             this.btnGroceries.Size = new System.Drawing.Size(100, 100);
->>>>>>> Stashed changes
             this.btnGroceries.TabIndex = 2;
             this.btnGroceries.UseVisualStyleBackColor = false;
             this.btnGroceries.Click += new System.EventHandler(this.btnGroceries_Click);
-            // 
-<<<<<<< Updated upstream
-            // btnEvents
-            // 
-            this.btnEvents.Location = new System.Drawing.Point(295, 137);
-            this.btnEvents.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEvents.Name = "btnEvents";
-            this.btnEvents.Size = new System.Drawing.Size(107, 98);
-            this.btnEvents.TabIndex = 3;
-            this.btnEvents.Text = "Events";
-            this.btnEvents.UseVisualStyleBackColor = true;
-            this.btnEvents.Click += new System.EventHandler(this.btnEvents_Click);
             // 
             // lblHousingName
             // 
             this.lblHousingName.AutoSize = true;
             this.lblHousingName.Location = new System.Drawing.Point(239, 38);
             this.lblHousingName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-=======
-            // lblHousingName
-            // 
-            this.lblHousingName.AutoSize = true;
-            this.lblHousingName.Location = new System.Drawing.Point(12, 163);
->>>>>>> Stashed changes
             this.lblHousingName.Name = "lblHousingName";
             this.lblHousingName.Size = new System.Drawing.Size(111, 17);
             this.lblHousingName.TabIndex = 4;
@@ -136,12 +109,10 @@
             // 
             // btnLogout
             // 
-<<<<<<< Updated upstream
             this.btnLogout.Location = new System.Drawing.Point(560, 20);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(64, 52);
-=======
             this.btnLogout.BackColor = System.Drawing.Color.Transparent;
             this.btnLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.BackgroundImage")));
             this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -153,19 +124,16 @@
             this.btnLogout.Location = new System.Drawing.Point(696, 12);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(32, 32);
->>>>>>> Stashed changes
             this.btnLogout.TabIndex = 5;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnHouseRules
             // 
-<<<<<<< Updated upstream
             this.btnHouseRules.Location = new System.Drawing.Point(13, 305);
             this.btnHouseRules.Margin = new System.Windows.Forms.Padding(4);
             this.btnHouseRules.Name = "btnHouseRules";
             this.btnHouseRules.Size = new System.Drawing.Size(65, 59);
-=======
             this.btnHouseRules.BackColor = System.Drawing.Color.Transparent;
             this.btnHouseRules.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHouseRules.BackgroundImage")));
             this.btnHouseRules.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -174,7 +142,6 @@
             this.btnHouseRules.Location = new System.Drawing.Point(12, 382);
             this.btnHouseRules.Name = "btnHouseRules";
             this.btnHouseRules.Size = new System.Drawing.Size(46, 46);
->>>>>>> Stashed changes
             this.btnHouseRules.TabIndex = 6;
             this.btnHouseRules.UseVisualStyleBackColor = false;
             this.btnHouseRules.Click += new System.EventHandler(this.btnHouseRules_Click);
@@ -182,19 +149,16 @@
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-<<<<<<< Updated upstream
             this.lblWelcome.Location = new System.Drawing.Point(239, 86);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(121, 17);
-=======
             this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
             this.lblWelcome.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblWelcome.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblWelcome.Location = new System.Drawing.Point(205, 55);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(461, 65);
->>>>>>> Stashed changes
             this.lblWelcome.TabIndex = 15;
             this.lblWelcome.Text = "Welcome, <name>!";
             // 
@@ -226,14 +190,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< Updated upstream
             this.ClientSize = new System.Drawing.Size(636, 377);
             this.Controls.Add(this.lblWelcome);
-=======
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(740, 442);
             this.Controls.Add(this.panel1);
->>>>>>> Stashed changes
             this.Controls.Add(this.btnHouseRules);
             this.Controls.Add(this.lblHousingName);
             this.Controls.Add(this.btnGroceries);
