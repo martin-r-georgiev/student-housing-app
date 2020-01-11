@@ -27,6 +27,8 @@ namespace AdvancedProject1._0
         private string _id;
         private Color _panelColor;
         private Color _textColor;
+        private Color _originalBackground;
+        private Color _originalTextColor;
         private string _title;
         private string description;
         private bool completed;
@@ -65,7 +67,21 @@ namespace AdvancedProject1._0
         public bool Completed
         {
             get { return completed; }
-            set { completed = value; }
+            set 
+            { 
+                completed = value;
+                if (value)
+                {
+                    this.BackColor = Color.Green;
+                    this.lblTitle.ForeColor = Color.Green;
+
+                }
+                else
+                {
+                    this.BackColor = _panelColor;
+                    this.lblTitle.ForeColor = _textColor;
+                }
+            }
         }
 
         public Image Image
@@ -74,16 +90,33 @@ namespace AdvancedProject1._0
             set { _image = value; }
         }
 
+        public void SetHeight(int newHeight)
+        {
+            this.Height = newHeight;
+        }
+
+        public static float NewFontSize(Label label)
+        {
+            Size size = label.Size;
+            SizeF stringSize = TextRenderer.MeasureText(label.Text, label.Font);
+            float wRatio = label.Size.Width / (stringSize.Width+20);
+            float hRatio = size.Height / (stringSize.Height+20);
+            float ratio = Math.Min(hRatio, wRatio);
+            return label.Font.Size * ratio;
+
+        }
+
         private void lblTitle_MouseEnter(object sender, EventArgs e)
         {
             //Changing background color on mouse hover
-            this.BackColor = ControlPaint.Light(this.BackColor, 0.25f);
+            this.BackColor = ControlPaint.Light(this.BackColor, 0.75f);
         }
 
         private void lblTitle_MouseLeave(object sender, EventArgs e)
         {
             //Changing background color back to normal
-            this.BackColor = _panelColor;
+            if (!this.Completed) this.BackColor = _panelColor;
+            else this.BackColor = Color.Green;
         }
 
         private void RemoveEventFromDB()
@@ -103,11 +136,7 @@ namespace AdvancedProject1._0
         private void lblTitle_DoubleClick(object sender, EventArgs e)
         {
             //Double-clicking item to mark it as complete
-            _panelColor = Color.LawnGreen;
-            _textColor = Color.Black;
-            this.BackColor = _panelColor;
-            this.Completed = true;
-            lblTitle.ForeColor = _textColor;
+            this.Completed = !this.Completed;
 
             SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
             con.Open();
@@ -132,6 +161,22 @@ namespace AdvancedProject1._0
             CleaningSchedule pForm = (CleaningSchedule)this.ParentForm;
             pForm.ChangeDescription(this.description);
             pForm.ChangePicture(this.Image);
+        }
+
+        private void calendarEventItem_SizeChanged(object sender, EventArgs e)
+        {
+            lblPlaceholder.ForeColor = lblTitle.ForeColor;
+            if (lblTitle.Font.Size < 6)
+            {
+                lblTitle.Visible = false;
+                lblPlaceholder.Visible = true;
+            }
+            else
+            {
+                lblTitle.Visible = true;
+                lblPlaceholder.Visible = false;
+                if(NewFontSize(lblTitle) > 0) lblTitle.Font = new Font(lblTitle.Font.FontFamily, NewFontSize(lblTitle));
+            }
         }
     }
 }

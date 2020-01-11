@@ -41,17 +41,17 @@ namespace AdvancedProject1._0
                     break;
                 case 1: 
                     pbEventImage.Image = Properties.Resources.Study;
-                    backColor = Color.MidnightBlue;
+                    backColor = Color.CadetBlue;
                     textColor = Color.White;
                     break;
                 case 2: 
                     pbEventImage.Image = Properties.Resources.Party;
-                    backColor = Color.Purple;
+                    backColor = Color.SlateBlue;
                     textColor = Color.White;
                     break;
                 case 3: 
                     pbEventImage.Image = Properties.Resources.Garbage;
-                    backColor = Color.Peru;
+                    backColor = Color.LightGray;
                     textColor = Color.Black;
                     break;
                 case 4: 

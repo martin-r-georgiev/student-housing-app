@@ -17,6 +17,9 @@ namespace AdvancedProject1._0
         public CalendarItem()
         {
             InitializeComponent();
+            this.todayIndicator.Visible = false;
+            this.CalendarItem_SizeChanged(this, EventArgs.Empty);
+            this.Disposed += OnDispose;
         }
 
         private string _date;
@@ -33,10 +36,36 @@ namespace AdvancedProject1._0
         public DateTime RawDate
         {
             get { return _rawdate; }
-            set { _rawdate = value; }
+            set
+            { 
+                _rawdate = value;
+                if (value.DayOfWeek == DayOfWeek.Saturday || value.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    this.lblDate.ForeColor = SystemColors.HotTrack;
+                    this.lblWeekDay.ForeColor = SystemColors.HotTrack;
+                    this.eventTablePanel.BackColor = SystemColors.Menu;
+                    this.WeekDayPanel.BackColor = SystemColors.Menu;
+                    this.calendarDateBackground.BackColor = SystemColors.Menu;
+                    this.calendarEventList.BackColor = SystemColors.Menu;
+                }
+                else
+                {
+                    this.lblDate.ForeColor = SystemColors.ControlText;
+                    this.lblWeekDay.ForeColor = SystemColors.ControlText;
+                }
+                if (value.Month != DateTime.Today.Month)
+                {
+                    this.lblWeekDay.ForeColor = SystemColors.GrayText;
+                    this.lblDate.ForeColor = SystemColors.GrayText;
+                    this.eventTablePanel.BackColor = SystemColors.ScrollBar;
+                    this.WeekDayPanel.BackColor = SystemColors.ScrollBar;
+                    this.calendarDateBackground.BackColor = SystemColors.ScrollBar;
+                    this.calendarEventList.BackColor = SystemColors.ScrollBar;
+                }
+            }
         }
 
-        public string DayOfWeek
+        public string WeekDay
         {
             get { return _dayofweek; }
             set { _dayofweek = value; lblWeekDay.Text = _dayofweek; }
@@ -173,12 +202,19 @@ namespace AdvancedProject1._0
             calendarEventList.Controls.Add(newEvent);
             AddEventToDB(this._rawdate, eventColor, Color.Black, title);
         }
+
+        public void HideHeader(bool flag)
+        {
+            if (flag) calendarDateBackground.Visible = false;
+            else calendarDateBackground.Visible = true;
+        }
         
         public void IsToday()
         {
             calendarDateBackground.BackColor = Color.BlueViolet;
             eventTablePanel.BackColor = SystemColors.ControlLight;
             WeekDayPanel.BackColor = SystemColors.ControlLight;
+            todayIndicator.Visible = true;
         }
 
         public void IsToday(Color barColor)
@@ -186,6 +222,7 @@ namespace AdvancedProject1._0
             calendarDateBackground.BackColor = barColor;
             eventTablePanel.BackColor = SystemColors.ControlLight;
             WeekDayPanel.BackColor = SystemColors.ControlLight;
+            todayIndicator.Visible = true;
         }
 
         public void IsToday(Color barColor, Color backColor)
@@ -193,6 +230,7 @@ namespace AdvancedProject1._0
             calendarDateBackground.BackColor = barColor;
             eventTablePanel.BackColor = backColor;
             WeekDayPanel.BackColor = backColor;
+            todayIndicator.Visible = true;
         }
 
         private void calendarEventList_ControlRemoved(object sender, ControlEventArgs e)
@@ -220,17 +258,10 @@ namespace AdvancedProject1._0
             {
                 while(dataReader.Read())
                 {
+                    while (calendarEventList.Controls.Count > 0) calendarEventList.Controls[0].Dispose();
                     calendarEventItem newEvent = new calendarEventItem(calendarEventList);
-                    if(dataReader.GetBoolean(5))
-                    {
-                        newEvent.TextColor = Color.Black;
-                        newEvent.Color = Color.LawnGreen;
-                    }
-                    else
-                    {
-                        newEvent.TextColor = ColorTranslator.FromHtml(dataReader.GetString(3));
-                        newEvent.Color = ColorTranslator.FromHtml(dataReader.GetString(1));
-                    }
+                    newEvent.TextColor = ColorTranslator.FromHtml(dataReader.GetString(3));
+                    newEvent.Color = ColorTranslator.FromHtml(dataReader.GetString(1));
                     newEvent.Title = dataReader.GetString(2);
                     newEvent.Id = dataReader.GetInt32(4).ToString();
                     newEvent.Completed = dataReader.GetBoolean(5);
@@ -247,5 +278,17 @@ namespace AdvancedProject1._0
             con.Close();
         }
 
+        private void CalendarItem_SizeChanged(object sender, EventArgs e)
+        {
+            foreach(Control control in calendarEventList.Controls)
+            { 
+                control.Width = calendarEventList.Width - 5;
+            }
+        }
+
+        private void OnDispose(object sender, EventArgs e)
+        {
+            while (calendarEventList.Controls.Count > 0) calendarEventList.Controls[0].Dispose();
+        }
     }
 }
