@@ -35,82 +35,104 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pbEventImage = new System.Windows.Forms.PictureBox();
+            this.cbImageList = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEventImage)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpEvent
             // 
-            this.dtpEvent.Location = new System.Drawing.Point(20, 76);
+            this.dtpEvent.Location = new System.Drawing.Point(27, 94);
+            this.dtpEvent.Margin = new System.Windows.Forms.Padding(4);
             this.dtpEvent.Name = "dtpEvent";
-            this.dtpEvent.Size = new System.Drawing.Size(200, 20);
+            this.dtpEvent.Size = new System.Drawing.Size(265, 22);
             this.dtpEvent.TabIndex = 0;
             // 
             // tbTitle
             // 
-            this.tbTitle.Location = new System.Drawing.Point(20, 30);
+            this.tbTitle.Location = new System.Drawing.Point(27, 37);
+            this.tbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(200, 20);
+            this.tbTitle.Size = new System.Drawing.Size(265, 22);
             this.tbTitle.TabIndex = 1;
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(20, 123);
+            this.tbDescription.Location = new System.Drawing.Point(27, 151);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(200, 110);
+            this.tbDescription.Size = new System.Drawing.Size(265, 134);
             this.tbDescription.TabIndex = 2;
             // 
             // btnCreateEvent
             // 
-            this.btnCreateEvent.Location = new System.Drawing.Point(239, 142);
+            this.btnCreateEvent.Location = new System.Drawing.Point(319, 195);
+            this.btnCreateEvent.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateEvent.Name = "btnCreateEvent";
-            this.btnCreateEvent.Size = new System.Drawing.Size(94, 91);
+            this.btnCreateEvent.Size = new System.Drawing.Size(155, 90);
             this.btnCreateEvent.TabIndex = 3;
             this.btnCreateEvent.Text = "Create Event";
             this.btnCreateEvent.UseVisualStyleBackColor = true;
+            this.btnCreateEvent.Click += new System.EventHandler(this.btnCreateEvent_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 14);
+            this.label1.Location = new System.Drawing.Point(27, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.Size = new System.Drawing.Size(35, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Title";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 60);
+            this.label2.Location = new System.Drawing.Point(27, 74);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Date";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 107);
+            this.label3.Location = new System.Drawing.Point(27, 132);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(79, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Description";
             // 
-            // pictureBox1
+            // pbEventImage
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(239, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 97);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.pbEventImage.Location = new System.Drawing.Point(319, 28);
+            this.pbEventImage.Margin = new System.Windows.Forms.Padding(4);
+            this.pbEventImage.Name = "pbEventImage";
+            this.pbEventImage.Size = new System.Drawing.Size(155, 119);
+            this.pbEventImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEventImage.TabIndex = 7;
+            this.pbEventImage.TabStop = false;
+            // 
+            // cbImageList
+            // 
+            this.cbImageList.FormattingEnabled = true;
+            this.cbImageList.Location = new System.Drawing.Point(319, 154);
+            this.cbImageList.Name = "cbImageList";
+            this.cbImageList.Size = new System.Drawing.Size(155, 24);
+            this.cbImageList.TabIndex = 8;
+            this.cbImageList.DropDown += new System.EventHandler(this.cbImageList_DropDown);
+            this.cbImageList.SelectedIndexChanged += new System.EventHandler(this.cbImageList_SelectedIndexChanged);
             // 
             // EventsPopup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 249);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(498, 307);
+            this.Controls.Add(this.cbImageList);
+            this.Controls.Add(this.pbEventImage);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -118,10 +140,11 @@
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.dtpEvent);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EventsPopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EventsPopup";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEventImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,6 +159,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbEventImage;
+        private System.Windows.Forms.ComboBox cbImageList;
     }
 }

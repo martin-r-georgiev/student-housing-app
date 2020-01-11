@@ -12,9 +12,11 @@ namespace AdvancedProject1._0
 {
     public partial class Events : Form
     {
+        User loggedInUser;
         public Events()
         {
             InitializeComponent();
+            loggedInUser = new User(formLogin.userKey);
         }
 
         private void btnAddEvent_Click(object sender, EventArgs e)
@@ -25,16 +27,17 @@ namespace AdvancedProject1._0
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if (rbTenant.Checked)
+            if(loggedInUser.IsUserAdmin())
+            {
+                AdminMain adminMainScreen = new AdminMain();
+                adminMainScreen.Show();
+                this.Close();
+            } 
+            else
             {
                 TenantMain tenantMainScreen = new TenantMain();
                 tenantMainScreen.Show();
                 this.Close();
-            } else
-            {
-                AdminMain adminMainScreen = new AdminMain();
-                adminMainScreen.Show();
-                this.Close(); //h
             }
         }
     }
