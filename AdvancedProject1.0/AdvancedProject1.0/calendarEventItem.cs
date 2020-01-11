@@ -14,14 +14,10 @@ namespace AdvancedProject1._0
 {
     public partial class calendarEventItem : UserControl
     {
-        FlowLayoutPanel parentPanel = new FlowLayoutPanel();
-        public calendarEventItem(FlowLayoutPanel passedPanel)
+        public calendarEventItem()
         {
             InitializeComponent();
-            parentPanel = passedPanel;
             this.Dock = DockStyle.Top;
-            this.AutoSize = true;
-            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
         private string _id;
@@ -65,8 +61,8 @@ namespace AdvancedProject1._0
         public bool Completed
         {
             get { return completed; }
-            set 
-            { 
+            set
+            {
                 completed = value;
                 if (value)
                 {

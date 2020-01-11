@@ -158,7 +158,7 @@ namespace AdvancedProject1._0
 
         public void AddEvent(string title, Color eventColor, Color textColor, string description, Image img)
         {
-            calendarEventItem newEvent = new calendarEventItem(calendarEventList);
+            calendarEventItem newEvent = new calendarEventItem();
             newEvent.Title = title;
             newEvent.Color = eventColor;
             newEvent.TextColor = textColor;
@@ -171,7 +171,7 @@ namespace AdvancedProject1._0
 
         public void AddEvent(string title, Color eventColor, Color textColor, string description)
         {
-            calendarEventItem newEvent = new calendarEventItem(calendarEventList);
+            calendarEventItem newEvent = new calendarEventItem();
             newEvent.Title = title;
             newEvent.Color = eventColor;
             newEvent.TextColor = textColor;
@@ -183,7 +183,7 @@ namespace AdvancedProject1._0
 
         public void AddEvent(string title, Color eventColor, Color textColor)
         {
-            calendarEventItem newEvent = new calendarEventItem(calendarEventList);
+            calendarEventItem newEvent = new calendarEventItem();
             newEvent.Title = title;
             newEvent.Color = eventColor;
             newEvent.TextColor = textColor;
@@ -194,7 +194,7 @@ namespace AdvancedProject1._0
 
         public void AddEvent(string title, Color eventColor)
         {
-            calendarEventItem newEvent = new calendarEventItem(calendarEventList);
+            calendarEventItem newEvent = new calendarEventItem();
             newEvent.Title = title;
             newEvent.Color = eventColor;
             newEvent.Id = ReturnCurrentID();
@@ -214,6 +214,7 @@ namespace AdvancedProject1._0
             calendarDateBackground.BackColor = Color.BlueViolet;
             eventTablePanel.BackColor = SystemColors.ControlLight;
             WeekDayPanel.BackColor = SystemColors.ControlLight;
+            calendarEventList.BackColor = SystemColors.ControlLight;
             todayIndicator.Visible = true;
         }
 
@@ -221,6 +222,7 @@ namespace AdvancedProject1._0
         {
             calendarDateBackground.BackColor = barColor;
             eventTablePanel.BackColor = SystemColors.ControlLight;
+            calendarEventList.BackColor = SystemColors.ControlLight;
             WeekDayPanel.BackColor = SystemColors.ControlLight;
             todayIndicator.Visible = true;
         }
@@ -229,6 +231,7 @@ namespace AdvancedProject1._0
         {
             calendarDateBackground.BackColor = barColor;
             eventTablePanel.BackColor = backColor;
+            calendarEventList.BackColor = backColor;
             WeekDayPanel.BackColor = backColor;
             todayIndicator.Visible = true;
         }
@@ -258,8 +261,7 @@ namespace AdvancedProject1._0
             {
                 while(dataReader.Read())
                 {
-                    while (calendarEventList.Controls.Count > 0) calendarEventList.Controls[0].Dispose();
-                    calendarEventItem newEvent = new calendarEventItem(calendarEventList);
+                    calendarEventItem newEvent = new calendarEventItem();
                     newEvent.TextColor = ColorTranslator.FromHtml(dataReader.GetString(3));
                     newEvent.Color = ColorTranslator.FromHtml(dataReader.GetString(1));
                     newEvent.Title = dataReader.GetString(2);
@@ -280,10 +282,7 @@ namespace AdvancedProject1._0
 
         private void CalendarItem_SizeChanged(object sender, EventArgs e)
         {
-            foreach(Control control in calendarEventList.Controls)
-            {
-                control.Width = calendarEventList.Width - 5;
-            }
+
         }
 
         private void OnDispose(object sender, EventArgs e)

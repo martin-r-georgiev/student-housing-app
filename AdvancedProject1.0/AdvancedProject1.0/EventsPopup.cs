@@ -12,8 +12,8 @@ namespace AdvancedProject1._0
 {
     public partial class EventsPopup : Form
     {
-        private Color backColor = SystemColors.Control;
-        private Color textColor = SystemColors.InfoText;
+        private Color backColor = Color.DarkRed;
+        private Color textColor = Color.DarkRed;
 
         public EventsPopup()
         {
@@ -36,38 +36,31 @@ namespace AdvancedProject1._0
             {
                 case 0: 
                     pbEventImage.Image = Properties.Resources.Gaming;
-                    backColor = Color.Black;
-                    textColor = Color.White;
+                    backColor = textColor = Color.Black;
                     break;
                 case 1: 
                     pbEventImage.Image = Properties.Resources.Study;
-                    backColor = Color.CadetBlue;
-                    textColor = Color.White;
+                    backColor = textColor = Color.CadetBlue;
                     break;
                 case 2: 
                     pbEventImage.Image = Properties.Resources.Party;
-                    backColor = Color.SlateBlue;
-                    textColor = Color.White;
+                    backColor = textColor = Color.SlateBlue;
                     break;
                 case 3: 
                     pbEventImage.Image = Properties.Resources.Garbage;
-                    backColor = Color.LightGray;
-                    textColor = Color.Black;
+                    backColor = textColor = Color.Plum;
                     break;
                 case 4: 
                     pbEventImage.Image = Properties.Resources.Dishes;
-                    backColor = Color.LimeGreen;
-                    textColor = Color.Black;
+                    backColor = textColor = Color.Teal;
                     break;
                 case 5: 
                     pbEventImage.Image = Properties.Resources.Washing;
-                    backColor = Color.DarkSlateBlue;
-                    textColor = Color.White;
+                    backColor = textColor = Color.DarkSlateBlue;
                     break;
                 case 6: 
                     pbEventImage.Image = Properties.Resources.Cleaning;
-                    backColor = Color.DarkRed;
-                    textColor = Color.White;
+                    backColor = textColor = Color.DarkRed;
                     break;
                 default: 
                     pbEventImage.Image = null; 

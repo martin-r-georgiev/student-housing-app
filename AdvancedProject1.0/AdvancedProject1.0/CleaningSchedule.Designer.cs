@@ -42,10 +42,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(1460, 13);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Location = new System.Drawing.Point(1492, 14);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(46, 41);
+            this.btnBack.Size = new System.Drawing.Size(61, 50);
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -55,8 +55,8 @@
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.25F);
-            this.label42.Location = new System.Drawing.Point(520, 13);
-            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label42.Location = new System.Drawing.Point(567, 16);
+            this.label42.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(197, 51);
             this.label42.TabIndex = 3;
@@ -65,7 +65,8 @@
             // CalendarPanel
             // 
             this.CalendarPanel.AutoScroll = true;
-            this.CalendarPanel.Location = new System.Drawing.Point(17, 70);
+            this.CalendarPanel.Location = new System.Drawing.Point(23, 69);
+            this.CalendarPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CalendarPanel.Name = "CalendarPanel";
             this.CalendarPanel.Size = new System.Drawing.Size(1228, 714);
             this.CalendarPanel.TabIndex = 4;
@@ -73,18 +74,20 @@
             // 
             // rtbDescription
             // 
-            this.rtbDescription.Location = new System.Drawing.Point(1276, 273);
+            this.rtbDescription.Location = new System.Drawing.Point(1294, 312);
+            this.rtbDescription.Margin = new System.Windows.Forms.Padding(4, 4, 20, 4);
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.ReadOnly = true;
-            this.rtbDescription.Size = new System.Drawing.Size(258, 240);
+            this.rtbDescription.Size = new System.Drawing.Size(282, 294);
             this.rtbDescription.TabIndex = 5;
             this.rtbDescription.Text = "";
             // 
             // btnAddEvent
             // 
-            this.btnAddEvent.Location = new System.Drawing.Point(1304, 537);
+            this.btnAddEvent.Location = new System.Drawing.Point(1318, 614);
+            this.btnAddEvent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddEvent.Name = "btnAddEvent";
-            this.btnAddEvent.Size = new System.Drawing.Size(201, 40);
+            this.btnAddEvent.Size = new System.Drawing.Size(235, 49);
             this.btnAddEvent.TabIndex = 6;
             this.btnAddEvent.Text = "Add Event";
             this.btnAddEvent.UseVisualStyleBackColor = true;
@@ -92,9 +95,10 @@
             // 
             // btnGenerateSchedule
             // 
-            this.btnGenerateSchedule.Location = new System.Drawing.Point(1304, 596);
+            this.btnGenerateSchedule.Location = new System.Drawing.Point(1318, 687);
+            this.btnGenerateSchedule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGenerateSchedule.Name = "btnGenerateSchedule";
-            this.btnGenerateSchedule.Size = new System.Drawing.Size(201, 42);
+            this.btnGenerateSchedule.Size = new System.Drawing.Size(235, 52);
             this.btnGenerateSchedule.TabIndex = 9;
             this.btnGenerateSchedule.Text = "Cleaning Schedule Settings";
             this.btnGenerateSchedule.UseVisualStyleBackColor = true;
@@ -102,10 +106,10 @@
             // 
             // pbEventImage
             // 
-            this.pbEventImage.Location = new System.Drawing.Point(1327, 103);
-            this.pbEventImage.Margin = new System.Windows.Forms.Padding(4);
+            this.pbEventImage.Location = new System.Drawing.Point(1327, 80);
+            this.pbEventImage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pbEventImage.Name = "pbEventImage";
-            this.pbEventImage.Size = new System.Drawing.Size(155, 119);
+            this.pbEventImage.Size = new System.Drawing.Size(174, 146);
             this.pbEventImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbEventImage.TabIndex = 8;
             this.pbEventImage.TabStop = false;
@@ -115,8 +119,8 @@
             this.lblMonth.AutoSize = true;
             this.lblMonth.Font = new System.Drawing.Font("Open Sans", 25.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonth.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblMonth.Location = new System.Drawing.Point(20, 6);
-            this.lblMonth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMonth.Location = new System.Drawing.Point(27, 7);
+            this.lblMonth.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblMonth.Name = "lblMonth";
             this.lblMonth.Size = new System.Drawing.Size(196, 59);
             this.lblMonth.TabIndex = 10;
@@ -127,8 +131,8 @@
             this.lblYear.AutoSize = true;
             this.lblYear.Font = new System.Drawing.Font("Open Sans", 25.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblYear.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblYear.Location = new System.Drawing.Point(218, 6);
-            this.lblYear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblYear.Location = new System.Drawing.Point(229, 7);
+            this.lblYear.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(143, 59);
             this.lblYear.TabIndex = 11;
@@ -136,9 +140,11 @@
             // 
             // CleaningSchedule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1554, 796);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1602, 796);
             this.Controls.Add(this.lblYear);
             this.Controls.Add(this.lblMonth);
             this.Controls.Add(this.btnGenerateSchedule);
@@ -148,6 +154,8 @@
             this.Controls.Add(this.CalendarPanel);
             this.Controls.Add(this.label42);
             this.Controls.Add(this.btnBack);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1620, 843);
             this.Name = "CleaningSchedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CleaningSchedule";
