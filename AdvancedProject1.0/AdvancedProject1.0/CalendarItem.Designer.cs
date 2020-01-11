@@ -84,6 +84,7 @@
             this.eventTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.eventTablePanel.Controls.Add(this.calendarEventList, 0, 0);
             this.eventTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eventTablePanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
             this.eventTablePanel.Location = new System.Drawing.Point(0, 68);
             this.eventTablePanel.Name = "eventTablePanel";
             this.eventTablePanel.RowCount = 1;

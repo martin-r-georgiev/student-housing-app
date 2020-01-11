@@ -44,7 +44,7 @@
             this.lblTitle.Location = new System.Drawing.Point(0, -8);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new System.Windows.Forms.Padding(10);
-            this.lblTitle.Size = new System.Drawing.Size(150, 41);
+            this.lblTitle.Size = new System.Drawing.Size(127, 41);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -62,7 +62,7 @@
             this.lblPlaceholder.Location = new System.Drawing.Point(0, 0);
             this.lblPlaceholder.Name = "lblPlaceholder";
             this.lblPlaceholder.Padding = new System.Windows.Forms.Padding(10);
-            this.lblPlaceholder.Size = new System.Drawing.Size(153, 45);
+            this.lblPlaceholder.Size = new System.Drawing.Size(130, 45);
             this.lblPlaceholder.TabIndex = 1;
             this.lblPlaceholder.Text = " ★";
             this.lblPlaceholder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -75,7 +75,7 @@
             this.contentsPanel.Controls.Add(this.lblPlaceholder);
             this.contentsPanel.Location = new System.Drawing.Point(3, 3);
             this.contentsPanel.Name = "contentsPanel";
-            this.contentsPanel.Size = new System.Drawing.Size(147, 26);
+            this.contentsPanel.Size = new System.Drawing.Size(124, 26);
             this.contentsPanel.TabIndex = 2;
             // 
             // calendarEventItem
@@ -84,9 +84,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.DarkOrange;
             this.Controls.Add(this.contentsPanel);
             this.Name = "calendarEventItem";
-            this.Size = new System.Drawing.Size(153, 32);
+            this.Size = new System.Drawing.Size(130, 32);
             this.SizeChanged += new System.EventHandler(this.calendarEventItem_SizeChanged);
             this.contentsPanel.ResumeLayout(false);
             this.ResumeLayout(false);

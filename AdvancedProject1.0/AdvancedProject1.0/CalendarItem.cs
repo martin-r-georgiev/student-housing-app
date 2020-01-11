@@ -282,7 +282,7 @@ namespace AdvancedProject1._0
 
         private void CalendarItem_SizeChanged(object sender, EventArgs e)
         {
-
+            //To either be used or removed in the future
         }
 
         private void OnDispose(object sender, EventArgs e)
