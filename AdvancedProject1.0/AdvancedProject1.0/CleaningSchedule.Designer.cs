@@ -45,7 +45,7 @@
             this.btnBack.Location = new System.Drawing.Point(1460, 13);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(61, 50);
+            this.btnBack.Size = new System.Drawing.Size(46, 41);
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -136,7 +136,7 @@
             // 
             // CleaningSchedule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1554, 796);
             this.Controls.Add(this.lblYear);
@@ -148,7 +148,6 @@
             this.Controls.Add(this.CalendarPanel);
             this.Controls.Add(this.label42);
             this.Controls.Add(this.btnBack);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CleaningSchedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CleaningSchedule";

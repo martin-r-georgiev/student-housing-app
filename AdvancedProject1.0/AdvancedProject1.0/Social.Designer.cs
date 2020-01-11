@@ -33,27 +33,34 @@
             this.btnSendChat = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.tcChats = new System.Windows.Forms.TabControl();
+            this.tp1 = new System.Windows.Forms.TabPage();
+            this.tp2 = new System.Windows.Forms.TabPage();
+            this.lbGeneralChat = new System.Windows.Forms.ListBox();
+            this.tcChats.SuspendLayout();
+            this.tp1.SuspendLayout();
+            this.tp2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbChat
             // 
             this.lbChat.FormattingEnabled = true;
-            this.lbChat.Location = new System.Drawing.Point(12, 51);
+            this.lbChat.Location = new System.Drawing.Point(-4, 0);
             this.lbChat.Name = "lbChat";
-            this.lbChat.Size = new System.Drawing.Size(352, 303);
+            this.lbChat.Size = new System.Drawing.Size(342, 329);
             this.lbChat.TabIndex = 0;
             this.lbChat.SelectedIndexChanged += new System.EventHandler(this.LbChat_SelectedIndexChanged);
             // 
             // tbChat
             // 
-            this.tbChat.Location = new System.Drawing.Point(12, 368);
+            this.tbChat.Location = new System.Drawing.Point(12, 406);
             this.tbChat.Name = "tbChat";
             this.tbChat.Size = new System.Drawing.Size(279, 20);
             this.tbChat.TabIndex = 1;
             // 
             // btnSendChat
             // 
-            this.btnSendChat.Location = new System.Drawing.Point(297, 368);
+            this.btnSendChat.Location = new System.Drawing.Point(297, 406);
             this.btnSendChat.Name = "btnSendChat";
             this.btnSendChat.Size = new System.Drawing.Size(67, 20);
             this.btnSendChat.TabIndex = 2;
@@ -63,7 +70,7 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(379, 51);
+            this.btnReport.Location = new System.Drawing.Point(379, 9);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(88, 57);
             this.btnReport.TabIndex = 3;
@@ -81,21 +88,65 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // tcChats
+            // 
+            this.tcChats.Controls.Add(this.tp1);
+            this.tcChats.Controls.Add(this.tp2);
+            this.tcChats.Location = new System.Drawing.Point(12, 51);
+            this.tcChats.Name = "tcChats";
+            this.tcChats.SelectedIndex = 0;
+            this.tcChats.Size = new System.Drawing.Size(352, 349);
+            this.tcChats.TabIndex = 5;
+            this.tcChats.SelectedIndexChanged += new System.EventHandler(this.tcChats_SelectedIndexChanged);
+            // 
+            // tp1
+            // 
+            this.tp1.Controls.Add(this.lbGeneralChat);
+            this.tp1.Location = new System.Drawing.Point(4, 22);
+            this.tp1.Name = "tp1";
+            this.tp1.Padding = new System.Windows.Forms.Padding(3);
+            this.tp1.Size = new System.Drawing.Size(344, 323);
+            this.tp1.TabIndex = 0;
+            this.tp1.Text = "General";
+            this.tp1.UseVisualStyleBackColor = true;
+            // 
+            // tp2
+            // 
+            this.tp2.Controls.Add(this.lbChat);
+            this.tp2.Location = new System.Drawing.Point(4, 22);
+            this.tp2.Name = "tp2";
+            this.tp2.Padding = new System.Windows.Forms.Padding(3);
+            this.tp2.Size = new System.Drawing.Size(344, 323);
+            this.tp2.TabIndex = 1;
+            this.tp2.Text = "House Unit";
+            this.tp2.UseVisualStyleBackColor = true;
+            // 
+            // lbGeneralChat
+            // 
+            this.lbGeneralChat.FormattingEnabled = true;
+            this.lbGeneralChat.Location = new System.Drawing.Point(-4, -2);
+            this.lbGeneralChat.Name = "lbGeneralChat";
+            this.lbGeneralChat.Size = new System.Drawing.Size(352, 329);
+            this.lbGeneralChat.TabIndex = 6;
+            // 
             // Social
             // 
             this.AcceptButton = this.btnSendChat;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 417);
+            this.ClientSize = new System.Drawing.Size(479, 438);
+            this.Controls.Add(this.tcChats);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnSendChat);
             this.Controls.Add(this.tbChat);
-            this.Controls.Add(this.lbChat);
             this.Name = "Social";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Social";
             this.Load += new System.EventHandler(this.Social_Load);
+            this.tcChats.ResumeLayout(false);
+            this.tp1.ResumeLayout(false);
+            this.tp2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,5 +159,9 @@
         private System.Windows.Forms.Button btnSendChat;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TabControl tcChats;
+        private System.Windows.Forms.TabPage tp1;
+        private System.Windows.Forms.TabPage tp2;
+        private System.Windows.Forms.ListBox lbGeneralChat;
     }
 }
