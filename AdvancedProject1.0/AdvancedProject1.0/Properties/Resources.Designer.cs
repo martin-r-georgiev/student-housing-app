@@ -73,6 +73,16 @@ namespace AdvancedProject1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CommonRoom {
+            get {
+                object obj = ResourceManager.GetObject("CommonRoom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dishes {
             get {
                 object obj = ResourceManager.GetObject("Dishes", resourceCulture);
@@ -116,6 +126,16 @@ namespace AdvancedProject1._0.Properties {
         internal static System.Drawing.Bitmap Study {
             get {
                 object obj = ResourceManager.GetObject("Study", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Toilet {
+            get {
+                object obj = ResourceManager.GetObject("Toilet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -91,6 +91,7 @@
     <Compile Include="CleaningSchedule.Designer.cs">
       <DependentUpon>CleaningSchedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventColorHandler.cs" />
     <Compile Include="Events.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +133,7 @@
     <Compile Include="LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderScheduler.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Payments.cs" />
     <Compile Include="Program.cs" />
@@ -251,6 +253,8 @@
     <Content Include="HousingDB_log.ldf">
       <DependentUpon>HousingDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Toilet.png" />
+    <None Include="Resources\CommonRoom.png" />
     <None Include="Resources\calendar-icon.png" />
     <None Include="Resources\Washing.png" />
     <None Include="Resources\Study.png" />

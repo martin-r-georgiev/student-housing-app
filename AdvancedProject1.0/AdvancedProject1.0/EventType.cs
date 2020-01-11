@@ -12,8 +12,9 @@ namespace AdvancedProject1._0
         Study,
         Party,
         Garbage,
-        Dishes,
-        Washing,
-        Cleaning
+        CommonRoom,
+        Kitchen,
+        Bathroom,
+        Groceries
     }
 }

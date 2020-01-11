@@ -12,8 +12,7 @@ namespace AdvancedProject1._0
 {
     public partial class EventsPopup : Form
     {
-        private Color backColor = Color.DarkRed;
-        private Color textColor = Color.DarkRed;
+        EventColorHandler colorHandler = new EventColorHandler();
 
         public EventsPopup()
         {
@@ -32,50 +31,31 @@ namespace AdvancedProject1._0
 
         private void cbImageList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            colorHandler = EventColorHandler.GetColorHandler((EventType)cbImageList.SelectedIndex);
             switch(cbImageList.SelectedIndex)
             {
-                case 0: 
-                    pbEventImage.Image = Properties.Resources.Gaming;
-                    backColor = textColor = Color.Black;
-                    break;
-                case 1: 
-                    pbEventImage.Image = Properties.Resources.Study;
-                    backColor = textColor = Color.CadetBlue;
-                    break;
-                case 2: 
-                    pbEventImage.Image = Properties.Resources.Party;
-                    backColor = textColor = Color.SlateBlue;
-                    break;
-                case 3: 
-                    pbEventImage.Image = Properties.Resources.Garbage;
-                    backColor = textColor = Color.Plum;
-                    break;
-                case 4: 
-                    pbEventImage.Image = Properties.Resources.Dishes;
-                    backColor = textColor = Color.Teal;
-                    break;
-                case 5: 
-                    pbEventImage.Image = Properties.Resources.Washing;
-                    backColor = textColor = Color.DarkSlateBlue;
-                    break;
-                case 6: 
-                    pbEventImage.Image = Properties.Resources.Cleaning;
-                    backColor = textColor = Color.DarkRed;
-                    break;
-                default: 
-                    pbEventImage.Image = null; 
-                    break;
+                case 0: pbEventImage.Image = Properties.Resources.Gaming; break;
+                case 1: pbEventImage.Image = Properties.Resources.Study; break;
+                case 2: pbEventImage.Image = Properties.Resources.Party; break;
+                case 3: pbEventImage.Image = Properties.Resources.Garbage; break;
+                case 4: pbEventImage.Image = Properties.Resources.CommonRoom; break;
+                case 5: pbEventImage.Image = Properties.Resources.Dishes; break;
+                case 6: pbEventImage.Image = Properties.Resources.Toilet; break;
+                default: pbEventImage.Image = null; break;
             }
         }
 
         private void btnCreateEvent_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tbTitle.Text))
+            if(cbImageList.SelectedIndex != -1)
             {
-                CalendarItem.AddEventToDB(dtpEvent.Value, backColor, textColor, tbTitle.Text, tbDescription.Text, pbEventImage.Image);
-                this.Close();
-            }
-            else MessageBox.Show("You need to specify a title to create an event.");
+                if (!string.IsNullOrEmpty(tbTitle.Text))
+                {
+                    CalendarItem.AddEventToDB(dtpEvent.Value, colorHandler.BackColor, colorHandler.TextColor, tbTitle.Text, tbDescription.Text, pbEventImage.Image);
+                    this.Close();
+                }
+                else MessageBox.Show("You need to specify a title to create an event.");
+            } 
         }
     }
 }

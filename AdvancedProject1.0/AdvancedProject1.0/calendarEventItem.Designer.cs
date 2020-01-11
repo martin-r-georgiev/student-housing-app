@@ -86,6 +86,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.Controls.Add(this.contentsPanel);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "calendarEventItem";
             this.Size = new System.Drawing.Size(130, 32);
             this.SizeChanged += new System.EventHandler(this.calendarEventItem_SizeChanged);

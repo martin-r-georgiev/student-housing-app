@@ -28,23 +28,41 @@ namespace AdvancedProject1._0
             tenantUnit = new HouseUnit(loggedInUser.GetHouseID());
         }
 
-        private void tbGarbage_ValueChanged(object sender, EventArgs e)
-        {
-            lblGarbageValue.Text = tbGarbage.Value.ToString();
-        }
-
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             //TO DO: Add limits
             int order = 0;
-            DateTime nextMonday = GetNextWeekday(DateTime.Today, DayOfWeek.Monday);
-            MessageBox.Show(GetNextWeekday(nextMonday, DayOfWeek.Wednesday).ToString());
-            for(int i = 0; i < 7; i++)
+            EventColorHandler colorHandler = new EventColorHandler();
+            DateTime startDate = GetNextWeekday(DateTime.Today, DayOfWeek.Monday);
+            DateTime iterator = startDate;
+            DateTime endDate = startDate.AddDays(7);
+            MessageBox.Show(endDate.ToString());
+            //Cleaning Common Rooms
+            if(tbCommonRooms.Value > 0)
             {
-                CalendarItem.AddEventToDB(nextMonday, Color.DarkBlue, Color.White, "Temporary", "No event description", Properties.Resources.Cleaning);
-                nextMonday = nextMonday.AddDays(tbGarbage.Value);
+                while (iterator <= endDate)
+                {
+                    colorHandler = EventColorHandler.GetColorHandler(EventType.CommonRoom);
+                    CalendarItem.AddEventToDB(iterator, colorHandler.BackColor, colorHandler.TextColor, "Temporary", "No event description", Properties.Resources.CommonRoom);
+                    iterator = iterator.AddDays(tbCommonRooms.Value);
+                }
             }
             this.Close();
+        }
+
+        private void tbBathroom_ValueChanged(object sender, EventArgs e)
+        {
+            lblBathroomValue.Text = tbBathroom.Value.ToString();
+        }
+
+        private void tbKitchen_ValueChanged(object sender, EventArgs e)
+        {
+            lblKitchenValue.Text = tbKitchen.Value.ToString();
+        }
+
+        private void tbCommonRooms_ValueChanged(object sender, EventArgs e)
+        {
+            lblCRoomsValue.Text = tbCommonRooms.Value.ToString();
         }
     }
 }
