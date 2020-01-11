@@ -211,5 +211,12 @@ namespace AdvancedProject1._0
             tbLastName.Clear();
             cmbHouseUnits.ResetText();
         }
+
+        private void RefreshHouseUnit()
+        {
+            tbUnitID.Clear();
+            tbAddress.Clear();
+            tbCapacity.Clear();
+        }
     }
 }

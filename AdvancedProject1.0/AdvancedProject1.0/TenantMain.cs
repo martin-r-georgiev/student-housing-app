@@ -54,12 +54,6 @@ namespace AdvancedProject1._0
             this.Close();
         }
 
-        private void btnEvents_Click(object sender, EventArgs e)
-        {
-            Events eventScreen = new Events();
-            eventScreen.Show();
-            this.Close();
-        }
 
         private void btnSocial_Click(object sender, EventArgs e)
         {
@@ -71,6 +65,11 @@ namespace AdvancedProject1._0
         private void btnHouseRules_Click(object sender, EventArgs e)
         {
             MessageBox.Show(houseRules.GetRules());
+        }
+
+        private void TenantMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

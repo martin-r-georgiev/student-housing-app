@@ -27,13 +27,6 @@ namespace AdvancedProject1._0
             this.Close();  //h
         }
 
-        private void btnEvents_Click(object sender, EventArgs e)
-        {
-            Events eventScreen = new Events();
-            eventScreen.Show();
-            this.Close();
-        }
-
         private void btnHouseRules_Click(object sender, EventArgs e)
         {
             HouseRules houseRulesScreen = new HouseRules();
@@ -52,6 +45,11 @@ namespace AdvancedProject1._0
             AdminAdd addScreen = new AdminAdd();
             addScreen.Show();
             this.Close();
+        }
+
+        private void btnCalendar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

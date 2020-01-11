@@ -52,7 +52,7 @@ namespace AdvancedProject1._0
 				string sender = dataReader.GetString(0);
 				string receiver = dataReader.GetString(1);
 				double amount = Convert.ToDouble(dataReader.GetString(2));
-				string paymentLine = $"{sender} Has to pay {amount} $ to {receiver}";
+				string paymentLine = $"{sender}\t has to pay {amount}$ to {receiver}";
 				paymentList.Add(paymentLine);
 			}
 			con.Close();
