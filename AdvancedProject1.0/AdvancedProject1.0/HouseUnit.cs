@@ -17,6 +17,11 @@ namespace AdvancedProject1._0
         private int people;
         private int capacity;
 
+        public int Capacity
+        {
+            get { return capacity; }
+        }
+
         public HouseUnit(int newUnitID, string newAddress, int newCapacity)
         {
             //TO DO: Check if UnitID is unique

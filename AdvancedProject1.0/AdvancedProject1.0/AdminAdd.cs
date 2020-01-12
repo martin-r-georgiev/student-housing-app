@@ -17,6 +17,9 @@ namespace AdvancedProject1._0
     {
         List<User> userList = new List<User>();
         List<HouseUnit> unitList = new List<HouseUnit>();
+        HouseUnit targetUnit;
+
+        List<User> AssignUserList = new List<User>();
 
         public AdminAdd()
         {
@@ -217,6 +220,92 @@ namespace AdvancedProject1._0
         {
             if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
             else Application.Exit();
+        }
+
+        private void cmbUnits_DropDown(object sender, EventArgs e)
+        {
+            cmbUnitsList.Items.Clear();
+            foreach(HouseUnit unit in unitList)
+            {
+                cmbUnitsList.Items.Add(unit.GetUnitID());
+            }
+        }
+
+        private void cmbUnits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbUnitsList.SelectedIndex != -1)
+            {
+                lblCapacity.Text = $"{unitList[cmbUnitsList.SelectedIndex].Tenants().Count}/{unitList[cmbUnitsList.SelectedIndex].Capacity} Tenants";
+                lblCapacity.Visible = true;
+
+                targetUnit = unitList[cmbUnitsList.SelectedIndex];
+
+                lbTenantList.Items.Clear();
+                foreach (User user in unitList[cmbUnitsList.SelectedIndex].Tenants())
+                {
+                    lbTenantList.Items.Add(user.GetName());
+                }
+            }  
+        }
+
+        private void btnRemoveTenant_Click(object sender, EventArgs e)
+        {
+            if (lbTenantList.SelectedIndex != -1)
+            {
+                targetUnit.Tenants()[lbTenantList.SelectedIndex].SetHouseID(0);
+                targetUnit.RemoveAt(lbTenantList.SelectedIndex);
+                lbTenantList.Items.RemoveAt(lbTenantList.SelectedIndex);
+
+                lblCapacity.Text = $"{targetUnit.Tenants().Count}/{targetUnit.Capacity} Tenants";                
+            }
+            else MessageBox.Show("Please select a tenant first.");
+        }
+
+        private void btnAssignUser_Click(object sender, EventArgs e)
+        {
+            if (cmbAssignUserList.SelectedIndex != -1 && cmbAssignUnitList.SelectedIndex != -1)
+            {
+                unitList[cmbAssignUnitList.SelectedIndex].AddTenant(AssignUserList[cmbAssignUserList.SelectedIndex]);
+                AssignUserList[cmbAssignUserList.SelectedIndex].SetHouseID((int)cmbAssignUnitList.SelectedItem);
+                AssignUserList.RemoveAt(cmbAssignUserList.SelectedIndex);
+                cmbAssignUserList.SelectedIndex = -1;
+            }
+            else MessageBox.Show("Please make your selection(s).");
+        }
+
+        private void cmbAssignUnitList_DropDown(object sender, EventArgs e)
+        {
+            cmbAssignUnitList.Items.Clear();
+            foreach (HouseUnit unit in unitList)
+            {
+                cmbAssignUnitList.Items.Add(unit.GetUnitID());
+            }
+        }
+
+        private void cmbAssignUserList_DropDown(object sender, EventArgs e)
+        {
+            cmbAssignUserList.Items.Clear();
+            AssignUserList.Clear();
+
+            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand($"SELECT userID, houseID, isAdmin FROM Users", con);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                if (!dataReader.GetBoolean(2))
+                {
+                    if (dataReader.GetInt32(1) == 0)
+                    {
+                        User newUser = new User(dataReader.GetString(0));
+                        cmbAssignUserList.Items.Add(newUser.GetName());
+                        AssignUserList.Add(newUser);
+                    }
+                }
+            }
+            con.Close();
         }
     }
 }
