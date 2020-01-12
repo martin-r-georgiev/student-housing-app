@@ -156,6 +156,7 @@
     <Compile Include="SchedulePopup.Designer.cs">
       <DependentUpon>SchedulePopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingsHandler.cs" />
     <Compile Include="Social.cs">
       <SubType>Form</SubType>
     </Compile>

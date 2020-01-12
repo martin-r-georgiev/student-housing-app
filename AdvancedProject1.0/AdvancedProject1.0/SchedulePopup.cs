@@ -14,6 +14,7 @@ namespace AdvancedProject1._0
     {
         User loggedInUser;
         HouseUnit tenantUnit;
+        SettingsHandler settingsHandler;
 
         public static DateTime GetNextWeekday(DateTime start, DayOfWeek day)
         {
@@ -26,9 +27,28 @@ namespace AdvancedProject1._0
             InitializeComponent();
             loggedInUser = new User(formLogin.userKey);
             tenantUnit = new HouseUnit(loggedInUser.GetHouseID());
+            settingsHandler = new SettingsHandler(tenantUnit);
+            tbCommonRooms.Value = settingsHandler.CommonValue;
+            tbKitchen.Value = settingsHandler.KitchenValue;
+            tbBathroom.Value = settingsHandler.BathroomValue;
         }
 
-        private void btnGenerate_Click(object sender, EventArgs e)
+        private void tbBathroom_ValueChanged(object sender, EventArgs e)
+        {
+            lblBathroomValue.Text = tbBathroom.Value.ToString();
+        }
+
+        private void tbKitchen_ValueChanged(object sender, EventArgs e)
+        {
+            lblKitchenValue.Text = tbKitchen.Value.ToString();
+        }
+
+        private void tbCommonRooms_ValueChanged(object sender, EventArgs e)
+        {
+            lblCRoomsValue.Text = tbCommonRooms.Value.ToString();
+        }
+
+        private void btnSaveSettings_Click(object sender, EventArgs e)
         {
             //TO DO: Add limits
             User orderUser;
@@ -37,9 +57,9 @@ namespace AdvancedProject1._0
             DateTime startDate = GetNextWeekday(DateTime.Today, DayOfWeek.Monday);
             DateTime iterator;
             DateTime endDate = startDate.AddDays(7);
-            MessageBox.Show(endDate.ToString()); 
+            MessageBox.Show(endDate.ToString());
             //Cleaning Common Rooms
-            if(tbCommonRooms.Value > 0)
+            if (tbCommonRooms.Value > 0)
             {
                 iterator = scheduler.GetLastDate(EventType.CommonRoom);
                 if (iterator.Date != startDate.Date) iterator = iterator.AddDays(tbCommonRooms.Value);
@@ -83,22 +103,11 @@ namespace AdvancedProject1._0
                     iterator = iterator.AddDays(tbBathroom.Value);
                 }
             }
+            settingsHandler.CommonValue = tbCommonRooms.Value;
+            settingsHandler.KitchenValue = tbKitchen.Value;
+            settingsHandler.BathroomValue = tbBathroom.Value;
+            settingsHandler.SaveSettings();
             this.Close();
-        }
-
-        private void tbBathroom_ValueChanged(object sender, EventArgs e)
-        {
-            lblBathroomValue.Text = tbBathroom.Value.ToString();
-        }
-
-        private void tbKitchen_ValueChanged(object sender, EventArgs e)
-        {
-            lblKitchenValue.Text = tbKitchen.Value.ToString();
-        }
-
-        private void tbCommonRooms_ValueChanged(object sender, EventArgs e)
-        {
-            lblCRoomsValue.Text = tbCommonRooms.Value.ToString();
         }
     }
 }
