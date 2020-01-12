@@ -64,16 +64,11 @@ namespace AdvancedProject1._0
                 if (dataReader.Read())
                 {
                     User targetUser = new User(newUnit.Tenants()[0].GetUserID());
-                    if (!dataReader.IsDBNull(1)) this.CurrentIDCommon = dataReader.GetString(1);
-                    else this.CurrentIDCommon = targetUser.GetUserID();
-                    if (!dataReader.IsDBNull(2)) this.CurrentIDKitchen = dataReader.GetString(2);
-                    else this.CurrentIDKitchen = targetUser.GetUserID();
-                    if (!dataReader.IsDBNull(3)) this.CurrentIDBathroom = dataReader.GetString(3);
-                    else this.CurrentIDBathroom = targetUser.GetUserID();
-                    if (!dataReader.IsDBNull(4)) this.CurrentIDGarbage = dataReader.GetString(4);
-                    else this.CurrentIDGarbage = targetUser.GetUserID();
-                    if (!dataReader.IsDBNull(5)) this.CurrentIDGroceries = dataReader.GetString(5);
-                    else this.CurrentIDGroceries = targetUser.GetUserID();
+                    this.CurrentIDCommon = dataReader[1] as string ?? targetUser.GetUserID();
+                    this.CurrentIDKitchen = dataReader[2] as string ?? targetUser.GetUserID();
+                    this.CurrentIDBathroom = dataReader[3] as string ?? targetUser.GetUserID();
+                    this.CurrentIDGarbage = dataReader[4] as string ?? targetUser.GetUserID();
+                    this.CurrentIDGroceries = dataReader[5] as string ?? targetUser.GetUserID();
                 }
                 else newOrder = true;
                 dataReader.Close();
