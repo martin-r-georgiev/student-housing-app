@@ -75,6 +75,7 @@ namespace AdvancedProject1._0
 
         void GenerateCleaningEvents()
         {
+            CalendarItem.unitID = loggedInUser.GetHouseID();
             User orderUser;
             EventColorHandler colorHandler = new EventColorHandler();
             OrderScheduler scheduler = new OrderScheduler(tenantUnit);
@@ -135,8 +136,9 @@ namespace AdvancedProject1._0
             tenantUnit = new HouseUnit(loggedInUser.GetHouseID());
             settingsHandler = new SettingsHandler(tenantUnit);
             this.DoubleBuffered = true;
-            PopulateCalendar();
             GenerateCleaningEvents();
+            PopulateCalendar();
+            
 
             garbageCounter = 0;
             Residents = new List<User>();
