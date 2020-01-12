@@ -109,7 +109,6 @@
             this.btnCalendar.TabIndex = 10;
             this.btnCalendar.Text = "Calendar";
             this.btnCalendar.UseVisualStyleBackColor = true;
-            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
             // AdminMain
             // 

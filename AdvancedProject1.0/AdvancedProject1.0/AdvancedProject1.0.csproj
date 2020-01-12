@@ -91,6 +91,7 @@
     <Compile Include="CleaningSchedule.Designer.cs">
       <DependentUpon>CleaningSchedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventColorHandler.cs" />
     <Compile Include="EventsPopup.cs">
       <SubType>Form</SubType>
     </Compile>
