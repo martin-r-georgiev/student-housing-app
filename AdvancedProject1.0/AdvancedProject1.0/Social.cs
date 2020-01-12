@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -154,6 +155,12 @@ namespace AdvancedProject1._0
         private void tcChats_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshListbox();
+        }
+
+        private void Social_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
+            else Application.Exit();
         }
     }
 }

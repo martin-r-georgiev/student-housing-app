@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -90,6 +91,12 @@ namespace AdvancedProject1._0
         protected void Panel_MouseDoubleClick(object sender, EventArgs e)
         {
 
-        }   
+        }
+
+        private void Reports_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
+            else Application.Exit();
+        }
     }
 }

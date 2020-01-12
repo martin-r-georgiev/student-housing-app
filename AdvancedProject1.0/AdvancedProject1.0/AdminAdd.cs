@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -210,6 +211,12 @@ namespace AdvancedProject1._0
             tbFirstName.Clear();
             tbLastName.Clear();
             cmbHouseUnits.ResetText();
+        }
+
+        private void AdminAdd_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
+            else Application.Exit();
         }
     }
 }

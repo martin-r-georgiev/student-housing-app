@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,6 +53,12 @@ namespace AdvancedProject1._0
             AdminAdd addScreen = new AdminAdd();
             addScreen.Show();
             this.Close();
+        }
+
+        private void AdminMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
+            else Application.Exit();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -117,6 +118,12 @@ namespace AdvancedProject1._0
                 control.Height = (int)(CalendarPanel.Height / 3.5);
                 control.Width = (int)(CalendarPanel.Width / 7.41);
             }
+        }
+
+        private void CleaningSchedule_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
+            else Application.Exit();
         }
     }
 }

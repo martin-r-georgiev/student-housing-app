@@ -141,6 +141,7 @@
             this.Name = "TenantMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TenantMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TenantMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

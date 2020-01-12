@@ -43,7 +43,7 @@
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(1492, 14);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(5);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(61, 50);
             this.btnBack.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             this.CalendarPanel.AutoScroll = true;
             this.CalendarPanel.Location = new System.Drawing.Point(23, 69);
-            this.CalendarPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CalendarPanel.Margin = new System.Windows.Forms.Padding(4);
             this.CalendarPanel.Name = "CalendarPanel";
             this.CalendarPanel.Size = new System.Drawing.Size(1228, 714);
             this.CalendarPanel.TabIndex = 4;
@@ -85,7 +85,7 @@
             // btnAddEvent
             // 
             this.btnAddEvent.Location = new System.Drawing.Point(1318, 614);
-            this.btnAddEvent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddEvent.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddEvent.Name = "btnAddEvent";
             this.btnAddEvent.Size = new System.Drawing.Size(235, 49);
             this.btnAddEvent.TabIndex = 6;
@@ -96,7 +96,7 @@
             // btnGenerateSchedule
             // 
             this.btnGenerateSchedule.Location = new System.Drawing.Point(1318, 687);
-            this.btnGenerateSchedule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGenerateSchedule.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerateSchedule.Name = "btnGenerateSchedule";
             this.btnGenerateSchedule.Size = new System.Drawing.Size(235, 52);
             this.btnGenerateSchedule.TabIndex = 9;
@@ -107,7 +107,7 @@
             // pbEventImage
             // 
             this.pbEventImage.Location = new System.Drawing.Point(1327, 80);
-            this.pbEventImage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pbEventImage.Margin = new System.Windows.Forms.Padding(5);
             this.pbEventImage.Name = "pbEventImage";
             this.pbEventImage.Size = new System.Drawing.Size(174, 146);
             this.pbEventImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -154,11 +154,12 @@
             this.Controls.Add(this.CalendarPanel);
             this.Controls.Add(this.label42);
             this.Controls.Add(this.btnBack);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1620, 843);
             this.Name = "CleaningSchedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CleaningSchedule";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CleaningSchedule_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbEventImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

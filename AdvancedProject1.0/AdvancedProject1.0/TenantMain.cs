@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -71,6 +72,12 @@ namespace AdvancedProject1._0
         private void btnHouseRules_Click(object sender, EventArgs e)
         {
             MessageBox.Show(houseRules.GetRules());
+        }
+
+        private void TenantMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
+            else Application.Exit();
         }
     }
 }

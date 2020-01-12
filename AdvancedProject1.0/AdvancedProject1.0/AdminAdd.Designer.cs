@@ -344,6 +344,7 @@
             this.Name = "AdminAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAdd";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminAdd_FormClosing);
             this.Load += new System.EventHandler(this.AdminAdd_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabUser.ResumeLayout(false);

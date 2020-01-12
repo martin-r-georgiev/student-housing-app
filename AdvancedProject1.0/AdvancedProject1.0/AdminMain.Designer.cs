@@ -39,9 +39,10 @@
             // 
             // btnHouseRules
             // 
-            this.btnHouseRules.Location = new System.Drawing.Point(338, 105);
+            this.btnHouseRules.Location = new System.Drawing.Point(451, 129);
+            this.btnHouseRules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHouseRules.Name = "btnHouseRules";
-            this.btnHouseRules.Size = new System.Drawing.Size(80, 80);
+            this.btnHouseRules.Size = new System.Drawing.Size(107, 98);
             this.btnHouseRules.TabIndex = 13;
             this.btnHouseRules.Text = "Update House Rules";
             this.btnHouseRules.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(397, 13);
+            this.btnLogout.Location = new System.Drawing.Point(529, 16);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(48, 42);
+            this.btnLogout.Size = new System.Drawing.Size(64, 52);
             this.btnLogout.TabIndex = 12;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -60,17 +62,19 @@
             // lblHousingName
             // 
             this.lblHousingName.AutoSize = true;
-            this.lblHousingName.Location = new System.Drawing.Point(163, 28);
+            this.lblHousingName.Location = new System.Drawing.Point(217, 34);
+            this.lblHousingName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHousingName.Name = "lblHousingName";
-            this.lblHousingName.Size = new System.Drawing.Size(85, 13);
+            this.lblHousingName.Size = new System.Drawing.Size(111, 17);
             this.lblHousingName.TabIndex = 11;
             this.lblHousingName.Text = "Housing Agency";
             // 
             // btnEvents
             // 
-            this.btnEvents.Location = new System.Drawing.Point(127, 105);
+            this.btnEvents.Location = new System.Drawing.Point(169, 129);
+            this.btnEvents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEvents.Name = "btnEvents";
-            this.btnEvents.Size = new System.Drawing.Size(80, 80);
+            this.btnEvents.Size = new System.Drawing.Size(107, 98);
             this.btnEvents.TabIndex = 10;
             this.btnEvents.Text = "Events";
             this.btnEvents.UseVisualStyleBackColor = true;
@@ -78,9 +82,10 @@
             // 
             // btnReports
             // 
-            this.btnReports.Location = new System.Drawing.Point(232, 105);
+            this.btnReports.Location = new System.Drawing.Point(309, 129);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(80, 80);
+            this.btnReports.Size = new System.Drawing.Size(107, 98);
             this.btnReports.TabIndex = 8;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = true;
@@ -89,17 +94,19 @@
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(163, 74);
+            this.lblWelcome.Location = new System.Drawing.Point(217, 91);
+            this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(84, 13);
+            this.lblWelcome.Size = new System.Drawing.Size(109, 17);
             this.lblWelcome.TabIndex = 14;
             this.lblWelcome.Text = "Welcome Admin";
             // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(24, 105);
+            this.btnAddNew.Location = new System.Drawing.Point(32, 129);
+            this.btnAddNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(80, 80);
+            this.btnAddNew.Size = new System.Drawing.Size(107, 98);
             this.btnAddNew.TabIndex = 15;
             this.btnAddNew.Text = "Add Tenant and/or Housing Unit";
             this.btnAddNew.UseVisualStyleBackColor = true;
@@ -107,9 +114,9 @@
             // 
             // AdminMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 246);
+            this.ClientSize = new System.Drawing.Size(609, 303);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnHouseRules);
@@ -117,9 +124,11 @@
             this.Controls.Add(this.lblHousingName);
             this.Controls.Add(this.btnEvents);
             this.Controls.Add(this.btnReports);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
