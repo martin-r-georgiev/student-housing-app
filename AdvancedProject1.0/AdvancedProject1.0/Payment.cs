@@ -12,8 +12,8 @@ namespace AdvancedProject1._0
     {
 		#region variables
 		private int paymentID;
-		private string sender;
-		private string receiver;
+		private User sender;
+		private User receiver;
 		private double amount;
 		private int unitID;
 		
@@ -32,13 +32,13 @@ namespace AdvancedProject1._0
 			private set { amount = value; }
 		}
 
-		public string Receiver
+		public User Receiver
 		{
 			get { return receiver; }
 			private set { receiver = value; }
 		}
 
-		public string Sender
+		public User Sender
 		{
 			get { return sender; }
 			private set { sender = value; }
@@ -52,10 +52,10 @@ namespace AdvancedProject1._0
 		#endregion
 
 		#region Methods
-		public Payment(string sender, string receiver, double amount, int unitid)
+		public Payment(string senderid, string receiverid, double amount, int unitid)
 		{
-			this.Sender = sender;
-			this.Receiver = receiver;
+			this.Sender = new User (senderid);
+			this.Receiver = new User (receiverid);
 			this.Amount = amount;
 			this.UnitID = unitid;
 			InsertToDatabase();
@@ -75,8 +75,10 @@ namespace AdvancedProject1._0
 
 			if (dataReader.Read())
 			{
-				this.Sender = dataReader.GetString(0);
-				this.Receiver = dataReader.GetString(1);
+				string senderid = dataReader.GetString(0);
+				this.Sender = new User(senderid);
+				string receiverid = dataReader.GetString(1);
+				this.Receiver = new User(receiverid);
 				this.Amount = Convert.ToDouble(dataReader.GetString(2));
 				this.UnitID = dataReader.GetInt32(3);
 				this.PaymentID = paymentId;
@@ -90,8 +92,8 @@ namespace AdvancedProject1._0
 
 			using (SqlCommand cmd = new SqlCommand($"INSERT INTO PaymentHistory (Sender, Receiver, Amount, HouseUnitID) VALUES (@sender, @receiver, @amount, @houseunitid)", con))
 			{
-				cmd.Parameters.AddWithValue("@sender", this.Sender);
-				cmd.Parameters.AddWithValue("@receiver", this.Receiver);
+				cmd.Parameters.AddWithValue("@sender", this.Sender.GetUserID());
+				cmd.Parameters.AddWithValue("@receiver", this.Receiver.GetUserID());
 				cmd.Parameters.AddWithValue("@amount", this.Amount);
 				cmd.Parameters.AddWithValue("@houseunitid", this.UnitID);
 				cmd.ExecuteNonQuery();
@@ -125,7 +127,7 @@ namespace AdvancedProject1._0
 			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
 			con.Open();
 
-			using (SqlCommand cmd = new SqlCommand($"DELETE PaymentHistory WHERE Id=@paymentID", con))
+			using (SqlCommand cmd = new SqlCommand($"DELETE PaymentHistory WHERE Id=@paymentID ORDER BY Id LIMIT 1", con))
 			{
 				cmd.Parameters.AddWithValue("@paymentID", this.PaymentID);
 				cmd.ExecuteNonQuery();
