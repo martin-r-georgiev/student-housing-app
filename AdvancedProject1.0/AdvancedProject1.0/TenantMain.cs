@@ -32,6 +32,7 @@ namespace AdvancedProject1._0
             }
             MessageBox.Show(test);
             */
+            
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -55,12 +56,6 @@ namespace AdvancedProject1._0
             this.Close();
         }
 
-        private void btnEvents_Click(object sender, EventArgs e)
-        {
-            Events eventScreen = new Events();
-            eventScreen.Show();
-            this.Close();
-        }
 
         private void btnSocial_Click(object sender, EventArgs e)
         {

@@ -28,13 +28,6 @@ namespace AdvancedProject1._0
             this.Close();  //h
         }
 
-        private void btnEvents_Click(object sender, EventArgs e)
-        {
-            Events eventScreen = new Events();
-            eventScreen.Show();
-            this.Close();
-        }
-
         private void btnHouseRules_Click(object sender, EventArgs e)
         {
             HouseRules houseRulesScreen = new HouseRules();

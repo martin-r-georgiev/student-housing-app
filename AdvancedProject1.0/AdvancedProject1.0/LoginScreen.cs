@@ -73,5 +73,53 @@ namespace AdvancedProject1._0
                 tbPass.UseSystemPasswordChar = true;
             }
         }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TbPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TbName_Enter(object sender, EventArgs e)
+        {
+                if (tbName.Text == "username")
+            {
+                tbName.Text = "";
+                tbName.ForeColor = Color.FromArgb(36, 42, 86);
+            }
+        }
+
+        private void TbName_Leave(object sender, EventArgs e)
+        {
+            if (tbName.Text == "")
+            {
+                tbName.Text = "username";
+                tbName.ForeColor = Color.DarkGray;
+            }
+        }
+
+        private void TbPass_Enter(object sender, EventArgs e)
+        {
+            if (tbPass.Text == "password")
+            {
+                tbPass.Text = "";
+                tbPass.UseSystemPasswordChar = true;
+                tbPass.ForeColor = Color.FromArgb(36, 42, 86);
+            }
+        }
+
+        private void TbPass_Leave(object sender, EventArgs e)
+        {
+            if (tbPass.Text == "")
+            {
+                tbPass.Text = "password";
+                tbPass.UseSystemPasswordChar = false;
+                tbPass.ForeColor = Color.DarkGray;
+            }
+        }
     }
 }

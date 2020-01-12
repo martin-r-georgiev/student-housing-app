@@ -46,29 +46,54 @@ namespace AdvancedProject1._0
 
         private void btnAddNewTenant_Click(object sender, EventArgs e)
         {
-            //TO DO: Check for empty textboxes/if username exits and clear textboxes after button press
+
+            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+            SqlCommand cmd;
+            SqlDataReader dataReader;
+
+            con.Open();
+
+            cmd = new SqlCommand($"SELECT Username FROM Users WHERE Username=@Username", con);
+            cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
+            dataReader = cmd.ExecuteReader();
+
+
             if (tbUsername.Text.Length > 0 && tbPassword.Text.Length > 0 && tbFirstName.Text.Length > 0 && tbLastName.Text.Length > 0)
             {
                 User newUser = new User(tbUsername.Text, tbPassword.Text,
                                tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
                 if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.SetHouseID(unitList[cmbHouseUnits.SelectedIndex].GetUnitID());
-                try
+                if (dataReader.Read())
                 {
-                    if (!unitList[cmbHouseUnits.SelectedIndex].IsAtCapacity())
-                    {
-                        newUser.InsertToDatabase();
-                        MessageBox.Show("Successfully added new user.");
-                        if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
-                        RefreshText();
-                    }
-                    else MessageBox.Show("This housing unit has reached its tenant capacity.");
+                    MessageBox.Show("User with such username already exists!");
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    try
+                    {
+                        if (!unitList[cmbHouseUnits.SelectedIndex].IsAtCapacity())
+                        {
+                            newUser.InsertToDatabase();
+                            MessageBox.Show("Successfully added new user.");
+                            if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
+                            RefreshText();
+                        }
+                        else MessageBox.Show("This housing unit has reached its tenant capacity.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Please fill in all empty boxes!");
+            }
+            cmd.Dispose();
+            dataReader.Close();
         }
+
         private void BtnBack_Click(object sender, EventArgs e)
         {
             AdminMain adminMainScreen = new AdminMain();

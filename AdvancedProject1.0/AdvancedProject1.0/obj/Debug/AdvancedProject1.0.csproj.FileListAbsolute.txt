@@ -44,7 +44,6 @@ C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.AdminAdd.resources
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.AdminMain.resources
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.CleaningSchedule.resources
-C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Events.resources
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.EventsPopup.resources
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Groceries.resources
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.HouseRules.resources
