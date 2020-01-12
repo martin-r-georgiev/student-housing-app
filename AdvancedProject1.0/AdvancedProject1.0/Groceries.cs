@@ -14,7 +14,7 @@ namespace AdvancedProject1._0
         User loggedInUser;
         List<String> Product;
         List<String> buyHistory;
-        List<string> Residents = new List<string>();
+        List<User> Residents;
         Payments allPayments;
 
         public Groceries()
@@ -26,12 +26,11 @@ namespace AdvancedProject1._0
             buyHistory = Payments.GetPaymentsOfUnit(loggedInUser.GetHouseID());
             Product = new List<string>();
             Product = productString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
-
+            Residents = new List<User>();
             if (!CheckForCorrectGroceries()) CheckForCorrectGroceries();
             RefreshHistory();
             AddToHistory();
             RefreshProductList();
-
             counter = 0;
             NameSwap();
         }
@@ -50,6 +49,8 @@ namespace AdvancedProject1._0
             {
                 MessageBox.Show("Specify a product to add!");
             }
+            else if (tbAddProduct.Text.Contains("~")) MessageBox.Show("Invalid symbol (~)");
+            else if (tbAddProduct.Text.Contains(":")) MessageBox.Show("Invalid symbol (:)");
             else
             {
                 SendMessage();
@@ -67,11 +68,11 @@ namespace AdvancedProject1._0
                     double tbPrice;
                     if (Double.TryParse(tbPaid.Text, out tbPrice))
                     {
-                        foreach (string name in Residents)
+                        foreach (User u in Residents)
                         {
-                            if (!name.Contains(loggedInUser.GetFirstName()))
+                            if (!u.GetFirstName().Equals(loggedInUser.GetFirstName()))
                             {
-                                Payment newPayment = new Payment(name, loggedInUser.GetFirstName(), Math.Round(tbPrice / Residents.Count, 2), loggedInUser.GetHouseID());
+                                Payment newPayment = new Payment(u.GetUserID(), loggedInUser.GetUserID(), Math.Round(tbPrice / Residents.Count, 2), loggedInUser.GetHouseID());
                             }
                         }
                     }
@@ -102,7 +103,7 @@ namespace AdvancedProject1._0
         {
             if (lbHistory.SelectedIndex > -1)
             {
-                if (lbHistory.Items[lbHistory.SelectedIndex].ToString().Split('$')[1].Contains(loggedInUser.GetFirstName()))
+                if (lbHistory.Items[lbHistory.SelectedIndex].ToString().Split('$')[2].Contains(loggedInUser.GetFirstName()))
                 {
                     allPayments = new Payments();
                     allPayments.RemovePayment(lbHistory.SelectedItem.ToString());
@@ -185,10 +186,7 @@ namespace AdvancedProject1._0
         {
             HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
             foreach (User tenant in newUnit.Tenants())
-            {
-                string name = $"{tenant.GetFirstName()}";
-                Residents.Add(name);
-            }
+                Residents.Add(tenant);
         }
 
         void RefreshHistory()
@@ -203,15 +201,15 @@ namespace AdvancedProject1._0
         {
             if (counter < (Residents.Count() - 1))
             {
-                lblCurrentToBuy.Text = Residents[counter];
-                lblNextToBuy.Text = Residents[counter + 1];
+                lblCurrentToBuy.Text = Residents[counter].GetFirstName();
+                lblNextToBuy.Text = Residents[counter + 1].GetFirstName();
                 counter++;
             }
             else if (counter >= (Residents.Count() - 1))
             {
                 counter = 0;
-                lblCurrentToBuy.Text = Residents[Residents.Count() - 1];
-                lblNextToBuy.Text = Residents[counter];
+                lblCurrentToBuy.Text = Residents[Residents.Count() - 1].GetFirstName();
+                lblNextToBuy.Text = Residents[counter].GetFirstName();
             }
         }
 
