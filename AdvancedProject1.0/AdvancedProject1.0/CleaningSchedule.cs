@@ -16,11 +16,9 @@ namespace AdvancedProject1._0
     {
         User loggedInUser;
         List<User> Residents;
-        int garbageCounter;
-
+        OrderScheduler schedule;
         HouseUnit tenantUnit;
         SettingsHandler settingsHandler;
-
         public void ChangeDescription(string description)
         {
             if (!string.IsNullOrEmpty(description)) rtbDescription.Text = description;
@@ -138,13 +136,12 @@ namespace AdvancedProject1._0
             this.DoubleBuffered = true;
             GenerateCleaningEvents();
             PopulateCalendar();
-            
-
-            garbageCounter = 0;
+            tenantUnit = new HouseUnit(loggedInUser.GetHouseID());  //Stores the current user's house id
+            schedule = new OrderScheduler(tenantUnit);
             Residents = new List<User>();
             HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
             Residents = newUnit.Tenants();
-            NameSwap();
+            lblGarbageName.Text = new User(schedule.CurrentIDGarbage).GetFirstName();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -227,16 +224,20 @@ namespace AdvancedProject1._0
         }
         private void NameSwap()
         {
-            if (garbageCounter < (Residents.Count() - 1))
-            {
-                lblGarbageName.Text = Residents[garbageCounter].GetFirstName();
-                garbageCounter++;
-            }
-            else if (garbageCounter >= (Residents.Count() - 1))
-            {
-                garbageCounter = 0;
-                lblGarbageName.Text = Residents[Residents.Count() - 1].GetFirstName();
-            }
+            //if (garbageCounter < (Residents.Count() - 1))
+            //{
+            //    lblGarbageName.Text = Residents[garbageCounter].GetFirstName();
+            //    garbageCounter++;
+            //}
+            //else if (garbageCounter >= (Residents.Count() - 1))
+            //{
+            //    garbageCounter = 0;
+            //    lblGarbageName.Text = Residents[Residents.Count() - 1].GetFirstName();
+            //}
+
+            User buyer;
+            buyer = schedule.GetNextUser(EventType.Garbage);
+            lblGarbageName.Text = buyer.GetFirstName();
         }
     }
 }

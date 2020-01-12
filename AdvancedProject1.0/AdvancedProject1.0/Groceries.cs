@@ -17,11 +17,15 @@ namespace AdvancedProject1._0
         List<String> buyHistory;
         List<User> Residents;
         Payments allPayments;
+        OrderScheduler schedule;
+        HouseUnit tenantUnit;
 
         public Groceries()
         {
             InitializeComponent();
             loggedInUser = new User(formLogin.userKey);
+            tenantUnit = new HouseUnit(loggedInUser.GetHouseID());  //Stores the current user's house id
+            schedule = new OrderScheduler(tenantUnit);
             productString = System.IO.File.ReadAllText(@"Groceries.txt");
             buyHistory = new List<String>();
             buyHistory = Payments.GetPaymentsOfUnit(loggedInUser.GetHouseID());
@@ -32,8 +36,8 @@ namespace AdvancedProject1._0
             RefreshHistory();
             AddToHistory();
             RefreshProductList();
-            counter = 0;
-            NameSwap();
+            lblCurrentToBuy.Text = new User(schedule.CurrentIDGroceries).GetFirstName();
+            lblNextToBuy.Text = schedule.ShowNextUser(EventType.Groceries).GetFirstName();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -200,19 +204,12 @@ namespace AdvancedProject1._0
 
         void NameSwap()
         {
-            if (counter < (Residents.Count() - 1))
-            {
-                lblCurrentToBuy.Text = Residents[counter].GetFirstName();
-                lblNextToBuy.Text = Residents[counter + 1].GetFirstName();
-                counter++;
-            }
-            else if (counter >= (Residents.Count() - 1))
-            {
-                counter = 0;
-                lblCurrentToBuy.Text = Residents[Residents.Count() - 1].GetFirstName();
-                lblNextToBuy.Text = Residents[counter].GetFirstName();
-            }
+            User buyer;
+            buyer = schedule.GetNextUser(EventType.Groceries);
+            lblCurrentToBuy.Text = buyer.GetFirstName();
+            lblNextToBuy.Text = schedule.ShowNextUser(EventType.Groceries).GetFirstName();
         }
+
 
         private void Groceries_FormClosing(object sender, FormClosingEventArgs e)
         {

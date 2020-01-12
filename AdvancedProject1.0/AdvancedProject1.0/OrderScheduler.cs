@@ -189,6 +189,50 @@ namespace AdvancedProject1._0
             return returnUser;
         }
 
+        public User ShowNextUser(EventType type)
+        {
+            User returnUser = null;
+            if (unit.Tenants().Count > 0)
+            {
+                List<User> users = unit.Tenants();
+                int index = -1;
+                bool newOrder = false;
+                switch (type)
+                {
+                    case EventType.CommonRoom:
+                        if (this.CurrentIDCommon != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDCommon);
+                        else newOrder = true;
+                        break;
+                    case EventType.Kitchen:
+                        if (this.CurrentIDKitchen != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDKitchen);
+                        else newOrder = true;
+                        break;
+                    case EventType.Garbage:
+                        if (this.CurrentIDGarbage != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDGarbage);
+                        else newOrder = true;
+                        break;
+                    case EventType.Groceries:
+                        if (this.CurrentIDGroceries != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDGroceries);
+                        else newOrder = true;
+                        break;
+                    case EventType.Bathroom:
+                        if (this.CurrentIDBathroom != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDBathroom);
+                        else newOrder = true;
+                        break;
+                }
+                if (newOrder) returnUser = users[0];
+                else
+                {
+                    if (index >= 0)
+                    {
+                        if (index == users.Count - 1) returnUser = users[0];
+                        else returnUser = users[++index];
+                    }
+                }
+            }
+            return returnUser;
+        }
+
         private void UpdateToDB(EventType type, User targetUser)
         {
             string column = null;
@@ -204,15 +248,15 @@ namespace AdvancedProject1._0
                     break;
                 case EventType.Garbage:
                     this.CurrentIDGarbage = targetUser.GetUserID();
-                    column = "bathroomCurrentID";
+                    column = "garbageCurrentID";
                     break;
                 case EventType.Groceries:
                     this.CurrentIDGroceries = targetUser.GetUserID();
-                    column = "garbageCurrentID";
+                    column = "groceriesCurrentID";
                     break;
                 case EventType.Bathroom:
                     this.CurrentIDBathroom = targetUser.GetUserID();
-                    column = "groceriesCurrentID";
+                    column = "bathroomCurrentID";
                     break;
             }
             if(column != null)
