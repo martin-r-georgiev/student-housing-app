@@ -136,12 +136,11 @@ namespace AdvancedProject1._0
             this.DoubleBuffered = true;
             GenerateCleaningEvents();
             PopulateCalendar();
-            tenantUnit = new HouseUnit(loggedInUser.GetHouseID());  //Stores the current user's house id
             schedule = new OrderScheduler(tenantUnit);
             Residents = new List<User>();
             HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
             Residents = newUnit.Tenants();
-            lblGarbageName.Text = new User(schedule.CurrentIDGarbage).GetFirstName();
+            //lblGarbageName.Text = new User(schedule.CurrentIDGarbage).GetFirstName();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

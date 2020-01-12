@@ -91,7 +91,14 @@ namespace AdvancedProject1._0
                     cmd.Parameters.AddWithValue("@unitID", newUnit.GetUnitID());
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
-                }     
+                }
+                User targetUser = new User(newUnit.Tenants()[0].GetUserID());
+                this.CurrentIDCommon = targetUser.GetUserID();
+                this.CurrentIDKitchen = targetUser.GetUserID();
+                this.CurrentIDGarbage = targetUser.GetUserID();
+                this.CurrentIDGroceries = targetUser.GetUserID();
+                this.CurrentIDBathroom = targetUser.GetUserID();
+                
             }
             if (newDate)
             {

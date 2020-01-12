@@ -36,8 +36,8 @@ namespace AdvancedProject1._0
             RefreshHistory();
             AddToHistory();
             RefreshProductList();
-            lblCurrentToBuy.Text = new User(schedule.CurrentIDGroceries).GetFirstName();
-            lblNextToBuy.Text = schedule.ShowNextUser(EventType.Groceries).GetFirstName();
+            //lblCurrentToBuy.Text = new User(schedule.CurrentIDGroceries).GetFirstName();
+            //lblNextToBuy.Text = schedule.ShowNextUser(EventType.Groceries).GetFirstName();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
