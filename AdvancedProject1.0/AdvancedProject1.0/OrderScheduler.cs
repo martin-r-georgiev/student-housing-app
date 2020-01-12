@@ -63,11 +63,17 @@ namespace AdvancedProject1._0
 
                 if (dataReader.Read())
                 {
-                    this.CurrentIDCommon = dataReader[1] as string;
-                    this.CurrentIDKitchen = dataReader[2] as string;
-                    this.CurrentIDBathroom = dataReader[3] as string;
-                    this.CurrentIDGarbage = dataReader[4] as string;
-                    this.CurrentIDGroceries = dataReader[5] as string;
+                    User targetUser = new User(newUnit.Tenants()[0].GetUserID());
+                    if (!dataReader.IsDBNull(1)) this.CurrentIDCommon = dataReader.GetString(1);
+                    else this.CurrentIDCommon = targetUser.GetUserID();
+                    if (!dataReader.IsDBNull(2)) this.CurrentIDKitchen = dataReader.GetString(2);
+                    else this.CurrentIDKitchen = targetUser.GetUserID();
+                    if (!dataReader.IsDBNull(3)) this.CurrentIDBathroom = dataReader.GetString(3);
+                    else this.CurrentIDBathroom = targetUser.GetUserID();
+                    if (!dataReader.IsDBNull(4)) this.CurrentIDGarbage = dataReader.GetString(4);
+                    else this.CurrentIDGarbage = targetUser.GetUserID();
+                    if (!dataReader.IsDBNull(5)) this.CurrentIDGroceries = dataReader.GetString(5);
+                    else this.CurrentIDGroceries = targetUser.GetUserID();
                 }
                 else newOrder = true;
                 dataReader.Close();
@@ -92,13 +98,6 @@ namespace AdvancedProject1._0
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                 }
-                User targetUser = new User(newUnit.Tenants()[0].GetUserID());
-                this.CurrentIDCommon = targetUser.GetUserID();
-                this.CurrentIDKitchen = targetUser.GetUserID();
-                this.CurrentIDGarbage = targetUser.GetUserID();
-                this.CurrentIDGroceries = targetUser.GetUserID();
-                this.CurrentIDBathroom = targetUser.GetUserID();
-                
             }
             if (newDate)
             {

@@ -140,7 +140,7 @@ namespace AdvancedProject1._0
             Residents = new List<User>();
             HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
             Residents = newUnit.Tenants();
-            //lblGarbageName.Text = new User(schedule.CurrentIDGarbage).GetFirstName();
+            lblGarbageName.Text = new User(schedule.CurrentIDGarbage).GetFirstName();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
