@@ -31,6 +31,7 @@ namespace AdvancedProject1._0
             }
             MessageBox.Show(test);
             */
+            
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -68,6 +69,11 @@ namespace AdvancedProject1._0
         }
 
         private void TenantMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblWelcome_Click(object sender, EventArgs e)
         {
 
         }
