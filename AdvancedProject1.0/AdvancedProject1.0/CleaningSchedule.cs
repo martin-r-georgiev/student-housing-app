@@ -17,11 +17,14 @@ namespace AdvancedProject1._0
         User loggedInUser;
         List<User> Residents;
         int garbageCounter;
+
+        HouseUnit tenantUnit;
+        SettingsHandler settingsHandler;
+
         public void ChangeDescription(string description)
         {
             if (!string.IsNullOrEmpty(description)) rtbDescription.Text = description;
             else rtbDescription.Text = "No event description";
-
         }
 
         public void ChangePicture(Image img)
@@ -70,12 +73,71 @@ namespace AdvancedProject1._0
             */
         }
 
+        void GenerateCleaningEvents()
+        {
+            User orderUser;
+            EventColorHandler colorHandler = new EventColorHandler();
+            OrderScheduler scheduler = new OrderScheduler(tenantUnit);
+            DateTime startDate = SchedulePopup.GetNextWeekday(DateTime.Today, DayOfWeek.Monday);
+            DateTime iterator;
+            DateTime endDate = startDate.AddDays(7);
+            //Cleaning Common Rooms
+            if (settingsHandler.CommonValue > 0)
+            {
+                iterator = scheduler.GetLastDate(EventType.CommonRoom);
+                if (iterator.Date != startDate.Date) iterator = iterator.AddDays(settingsHandler.CommonValue);
+                while (iterator < endDate)
+                {
+                    scheduler.SetLastDate(EventType.CommonRoom, iterator);
+                    colorHandler = EventColorHandler.GetColorHandler(EventType.CommonRoom);
+                    orderUser = scheduler.GetNextUser(EventType.CommonRoom);
+                    CalendarItem.AddEventToDB(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
+                                              $"On this day:\n{orderUser.GetName()} should clean all shared facilities.", Properties.Resources.CommonRoom);
+                    iterator = iterator.AddDays(settingsHandler.CommonValue);
+                }
+            }
+            //Cleaning Kitchen
+            if (settingsHandler.KitchenValue > 0)
+            {
+                iterator = scheduler.GetLastDate(EventType.Kitchen);
+                if (iterator.Date != startDate.Date) iterator = iterator.AddDays(settingsHandler.KitchenValue);
+                while (iterator < endDate)
+                {
+                    scheduler.SetLastDate(EventType.Kitchen, iterator);
+                    colorHandler = EventColorHandler.GetColorHandler(EventType.Kitchen);
+                    orderUser = scheduler.GetNextUser(EventType.Kitchen);
+                    CalendarItem.AddEventToDB(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
+                                              $"On this day:\n{orderUser.GetName()} should clean the kitchen.", Properties.Resources.Cleaning);
+                    iterator = iterator.AddDays(settingsHandler.KitchenValue);
+                }
+            }
+            //Cleaning Bathroom/Toilet
+            if (settingsHandler.BathroomValue > 0)
+            {
+                iterator = scheduler.GetLastDate(EventType.Bathroom);
+                if (iterator.Date != startDate.Date) iterator = iterator.AddDays(settingsHandler.BathroomValue);
+                while (iterator < endDate)
+                {
+                    scheduler.SetLastDate(EventType.Bathroom, iterator);
+                    colorHandler = EventColorHandler.GetColorHandler(EventType.Bathroom);
+                    orderUser = scheduler.GetNextUser(EventType.Bathroom);
+                    CalendarItem.AddEventToDB(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
+                                              $"On this day:\n{orderUser.GetName()} should clean the bathroom and toilet facilities.", Properties.Resources.Toilet);
+                    iterator = iterator.AddDays(settingsHandler.BathroomValue);
+                }
+            }
+        }
+
         public CleaningSchedule()
         {
             InitializeComponent();
             loggedInUser = new User(formLogin.userKey);
+            tenantUnit = new HouseUnit(loggedInUser.GetHouseID());
+            settingsHandler = new SettingsHandler(tenantUnit);
             this.DoubleBuffered = true;
             PopulateCalendar();
+            GenerateCleaningEvents();
+
             garbageCounter = 0;
             Residents = new List<User>();
             HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
