@@ -154,6 +154,11 @@ namespace AdvancedProject1._0
             this.userID = newUserID;
         }
 
+        public string GetUsername()
+        {
+            return this.username;
+        }
+
         public string GetFirstName()
         {
             return this.firstName;
