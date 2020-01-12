@@ -49,6 +49,8 @@ namespace AdvancedProject1._0
             {
                 MessageBox.Show("Specify a product to add!");
             }
+            else if (tbAddProduct.Text.Contains("~")) MessageBox.Show("Invalid symbol (~)");
+            else if (tbAddProduct.Text.Contains(":")) MessageBox.Show("Invalid symbol (:)");
             else
             {
                 SendMessage();
