@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,8 @@ namespace AdvancedProject1._0
     public partial class CleaningSchedule : Form
     {
         User loggedInUser;
-
+        List<User> Residents;
+        int garbageCounter;
         public void ChangeDescription(string description)
         {
             if (!string.IsNullOrEmpty(description)) rtbDescription.Text = description;
@@ -74,6 +76,11 @@ namespace AdvancedProject1._0
             loggedInUser = new User(formLogin.userKey);
             this.DoubleBuffered = true;
             PopulateCalendar();
+            garbageCounter = 0;
+            Residents = new List<User>();
+            HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
+            Residents = newUnit.Tenants();
+            NameSwap();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -124,6 +131,48 @@ namespace AdvancedProject1._0
         {
             if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
             else Application.Exit();
+        }
+
+        private void cbArduino_DropDown(object sender, EventArgs e)
+        {
+            cbArduino.Items.Clear();
+            foreach (string port in SerialPort.GetPortNames())
+                cbArduino.Items.Add(port);
+        }
+
+        private void cbArduino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            spArduino.PortName = cbArduino.SelectedItem.ToString();
+            spArduino.Open();
+            timerArduino.Start();
+            cbArduino.Visible = false;
+            lblGarbageName.Visible = true;
+            lblGarbageStatus.Visible = true;
+            pbGarbage.Visible = true;
+            spArduino.WriteLine("garbage");
+        }
+
+        private void timerArduino_Tick(object sender, EventArgs e)
+        {
+            string line = spArduino.ReadExisting();
+            if (Int32.TryParse(line, out int pbValue))
+            {
+                pbGarbage.Value = pbValue;
+                if (pbGarbage.Value == 0) NameSwap();
+            }
+        }
+        private void NameSwap()
+        {
+            if (garbageCounter < (Residents.Count() - 1))
+            {
+                lblGarbageName.Text = Residents[garbageCounter].GetFirstName();
+                garbageCounter++;
+            }
+            else if (garbageCounter >= (Residents.Count() - 1))
+            {
+                garbageCounter = 0;
+                lblGarbageName.Text = Residents[Residents.Count() - 1].GetFirstName();
+            }
         }
     }
 }
