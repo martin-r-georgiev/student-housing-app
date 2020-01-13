@@ -37,6 +37,10 @@ namespace AdvancedProject1._0
                 foreach (string line in generalChatLines)
                     lbGeneralChat.Items.Add(line);
             }
+            lbChat.SelectedIndex = lbChat.Items.Count - 1;
+            lbChat.SelectedIndex = -1;
+            lbGeneralChat.SelectedIndex = lbGeneralChat.Items.Count - 1;
+            lbGeneralChat.SelectedIndex = -1;
         }
 
         public Social(TenantMain calledForm)
@@ -67,11 +71,6 @@ namespace AdvancedProject1._0
             this.Close();
         }
 
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            ReportPopup reportPopupScreen = new ReportPopup();
-            reportPopupScreen.Show();
-        }
 
         private void btnSendChat_Click(object sender, EventArgs e)
         {
@@ -107,7 +106,7 @@ namespace AdvancedProject1._0
         }
         private void SendMessage()
         {
-            string newLine = $"{tbChat.Text}";
+            string newLine = $"[{DateTime.Now.ToString(@"h\:mm tt")}]  -{loggedInUser.GetHouseID()}- {loggedInUser.GetFirstName()}: {tbChat.Text}";
             chats = chat.Split('~');
 
             if (tcChats.SelectedIndex == 0)
@@ -161,6 +160,16 @@ namespace AdvancedProject1._0
         {
             if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
             else Application.Exit();
+        }
+
+        private void Tp2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LbGeneralChat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

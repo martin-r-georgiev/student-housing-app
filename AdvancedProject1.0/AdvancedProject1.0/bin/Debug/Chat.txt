@@ -1,29 +1,21 @@
 ~ALL:
-Swag
-Test 13:22PM
-gen test 13:58
-GEN TEST 13:59PM
-GEN TEST 14:00 ILIAN
-Kiril test
+[4:04 AM] -110- Teodor: ad
+[4:04 AM] -110- Teodor: dobre e
+[4:04 AM] -110- Kiril: moje
+[4:04 AM] -110- Kiril: da
+[4:04 AM] -110- Kiril: bachka
+[4:04 AM] -110- Kiril: dobre
+[4:04 AM] -666- Ivan: op
+[4:04 AM] -666- Ivan: ko staa e
+[4:04 AM] -666- Ivan: momci
+[4:05 AM]  -110- Teodor: op
+[4:05 AM]  -110- Teodor: biva
 ~110:
-Az
-Ti
-Toi
-Test 12
-Test 12
-Test 1213PM
-Test 13:09PM
-test 13:44
-dqwd
-rwqrq
-test 13:46
-qdwqw
-ewqf
-unit test 13:59
-Kiril test house unit
+[4:02 AM]  -110- Teodor: eho
+[4:02 AM]  -110- Teodor: waddup
 ~400: 
 ~200:
-00: 
-yo
-test
+~666:
+ 
+[4:03 AM] Ivan: da
 ~

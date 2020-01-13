@@ -38,6 +38,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.btnReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -163,12 +164,27 @@
             this.lblWelcome.TabIndex = 18;
             this.lblWelcome.Text = "Welcome, <name>!";
             // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.Transparent;
+            this.btnReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReport.BackgroundImage")));
+            this.btnReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Location = new System.Drawing.Point(62, 473);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(40, 40);
+            this.btnReport.TabIndex = 19;
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.BtnReport_Click);
+            // 
             // TenantMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(846, 522);
+            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnHouseRules);
             this.Controls.Add(this.lblHousingName);
@@ -199,5 +215,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Button btnReport;
     }
 }

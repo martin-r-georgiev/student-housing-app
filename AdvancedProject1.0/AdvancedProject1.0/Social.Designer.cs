@@ -28,130 +28,195 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Social));
             this.lbChat = new System.Windows.Forms.ListBox();
             this.tbChat = new System.Windows.Forms.TextBox();
             this.btnSendChat = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.tcChats = new System.Windows.Forms.TabControl();
             this.tp1 = new System.Windows.Forms.TabPage();
             this.lbGeneralChat = new System.Windows.Forms.ListBox();
             this.tp2 = new System.Windows.Forms.TabPage();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.tcChats.SuspendLayout();
             this.tp1.SuspendLayout();
             this.tp2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbChat
             // 
+            this.lbChat.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lbChat.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbChat.FormattingEnabled = true;
-            this.lbChat.ItemHeight = 16;
-            this.lbChat.Location = new System.Drawing.Point(-5, 0);
-            this.lbChat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbChat.ItemHeight = 20;
+            this.lbChat.Location = new System.Drawing.Point(-4, -2);
             this.lbChat.Name = "lbChat";
-            this.lbChat.Size = new System.Drawing.Size(455, 404);
+            this.lbChat.Size = new System.Drawing.Size(705, 464);
             this.lbChat.TabIndex = 0;
             this.lbChat.SelectedIndexChanged += new System.EventHandler(this.LbChat_SelectedIndexChanged);
             // 
             // tbChat
             // 
-            this.tbChat.Location = new System.Drawing.Point(16, 500);
-            this.tbChat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbChat.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbChat.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbChat.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbChat.Location = new System.Drawing.Point(48, 632);
+            this.tbChat.Multiline = true;
             this.tbChat.Name = "tbChat";
-            this.tbChat.Size = new System.Drawing.Size(371, 22);
+            this.tbChat.Size = new System.Drawing.Size(661, 36);
             this.tbChat.TabIndex = 1;
             // 
             // btnSendChat
             // 
-            this.btnSendChat.Location = new System.Drawing.Point(396, 500);
-            this.btnSendChat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSendChat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSendChat.BackgroundImage")));
+            this.btnSendChat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSendChat.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSendChat.FlatAppearance.BorderSize = 0;
+            this.btnSendChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSendChat.Location = new System.Drawing.Point(715, 628);
             this.btnSendChat.Name = "btnSendChat";
-            this.btnSendChat.Size = new System.Drawing.Size(89, 25);
+            this.btnSendChat.Size = new System.Drawing.Size(38, 38);
             this.btnSendChat.TabIndex = 2;
-            this.btnSendChat.Text = "Send";
             this.btnSendChat.UseVisualStyleBackColor = true;
             this.btnSendChat.Click += new System.EventHandler(this.btnSendChat_Click);
             // 
-            // btnReport
-            // 
-            this.btnReport.Location = new System.Drawing.Point(505, 11);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(117, 70);
-            this.btnReport.TabIndex = 3;
-            this.btnReport.Text = "Report";
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(16, 11);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(65, 44);
+            this.btnBack.Size = new System.Drawing.Size(36, 36);
             this.btnBack.TabIndex = 4;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // tcChats
             // 
             this.tcChats.Controls.Add(this.tp1);
             this.tcChats.Controls.Add(this.tp2);
-            this.tcChats.Location = new System.Drawing.Point(16, 63);
-            this.tcChats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcChats.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tcChats.ImageList = this.imageList1;
+            this.tcChats.ItemSize = new System.Drawing.Size(170, 56);
+            this.tcChats.Location = new System.Drawing.Point(48, 98);
+            this.tcChats.Multiline = true;
             this.tcChats.Name = "tcChats";
+            this.tcChats.Padding = new System.Drawing.Point(10, 10);
             this.tcChats.SelectedIndex = 0;
-            this.tcChats.Size = new System.Drawing.Size(469, 430);
+            this.tcChats.Size = new System.Drawing.Size(707, 523);
+            this.tcChats.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tcChats.TabIndex = 5;
             this.tcChats.SelectedIndexChanged += new System.EventHandler(this.tcChats_SelectedIndexChanged);
             // 
             // tp1
             // 
+            this.tp1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tp1.Controls.Add(this.lbGeneralChat);
-            this.tp1.Location = new System.Drawing.Point(4, 25);
-            this.tp1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tp1.ImageKey = "chat.png";
+            this.tp1.Location = new System.Drawing.Point(4, 60);
             this.tp1.Name = "tp1";
-            this.tp1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tp1.Size = new System.Drawing.Size(461, 401);
+            this.tp1.Padding = new System.Windows.Forms.Padding(3);
+            this.tp1.Size = new System.Drawing.Size(699, 459);
             this.tp1.TabIndex = 0;
             this.tp1.Text = "General";
             this.tp1.UseVisualStyleBackColor = true;
             // 
             // lbGeneralChat
             // 
+            this.lbGeneralChat.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lbGeneralChat.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbGeneralChat.FormattingEnabled = true;
-            this.lbGeneralChat.ItemHeight = 16;
-            this.lbGeneralChat.Location = new System.Drawing.Point(-5, -2);
-            this.lbGeneralChat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbGeneralChat.ItemHeight = 20;
+            this.lbGeneralChat.Location = new System.Drawing.Point(-4, 0);
             this.lbGeneralChat.Name = "lbGeneralChat";
-            this.lbGeneralChat.Size = new System.Drawing.Size(468, 404);
+            this.lbGeneralChat.Size = new System.Drawing.Size(707, 464);
             this.lbGeneralChat.TabIndex = 6;
+            this.lbGeneralChat.SelectedIndexChanged += new System.EventHandler(this.LbGeneralChat_SelectedIndexChanged);
             // 
             // tp2
             // 
             this.tp2.Controls.Add(this.lbChat);
-            this.tp2.Location = new System.Drawing.Point(4, 25);
-            this.tp2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tp2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tp2.ImageIndex = 0;
+            this.tp2.Location = new System.Drawing.Point(4, 60);
             this.tp2.Name = "tp2";
-            this.tp2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tp2.Size = new System.Drawing.Size(461, 401);
+            this.tp2.Padding = new System.Windows.Forms.Padding(3);
+            this.tp2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tp2.Size = new System.Drawing.Size(699, 459);
             this.tp2.TabIndex = 1;
             this.tp2.Text = "House Unit";
             this.tp2.UseVisualStyleBackColor = true;
+            this.tp2.Click += new System.EventHandler(this.Tp2_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "167178_home-icon-png-white (1).png");
+            this.imageList1.Images.SetKeyName(1, "chat.png");
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
+            this.panel2.Location = new System.Drawing.Point(52, 662);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(661, 2);
+            this.panel2.TabIndex = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnBack);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(804, 82);
+            this.panel1.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(68, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 54);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Social";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
+            this.panel3.Location = new System.Drawing.Point(761, 124);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(2, 464);
+            this.panel3.TabIndex = 12;
             // 
             // Social
             // 
             this.AcceptButton = this.btnSendChat;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 539);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(804, 680);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.tcChats);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnSendChat);
             this.Controls.Add(this.tbChat);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Social";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Social";
@@ -160,6 +225,8 @@
             this.tcChats.ResumeLayout(false);
             this.tp1.ResumeLayout(false);
             this.tp2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,11 +237,15 @@
         private System.Windows.Forms.ListBox lbChat;
         private System.Windows.Forms.TextBox tbChat;
         private System.Windows.Forms.Button btnSendChat;
-        private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TabControl tcChats;
         private System.Windows.Forms.TabPage tp1;
         private System.Windows.Forms.TabPage tp2;
         private System.Windows.Forms.ListBox lbGeneralChat;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
     }
 }
