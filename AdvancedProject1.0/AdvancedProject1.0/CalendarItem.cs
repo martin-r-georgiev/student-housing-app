@@ -22,6 +22,7 @@ namespace AdvancedProject1._0
             this.Disposed += OnDispose;
         }
 
+        private static User loggedInUser = new User(formLogin.userKey);
         private string _date;
         private DateTime _rawdate;
         private string _dayofweek;
@@ -80,12 +81,12 @@ namespace AdvancedProject1._0
             }
         }
 
-        public static void AddEventToDB(DateTime date, Color eventColor, Color titleColor, string title, string description, Image img)
+        public static void SystemAddEvent(DateTime date, Color eventColor, Color titleColor, string title, string description, Image img)
         {
             SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
             con.Open();
 
-            using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, description, completed, image) VALUES (@date, @color, @title, @tcolor, @unit, @desc, @comp, @img)", con))
+            using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, description, completed, image, createdBy) VALUES (@date, @color, @title, @tcolor, @unit, @desc, @comp, @img, @created)", con))
             {
                 cmd.Parameters.AddWithValue("@date", date);
                 cmd.Parameters.AddWithValue("@color", ColorTranslator.ToHtml(eventColor));
@@ -95,6 +96,29 @@ namespace AdvancedProject1._0
                 cmd.Parameters.AddWithValue("@desc", description);
                 cmd.Parameters.AddWithValue("@comp", false);
                 cmd.Parameters.AddWithValue("@img", ImageToByteArray(img));
+                cmd.Parameters.AddWithValue("@created", "system");
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            con.Close();
+        }
+
+        public static void AddEventToDB(DateTime date, Color eventColor, Color titleColor, string title, string description, Image img)
+        {
+            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+            con.Open();
+
+            using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, description, completed, image, createdBy) VALUES (@date, @color, @title, @tcolor, @unit, @desc, @comp, @img, @created)", con))
+            {
+                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@color", ColorTranslator.ToHtml(eventColor));
+                cmd.Parameters.AddWithValue("@title", title);
+                cmd.Parameters.AddWithValue("@tcolor", ColorTranslator.ToHtml(titleColor));
+                cmd.Parameters.AddWithValue("@unit", unitID);
+                cmd.Parameters.AddWithValue("@desc", description);
+                cmd.Parameters.AddWithValue("@comp", false);
+                cmd.Parameters.AddWithValue("@img", ImageToByteArray(img));
+                cmd.Parameters.AddWithValue("@created", loggedInUser.GetUserID());
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
             }
@@ -106,7 +130,7 @@ namespace AdvancedProject1._0
             SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
             con.Open();
 
-            using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, description, completed) VALUES (@date, @color, @title, @tcolor, @unit, @desc, @comp)", con))
+            using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, description, completed, createdBy) VALUES (@date, @color, @title, @tcolor, @unit, @desc, @comp, @created)", con))
             {
                 cmd.Parameters.AddWithValue("@date", date);
                 cmd.Parameters.AddWithValue("@color", ColorTranslator.ToHtml(eventColor));
@@ -115,6 +139,7 @@ namespace AdvancedProject1._0
                 cmd.Parameters.AddWithValue("@unit", unitID);
                 cmd.Parameters.AddWithValue("@desc", description);
                 cmd.Parameters.AddWithValue("@comp", false);
+                cmd.Parameters.AddWithValue("@created", loggedInUser.GetUserID());
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
             }
@@ -126,7 +151,7 @@ namespace AdvancedProject1._0
             SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
             con.Open();
 
-            using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, completed) VALUES (@date, @color, @title, @tcolor, @unit, @comp)", con))
+            using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, completed, createdBy) VALUES (@date, @color, @title, @tcolor, @unit, @comp, @created)", con))
             {
                 cmd.Parameters.AddWithValue("@date", date);
                 cmd.Parameters.AddWithValue("@color", ColorTranslator.ToHtml(eventColor));
@@ -134,6 +159,7 @@ namespace AdvancedProject1._0
                 cmd.Parameters.AddWithValue("@tcolor", ColorTranslator.ToHtml(titleColor));
                 cmd.Parameters.AddWithValue("@unit", unitID);
                 cmd.Parameters.AddWithValue("@comp", false);
+                cmd.Parameters.AddWithValue("@created", loggedInUser.GetUserID());
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
             }
@@ -158,7 +184,7 @@ namespace AdvancedProject1._0
 
         public void AddEvent(string title, Color eventColor, Color textColor, string description, Image img)
         {
-            calendarEventItem newEvent = new calendarEventItem();
+            calendarEventItem newEvent = new calendarEventItem(calendarEventList);
             newEvent.Title = title;
             newEvent.Color = eventColor;
             newEvent.TextColor = textColor;
@@ -171,7 +197,7 @@ namespace AdvancedProject1._0
 
         public void AddEvent(string title, Color eventColor, Color textColor, string description)
         {
-            calendarEventItem newEvent = new calendarEventItem();
+            calendarEventItem newEvent = new calendarEventItem(calendarEventList);
             newEvent.Title = title;
             newEvent.Color = eventColor;
             newEvent.TextColor = textColor;
@@ -183,7 +209,7 @@ namespace AdvancedProject1._0
 
         public void AddEvent(string title, Color eventColor, Color textColor)
         {
-            calendarEventItem newEvent = new calendarEventItem();
+            calendarEventItem newEvent = new calendarEventItem(calendarEventList);
             newEvent.Title = title;
             newEvent.Color = eventColor;
             newEvent.TextColor = textColor;
@@ -194,7 +220,7 @@ namespace AdvancedProject1._0
 
         public void AddEvent(string title, Color eventColor)
         {
-            calendarEventItem newEvent = new calendarEventItem();
+            calendarEventItem newEvent = new calendarEventItem(calendarEventList);
             newEvent.Title = title;
             newEvent.Color = eventColor;
             newEvent.Id = ReturnCurrentID();
@@ -261,7 +287,7 @@ namespace AdvancedProject1._0
             {
                 while(dataReader.Read())
                 {
-                    calendarEventItem newEvent = new calendarEventItem();
+                    calendarEventItem newEvent = new calendarEventItem(calendarEventList);
                     newEvent.TextColor = ColorTranslator.FromHtml(dataReader.GetString(3));
                     newEvent.Color = ColorTranslator.FromHtml(dataReader.GetString(1));
                     newEvent.Title = dataReader.GetString(2);

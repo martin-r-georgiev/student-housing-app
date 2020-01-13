@@ -28,10 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblPlaceholder = new System.Windows.Forms.Label();
             this.contentsPanel = new System.Windows.Forms.Panel();
+            this.rightClickMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.rightClickMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightClickMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsPanel.SuspendLayout();
+            this.rightClickMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -78,6 +83,30 @@
             this.contentsPanel.Size = new System.Drawing.Size(124, 26);
             this.contentsPanel.TabIndex = 2;
             // 
+            // rightClickMenu
+            // 
+            this.rightClickMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.rightClickMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rightClickMenuItem1,
+            this.rightClickMenuItem2});
+            this.rightClickMenu.Name = "contextMenuStrip1";
+            this.rightClickMenu.Size = new System.Drawing.Size(211, 80);
+            this.rightClickMenu.Opening += new System.ComponentModel.CancelEventHandler(this.rightClickMenu_Opening);
+            // 
+            // rightClickMenuItem1
+            // 
+            this.rightClickMenuItem1.Name = "rightClickMenuItem1";
+            this.rightClickMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.rightClickMenuItem1.Text = "Mark as complete";
+            this.rightClickMenuItem1.Click += new System.EventHandler(this.rightClickMenuItem1_Click);
+            // 
+            // rightClickMenuItem2
+            // 
+            this.rightClickMenuItem2.Name = "rightClickMenuItem2";
+            this.rightClickMenuItem2.Size = new System.Drawing.Size(210, 24);
+            this.rightClickMenuItem2.Text = "Delete event";
+            this.rightClickMenuItem2.Click += new System.EventHandler(this.rightClickMenuItem2_Click);
+            // 
             // calendarEventItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -91,6 +120,7 @@
             this.Size = new System.Drawing.Size(130, 32);
             this.SizeChanged += new System.EventHandler(this.calendarEventItem_SizeChanged);
             this.contentsPanel.ResumeLayout(false);
+            this.rightClickMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -100,5 +130,8 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblPlaceholder;
         private System.Windows.Forms.Panel contentsPanel;
+        private System.Windows.Forms.ContextMenuStrip rightClickMenu;
+        private System.Windows.Forms.ToolStripMenuItem rightClickMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem rightClickMenuItem2;
     }
 }

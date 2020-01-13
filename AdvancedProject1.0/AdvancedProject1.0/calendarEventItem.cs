@@ -14,12 +14,16 @@ namespace AdvancedProject1._0
 {
     public partial class calendarEventItem : UserControl
     {
-        public calendarEventItem()
+        FlowLayoutPanel parentPanel;
+        public calendarEventItem(FlowLayoutPanel passedPanel)
         {
             InitializeComponent();
+            parentPanel = passedPanel;
             this.Dock = DockStyle.Top;
+            this.lblTitle.MouseDown += new MouseEventHandler(this.lblTitle_MouseDown);
         }
 
+        private static User loggedInUser = new User(formLogin.userKey);
         private string _id;
         private Color _panelColor;
         private Color _textColor;
@@ -143,10 +147,6 @@ namespace AdvancedProject1._0
                 cmd.Dispose();
             }
             con.Close();
-
-            //In case we decide to start deleting elements once completed:
-            //RemoveEventFromDB();
-            //parentPanel.Controls.Remove(this);
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
@@ -154,7 +154,15 @@ namespace AdvancedProject1._0
             //Show Event info(description, image, title, etc.)
             CleaningSchedule pForm = (CleaningSchedule)this.ParentForm;
             pForm.ChangeDescription(this.description);
-            pForm.ChangePicture(this.Image);
+            pForm.ChangePicture(this.Image);  
+        }
+
+        private void lblTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                rightClickMenu.Show(this, new Point(e.X, e.Y));
+            }
         }
 
         private void calendarEventItem_SizeChanged(object sender, EventArgs e)
@@ -171,6 +179,41 @@ namespace AdvancedProject1._0
                 lblPlaceholder.Visible = false;
                 if(NewFontSize(lblTitle) > 0) lblTitle.Font = new Font(lblTitle.Font.FontFamily, NewFontSize(lblTitle));
             }
+        }
+
+        private void rightClickMenu_Opening(object sender, CancelEventArgs e)
+        {
+            string createdBy = null;
+            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+            con.Open();
+
+            using (SqlCommand cmd = new SqlCommand($"SELECT createdBy FROM CalendarEvents WHERE Id=@eventID", con))
+            {
+                cmd.Parameters.AddWithValue("@eventID", this.Id);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+                if (dataReader.Read()) createdBy = dataReader[0] as string;
+                dataReader.Close();
+                cmd.Dispose();
+            }
+            con.Close();
+
+            if (loggedInUser.GetUserID() == createdBy) rightClickMenuItem2.Visible = true;
+            else rightClickMenuItem2.Visible = false;
+        }
+
+        private void rightClickMenuItem2_Click(object sender, EventArgs e)
+        {
+            //Delete 'event' event handler
+            RemoveEventFromDB();
+            parentPanel.Controls.Remove(this);
+        }
+
+        private void rightClickMenuItem1_Click(object sender, EventArgs e)
+        {
+            //Mark as (in)complete
+            if (this.Completed) rightClickMenuItem1.Text = "Mark as completed";
+            else rightClickMenuItem1.Text = "Mark as incomplete";
+            lblTitle_DoubleClick(lblTitle, e);
         }
     }
 }

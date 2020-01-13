@@ -90,7 +90,7 @@ namespace AdvancedProject1._0
                     scheduler.SetLastDate(EventType.CommonRoom, iterator);
                     colorHandler = EventColorHandler.GetColorHandler(EventType.CommonRoom);
                     orderUser = scheduler.GetNextUser(EventType.CommonRoom);
-                    CalendarItem.AddEventToDB(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
+                    CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
                                               $"On this day:\n{orderUser.GetName()} should clean all shared facilities.", Properties.Resources.CommonRoom);
                     iterator = iterator.AddDays(settingsHandler.CommonValue);
                 }
@@ -105,7 +105,7 @@ namespace AdvancedProject1._0
                     scheduler.SetLastDate(EventType.Kitchen, iterator);
                     colorHandler = EventColorHandler.GetColorHandler(EventType.Kitchen);
                     orderUser = scheduler.GetNextUser(EventType.Kitchen);
-                    CalendarItem.AddEventToDB(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
+                    CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
                                               $"On this day:\n{orderUser.GetName()} should clean the kitchen.", Properties.Resources.Cleaning);
                     iterator = iterator.AddDays(settingsHandler.KitchenValue);
                 }
@@ -120,7 +120,7 @@ namespace AdvancedProject1._0
                     scheduler.SetLastDate(EventType.Bathroom, iterator);
                     colorHandler = EventColorHandler.GetColorHandler(EventType.Bathroom);
                     orderUser = scheduler.GetNextUser(EventType.Bathroom);
-                    CalendarItem.AddEventToDB(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
+                    CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
                                               $"On this day:\n{orderUser.GetName()} should clean the bathroom and toilet facilities.", Properties.Resources.Toilet);
                     iterator = iterator.AddDays(settingsHandler.BathroomValue);
                 }
