@@ -171,5 +171,10 @@ namespace AdvancedProject1._0
         {
 
         }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

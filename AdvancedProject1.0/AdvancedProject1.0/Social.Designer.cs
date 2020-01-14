@@ -39,10 +39,9 @@
             this.lbGeneralChat = new System.Windows.Forms.ListBox();
             this.tp2 = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tcChats.SuspendLayout();
             this.tp1.SuspendLayout();
             this.tp2.SuspendLayout();
@@ -92,8 +91,10 @@
             this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Location = new System.Drawing.Point(12, 12);
+            this.btnBack.Location = new System.Drawing.Point(12, 24);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(36, 36);
             this.btnBack.TabIndex = 4;
@@ -110,7 +111,7 @@
             this.tcChats.Location = new System.Drawing.Point(48, 98);
             this.tcChats.Multiline = true;
             this.tcChats.Name = "tcChats";
-            this.tcChats.Padding = new System.Drawing.Point(10, 10);
+            this.tcChats.Padding = new System.Drawing.Point(10, 8);
             this.tcChats.SelectedIndex = 0;
             this.tcChats.Size = new System.Drawing.Size(707, 523);
             this.tcChats.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -136,9 +137,9 @@
             this.lbGeneralChat.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbGeneralChat.FormattingEnabled = true;
             this.lbGeneralChat.ItemHeight = 20;
-            this.lbGeneralChat.Location = new System.Drawing.Point(-4, 0);
+            this.lbGeneralChat.Location = new System.Drawing.Point(-4, -2);
             this.lbGeneralChat.Name = "lbGeneralChat";
-            this.lbGeneralChat.Size = new System.Drawing.Size(707, 464);
+            this.lbGeneralChat.Size = new System.Drawing.Size(705, 464);
             this.lbGeneralChat.TabIndex = 6;
             this.lbGeneralChat.SelectedIndexChanged += new System.EventHandler(this.LbGeneralChat_SelectedIndexChanged);
             // 
@@ -164,14 +165,6 @@
             this.imageList1.Images.SetKeyName(0, "167178_home-icon-png-white (1).png");
             this.imageList1.Images.SetKeyName(1, "chat.png");
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
-            this.panel2.Location = new System.Drawing.Point(52, 662);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(661, 2);
-            this.panel2.TabIndex = 10;
-            // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
@@ -181,28 +174,29 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 82);
+            this.panel1.Size = new System.Drawing.Size(803, 82);
             this.panel1.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(68, 10);
+            this.label1.Location = new System.Drawing.Point(54, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 54);
+            this.label1.Size = new System.Drawing.Size(157, 65);
             this.label1.TabIndex = 5;
             this.label1.Text = "Social";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // panel3
+            // panel2
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
-            this.panel3.Location = new System.Drawing.Point(761, 124);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(2, 464);
-            this.panel3.TabIndex = 12;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
+            this.panel2.Location = new System.Drawing.Point(52, 662);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(661, 2);
+            this.panel2.TabIndex = 10;
             // 
             // Social
             // 
@@ -210,8 +204,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(804, 680);
-            this.Controls.Add(this.panel3);
+            this.ClientSize = new System.Drawing.Size(803, 680);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tcChats);
@@ -243,9 +236,8 @@
         private System.Windows.Forms.TabPage tp2;
         private System.Windows.Forms.ListBox lbGeneralChat;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
     }
 }
