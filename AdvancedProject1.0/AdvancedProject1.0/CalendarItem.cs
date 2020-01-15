@@ -39,7 +39,7 @@ namespace AdvancedProject1._0
             get { return _rawdate; }
             set
             { 
-                _rawdate = value;
+                _rawdate = value.Date;
                 if (value.DayOfWeek == DayOfWeek.Saturday || value.DayOfWeek == DayOfWeek.Sunday)
                 {
                     this.lblDate.ForeColor = SystemColors.HotTrack;
@@ -88,7 +88,7 @@ namespace AdvancedProject1._0
 
             using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, description, completed, image, createdBy) VALUES (@date, @color, @title, @tcolor, @unit, @desc, @comp, @img, @created)", con))
             {
-                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@date", date.Date);
                 cmd.Parameters.AddWithValue("@color", ColorTranslator.ToHtml(eventColor));
                 cmd.Parameters.AddWithValue("@title", title);
                 cmd.Parameters.AddWithValue("@tcolor", ColorTranslator.ToHtml(titleColor));
@@ -110,7 +110,7 @@ namespace AdvancedProject1._0
 
             using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, description, completed, image, createdBy) VALUES (@date, @color, @title, @tcolor, @unit, @desc, @comp, @img, @created)", con))
             {
-                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@date", date.Date);
                 cmd.Parameters.AddWithValue("@color", ColorTranslator.ToHtml(eventColor));
                 cmd.Parameters.AddWithValue("@title", title);
                 cmd.Parameters.AddWithValue("@tcolor", ColorTranslator.ToHtml(titleColor));
@@ -132,7 +132,7 @@ namespace AdvancedProject1._0
 
             using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, description, completed, createdBy) VALUES (@date, @color, @title, @tcolor, @unit, @desc, @comp, @created)", con))
             {
-                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@date", date.Date);
                 cmd.Parameters.AddWithValue("@color", ColorTranslator.ToHtml(eventColor));
                 cmd.Parameters.AddWithValue("@title", title);
                 cmd.Parameters.AddWithValue("@tcolor", ColorTranslator.ToHtml(titleColor));
@@ -153,7 +153,7 @@ namespace AdvancedProject1._0
 
             using (SqlCommand cmd = new SqlCommand($"INSERT INTO CalendarEvents (date, eventColor, eventTitle, titleColor, houseUnit, completed, createdBy) VALUES (@date, @color, @title, @tcolor, @unit, @comp, @created)", con))
             {
-                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@date", date.Date);
                 cmd.Parameters.AddWithValue("@color", ColorTranslator.ToHtml(eventColor));
                 cmd.Parameters.AddWithValue("@title", title);
                 cmd.Parameters.AddWithValue("@tcolor", ColorTranslator.ToHtml(titleColor));
@@ -279,7 +279,7 @@ namespace AdvancedProject1._0
             SqlDataReader dataReader;
 
             cmd = new SqlCommand($"SELECT date, eventColor, eventTitle, titleColor, Id, completed, description, image FROM CalendarEvents WHERE date=@samedate AND houseUnit=@unit", con);
-            cmd.Parameters.AddWithValue("@samedate", this._rawdate);
+            cmd.Parameters.AddWithValue("@samedate", this._rawdate.Date);
             cmd.Parameters.AddWithValue("@unit", unitID);
             dataReader = cmd.ExecuteReader();
 

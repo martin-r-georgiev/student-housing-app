@@ -137,7 +137,6 @@ namespace AdvancedProject1._0
             PopulateCalendar();
             schedule = new OrderScheduler(tenantUnit);
             lblGarbageName.Text = new User(schedule.CurrentIDGarbage).GetFirstName();
-            if (loggedInUser.IsUserAdmin()) cbArduino.Visible = false;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -172,6 +171,7 @@ namespace AdvancedProject1._0
         private void scheduleForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Enabled = true;
+            GenerateCleaningEvents();
             PopulateCalendar();
         }
 

@@ -284,9 +284,9 @@ namespace AdvancedProject1._0
             {
                 case EventType.CommonRoom: column = "commonDate"; break;
                 case EventType.Kitchen: column = "kitchenDate"; break;
-                case EventType.Garbage: column = "bathroomDate"; break;
-                case EventType.Groceries: column = "garbageDate"; break;
-                case EventType.Bathroom: column = "groceriesDate"; break;
+                case EventType.Garbage: column = "garbageDate"; break;
+                case EventType.Groceries: column = "groceriesDate"; break;
+                case EventType.Bathroom: column = "bathroomDate"; break;
             }
             if (column != null)
             {
