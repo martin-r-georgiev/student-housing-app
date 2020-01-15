@@ -26,7 +26,6 @@ namespace AdvancedProject1._0
             gath = new NotificationsGatherer(loggedInUser.GetUserID());
             NotificationBtnUpdate();
             RefreshPanel();
-            //NotificationBtnUpdate();
             /* (Example) How to use the HouseUnit class to iterate through tenants
             HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
             string test = "";
@@ -41,6 +40,7 @@ namespace AdvancedProject1._0
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            NotificationsGatherer.DeleteAllCompleted() ;
             formLogin loginScreen = new formLogin();
             loginScreen.Show();
             this.Close();
@@ -101,27 +101,20 @@ namespace AdvancedProject1._0
         }
         public void NotificationBtnUpdate()
         {
-            if (gath.GetNumberOfNotifications() > 0) btnNotification.Text = "Show notifications (!)";
+            if (gath.GetAllIncompleteNotifications().Count > 0) btnNotification.Text = "Show notifications (!)";
         }
         public void RefreshPanel()
         {
             panelNotifications.Controls.Clear();
+            gath = new NotificationsGatherer(loggedInUser.GetUserID());
             List<Notifications> myNotifications = new List<Notifications>();
-            myNotifications = gath.GetAllNotifications();
+            myNotifications = gath.GetAllIncompleteNotifications();
             NotificationSmallLabel[] notifications = new NotificationSmallLabel[myNotifications.Count];
             for (int i = 0; i < myNotifications.Count; i++)
             {
                 notifications[i] = new NotificationSmallLabel(myNotifications[i]);
                 panelNotifications.Controls.Add(notifications[i]);
             }
-            //panelReport.Controls.Clear();
-            //myReports = ReportsList.GetReports();
-            //ReportPanel[] reportPanels = new ReportPanel[myReports.Count];
-            //for (int i = 0; i < myReports.Count; i++)
-            //{
-            //    reportPanels[i] = new ReportPanel(myReports[i]);
-            //    panelReport.Controls.Add(reportPanels[i]);
-            //}
         }
     }
 }

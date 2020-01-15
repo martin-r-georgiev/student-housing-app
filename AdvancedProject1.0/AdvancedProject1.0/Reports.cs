@@ -42,7 +42,9 @@ namespace AdvancedProject1._0
                 myReportsList = new ReportsList();
                 myReportsList.DeleteEntry(selectedReport.ReportId);
                 RefreshPanels();
+                RefreshTextboxes();
             }
+
         }
 
         private void btnReply_Click(object sender, EventArgs e)
@@ -52,6 +54,7 @@ namespace AdvancedProject1._0
                 myReportsList = new ReportsList();
                 myReportsList.ReplyTo(selectedReport.ReportId, tbReply.Text);
                 RefreshPanels();
+                RefreshTextboxes();
             }
         }
         private void RefreshPanels()
@@ -73,6 +76,12 @@ namespace AdvancedProject1._0
         public void ChangeSelectedReport(Report newReport)
         {
             selectedReport = newReport;
+        }
+        public void RefreshTextboxes()
+        {
+            lblReporterName.Text = "";
+            tbReport.Text = "";
+            tbReply.Text = "";
         }
         public void RefreshReplyTextbox()
         {

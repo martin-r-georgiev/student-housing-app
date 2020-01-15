@@ -8,19 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace AdvancedProject1._0
 {
     public partial class AdminMain : Form
     {
         User loggedInUser;
-
+        List<HouseUnit> unitList = new List<HouseUnit>();
         public AdminMain()
         {
             InitializeComponent();
             loggedInUser = new User(formLogin.userKey);
+            PopulateCBAnnouncements();
         }
-
+        
         private void btnLogout_Click(object sender, EventArgs e)
         {
             formLogin loginScreen = new formLogin();
@@ -59,6 +62,64 @@ namespace AdvancedProject1._0
             AdminCalendar calendarForm = new AdminCalendar();
             calendarForm.Show();
             this.Close();
+        }
+
+        private void btnAnnouncements_Click(object sender, EventArgs e)
+        {
+            if (btnAnnouncements.Text == "Make Announcement")
+            {
+                btnAnnouncements.Text = "Send";
+                tbAnnouncement.Visible = true;
+                cbAnnouncementUnits.Visible = true;
+                cbAnnouncementUnits.SelectedIndex = 0;
+
+            } else if (btnAnnouncements.Text == "Send")
+            {
+                SendAnnouncement();
+                btnAnnouncements.Text = "Make Announcement";
+                tbAnnouncement.Visible = false;
+                cbAnnouncementUnits.Visible = false;
+            }
+        }
+        private void PopulateUnitList()
+        {
+            unitList.Clear();
+
+            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand($"SELECT unitID FROM HUnitTable", con);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                HouseUnit newUnit = new HouseUnit(dataReader.GetInt32(0));
+                unitList.Add(newUnit);
+            }
+            con.Close();
+        }
+        private void SendAnnouncement()
+        {
+            if (tbAnnouncement.Text.Length > 0)
+            {
+                if (cbAnnouncementUnits.SelectedIndex == 0)
+                {
+                    NotificationsGatherer.Anounce(tbAnnouncement.Text);
+                }
+                else
+                {
+                    NotificationsGatherer.Anounce(tbAnnouncement.Text, Convert.ToInt32(cbAnnouncementUnits.SelectedItem));
+                }
+            }
+            else MessageBox.Show("Write an announcement first!");
+        }
+        private void PopulateCBAnnouncements()
+        {
+            PopulateUnitList();
+            cbAnnouncementUnits.Items.Clear();
+            cbAnnouncementUnits.Items.Add("All");
+            foreach (HouseUnit h in unitList)
+                cbAnnouncementUnits.Items.Add(h.GetUnitID());
         }
     }
 }

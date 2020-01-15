@@ -14,7 +14,12 @@ namespace AdvancedProject1._0
 		private string description;
 		private User notifiedUser;
 		private int notificationId;
-
+		private bool isComplete;
+		public bool IsComplete
+		{
+			get { return isComplete; }
+			set { isComplete = value; }
+		}
 		public int NotificationId
 		{
 			get { return notificationId; }
@@ -42,6 +47,7 @@ namespace AdvancedProject1._0
 				this.NotifiedUser = new User(userID);
 				this.Title = title;
 				this.Description = description;
+			this.IsComplete = false;
 				InsertToDB();
 		}
 		public Notifications(int notificationNum)
@@ -53,7 +59,7 @@ namespace AdvancedProject1._0
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
-			cmd = new SqlCommand($"SELECT Title, Notification, UserID FROM Notifications WHERE Id=@notificationId", con);
+			cmd = new SqlCommand($"SELECT Title, Notification, UserID, Status FROM Notifications WHERE Id=@notificationId", con);
 			cmd.Parameters.AddWithValue(@"notificationId", notificationNum);
 			dataReader = cmd.ExecuteReader();
 
@@ -63,6 +69,8 @@ namespace AdvancedProject1._0
 				this.Title = dataReader.GetString(0);
 				this.Description = dataReader.GetString(1);
 				this.notifiedUser = new User(dataReader.GetString(2));
+				if (dataReader.GetString(3).Contains("Sent")) this.IsComplete = false;
+				else if (dataReader.GetString(3).Contains("Complete")) this.IsComplete = true;
 			}
 			con.Close();
 		}
@@ -71,11 +79,12 @@ namespace AdvancedProject1._0
 			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
 			con.Open();
 
-			using (SqlCommand cmd = new SqlCommand($"INSERT INTO Notifications (Title, Notification, UserID) VALUES (@title, @notificationText, @userid)", con))
+			using (SqlCommand cmd = new SqlCommand($"INSERT INTO Notifications (Title, Notification, UserID, Status) VALUES (@title, @notificationText, @userid, @status)", con))
 			{
 				cmd.Parameters.AddWithValue("@title", this.Title);
 				cmd.Parameters.AddWithValue("@notificationText", this.Description);
 				cmd.Parameters.AddWithValue("@userid", this.NotifiedUser.GetUserID());
+				cmd.Parameters.AddWithValue("@status", "Sent");
 				cmd.ExecuteNonQuery();
 				cmd.Dispose();
 			}
@@ -134,6 +143,21 @@ namespace AdvancedProject1._0
 			}
 			con.Close();
 			return true;
+		}
+		public void Complete()
+		{
+			this.IsComplete = true;
+			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+			con.Open();
+			using (SqlCommand cmd = new SqlCommand($"UPDATE Notifications SET Status = @statusText WHERE Id = @notificationId", con))
+			{
+				cmd.Parameters.AddWithValue("@notificationid", this.NotificationId);
+				cmd.Parameters.AddWithValue("@statusText", "Complete");
+				cmd.ExecuteNonQuery();
+				cmd.Dispose();
+			}
+			con.Close();
+
 		}
 	}
 }

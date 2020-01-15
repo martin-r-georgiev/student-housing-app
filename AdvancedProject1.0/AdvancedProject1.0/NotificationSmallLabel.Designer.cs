@@ -32,7 +32,6 @@
             this.lblDesc = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tbDesc = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -85,24 +84,10 @@
             this.panel2.MouseEnter += new System.EventHandler(this.NotificationSmallLabel_MouseEnter);
             this.panel2.MouseLeave += new System.EventHandler(this.NotificationSmallLabel_MouseLeave);
             // 
-            // tbDesc
-            // 
-            this.tbDesc.Location = new System.Drawing.Point(19, 25);
-            this.tbDesc.Name = "tbDesc";
-            this.tbDesc.Size = new System.Drawing.Size(109, 31);
-            this.tbDesc.TabIndex = 11;
-            this.tbDesc.Text = "";
-            this.tbDesc.Visible = false;
-            this.tbDesc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NotificationSmallLabel_MouseClick);
-            this.tbDesc.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotificationSmallLabel_MouseDoubleClick);
-            this.tbDesc.MouseEnter += new System.EventHandler(this.NotificationSmallLabel_MouseEnter);
-            this.tbDesc.MouseLeave += new System.EventHandler(this.NotificationSmallLabel_MouseLeave);
-            // 
             // NotificationSmallLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tbDesc);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDesc);
@@ -123,6 +108,5 @@
         private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RichTextBox tbDesc;
     }
 }

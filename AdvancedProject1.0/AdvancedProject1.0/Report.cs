@@ -119,19 +119,8 @@ namespace AdvancedProject1._0
         }
         public void Reply(string replyMsg)
         {
-            this.IsReport = false;
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-            using (SqlCommand cmd = new SqlCommand($"UPDATE Reports SET Report = @reportText, Type = @type WHERE Id = @reportId", con))
-            {
-                cmd.Parameters.AddWithValue("@reportText", replyMsg);
-                cmd.Parameters.AddWithValue("@type", "Reply");
-                cmd.Parameters.AddWithValue("@reportId", this.ReportId);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-            }
-            con.Close();
-
+            Notifications newNotification = new Notifications(this.Reporter.GetUserID(), "Report response", replyMsg);
+            RemoveFromDatabase();
         }
     }
 }

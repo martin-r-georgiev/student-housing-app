@@ -15,7 +15,6 @@ namespace AdvancedProject1._0
     public partial class CleaningSchedule : Form
     {
         User loggedInUser;
-        List<User> Residents;
         OrderScheduler schedule;
         HouseUnit tenantUnit;
         SettingsHandler settingsHandler;
@@ -222,12 +221,11 @@ namespace AdvancedProject1._0
                     orderUser = schedule.GetNextUser(EventType.Garbage);
                     EventColorHandler colorHandler = EventColorHandler.GetColorHandler(EventType.Garbage);
                     lblGarbageName.Text = orderUser.GetFirstName();
-                    CalendarItem.SystemAddEvent(DateTime.Today.AddDays(1), colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
+                    CalendarItem.SystemAddEvent(DateTime.Today, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
                                               $"On this day:\n{orderUser.GetName()} should take out the garbage.", Properties.Resources.Garbage);
                     PopulateCalendar();
                     pbGarbage.Value = pbGarbage.Minimum;
                 }
-                if (pbGarbage.Value == 0) NameSwap();
             }
         }
     }

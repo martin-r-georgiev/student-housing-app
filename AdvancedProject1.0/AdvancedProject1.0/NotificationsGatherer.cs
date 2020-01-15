@@ -82,43 +82,27 @@ namespace AdvancedProject1._0
 		}
 		public void GetOrder()
 		{
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
-			SqlCommand cmd;
-			SqlDataReader dataReader;
-
-			cmd = new SqlCommand($"SELECT garbageCurrentID,groceriesCurrentID FROM SchedulerOrder WHERE unitID = @userunitid", con);
-			cmd.Parameters.AddWithValue("@userunitid", loggedUser.GetHouseID());
-			dataReader = cmd.ExecuteReader();
-
-			while (dataReader.Read())
+			OrderScheduler newSched = new OrderScheduler(new HouseUnit(loggedUser.GetHouseID()));
+			if (loggedUser.GetUserID() == newSched.CurrentIDGarbage)
 			{
-				string garbageId = dataReader.GetString(0);
-				string groceriesId = dataReader.GetString(1);
-				if (loggedUser.GetUserID() == garbageId)
+				string title = "Garbage takeout";
+				string desc = "It's your turn to take the trash out";
+				if (Notifications.IsSingleEntry(title, desc, loggedUser.GetUserID()))
 				{
-					string title = "Garbage takeout";
-					string desc = "It's your turn to take the trash out";
-					if (Notifications.IsSingleEntry(title, desc, loggedUser.GetUserID()))
-					{
-						Notifications newNotification = new Notifications(loggedUser.GetUserID(), title, desc);
-						notificationList.Add(newNotification);
-					}
-				}
-				if (loggedUser.GetUserID() == groceriesId)
-				{
-					string title = "Groceries";
-					string desc = "It's your turn to go shopping";
-					if (Notifications.IsSingleEntry(title, desc, loggedUser.GetUserID()))
-					{
-						Notifications newNotification = new Notifications(loggedUser.GetUserID(), title, desc);
-						notificationList.Add(newNotification);
-					}
+					Notifications newNotification = new Notifications(loggedUser.GetUserID(), title, desc);
+					notificationList.Add(newNotification);
 				}
 			}
-			con.Close();
+			if (loggedUser.GetUserID() == newSched.CurrentIDGroceries)
+			{
+				string title = "Groceries";
+				string desc = "It's your turn to go shopping";
+				if (Notifications.IsSingleEntry(title, desc, loggedUser.GetUserID()))
+				{
+					Notifications newNotification = new Notifications(loggedUser.GetUserID(), title, desc);
+					notificationList.Add(newNotification);
+				}
+			}
 		}
 		public int GetNumberOfNotifications()
 		{
@@ -128,9 +112,81 @@ namespace AdvancedProject1._0
 		{
 			return notificationList;
 		}
-		public static void Anounce()
+		public List<Notifications> GetAllIncompleteNotifications()
 		{
-			
+			List<Notifications> toSend = new List<Notifications>();
+			foreach (Notifications n in notificationList)
+			{
+				if (!n.IsComplete)
+					toSend.Add(n);
+			}
+			return toSend;
+		}
+		public static void Anounce(string replyMsg)
+		{
+			List<User> allUsers = new List<User>();
+			//Creating & opening SQL Connection to database
+			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+			con.Open();
+
+			SqlCommand cmd;
+			SqlDataReader dataReader;
+
+			cmd = new SqlCommand($"SELECT userID FROM Users", con);
+			dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				string userID = dataReader.GetString(0);
+				User newUser = new User(userID);
+				if (!newUser.IsUserAdmin())
+					allUsers.Add(newUser);
+			}
+			con.Close();
+			foreach(User u in allUsers)
+			{
+				Notifications newNotification = new Notifications(u.GetUserID(), "Announcement", replyMsg);
+			}
+		}
+		public static void Anounce(string replyMsg, int UnitID)
+		{
+			List<User> allUsers = new List<User>();
+			//Creating & opening SQL Connection to database
+			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+			con.Open();
+
+			SqlCommand cmd;
+			SqlDataReader dataReader;
+
+			cmd = new SqlCommand($"SELECT userID FROM Users WHERE houseID = @unitid", con);
+			cmd.Parameters.AddWithValue("@unitid", UnitID);
+			dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				string userID = dataReader.GetString(0);
+				User newUser = new User(userID);
+				if (!newUser.IsUserAdmin())
+					allUsers.Add(newUser);
+			}
+			con.Close();
+			foreach (User u in allUsers)
+			{
+				Notifications newNotification = new Notifications(u.GetUserID(), "Announcement", replyMsg);
+			}
+		}
+		public static void DeleteAllCompleted()
+		{
+		    SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+			con.Open();
+
+			using (SqlCommand cmd = new SqlCommand($"DELETE Notifications WHERE Status=@statusText", con))
+			{
+				cmd.Parameters.AddWithValue("@statusText", "Complete");
+				cmd.ExecuteNonQuery();
+				cmd.Dispose();
+			}
+			con.Close();
 		}
     }
 }
