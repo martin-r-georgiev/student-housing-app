@@ -35,17 +35,20 @@ namespace AdvancedProject1._0
 
         private void tbBathroom_ValueChanged(object sender, EventArgs e)
         {
-            lblBathroomValue.Text = tbBathroom.Value.ToString();
+            if (tbBathroom.Value != 0) lblBathroomValue.Text = tbBathroom.Value.ToString();
+            else lblBathroomValue.Text = "Disabled";
         }
 
         private void tbKitchen_ValueChanged(object sender, EventArgs e)
         {
-            lblKitchenValue.Text = tbKitchen.Value.ToString();
+            if(tbKitchen.Value != 0) lblKitchenValue.Text = tbKitchen.Value.ToString();
+            else lblKitchenValue.Text = "Disabled";
         }
 
         private void tbCommonRooms_ValueChanged(object sender, EventArgs e)
         {
-            lblCRoomsValue.Text = tbCommonRooms.Value.ToString();
+            if (tbCommonRooms.Value != 0) lblCRoomsValue.Text = tbCommonRooms.Value.ToString();
+            else lblCRoomsValue.Text = "Disabled";
         }
 
         private void btnSaveSettings_Click(object sender, EventArgs e)
@@ -55,26 +58,6 @@ namespace AdvancedProject1._0
             settingsHandler.BathroomValue = tbBathroom.Value;
             settingsHandler.SaveSettings();
             this.Close();
-        }
-
-        private void LblNotice_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblBathroom_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblKitchen_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblCommonRooms_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

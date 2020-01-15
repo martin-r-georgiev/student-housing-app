@@ -54,28 +54,28 @@
             this.tbCommonRooms.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbCommonRooms.Maximum = 7;
             this.tbCommonRooms.Name = "tbCommonRooms";
-            this.tbCommonRooms.Size = new System.Drawing.Size(247, 45);
+            this.tbCommonRooms.Size = new System.Drawing.Size(247, 56);
             this.tbCommonRooms.TabIndex = 0;
             this.tbCommonRooms.ValueChanged += new System.EventHandler(this.tbCommonRooms_ValueChanged);
             // 
             // lblCRoomsValue
             // 
-            this.lblCRoomsValue.AutoSize = true;
-            this.lblCRoomsValue.Location = new System.Drawing.Point(297, 105);
+            this.lblCRoomsValue.Location = new System.Drawing.Point(258, 109);
             this.lblCRoomsValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCRoomsValue.Name = "lblCRoomsValue";
-            this.lblCRoomsValue.Size = new System.Drawing.Size(15, 17);
+            this.lblCRoomsValue.Size = new System.Drawing.Size(88, 23);
             this.lblCRoomsValue.TabIndex = 1;
             this.lblCRoomsValue.Text = "0";
+            this.lblCRoomsValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFrequencySub1
             // 
             this.lblFrequencySub1.AutoSize = true;
             this.lblFrequencySub1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFrequencySub1.Location = new System.Drawing.Point(163, 33);
+            this.lblFrequencySub1.Location = new System.Drawing.Point(197, 33);
             this.lblFrequencySub1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFrequencySub1.Name = "lblFrequencySub1";
-            this.lblFrequencySub1.Size = new System.Drawing.Size(64, 17);
+            this.lblFrequencySub1.Size = new System.Drawing.Size(82, 23);
             this.lblFrequencySub1.TabIndex = 2;
             this.lblFrequencySub1.Text = "Every day";
             // 
@@ -86,10 +86,9 @@
             this.lblCommonRooms.Location = new System.Drawing.Point(15, 71);
             this.lblCommonRooms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCommonRooms.Name = "lblCommonRooms";
-            this.lblCommonRooms.Size = new System.Drawing.Size(155, 17);
+            this.lblCommonRooms.Size = new System.Drawing.Size(203, 23);
             this.lblCommonRooms.TabIndex = 3;
             this.lblCommonRooms.Text = "Cleaning common rooms";
-            this.lblCommonRooms.Click += new System.EventHandler(this.LblCommonRooms_Click);
             // 
             // btnSaveSettings
             // 
@@ -113,31 +112,30 @@
             // 
             this.lblKitchen.AutoSize = true;
             this.lblKitchen.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblKitchen.Location = new System.Drawing.Point(37, 154);
+            this.lblKitchen.Location = new System.Drawing.Point(37, 151);
             this.lblKitchen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKitchen.Name = "lblKitchen";
-            this.lblKitchen.Size = new System.Drawing.Size(102, 17);
+            this.lblKitchen.Size = new System.Drawing.Size(137, 23);
             this.lblKitchen.TabIndex = 7;
             this.lblKitchen.Text = "Cleaning kitchen";
-            this.lblKitchen.Click += new System.EventHandler(this.LblKitchen_Click);
             // 
             // lblKitchenValue
             // 
-            this.lblKitchenValue.AutoSize = true;
-            this.lblKitchenValue.Location = new System.Drawing.Point(297, 190);
+            this.lblKitchenValue.Location = new System.Drawing.Point(258, 191);
             this.lblKitchenValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKitchenValue.Name = "lblKitchenValue";
-            this.lblKitchenValue.Size = new System.Drawing.Size(15, 17);
+            this.lblKitchenValue.Size = new System.Drawing.Size(89, 23);
             this.lblKitchenValue.TabIndex = 6;
             this.lblKitchenValue.Text = "0";
+            this.lblKitchenValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbKitchen
             // 
-            this.tbKitchen.Location = new System.Drawing.Point(180, 149);
+            this.tbKitchen.Location = new System.Drawing.Point(180, 145);
             this.tbKitchen.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbKitchen.Maximum = 7;
             this.tbKitchen.Name = "tbKitchen";
-            this.tbKitchen.Size = new System.Drawing.Size(247, 45);
+            this.tbKitchen.Size = new System.Drawing.Size(247, 56);
             this.tbKitchen.TabIndex = 5;
             this.tbKitchen.ValueChanged += new System.EventHandler(this.tbKitchen_ValueChanged);
             // 
@@ -148,20 +146,19 @@
             this.lblBathroom.Location = new System.Drawing.Point(13, 237);
             this.lblBathroom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBathroom.Name = "lblBathroom";
-            this.lblBathroom.Size = new System.Drawing.Size(153, 17);
+            this.lblBathroom.Size = new System.Drawing.Size(204, 23);
             this.lblBathroom.TabIndex = 10;
             this.lblBathroom.Text = "Cleaning Bathroom/toilet";
-            this.lblBathroom.Click += new System.EventHandler(this.LblBathroom_Click);
             // 
             // lblBathroomValue
             // 
-            this.lblBathroomValue.AutoSize = true;
-            this.lblBathroomValue.Location = new System.Drawing.Point(297, 272);
+            this.lblBathroomValue.Location = new System.Drawing.Point(258, 272);
             this.lblBathroomValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBathroomValue.Name = "lblBathroomValue";
-            this.lblBathroomValue.Size = new System.Drawing.Size(15, 17);
+            this.lblBathroomValue.Size = new System.Drawing.Size(92, 23);
             this.lblBathroomValue.TabIndex = 9;
             this.lblBathroomValue.Text = "0";
+            this.lblBathroomValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbBathroom
             // 
@@ -169,7 +166,7 @@
             this.tbBathroom.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbBathroom.Maximum = 7;
             this.tbBathroom.Name = "tbBathroom";
-            this.tbBathroom.Size = new System.Drawing.Size(247, 45);
+            this.tbBathroom.Size = new System.Drawing.Size(247, 56);
             this.tbBathroom.TabIndex = 8;
             this.tbBathroom.ValueChanged += new System.EventHandler(this.tbBathroom_ValueChanged);
             // 
@@ -180,7 +177,7 @@
             this.lblFrequencySub2.Location = new System.Drawing.Point(372, 33);
             this.lblFrequencySub2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFrequencySub2.Name = "lblFrequencySub2";
-            this.lblFrequencySub2.Size = new System.Drawing.Size(82, 17);
+            this.lblFrequencySub2.Size = new System.Drawing.Size(107, 23);
             this.lblFrequencySub2.TabIndex = 11;
             this.lblFrequencySub2.Text = "Once a week";
             // 
@@ -189,17 +186,16 @@
             this.lblNotice.AutoSize = true;
             this.lblNotice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNotice.ForeColor = System.Drawing.Color.Gray;
-            this.lblNotice.Location = new System.Drawing.Point(191, 289);
+            this.lblNotice.Location = new System.Drawing.Point(191, 302);
             this.lblNotice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNotice.Name = "lblNotice";
-            this.lblNotice.Size = new System.Drawing.Size(275, 17);
+            this.lblNotice.Size = new System.Drawing.Size(362, 23);
             this.lblNotice.TabIndex = 12;
             this.lblNotice.Text = "* Setting the value to 0 will disable the scheduler";
-            this.lblNotice.Click += new System.EventHandler(this.LblNotice_Click);
             // 
             // SchedulePopup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(498, 401);

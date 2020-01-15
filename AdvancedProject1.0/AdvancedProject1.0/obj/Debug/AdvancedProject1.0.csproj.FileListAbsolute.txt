@@ -93,3 +93,5 @@ C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\Backup\Advanced
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\Backup\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.pdb
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\MaterialSkin.dll
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csproj.CopyComplete
+D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\MaterialSkin.dll
+D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csproj.CopyComplete
