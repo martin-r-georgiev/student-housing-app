@@ -152,9 +152,19 @@ namespace AdvancedProject1._0
         private void lblTitle_Click(object sender, EventArgs e)
         {
             //Show Event info(description, image, title, etc.)
-            CleaningSchedule pForm = (CleaningSchedule)this.ParentForm;
-            pForm.ChangeDescription(this.description);
-            pForm.ChangePicture(this.Image);  
+            if(!loggedInUser.IsUserAdmin())
+            {
+                CleaningSchedule pForm = (CleaningSchedule)this.ParentForm;
+                pForm.ChangeDescription(this.description);
+                pForm.ChangePicture(this.Image);
+            }
+            else
+            {
+                AdminCalendar pForm = (AdminCalendar)this.ParentForm;
+                pForm.ChangeDescription(this.description);
+                pForm.ChangePicture(this.Image);
+            }
+            
         }
 
         private void lblTitle_MouseDown(object sender, MouseEventArgs e)

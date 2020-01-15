@@ -53,5 +53,12 @@ namespace AdvancedProject1._0
             if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
             else Application.Exit();
         }
+
+        private void btnCalendar_Click(object sender, EventArgs e)
+        {
+            AdminCalendar calendarForm = new AdminCalendar();
+            calendarForm.Show();
+            this.Close();
+        }
     }
 }

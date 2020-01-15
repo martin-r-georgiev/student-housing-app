@@ -70,6 +70,12 @@
     <Compile Include="AdminAdd.Designer.cs">
       <DependentUpon>AdminAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminCalendar.Designer.cs">
+      <DependentUpon>AdminCalendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     <Compile Include="User.cs" />
     <EmbeddedResource Include="AdminAdd.resx">
       <DependentUpon>AdminAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminCalendar.resx">
+      <DependentUpon>AdminCalendar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMain.resx">
       <DependentUpon>AdminMain.cs</DependentUpon>
