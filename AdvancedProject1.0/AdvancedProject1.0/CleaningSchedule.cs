@@ -137,9 +137,6 @@ namespace AdvancedProject1._0
             GenerateCleaningEvents();
             PopulateCalendar();
             schedule = new OrderScheduler(tenantUnit);
-            Residents = new List<User>();
-            HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
-            Residents = newUnit.Tenants();
             lblGarbageName.Text = new User(schedule.CurrentIDGarbage).GetFirstName();
         }
 
@@ -218,25 +215,18 @@ namespace AdvancedProject1._0
             if (Int32.TryParse(line, out int pbValue))
             {
                 pbGarbage.Value = pbValue;
-                if (pbGarbage.Value == 0) NameSwap();
+                if(pbGarbage.Value == pbGarbage.Maximum)
+                {
+                    User orderUser;
+                    orderUser = schedule.GetNextUser(EventType.Garbage);
+                    EventColorHandler colorHandler = EventColorHandler.GetColorHandler(EventType.Garbage);
+                    lblGarbageName.Text = orderUser.GetFirstName();
+                    CalendarItem.SystemAddEvent(DateTime.Today.AddDays(1), colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
+                                              $"On this day:\n{orderUser.GetName()} should take out the garbage.", Properties.Resources.Garbage);
+                    PopulateCalendar();
+                    pbGarbage.Value = pbGarbage.Minimum;
+                }
             }
-        }
-        private void NameSwap()
-        {
-            //if (garbageCounter < (Residents.Count() - 1))
-            //{
-            //    lblGarbageName.Text = Residents[garbageCounter].GetFirstName();
-            //    garbageCounter++;
-            //}
-            //else if (garbageCounter >= (Residents.Count() - 1))
-            //{
-            //    garbageCounter = 0;
-            //    lblGarbageName.Text = Residents[Residents.Count() - 1].GetFirstName();
-            //}
-
-            User buyer;
-            buyer = schedule.GetNextUser(EventType.Garbage);
-            lblGarbageName.Text = buyer.GetFirstName();
         }
     }
 }
