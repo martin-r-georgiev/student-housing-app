@@ -138,6 +138,7 @@ namespace AdvancedProject1._0
             PopulateCalendar();
             schedule = new OrderScheduler(tenantUnit);
             lblGarbageName.Text = new User(schedule.CurrentIDGarbage).GetFirstName();
+            if (loggedInUser.IsUserAdmin()) cbArduino.Visible = false;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -226,6 +227,7 @@ namespace AdvancedProject1._0
                     PopulateCalendar();
                     pbGarbage.Value = pbGarbage.Minimum;
                 }
+                if (pbGarbage.Value == 0) NameSwap();
             }
         }
     }

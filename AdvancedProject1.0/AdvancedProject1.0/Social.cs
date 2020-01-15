@@ -99,7 +99,7 @@ namespace AdvancedProject1._0
                     return true;
                 }
             }
-            chat += $"{loggedInUser.GetHouseID()}: \n~ \n";
+            chat += $"{loggedInUser.GetHouseID()}:\n~";
             System.IO.File.WriteAllText(@"Chat.txt", chat);
             MessageBox.Show($"Welcome to the new chat of house unit {loggedInUser.GetHouseID()}");
             return false;
@@ -111,6 +111,7 @@ namespace AdvancedProject1._0
 
             if (tcChats.SelectedIndex == 0)
             {
+                newLine = $"{loggedInUser.GetFirstName()} {loggedInUser.GetHouseID()}: {newLine}";
                 generalChatLines.Add(newLine);
                 chats[1] = "ALL:\n";
                 foreach (string s in generalChatLines)
@@ -120,7 +121,7 @@ namespace AdvancedProject1._0
 
             if (tcChats.SelectedIndex == 1)
             {
-
+                newLine = $"{loggedInUser.GetFirstName()}: {newLine}";
                 chatLines.Add(newLine);
                 //Add the new line to a list
                 for (int i = 0; i < chats.Length; i++)

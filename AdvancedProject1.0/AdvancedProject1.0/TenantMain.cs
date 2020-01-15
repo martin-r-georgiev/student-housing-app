@@ -16,13 +16,17 @@ namespace AdvancedProject1._0
 
         HouseRulesInfo houseRules;
         User loggedInUser;
-
+        NotificationsGatherer gath;
         public TenantMain()
         {
             InitializeComponent();
             houseRules = new HouseRulesInfo();
             loggedInUser = new User(formLogin.userKey);
             lblWelcome.Text = $"Welcome, {loggedInUser.GetFirstName()}!";
+            gath = new NotificationsGatherer(loggedInUser.GetUserID());
+            NotificationBtnUpdate();
+            RefreshPanel();
+            //NotificationBtnUpdate();
             /* (Example) How to use the HouseUnit class to iterate through tenants
             HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
             string test = "";
@@ -32,7 +36,7 @@ namespace AdvancedProject1._0
             }
             MessageBox.Show(test);
             */
-            
+
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -79,6 +83,45 @@ namespace AdvancedProject1._0
         {
             ReportPopup reportPopupScreen = new ReportPopup();
             reportPopupScreen.Show();
+        }
+
+        private void btnNotification_Click(object sender, EventArgs e)
+        {
+            if (panelNotifications.Visible == false)
+            {
+                panelNotifications.Visible = true;
+                btnNotification.Text = "Hide Notifications";
+            }
+            else if (panelNotifications.Visible == true)
+            {
+                panelNotifications.Visible = false;
+                btnNotification.Text = "Show Notifications";
+                NotificationBtnUpdate();
+            }
+        }
+        public void NotificationBtnUpdate()
+        {
+            if (gath.GetNumberOfNotifications() > 0) btnNotification.Text = "Show notifications (!)";
+        }
+        public void RefreshPanel()
+        {
+            panelNotifications.Controls.Clear();
+            List<Notifications> myNotifications = new List<Notifications>();
+            myNotifications = gath.GetAllNotifications();
+            NotificationSmallLabel[] notifications = new NotificationSmallLabel[myNotifications.Count];
+            for (int i = 0; i < myNotifications.Count; i++)
+            {
+                notifications[i] = new NotificationSmallLabel(myNotifications[i]);
+                panelNotifications.Controls.Add(notifications[i]);
+            }
+            //panelReport.Controls.Clear();
+            //myReports = ReportsList.GetReports();
+            //ReportPanel[] reportPanels = new ReportPanel[myReports.Count];
+            //for (int i = 0; i < myReports.Count; i++)
+            //{
+            //    reportPanels[i] = new ReportPanel(myReports[i]);
+            //    panelReport.Controls.Add(reportPanels[i]);
+            //}
         }
     }
 }

@@ -38,6 +38,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.panelNotifications = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnNotification = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -142,6 +144,7 @@
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.btnNotification);
             this.panel1.Controls.Add(this.lblWelcome);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.btnLogout);
@@ -164,6 +167,26 @@
             this.lblWelcome.TabIndex = 18;
             this.lblWelcome.Text = "Welcome, <name>!";
             // 
+            // panelNotifications
+            // 
+            this.panelNotifications.AutoScroll = true;
+            this.panelNotifications.BackColor = System.Drawing.Color.White;
+            this.panelNotifications.Location = new System.Drawing.Point(661, 174);
+            this.panelNotifications.Name = "panelNotifications";
+            this.panelNotifications.Size = new System.Drawing.Size(173, 310);
+            this.panelNotifications.TabIndex = 19;
+            this.panelNotifications.Visible = false;
+            // 
+            // btnNotification
+            // 
+            this.btnNotification.Location = new System.Drawing.Point(673, 145);
+            this.btnNotification.Name = "btnNotification";
+            this.btnNotification.Size = new System.Drawing.Size(149, 23);
+            this.btnNotification.TabIndex = 0;
+            this.btnNotification.Text = "Show Notifications";
+            this.btnNotification.UseVisualStyleBackColor = true;
+            this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
+            // 
             // btnReport
             // 
             this.btnReport.BackColor = System.Drawing.Color.Transparent;
@@ -183,6 +206,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(846, 522);
+            this.Controls.Add(this.panelNotifications);
             this.ClientSize = new System.Drawing.Size(846, 523);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.panel1);
@@ -216,6 +241,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Button btnNotification;
+        private System.Windows.Forms.FlowLayoutPanel panelNotifications;
         private System.Windows.Forms.Button btnReport;
     }
 }

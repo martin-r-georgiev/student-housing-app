@@ -1,10 +1,8 @@
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe.config
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.pdb
-C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csprojAssemblyReference.cache
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.AdminMain.resources
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.CleaningSchedule.resources
-C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Events.resources
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.EventsPopup.resources
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.Groceries.resources
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.HouseRules.resources
@@ -66,6 +64,9 @@ C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\Adva
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.calendarEventItem.resources
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.CalendarItem.resources
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.SchedulePopup.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.ReportPanel.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.NotificationSmallLabel.resources
+C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csprojAssemblyReference.cache
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\Backup\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe.config
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\Backup\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.exe
 C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\Backup\AdvancedProject1.0\AdvancedProject1.0\bin\Debug\AdvancedProject1.0.pdb

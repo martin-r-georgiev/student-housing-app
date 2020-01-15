@@ -21,9 +21,7 @@ namespace AdvancedProject1._0
 
         private void btnSendReport_Click(object sender, EventArgs e)
         {
-            string reporterDetails = $"{loggedInUser.GetFirstName()} {loggedInUser.GetLastName()}";  // TO DO - Add the house to which the logged user belongs
-            string reportString = tbReport.Text;
-            System.IO.File.WriteAllText(@"Reports.txt", $"{reporterDetails} - {reportString} \n");
+            Report newReport = new Report(loggedInUser, tbReport.Text);
             MessageBox.Show($"Report sent. \nThanks for the feedback, {loggedInUser.GetFirstName()}!");
             this.Close();
         }

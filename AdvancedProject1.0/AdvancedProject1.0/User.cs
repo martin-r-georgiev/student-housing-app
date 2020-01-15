@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace AdvancedProject1._0
 {
-    class User
+    public class User
     {
         private string username;
         private string password;

@@ -136,11 +136,26 @@
     <Compile Include="LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notifications.cs" />
+    <Compile Include="NotificationsGatherer.cs" />
+    <Compile Include="NotificationSmallLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NotificationSmallLabel.Designer.cs">
+      <DependentUpon>NotificationSmallLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderScheduler.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Payments.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.cs" />
+    <Compile Include="ReportPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportPanel.Designer.cs">
+      <DependentUpon>ReportPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +168,7 @@
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportsList.cs" />
     <Compile Include="SchedulePopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +219,9 @@
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NotificationSmallLabel.resx">
+      <DependentUpon>NotificationSmallLabel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -213,6 +232,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportPanel.resx">
+      <DependentUpon>ReportPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportPopup.resx">
       <DependentUpon>ReportPopup.cs</DependentUpon>
     </EmbeddedResource>
