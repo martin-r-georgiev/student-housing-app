@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CleaningSchedule));
             this.btnBack = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.CalendarPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -209,6 +210,7 @@
             this.Controls.Add(this.CalendarPanel);
             this.Controls.Add(this.label42);
             this.Controls.Add(this.btnBack);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1442, 842);
             this.Name = "CleaningSchedule";

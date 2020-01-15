@@ -131,16 +131,14 @@ namespace AdvancedProject1._0
         {
             if (cmbUserList.SelectedIndex != -1)
             {
-                userList[cmbUserList.SelectedIndex].RemoveFromDatabase();
-                HouseUnit unit = new HouseUnit(userList[cmbUserList.SelectedIndex].GetHouseID());
-                //TO DO: FIX BUG (OutOfRange Exception for unitList.IndexOf()
-                if (unitList.IndexOf(unit) >= 0)
+                User targetUser = userList[cmbUserList.SelectedIndex];
+                HouseUnit unit = new HouseUnit(targetUser.GetHouseID());
+                DialogResult dialogResult = MessageBox.Show($"Are you sure you wish to completely remove this user?", "User removal", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    unitList[unitList.IndexOf(unit)].RemoveTenant(userList[cmbUserList.SelectedIndex].GetUserID());
-                    unitList.Remove(unit);
-                    MessageBox.Show("I AM WITHIN RANGE");
+                    targetUser.RemoveFromDatabase();
+                    unit.RemoveTenant(targetUser.GetUserID());
                 }
-                else MessageBox.Show("I AM OUT OF RANGE");
             }
             cmbUserList.SelectedIndex = -1;
         }

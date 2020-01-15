@@ -192,6 +192,7 @@
             this.Controls.Add(this.btnSocial);
             this.Controls.Add(this.btnCleaning);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TenantMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TenantMain";

@@ -11,7 +11,6 @@ namespace AdvancedProject1._0
         string productString;
         string[] productStrings;
         string currentProducts;
-        int counter;
         User loggedInUser;
         List<String> Product;
         List<String> buyHistory;

@@ -210,6 +210,7 @@
             this.Controls.Add(this.tcChats);
             this.Controls.Add(this.btnSendChat);
             this.Controls.Add(this.tbChat);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Social";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Social";

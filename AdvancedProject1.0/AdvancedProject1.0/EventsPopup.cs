@@ -17,7 +17,8 @@ namespace AdvancedProject1._0
         public EventsPopup()
         {
             InitializeComponent();
-            dtpEvent.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            pbEventImage.Image = Properties.Resources.QuestionMark;
+            dtpEvent.Value = DateTime.Now;
         }
 
         private void cbImageList_DropDown(object sender, EventArgs e)
@@ -40,7 +41,8 @@ namespace AdvancedProject1._0
                 case 3: pbEventImage.Image = Properties.Resources.Garbage; break;
                 case 4: pbEventImage.Image = Properties.Resources.CommonRoom; break;
                 case 5: pbEventImage.Image = Properties.Resources.Dishes; break;
-                case 6: pbEventImage.Image = Properties.Resources.Toilet; break;
+                case 6: pbEventImage.Image = Properties.Resources.Cleaning; break;
+                case 7: pbEventImage.Image = Properties.Resources.Groceries; break;
                 default: pbEventImage.Image = null; break;
             }
         }
@@ -57,5 +59,42 @@ namespace AdvancedProject1._0
                 else MessageBox.Show("You need to specify a title to create an event.");
             } 
         }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void EventsPopup_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TbTitle_Enter(object sender, EventArgs e)
+        {
+            if (tbTitle.Text == "Title")
+            {
+                tbTitle.Text = "";
+                tbTitle.ForeColor = Color.FromArgb(36, 42, 86);
+            }
+        }
+
+        private void TbTitle_Leave(object sender, EventArgs e)
+        {
+            if (tbTitle.Text == "")
+            {
+                tbTitle.Text = "Title";
+                tbTitle.ForeColor = Color.DarkGray;
+            }
+        }
+
+        
+
+        private void Panel3_MouseMove(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+
     }
 }

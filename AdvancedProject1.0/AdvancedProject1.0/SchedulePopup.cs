@@ -56,5 +56,25 @@ namespace AdvancedProject1._0
             settingsHandler.SaveSettings();
             this.Close();
         }
+
+        private void LblNotice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblBathroom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblKitchen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblCommonRooms_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
