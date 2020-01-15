@@ -40,10 +40,10 @@ namespace AdvancedProject1._0
 
             if(dataReader.Read()) //Checking if the reader returns a value (YES = Matching login credentials)
             {
-                MessageBox.Show($"Successfully logged in. Welcome, {dataReader.GetString(2)}.");
                 userKey = dataReader.GetString(4);
                 if (dataReader.GetBoolean(3)) //Checking if user is an administrator
                 {
+                    MessageBox.Show($"Successfully logged in. Welcome, {dataReader.GetString(2)}.");
                     //Opening the administrator's main menu
                     AdminMain adminMainScreen = new AdminMain();
                     adminMainScreen.Show();
@@ -51,10 +51,15 @@ namespace AdvancedProject1._0
                 }
                 else
                 {
-                    //Opening the tenant's main menu
-                    TenantMain tenantMainScreen = new TenantMain();
-                    tenantMainScreen.Show();
-                    this.Hide();
+                    if (new User(userKey).GetHouseID() != 0)
+                    {
+                        MessageBox.Show($"Successfully logged in. Welcome, {dataReader.GetString(2)}.");
+                        //Opening the tenant's main menu
+                        TenantMain tenantMainScreen = new TenantMain();
+                        tenantMainScreen.Show();
+                        this.Hide();
+                    }
+                    else MessageBox.Show("Failed login attempt. You do not seem to be assigned to any housing unit. Please contact the housing agency as soon as possible.");
                 }
             }
             else MessageBox.Show("Failed login attempt. Please try again.");
@@ -64,24 +69,7 @@ namespace AdvancedProject1._0
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbShowHide.Checked == true)
-            {
-                tbPass.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                tbPass.UseSystemPasswordChar = true;
-            }
-        }
-
-        private void Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TbPass_TextChanged(object sender, EventArgs e)
-        {
-
+            tbPass.UseSystemPasswordChar = !cbShowHide.Checked;
         }
 
         private void TbName_Enter(object sender, EventArgs e)
