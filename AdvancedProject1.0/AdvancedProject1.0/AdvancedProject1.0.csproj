@@ -182,6 +182,7 @@
     <Compile Include="Social.Designer.cs">
       <DependentUpon>Social.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlConnectionHandler.cs" />
     <Compile Include="TenantMain.cs">
       <SubType>Form</SubType>
     </Compile>

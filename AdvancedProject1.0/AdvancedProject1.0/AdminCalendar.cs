@@ -104,7 +104,7 @@ namespace AdvancedProject1._0
         private void eventsPopupScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Enabled = true;
-            if(lastSelectedUnit != null) PopulateCalendar(lastSelectedUnit.GetUnitID());
+            if(lastSelectedUnit != null) PopulateCalendar(lastSelectedUnit.UnitID);
             else PopulateCalendar(0);
         }
 
@@ -127,9 +127,7 @@ namespace AdvancedProject1._0
         {
             cmbUnits.Items.Clear();
             unitList.Clear();
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             SqlCommand cmd = new SqlCommand($"SELECT unitID FROM HUnitTable", con);
             SqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -148,7 +146,7 @@ namespace AdvancedProject1._0
             if (cmbUnits.SelectedIndex != -1)
             {
                 lastSelectedUnit = unitList[cmbUnits.SelectedIndex];
-                PopulateCalendar(lastSelectedUnit.GetUnitID());
+                PopulateCalendar(lastSelectedUnit.UnitID);
             }
         }
     }

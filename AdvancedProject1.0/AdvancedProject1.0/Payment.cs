@@ -62,10 +62,7 @@ namespace AdvancedProject1._0
 		}
 		public Payment(int paymentId)
 		{
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -87,13 +84,11 @@ namespace AdvancedProject1._0
 		}
 		public void InsertToDatabase()
 		{
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			using (SqlCommand cmd = new SqlCommand($"INSERT INTO PaymentHistory (Sender, Receiver, Amount, HouseUnitID) VALUES (@sender, @receiver, @amount, @houseunitid)", con))
 			{
-				cmd.Parameters.AddWithValue("@sender", this.Sender.GetUserID());
-				cmd.Parameters.AddWithValue("@receiver", this.Receiver.GetUserID());
+				cmd.Parameters.AddWithValue("@sender", this.Sender.UserID);
+				cmd.Parameters.AddWithValue("@receiver", this.Receiver.UserID);
 				cmd.Parameters.AddWithValue("@amount", this.Amount);
 				cmd.Parameters.AddWithValue("@houseunitid", this.UnitID);
 				cmd.ExecuteNonQuery();
@@ -104,10 +99,7 @@ namespace AdvancedProject1._0
 		}
 		public void SetPaymentID()
 		{
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -124,9 +116,7 @@ namespace AdvancedProject1._0
 		}
 		public void RemoveFromDatabase()
 		{
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			using (SqlCommand cmd = new SqlCommand($"DELETE PaymentHistory WHERE Id=@paymentID ORDER BY Id LIMIT 1", con))
 			{
 				cmd.Parameters.AddWithValue("@paymentID", this.PaymentID);

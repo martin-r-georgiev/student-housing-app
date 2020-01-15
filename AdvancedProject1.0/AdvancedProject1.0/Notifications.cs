@@ -52,10 +52,7 @@ namespace AdvancedProject1._0
 		}
 		public Notifications(int notificationNum)
 		{
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -76,14 +73,12 @@ namespace AdvancedProject1._0
 		}
 		public void InsertToDB()
 		{
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			using (SqlCommand cmd = new SqlCommand($"INSERT INTO Notifications (Title, Notification, UserID, Status) VALUES (@title, @notificationText, @userid, @status)", con))
 			{
 				cmd.Parameters.AddWithValue("@title", this.Title);
 				cmd.Parameters.AddWithValue("@notificationText", this.Description);
-				cmd.Parameters.AddWithValue("@userid", this.NotifiedUser.GetUserID());
+				cmd.Parameters.AddWithValue("@userid", this.NotifiedUser.UserID);
 				cmd.Parameters.AddWithValue("@status", "Sent");
 				cmd.ExecuteNonQuery();
 				cmd.Dispose();
@@ -93,10 +88,7 @@ namespace AdvancedProject1._0
 		}
 		public void SetID()
 		{
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -111,9 +103,7 @@ namespace AdvancedProject1._0
 		}
 		public void RemoveFromDatabase()
 		{
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			using (SqlCommand cmd = new SqlCommand($"DELETE Notifications WHERE Id=@notificationId", con))
 			{
 				cmd.Parameters.AddWithValue("@reportID", this.NotificationId);
@@ -124,10 +114,7 @@ namespace AdvancedProject1._0
 		}
 		public static bool IsSingleEntry(string title, string desc, string userid)
 		{
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -147,8 +134,7 @@ namespace AdvancedProject1._0
 		public void Complete()
 		{
 			this.IsComplete = true;
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			using (SqlCommand cmd = new SqlCommand($"UPDATE Notifications SET Status = @statusText WHERE Id = @notificationId", con))
 			{
 				cmd.Parameters.AddWithValue("@notificationid", this.NotificationId);

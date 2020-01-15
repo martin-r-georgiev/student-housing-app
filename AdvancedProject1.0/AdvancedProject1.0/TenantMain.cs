@@ -22,16 +22,16 @@ namespace AdvancedProject1._0
             InitializeComponent();
             houseRules = new HouseRulesInfo();
             loggedInUser = new User(formLogin.userKey);
-            lblWelcome.Text = $"Welcome, {loggedInUser.GetFirstName()}!";
-            gath = new NotificationsGatherer(loggedInUser.GetUserID());
+            lblWelcome.Text = $"Welcome, {loggedInUser.FirstName}!";
+            gath = new NotificationsGatherer(loggedInUser.UserID);
             NotificationBtnUpdate();
             RefreshPanel();
             /* (Example) How to use the HouseUnit class to iterate through tenants
-            HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
+            HouseUnit newUnit = new HouseUnit(loggedInUser.UnitID);
             string test = "";
-            foreach(User tenant in newUnit.Tenants())
+            foreach(User tenant in newUnit.Tenants)
             {
-                test += $"{tenant.GetFirstName()},";
+                test += $"{tenant.FirstName},";
             }
             MessageBox.Show(test);
             */
@@ -106,7 +106,7 @@ namespace AdvancedProject1._0
         public void RefreshPanel()
         {
             panelNotifications.Controls.Clear();
-            gath = new NotificationsGatherer(loggedInUser.GetUserID());
+            gath = new NotificationsGatherer(loggedInUser.UserID);
             List<Notifications> myNotifications = new List<Notifications>();
             myNotifications = gath.GetAllIncompleteNotifications();
             NotificationSmallLabel[] notifications = new NotificationSmallLabel[myNotifications.Count];

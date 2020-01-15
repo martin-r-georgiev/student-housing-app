@@ -17,10 +17,8 @@ namespace AdvancedProject1._0
         {
             this.loggedUser = new User(userId);
             notificationList = new List<Notifications>();
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
 
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -41,15 +39,12 @@ namespace AdvancedProject1._0
 		}
 		public void GetPaymentHistory()
 		{
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
 			cmd = new SqlCommand($"SELECT Receiver, Amount FROM PaymentHistory WHERE Sender = @userid", con);
-			cmd.Parameters.AddWithValue("@userid", loggedUser.GetUserID());
+			cmd.Parameters.AddWithValue("@userid", loggedUser.UserID);
 			dataReader = cmd.ExecuteReader();
 
 			while (dataReader.Read())
@@ -57,10 +52,10 @@ namespace AdvancedProject1._0
 				string receiverid = dataReader.GetString(0);
 				User receiveUser = new User(receiverid);
 				double amount = Convert.ToDouble(dataReader.GetString(1));
-				string desc = "You owe " + receiveUser.GetFirstName() + "$ " + amount;
-				if (Notifications.IsSingleEntry("Groceries", desc, loggedUser.GetUserID()))
+				string desc = "You owe " + receiveUser.FirstName + "$ " + amount;
+				if (Notifications.IsSingleEntry("Groceries", desc, loggedUser.UserID))
 				{
-					Notifications newNotification = new Notifications(loggedUser.GetUserID(), "Groceries", desc);
+					Notifications newNotification = new Notifications(loggedUser.UserID, "Groceries", desc);
 					notificationList.Add(newNotification);
 				}
 			}
@@ -68,38 +63,38 @@ namespace AdvancedProject1._0
 		}
 		public void GetReportReplies()
 		{
-			List<Report> reports = ReportsList.GetReplies(loggedUser.GetUserID());
+			List<Report> reports = ReportsList.GetReplies(loggedUser.UserID);
 			foreach (Report r in reports)
 			{
 				string title = "Report response";
 				string desc = r.ReportText;
-				if (Notifications.IsSingleEntry(title, desc, loggedUser.GetUserID()))
+				if (Notifications.IsSingleEntry(title, desc, loggedUser.UserID))
 				{
-					Notifications newNotification = new Notifications(loggedUser.GetUserID(), title, desc);
+					Notifications newNotification = new Notifications(loggedUser.UserID, title, desc);
 					notificationList.Add(newNotification);
 				}
 			}
 		}
 		public void GetOrder()
 		{
-			OrderScheduler newSched = new OrderScheduler(new HouseUnit(loggedUser.GetHouseID()));
-			if (loggedUser.GetUserID() == newSched.CurrentIDGarbage)
+			OrderScheduler newSched = new OrderScheduler(new HouseUnit(loggedUser.UnitID));
+			if (loggedUser.UserID == newSched.CurrentIDGarbage)
 			{
 				string title = "Garbage takeout";
 				string desc = "It's your turn to take the trash out";
-				if (Notifications.IsSingleEntry(title, desc, loggedUser.GetUserID()))
+				if (Notifications.IsSingleEntry(title, desc, loggedUser.UserID))
 				{
-					Notifications newNotification = new Notifications(loggedUser.GetUserID(), title, desc);
+					Notifications newNotification = new Notifications(loggedUser.UserID, title, desc);
 					notificationList.Add(newNotification);
 				}
 			}
-			if (loggedUser.GetUserID() == newSched.CurrentIDGroceries)
+			if (loggedUser.UserID == newSched.CurrentIDGroceries)
 			{
 				string title = "Groceries";
 				string desc = "It's your turn to go shopping";
-				if (Notifications.IsSingleEntry(title, desc, loggedUser.GetUserID()))
+				if (Notifications.IsSingleEntry(title, desc, loggedUser.UserID))
 				{
-					Notifications newNotification = new Notifications(loggedUser.GetUserID(), title, desc);
+					Notifications newNotification = new Notifications(loggedUser.UserID, title, desc);
 					notificationList.Add(newNotification);
 				}
 			}
@@ -125,10 +120,7 @@ namespace AdvancedProject1._0
 		public static void Anounce(string replyMsg)
 		{
 			List<User> allUsers = new List<User>();
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -139,21 +131,20 @@ namespace AdvancedProject1._0
 			{
 				string userID = dataReader.GetString(0);
 				User newUser = new User(userID);
-				if (!newUser.IsUserAdmin())
+				if (!newUser.IsAdmin)
 					allUsers.Add(newUser);
 			}
 			con.Close();
 			foreach(User u in allUsers)
 			{
-				Notifications newNotification = new Notifications(u.GetUserID(), "Announcement", replyMsg);
+				Notifications newNotification = new Notifications(u.UserID, "Announcement", replyMsg);
 			}
 		}
 		public static void Anounce(string replyMsg, int UnitID)
 		{
 			List<User> allUsers = new List<User>();
 			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 
 			SqlCommand cmd;
 			SqlDataReader dataReader;
@@ -166,20 +157,18 @@ namespace AdvancedProject1._0
 			{
 				string userID = dataReader.GetString(0);
 				User newUser = new User(userID);
-				if (!newUser.IsUserAdmin())
+				if (!newUser.IsAdmin)
 					allUsers.Add(newUser);
 			}
 			con.Close();
 			foreach (User u in allUsers)
 			{
-				Notifications newNotification = new Notifications(u.GetUserID(), "Announcement", replyMsg);
+				Notifications newNotification = new Notifications(u.UserID, "Announcement", replyMsg);
 			}
 		}
 		public static void DeleteAllCompleted()
 		{
-		    SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			using (SqlCommand cmd = new SqlCommand($"DELETE Notifications WHERE Status=@statusText", con))
 			{
 				cmd.Parameters.AddWithValue("@statusText", "Complete");

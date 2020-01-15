@@ -15,10 +15,7 @@ namespace AdvancedProject1._0
         public Payments()
         {
 			payments = new List<Payment>();
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -36,10 +33,7 @@ namespace AdvancedProject1._0
 		public static List<string> GetPaymentsOfUnit(int currentHouseUnitID)
 		{
 			List<string> paymentList = new List<string>();
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -54,7 +48,7 @@ namespace AdvancedProject1._0
 				string receiverId = dataReader.GetString(1);
 				User receiver = new User(receiverId);
 				double amount = Convert.ToDouble(dataReader.GetString(2));
-				string paymentLine = $"{sender.GetFirstName()} Has to pay ${amount}$ to {receiver.GetFirstName()}";
+				string paymentLine = $"{sender.FirstName} Has to pay ${amount}$ to {receiver.FirstName}";
 				paymentList.Add(paymentLine);
 			}
 			con.Close();
@@ -65,15 +59,13 @@ namespace AdvancedProject1._0
 			foreach (Payment p in payments)
 			{
 
-				if (paymentMsg.Split('$')[2].Contains(p.Receiver.GetFirstName()) && Convert.ToDouble(paymentMsg.Split('$')[1]) == p.Amount && paymentMsg.Split('$')[0].Contains(p.Sender.GetFirstName()))
+				if (paymentMsg.Split('$')[2].Contains(p.Receiver.FirstName) && Convert.ToDouble(paymentMsg.Split('$')[1]) == p.Amount && paymentMsg.Split('$')[0].Contains(p.Sender.FirstName))
 				{
-					SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-					con.Open();
-
+					SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 					using (SqlCommand cmd = new SqlCommand($"DELETE PaymentHistory WHERE Id=@paymentID AND Sender=@SenderID", con))
 					{
 						cmd.Parameters.AddWithValue("@paymentID", p.PaymentID);
-						cmd.Parameters.AddWithValue("@SenderID", p.Sender.GetUserID());
+						cmd.Parameters.AddWithValue("@SenderID", p.Sender.UserID);
 						cmd.ExecuteNonQuery();
 						cmd.Dispose();
 					}

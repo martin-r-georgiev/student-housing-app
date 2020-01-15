@@ -53,22 +53,20 @@ namespace AdvancedProject1._0
             bool newOrder = false;
             bool newDate = false;
 
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"SELECT * FROM SchedulerOrder WHERE unitID=@Id", con))
             {
-                cmd.Parameters.AddWithValue("@Id", newUnit.GetUnitID());
+                cmd.Parameters.AddWithValue("@Id", newUnit.UnitID);
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.Read())
                 {
-                    User targetUser = new User(newUnit.Tenants()[0].GetUserID());
-                    this.CurrentIDCommon = dataReader[1] as string ?? targetUser.GetUserID();
-                    this.CurrentIDKitchen = dataReader[2] as string ?? targetUser.GetUserID();
-                    this.CurrentIDBathroom = dataReader[3] as string ?? targetUser.GetUserID();
-                    this.CurrentIDGarbage = dataReader[4] as string ?? targetUser.GetUserID();
-                    this.CurrentIDGroceries = dataReader[5] as string ?? targetUser.GetUserID();
+                    User targetUser = new User(newUnit.Tenants[0].UserID);
+                    this.CurrentIDCommon = dataReader[1] as string ?? targetUser.UserID;
+                    this.CurrentIDKitchen = dataReader[2] as string ?? targetUser.UserID;
+                    this.CurrentIDBathroom = dataReader[3] as string ?? targetUser.UserID;
+                    this.CurrentIDGarbage = dataReader[4] as string ?? targetUser.UserID;
+                    this.CurrentIDGroceries = dataReader[5] as string ?? targetUser.UserID;
                 }
                 else newOrder = true;
                 dataReader.Close();
@@ -77,7 +75,7 @@ namespace AdvancedProject1._0
 
             using (SqlCommand cmd = new SqlCommand($"SELECT * FROM LastOrderDates WHERE unitID=@Id", con))
             {
-                cmd.Parameters.AddWithValue("@Id", newUnit.GetUnitID());
+                cmd.Parameters.AddWithValue("@Id", newUnit.UnitID);
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (!dataReader.Read()) newDate = true;
@@ -89,7 +87,7 @@ namespace AdvancedProject1._0
             {
                 using (SqlCommand cmd = new SqlCommand($"INSERT INTO SchedulerOrder (unitID) VALUES (@unitID)", con))
                 {
-                    cmd.Parameters.AddWithValue("@unitID", newUnit.GetUnitID());
+                    cmd.Parameters.AddWithValue("@unitID", newUnit.UnitID);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                 }
@@ -98,7 +96,7 @@ namespace AdvancedProject1._0
             {
                 using (SqlCommand cmd = new SqlCommand($"INSERT INTO LastOrderDates (unitID) VALUES (@unitID)", con))
                 {
-                    cmd.Parameters.AddWithValue("@unitID", newUnit.GetUnitID());
+                    cmd.Parameters.AddWithValue("@unitID", newUnit.UnitID);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                 }
@@ -109,12 +107,10 @@ namespace AdvancedProject1._0
         //If method is not used -> Delete in the future
         public void AddToDatabase()
         {
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"INSERT INTO SchedulerOrder (cmCurrentID, kitchenCurrentID, bathroomCurrentID, garbageCurrentID, groceriesCurrentID) VALUES (@two, @three, @four, @five, @six) WHERE unitID=@one", con))
             {
-                cmd.Parameters.AddWithValue("@one", this.unit.GetUnitID());
+                cmd.Parameters.AddWithValue("@one", this.unit.UnitID);
                 cmd.Parameters.AddWithValue("@two", this.currentID_common);
                 cmd.Parameters.AddWithValue("@three", this.currentID_kitchen);
                 cmd.Parameters.AddWithValue("@four", this.currentID_bathroom);
@@ -128,9 +124,7 @@ namespace AdvancedProject1._0
 
         public void AddToDatabase(string uID, string commonID, string kitchenID, string bathID, string garbID, string grocerID)
         {
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"INSERT INTO SchedulerOrder (unitID, cmCurrentID, kitchenCurrentID, bathroomCurrentID, garbageCurrentID, groceriesCurrentID) VALUES (@one, @two, @three, @four, @five, @six)", con))
             {
                 cmd.Parameters.AddWithValue("@one", uID);
@@ -148,31 +142,31 @@ namespace AdvancedProject1._0
         public User GetNextUser(EventType type)
         {
             User returnUser = null;
-            if (unit.Tenants().Count > 0)
+            if (unit.Tenants.Count > 0)
             {
-                List<User> users = unit.Tenants();
+                List<User> users = unit.Tenants;
                 int index = -1;
                 bool newOrder = false;
                 switch (type)
                 {
                     case EventType.CommonRoom:
-                        if (this.CurrentIDCommon != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDCommon);
+                        if (this.CurrentIDCommon != null) index = users.FindIndex(user => user.UserID == this.CurrentIDCommon);
                         else newOrder = true;
                         break;
                     case EventType.Kitchen:
-                        if (this.CurrentIDKitchen != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDKitchen);
+                        if (this.CurrentIDKitchen != null) index = users.FindIndex(user => user.UserID == this.CurrentIDKitchen);
                         else newOrder = true;
                         break;
                     case EventType.Garbage:
-                        if (this.CurrentIDGarbage != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDGarbage);
+                        if (this.CurrentIDGarbage != null) index = users.FindIndex(user => user.UserID == this.CurrentIDGarbage);
                         else newOrder = true;
                         break;
                     case EventType.Groceries:
-                        if (this.CurrentIDGroceries != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDGroceries);
+                        if (this.CurrentIDGroceries != null) index = users.FindIndex(user => user.UserID == this.CurrentIDGroceries);
                         else newOrder = true;
                         break;
                     case EventType.Bathroom:
-                        if (this.CurrentIDBathroom != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDBathroom);
+                        if (this.CurrentIDBathroom != null) index = users.FindIndex(user => user.UserID == this.CurrentIDBathroom);
                         else newOrder = true;
                         break;
                 }
@@ -193,31 +187,31 @@ namespace AdvancedProject1._0
         public User ShowNextUser(EventType type)
         {
             User returnUser = null;
-            if (unit.Tenants().Count > 0)
+            if (unit.Tenants.Count > 0)
             {
-                List<User> users = unit.Tenants();
+                List<User> users = unit.Tenants;
                 int index = -1;
                 bool newOrder = false;
                 switch (type)
                 {
                     case EventType.CommonRoom:
-                        if (this.CurrentIDCommon != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDCommon);
+                        if (this.CurrentIDCommon != null) index = users.FindIndex(user => user.UserID == this.CurrentIDCommon);
                         else newOrder = true;
                         break;
                     case EventType.Kitchen:
-                        if (this.CurrentIDKitchen != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDKitchen);
+                        if (this.CurrentIDKitchen != null) index = users.FindIndex(user => user.UserID == this.CurrentIDKitchen);
                         else newOrder = true;
                         break;
                     case EventType.Garbage:
-                        if (this.CurrentIDGarbage != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDGarbage);
+                        if (this.CurrentIDGarbage != null) index = users.FindIndex(user => user.UserID == this.CurrentIDGarbage);
                         else newOrder = true;
                         break;
                     case EventType.Groceries:
-                        if (this.CurrentIDGroceries != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDGroceries);
+                        if (this.CurrentIDGroceries != null) index = users.FindIndex(user => user.UserID == this.CurrentIDGroceries);
                         else newOrder = true;
                         break;
                     case EventType.Bathroom:
-                        if (this.CurrentIDBathroom != null) index = users.FindIndex(user => user.GetUserID() == this.CurrentIDBathroom);
+                        if (this.CurrentIDBathroom != null) index = users.FindIndex(user => user.UserID == this.CurrentIDBathroom);
                         else newOrder = true;
                         break;
                 }
@@ -240,35 +234,33 @@ namespace AdvancedProject1._0
             switch (type)
             {
                 case EventType.CommonRoom:
-                    this.CurrentIDCommon = targetUser.GetUserID();
+                    this.CurrentIDCommon = targetUser.UserID;
                     column = "cmCurrentID";
                     break;
                 case EventType.Kitchen:
-                    this.CurrentIDKitchen = targetUser.GetUserID();
+                    this.CurrentIDKitchen = targetUser.UserID;
                     column = "kitchenCurrentID";
                     break;
                 case EventType.Garbage:
-                    this.CurrentIDGarbage = targetUser.GetUserID();
+                    this.CurrentIDGarbage = targetUser.UserID;
                     column = "garbageCurrentID";
                     break;
                 case EventType.Groceries:
-                    this.CurrentIDGroceries = targetUser.GetUserID();
+                    this.CurrentIDGroceries = targetUser.UserID;
                     column = "groceriesCurrentID";
                     break;
                 case EventType.Bathroom:
-                    this.CurrentIDBathroom = targetUser.GetUserID();
+                    this.CurrentIDBathroom = targetUser.UserID;
                     column = "bathroomCurrentID";
                     break;
             }
             if(column != null)
             {
-                SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-                con.Open();
-
+                SqlConnection con = SqlConnectionHandler.GetSqlConnection();
                 using (SqlCommand cmd = new SqlCommand($"UPDATE SchedulerOrder SET "+column+"=@newValue WHERE unitID=@ID", con))
                 {
-                    cmd.Parameters.AddWithValue("@newValue", targetUser.GetUserID());
-                    cmd.Parameters.AddWithValue("@ID", this.unit.GetUnitID());
+                    cmd.Parameters.AddWithValue("@newValue", targetUser.UserID);
+                    cmd.Parameters.AddWithValue("@ID", this.unit.UnitID);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                 }
@@ -290,12 +282,10 @@ namespace AdvancedProject1._0
             }
             if (column != null)
             {
-                SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-                con.Open();
-
+                SqlConnection con = SqlConnectionHandler.GetSqlConnection();
                 using (SqlCommand cmd = new SqlCommand($"SELECT "+column+" FROM LastOrderDates WHERE unitID=@Id", con))
                 {
-                    cmd.Parameters.AddWithValue("@ID", this.unit.GetUnitID());
+                    cmd.Parameters.AddWithValue("@ID", this.unit.UnitID);
                     SqlDataReader dataReader = cmd.ExecuteReader();
                     if(dataReader.Read())
                     {
@@ -316,19 +306,17 @@ namespace AdvancedProject1._0
             {
                 case EventType.CommonRoom: column = "commonDate"; break;
                 case EventType.Kitchen: column = "kitchenDate"; break;
-                case EventType.Garbage: column = "bathroomDate"; break;
-                case EventType.Groceries: column = "garbageDate"; break;
-                case EventType.Bathroom: column = "groceriesDate"; break;
+                case EventType.Garbage: column = "garbageDate"; break;
+                case EventType.Groceries: column = "groceriesDate"; break;
+                case EventType.Bathroom: column = "bathroomDate"; break;
             }
             if (column != null)
             {
-                SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-                con.Open();
-
+                SqlConnection con = SqlConnectionHandler.GetSqlConnection();
                 using (SqlCommand cmd = new SqlCommand($"UPDATE LastOrderDates SET " + column + "=@newDate WHERE unitID=@ID", con))
                 {
                     cmd.Parameters.AddWithValue("@newDate", date);
-                    cmd.Parameters.AddWithValue("@ID", this.unit.GetUnitID());
+                    cmd.Parameters.AddWithValue("@ID", this.unit.UnitID);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                 }

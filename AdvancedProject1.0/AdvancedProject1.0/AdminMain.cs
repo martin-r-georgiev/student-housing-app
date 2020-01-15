@@ -85,9 +85,7 @@ namespace AdvancedProject1._0
         {
             unitList.Clear();
 
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             SqlCommand cmd = new SqlCommand($"SELECT unitID FROM HUnitTable", con);
             SqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -119,7 +117,7 @@ namespace AdvancedProject1._0
             cbAnnouncementUnits.Items.Clear();
             cbAnnouncementUnits.Items.Add("All");
             foreach (HouseUnit h in unitList)
-                cbAnnouncementUnits.Items.Add(h.GetUnitID());
+                cbAnnouncementUnits.Items.Add(h.UnitID);
         }
     }
 }

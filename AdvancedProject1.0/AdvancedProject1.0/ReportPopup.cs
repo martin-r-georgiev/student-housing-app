@@ -22,7 +22,7 @@ namespace AdvancedProject1._0
         private void btnSendReport_Click(object sender, EventArgs e)
         {
             Report newReport = new Report(loggedInUser, tbReport.Text);
-            MessageBox.Show($"Report sent. \nThanks for the feedback, {loggedInUser.GetFirstName()}!");
+            MessageBox.Show($"Report sent. \nThanks for the feedback, {loggedInUser.FirstName}!");
             this.Close();
         }
     }

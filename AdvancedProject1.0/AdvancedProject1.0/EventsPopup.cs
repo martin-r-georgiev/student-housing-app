@@ -19,7 +19,7 @@ namespace AdvancedProject1._0
             InitializeComponent();
             pbEventImage.Image = Properties.Resources.QuestionMark;
             dtpEvent.Value = DateTime.Now;
-            if (new User(formLogin.userKey).IsUserAdmin()) cbGlobalEvent.Visible = true;
+            if (new User(formLogin.userKey).IsAdmin) cbGlobalEvent.Visible = true;
         }
 
         private void cbImageList_DropDown(object sender, EventArgs e)

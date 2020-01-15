@@ -26,7 +26,7 @@ namespace AdvancedProject1._0
         {
             InitializeComponent();
             loggedInUser = new User(formLogin.userKey);
-            tenantUnit = new HouseUnit(loggedInUser.GetHouseID());
+            tenantUnit = new HouseUnit(loggedInUser.UnitID);
             settingsHandler = new SettingsHandler(tenantUnit);
             tbCommonRooms.Value = settingsHandler.CommonValue;
             tbKitchen.Value = settingsHandler.KitchenValue;

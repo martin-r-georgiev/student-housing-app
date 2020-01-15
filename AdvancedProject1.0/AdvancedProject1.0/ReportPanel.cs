@@ -30,7 +30,7 @@ namespace AdvancedProject1._0
             get { return reporterId; }
             set
             {
-                reporterId = value; this.lblName.Text = $"{Reporter.GetFirstName()} {Reporter.GetHouseID()}";
+                reporterId = value; this.lblName.Text = $"{Reporter.FirstName} {Reporter.UnitID}";
             }
         }
         public Report CurrentReport
@@ -45,7 +45,7 @@ namespace AdvancedProject1._0
             this.CurrentReport = reportForPanel;
             this.ReportText = this.CurrentReport.ReportText;
             this.Reporter = this.CurrentReport.Reporter;
-            this.ReporterId = this.CurrentReport.Reporter.GetUserID();
+            this.ReporterId = this.CurrentReport.Reporter.UserID;
             this.lblReport.AutoEllipsis = true;
         }
 
@@ -64,7 +64,7 @@ namespace AdvancedProject1._0
             Reports pForm = (Reports)this.ParentForm;
             pForm.RefreshReplyTextbox();
             pForm.ChangeSelectedReport(this.CurrentReport);
-            pForm.ChangeDescription($"{this.Reporter.GetName()} {this.Reporter.GetHouseID()}", this.ReportText);
+            pForm.ChangeDescription($"{this.Reporter.Name} {this.Reporter.UnitID}", this.ReportText);
         }
     }
 }

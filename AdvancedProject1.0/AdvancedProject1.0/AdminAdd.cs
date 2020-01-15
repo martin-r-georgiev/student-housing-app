@@ -30,8 +30,7 @@ namespace AdvancedProject1._0
         {
             unitList.Clear();
 
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 
             SqlCommand cmd = new SqlCommand($"SELECT unitID FROM HUnitTable", con);
             SqlDataReader dataReader = cmd.ExecuteReader();
@@ -47,11 +46,9 @@ namespace AdvancedProject1._0
         private void btnAddNewTenant_Click(object sender, EventArgs e)
         {
 
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             SqlCommand cmd;
             SqlDataReader dataReader;
-
-            con.Open();
 
             cmd = new SqlCommand($"SELECT Username FROM Users WHERE Username=@Username", con);
             cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
@@ -62,7 +59,7 @@ namespace AdvancedProject1._0
             {
                 User newUser = new User(tbUsername.Text, tbPassword.Text,
                                tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
-                if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.SetHouseID(unitList[cmbHouseUnits.SelectedIndex].GetUnitID());
+                if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.UnitID = unitList[cmbHouseUnits.SelectedIndex].UnitID;
                 if (dataReader.Read())
                 {
                     MessageBox.Show("User with such username already exists!");
@@ -116,12 +113,12 @@ namespace AdvancedProject1._0
             if (cmbUserList.SelectedIndex != -1)
             {
                 User targetUser = userList[cmbUserList.SelectedIndex];
-                HouseUnit unit = new HouseUnit(targetUser.GetHouseID());
+                HouseUnit unit = new HouseUnit(targetUser.UnitID);
                 DialogResult dialogResult = MessageBox.Show($"Are you sure you wish to completely remove this user?", "User removal", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     targetUser.RemoveFromDatabase();
-                    unit.RemoveTenant(targetUser.GetUserID());
+                    unit.RemoveTenant(targetUser.UserID);
                 }
             }
             cmbUserList.SelectedIndex = -1;
@@ -132,8 +129,7 @@ namespace AdvancedProject1._0
             cmbUserList.Items.Clear();
             userList.Clear();
 
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 
             SqlCommand cmd = new SqlCommand($"SELECT firstName, lastName, userID, isAdmin, houseID FROM Users", con);
             SqlDataReader dataReader = cmd.ExecuteReader();
@@ -152,9 +148,8 @@ namespace AdvancedProject1._0
         {
             if (Int32.TryParse(tbUnitID.Text, out int unitID) && Int32.TryParse(tbCapacity.Text, out int cap) && tbAddress.Text.Length > 0)
             {
-                SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+                SqlConnection con = SqlConnectionHandler.GetSqlConnection();
                 SqlCommand cmd;
-                con.Open();
 
                 cmd = new SqlCommand($"SELECT userID FROM UnitUserList WHERE unitID=@unitID", con);
                 cmd.Parameters.AddWithValue("@unitID", unitID);
@@ -193,8 +188,7 @@ namespace AdvancedProject1._0
             cmbHouseUnits.Items.Clear();
             unitList.Clear();
 
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 
             SqlCommand cmd = new SqlCommand($"SELECT unitID FROM HUnitTable", con);
             SqlDataReader dataReader = cmd.ExecuteReader();
@@ -230,7 +224,7 @@ namespace AdvancedProject1._0
             cmbUnitsList.Items.Clear();
             foreach(HouseUnit unit in unitList)
             {
-                cmbUnitsList.Items.Add(unit.GetUnitID());
+                cmbUnitsList.Items.Add(unit.UnitID);
             }
         }
 
@@ -238,15 +232,15 @@ namespace AdvancedProject1._0
         {
             if(cmbUnitsList.SelectedIndex != -1)
             {
-                lblCapacity.Text = $"{unitList[cmbUnitsList.SelectedIndex].Tenants().Count}/{unitList[cmbUnitsList.SelectedIndex].Capacity} Tenants";
+                lblCapacity.Text = $"{unitList[cmbUnitsList.SelectedIndex].Tenants.Count}/{unitList[cmbUnitsList.SelectedIndex].Capacity} Tenants";
                 lblCapacity.Visible = true;
 
                 targetUnit = unitList[cmbUnitsList.SelectedIndex];
 
                 lbTenantList.Items.Clear();
-                foreach (User user in unitList[cmbUnitsList.SelectedIndex].Tenants())
+                foreach (User user in unitList[cmbUnitsList.SelectedIndex].Tenants)
                 {
-                    lbTenantList.Items.Add(user.GetName());
+                    lbTenantList.Items.Add(user.Name);
                 }
             }  
         }
@@ -255,11 +249,11 @@ namespace AdvancedProject1._0
         {
             if (lbTenantList.SelectedIndex != -1)
             {
-                targetUnit.Tenants()[lbTenantList.SelectedIndex].SetHouseID(0);
+                targetUnit.Tenants[lbTenantList.SelectedIndex].UnitID = 0;
                 targetUnit.RemoveAt(lbTenantList.SelectedIndex);
                 lbTenantList.Items.RemoveAt(lbTenantList.SelectedIndex);
 
-                lblCapacity.Text = $"{targetUnit.Tenants().Count}/{targetUnit.Capacity} Tenants";                
+                lblCapacity.Text = $"{targetUnit.Tenants.Count}/{targetUnit.Capacity} Tenants";                
             }
             else MessageBox.Show("Please select a tenant first.");
         }
@@ -269,7 +263,7 @@ namespace AdvancedProject1._0
             if (cmbAssignUserList.SelectedIndex != -1 && cmbAssignUnitList.SelectedIndex != -1)
             {
                 unitList[cmbAssignUnitList.SelectedIndex].AddTenant(AssignUserList[cmbAssignUserList.SelectedIndex]);
-                AssignUserList[cmbAssignUserList.SelectedIndex].SetHouseID((int)cmbAssignUnitList.SelectedItem);
+                AssignUserList[cmbAssignUserList.SelectedIndex].UnitID = (int)cmbAssignUnitList.SelectedItem;
                 AssignUserList.RemoveAt(cmbAssignUserList.SelectedIndex);
                 cmbAssignUserList.SelectedIndex = -1;
             }
@@ -281,7 +275,7 @@ namespace AdvancedProject1._0
             cmbAssignUnitList.Items.Clear();
             foreach (HouseUnit unit in unitList)
             {
-                cmbAssignUnitList.Items.Add(unit.GetUnitID());
+                cmbAssignUnitList.Items.Add(unit.UnitID);
             }
         }
 
@@ -290,9 +284,7 @@ namespace AdvancedProject1._0
             cmbAssignUserList.Items.Clear();
             AssignUserList.Clear();
 
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             SqlCommand cmd = new SqlCommand($"SELECT userID, houseID, isAdmin FROM Users", con);
             SqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -303,7 +295,7 @@ namespace AdvancedProject1._0
                     if (dataReader.GetInt32(1) == 0)
                     {
                         User newUser = new User(dataReader.GetString(0));
-                        cmbAssignUserList.Items.Add(newUser.GetName());
+                        cmbAssignUserList.Items.Add(newUser.Name);
                         AssignUserList.Add(newUser);
                     }
                 }

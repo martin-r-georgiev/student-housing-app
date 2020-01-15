@@ -48,7 +48,7 @@ namespace AdvancedProject1._0
             InitializeComponent();
             mainForm = calledForm as TenantMain;
             loggedInUser = new User(formLogin.userKey);
-            tp2.Text = $"House Unit {loggedInUser.GetHouseID()}";
+            tp2.Text = $"House Unit {loggedInUser.UnitID}";
             chat = System.IO.File.ReadAllText(@"Chat.txt");
             generalChat = chat.Split('~')[1].Substring(4);
             if (!CheckForCorrectChat()) CheckForCorrectChat();
@@ -93,25 +93,25 @@ namespace AdvancedProject1._0
             chats = chat.Split('~');
             for (int i = 0; i < chats.Length; i++)
             {
-                if (chats[i].Split(':')[0].Contains(loggedInUser.GetHouseID().ToString()))
+                if (chats[i].Split(':')[0].Contains(loggedInUser.UnitID.ToString()))
                 {
                     currentHouseUnitChat = chats[i].Substring(4);
                     return true;
                 }
             }
-            chat += $"{loggedInUser.GetHouseID()}:\n~";
+            chat += $"{loggedInUser.UnitID}:\n~";
             System.IO.File.WriteAllText(@"Chat.txt", chat);
-            MessageBox.Show($"Welcome to the new chat of house unit {loggedInUser.GetHouseID()}");
+            MessageBox.Show($"Welcome to the new chat of house unit {loggedInUser.UnitID}");
             return false;
         }
         private void SendMessage()
         {
-            string newLine = $"[{DateTime.Now.ToString(@"h\:mm tt")}]  -{loggedInUser.GetHouseID()}- {loggedInUser.GetFirstName()}: {tbChat.Text}";
+            string newLine = $"[{DateTime.Now.ToString(@"h\:mm tt")}]  -{loggedInUser.UnitID}- {loggedInUser.FirstName}: {tbChat.Text}";
             chats = chat.Split('~');
 
             if (tcChats.SelectedIndex == 0)
             {
-                newLine = $"{loggedInUser.GetFirstName()} {loggedInUser.GetHouseID()}: {newLine}";
+                newLine = $"{loggedInUser.FirstName} {loggedInUser.UnitID}: {newLine}";
                 generalChatLines.Add(newLine);
                 chats[1] = "ALL:\n";
                 foreach (string s in generalChatLines)
@@ -121,14 +121,14 @@ namespace AdvancedProject1._0
 
             if (tcChats.SelectedIndex == 1)
             {
-                newLine = $"{loggedInUser.GetFirstName()}: {newLine}";
+                newLine = $"{loggedInUser.FirstName}: {newLine}";
                 chatLines.Add(newLine);
                 //Add the new line to a list
                 for (int i = 0; i < chats.Length; i++)
                 {
-                    if (chats[i].Split(':')[0].Contains(loggedInUser.GetHouseID().ToString()))
+                    if (chats[i].Split(':')[0].Contains(loggedInUser.UnitID.ToString()))
                     {
-                        chats[i] = loggedInUser.GetHouseID().ToString() + ":\n";
+                        chats[i] = loggedInUser.UnitID.ToString() + ":\n";
                         foreach (string s in chatLines)
                             chats[i] += s + "\n";
                         currentHouseUnitChat = chats[i].Substring(4); //use this variable for refreshing the listbox for memory purposes

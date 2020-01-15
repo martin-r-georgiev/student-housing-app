@@ -45,7 +45,7 @@ namespace AdvancedProject1._0
             CalendarPanel.SuspendLayout();
             while (CalendarPanel.Controls.Count > 0) CalendarPanel.Controls[0].Dispose();
             CalendarItem[] itemList = new CalendarItem[38];
-            CalendarItem.unitID = loggedInUser.GetHouseID();
+            CalendarItem.unitID = loggedInUser.UnitID;
             DateTime now = DateTime.Now;
             lblMonth.Text = DateTime.Now.ToString("MMMM");
             lblYear.Text = now.Year.ToString();
@@ -77,7 +77,7 @@ namespace AdvancedProject1._0
 
         void GenerateCleaningEvents()
         {
-            CalendarItem.unitID = loggedInUser.GetHouseID();
+            CalendarItem.unitID = loggedInUser.UnitID;
             User orderUser;
             EventColorHandler colorHandler = new EventColorHandler();
             OrderScheduler scheduler = new OrderScheduler(tenantUnit);
@@ -94,8 +94,8 @@ namespace AdvancedProject1._0
                     scheduler.SetLastDate(EventType.CommonRoom, iterator);
                     colorHandler = EventColorHandler.GetColorHandler(EventType.CommonRoom);
                     orderUser = scheduler.GetNextUser(EventType.CommonRoom);
-                    CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
-                                              $"On this day:\n{orderUser.GetName()} should clean all shared facilities.", Properties.Resources.CommonRoom);
+                    CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.FirstName,
+                                              $"On this day:\n{orderUser.Name} should clean all shared facilities.", Properties.Resources.CommonRoom);
                     iterator = iterator.AddDays(settingsHandler.CommonValue);
                 }
             }
@@ -109,8 +109,8 @@ namespace AdvancedProject1._0
                     scheduler.SetLastDate(EventType.Kitchen, iterator);
                     colorHandler = EventColorHandler.GetColorHandler(EventType.Kitchen);
                     orderUser = scheduler.GetNextUser(EventType.Kitchen);
-                    CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
-                                              $"On this day:\n{orderUser.GetName()} should clean the kitchen.", Properties.Resources.Dishes);
+                    CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.FirstName,
+                                              $"On this day:\n{orderUser.Name} should clean the kitchen.", Properties.Resources.Dishes);
                     iterator = iterator.AddDays(settingsHandler.KitchenValue);
                 }
             }
@@ -124,8 +124,8 @@ namespace AdvancedProject1._0
                     scheduler.SetLastDate(EventType.Bathroom, iterator);
                     colorHandler = EventColorHandler.GetColorHandler(EventType.Bathroom);
                     orderUser = scheduler.GetNextUser(EventType.Bathroom);
-                    CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
-                                              $"On this day:\n{orderUser.GetName()} should clean the bathroom and toilet facilities.", Properties.Resources.Cleaning);
+                    CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.FirstName,
+                                              $"On this day:\n{orderUser.Name} should clean the bathroom and toilet facilities.", Properties.Resources.Cleaning);
                     iterator = iterator.AddDays(settingsHandler.BathroomValue);
                 }
             }
@@ -135,13 +135,13 @@ namespace AdvancedProject1._0
         {
             InitializeComponent();
             loggedInUser = new User(formLogin.userKey);
-            tenantUnit = new HouseUnit(loggedInUser.GetHouseID());
+            tenantUnit = new HouseUnit(loggedInUser.UnitID);
             settingsHandler = new SettingsHandler(tenantUnit);
             this.DoubleBuffered = true;
             GenerateCleaningEvents();
             PopulateCalendar();
             schedule = new OrderScheduler(tenantUnit);
-            lblGarbageName.Text = new User(schedule.CurrentIDGarbage).GetFirstName();
+            lblGarbageName.Text = new User(schedule.CurrentIDGarbage).FirstName;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -225,9 +225,9 @@ namespace AdvancedProject1._0
                     User orderUser;
                     orderUser = schedule.GetNextUser(EventType.Garbage);
                     EventColorHandler colorHandler = EventColorHandler.GetColorHandler(EventType.Garbage);
-                    lblGarbageName.Text = orderUser.GetFirstName();
-                    CalendarItem.SystemAddEvent(DateTime.Today, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
-                                              $"On this day:\n{orderUser.GetName()} should take out the garbage.", Properties.Resources.Garbage);
+                    lblGarbageName.Text = orderUser.FirstName;
+                    CalendarItem.SystemAddEvent(DateTime.Today, colorHandler.BackColor, colorHandler.TextColor, orderUser.FirstName,
+                                              $"On this day:\n{orderUser.Name} should take out the garbage.", Properties.Resources.Garbage);
                     PopulateCalendar();
                     pbGarbage.Value = pbGarbage.Minimum;
                 }

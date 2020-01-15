@@ -25,11 +25,8 @@ namespace AdvancedProject1._0
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //Allows usage of ENTER on keyboard
-            this.AcceptButton = btnLogin;           
-            //Creating & opening SQL Connection to database
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            this.AcceptButton = btnLogin;
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             SqlCommand cmd;
             SqlDataReader dataReader;
 
@@ -51,7 +48,7 @@ namespace AdvancedProject1._0
                 }
                 else
                 {
-                    if (new User(userKey).GetHouseID() != 0)
+                    if (new User(userKey).UnitID != 0)
                     {
                         MessageBox.Show($"Successfully logged in. Welcome, {dataReader.GetString(2)}.");
                         //Opening the tenant's main menu

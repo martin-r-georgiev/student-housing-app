@@ -23,11 +23,11 @@ namespace AdvancedProject1._0
         {
             InitializeComponent();
             loggedInUser = new User(formLogin.userKey);
-            tenantUnit = new HouseUnit(loggedInUser.GetHouseID());  //Stores the current user's house id
+            tenantUnit = new HouseUnit(loggedInUser.UnitID);  //Stores the current user's house id
             schedule = new OrderScheduler(tenantUnit);
             productString = System.IO.File.ReadAllText(@"Groceries.txt");
             buyHistory = new List<String>();
-            buyHistory = Payments.GetPaymentsOfUnit(loggedInUser.GetHouseID());
+            buyHistory = Payments.GetPaymentsOfUnit(loggedInUser.UnitID);
             Product = new List<string>();
             Product = productString.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
             Residents = new List<User>();
@@ -35,8 +35,8 @@ namespace AdvancedProject1._0
             RefreshHistory();
             AddToHistory();
             RefreshProductList();
-            lblCurrentToBuy.Text = new User(schedule.CurrentIDGroceries).GetFirstName();
-            lblNextToBuy.Text = schedule.ShowNextUser(EventType.Groceries).GetFirstName();
+            lblCurrentToBuy.Text = new User(schedule.CurrentIDGroceries).FirstName;
+            lblNextToBuy.Text = schedule.ShowNextUser(EventType.Groceries).FirstName;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -74,9 +74,9 @@ namespace AdvancedProject1._0
                     {
                         foreach (User u in Residents)
                         {
-                            if (!u.GetFirstName().Equals(loggedInUser.GetFirstName()))
+                            if (!u.FirstName.Equals(loggedInUser.FirstName))
                             {
-                                Payment newPayment = new Payment(u.GetUserID(), loggedInUser.GetUserID(), Math.Round(tbPrice / Residents.Count, 2), loggedInUser.GetHouseID());
+                                Payment newPayment = new Payment(u.UserID, loggedInUser.UserID, Math.Round(tbPrice / Residents.Count, 2), loggedInUser.UnitID);
                             }
                         }
                     }
@@ -107,7 +107,7 @@ namespace AdvancedProject1._0
         {
             if (lbHistory.SelectedIndex > -1)
             {
-                if (lbHistory.Items[lbHistory.SelectedIndex].ToString().Split('$')[2].Contains(loggedInUser.GetFirstName()))
+                if (lbHistory.Items[lbHistory.SelectedIndex].ToString().Split('$')[2].Contains(loggedInUser.FirstName))
                 {
                     allPayments = new Payments();
                     allPayments.RemovePayment(lbHistory.SelectedItem.ToString());
@@ -121,13 +121,13 @@ namespace AdvancedProject1._0
             productStrings = productString.Split('~');
             for (int i = 0; i < productStrings.Length; i++)
             {
-                if (productStrings[i].Split(':')[0].Contains(loggedInUser.GetHouseID().ToString()))
+                if (productStrings[i].Split(':')[0].Contains(loggedInUser.UnitID.ToString()))
                 {
                     currentProducts = productStrings[i].Substring(4);
                     return true;
                 }
             }
-            productString += $"{loggedInUser.GetHouseID()}:\n~";
+            productString += $"{loggedInUser.UnitID}:\n~";
             System.IO.File.WriteAllText(@"Groceries.txt", productString);
             return false;
         }
@@ -136,9 +136,9 @@ namespace AdvancedProject1._0
             productStrings = productString.Split('~');
             for (int i = 0; i < productStrings.Length; i++)
             {
-                if (productStrings[i].Split(':')[0].Contains(loggedInUser.GetHouseID().ToString()))
+                if (productStrings[i].Split(':')[0].Contains(loggedInUser.UnitID.ToString()))
                 {
-                    productStrings[i] = loggedInUser.GetHouseID().ToString() + ":\n";
+                    productStrings[i] = loggedInUser.UnitID.ToString() + ":\n";
                     foreach (string s in Product)
                         productStrings[i] += s + "\n";
                     currentProducts = productStrings[i].Substring(4); //use this variable for refreshing the listbox for memory purposes
@@ -188,14 +188,14 @@ namespace AdvancedProject1._0
 
         void AddToHistory()
         {
-            HouseUnit newUnit = new HouseUnit(loggedInUser.GetHouseID());
-            foreach (User tenant in newUnit.Tenants())
+            HouseUnit newUnit = new HouseUnit(loggedInUser.UnitID);
+            foreach (User tenant in newUnit.Tenants)
                 Residents.Add(tenant);
         }
 
         void RefreshHistory()
         {
-            buyHistory = Payments.GetPaymentsOfUnit(loggedInUser.GetHouseID());
+            buyHistory = Payments.GetPaymentsOfUnit(loggedInUser.UnitID);
             lbHistory.Items.Clear();
             foreach (string s in buyHistory)
                 lbHistory.Items.Add(s);
@@ -205,8 +205,8 @@ namespace AdvancedProject1._0
         {
             User buyer;
             buyer = schedule.GetNextUser(EventType.Groceries);
-            lblCurrentToBuy.Text = buyer.GetFirstName();
-            lblNextToBuy.Text = schedule.ShowNextUser(EventType.Groceries).GetFirstName();
+            lblCurrentToBuy.Text = buyer.FirstName;
+            lblNextToBuy.Text = schedule.ShowNextUser(EventType.Groceries).FirstName;
         }
 
 

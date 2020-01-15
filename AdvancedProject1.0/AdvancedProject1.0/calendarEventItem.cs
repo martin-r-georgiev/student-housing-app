@@ -119,9 +119,7 @@ namespace AdvancedProject1._0
 
         private void RemoveEventFromDB()
         {
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"DELETE CalendarEvents WHERE Id=@eventID", con))
             {
                 cmd.Parameters.AddWithValue("@eventID", this.Id);
@@ -136,9 +134,7 @@ namespace AdvancedProject1._0
             //Double-clicking item to mark it as complete
             this.Completed = !this.Completed;
 
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"UPDATE CalendarEvents SET completed=@Completed WHERE Id=@elemID", con))
             {
                 cmd.Parameters.AddWithValue("@Completed", this.Completed);
@@ -189,9 +185,7 @@ namespace AdvancedProject1._0
         private void rightClickMenu_Opening(object sender, CancelEventArgs e)
         {
             string createdBy = null;
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"SELECT createdBy FROM CalendarEvents WHERE Id=@eventID", con))
             {
                 cmd.Parameters.AddWithValue("@eventID", this.Id);
@@ -202,7 +196,7 @@ namespace AdvancedProject1._0
             }
             con.Close();
 
-            if (loggedInUser.GetUserID() == createdBy) rightClickMenuItem2.Visible = true;
+            if (loggedInUser.UserID == createdBy) rightClickMenuItem2.Visible = true;
             else rightClickMenuItem2.Visible = false;
         }
 

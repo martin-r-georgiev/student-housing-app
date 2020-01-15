@@ -15,10 +15,7 @@ namespace AdvancedProject1._0
 		public ReportsList()
 		{
 			reportsList = new List<Report>();
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -36,10 +33,7 @@ namespace AdvancedProject1._0
 		public static List<Report> GetReports()
 		{
 			List<Report> reportList = new List<Report>();
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 
@@ -59,10 +53,7 @@ namespace AdvancedProject1._0
 		public static List<Report> GetReplies(string userId)
 		{
 			List<Report> replyList = new List<Report>();
-			//Creating & opening SQL Connection to database
-			SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-			con.Open();
-
+			SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 			SqlCommand cmd;
 			SqlDataReader dataReader;
 

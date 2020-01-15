@@ -47,10 +47,7 @@ namespace AdvancedProject1._0
         }
         public Report(int reportId)
         {
-            //Creating & opening SQL Connection to database
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             SqlCommand cmd;
             SqlDataReader dataReader;
 
@@ -72,12 +69,10 @@ namespace AdvancedProject1._0
         }
         public void InsertReportToDatabase()
         {
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"INSERT INTO Reports (ReporterID, Report, Type) VALUES (@reporterId, @reportText, @type)", con))
             {
-                cmd.Parameters.AddWithValue("@reporterId", this.Reporter.GetUserID());
+                cmd.Parameters.AddWithValue("@reporterId", this.Reporter.UserID);
                 cmd.Parameters.AddWithValue("@reportText", this.ReportText);
                 cmd.Parameters.AddWithValue("@type", "Report");
                 cmd.ExecuteNonQuery();
@@ -88,10 +83,7 @@ namespace AdvancedProject1._0
         }
         public void SetReportID()
         {
-            //Creating & opening SQL Connection to database
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             SqlCommand cmd;
             SqlDataReader dataReader;
 
@@ -106,9 +98,7 @@ namespace AdvancedProject1._0
         }
         public void RemoveFromDatabase()
         {
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"DELETE Reports WHERE Id=@reportID", con))
             {
                 cmd.Parameters.AddWithValue("@reportID", this.ReportId);
@@ -119,7 +109,7 @@ namespace AdvancedProject1._0
         }
         public void Reply(string replyMsg)
         {
-            Notifications newNotification = new Notifications(this.Reporter.GetUserID(), "Report response", replyMsg);
+            Notifications newNotification = new Notifications(this.Reporter.UserID, "Report response", replyMsg);
             RemoveFromDatabase();
         }
     }

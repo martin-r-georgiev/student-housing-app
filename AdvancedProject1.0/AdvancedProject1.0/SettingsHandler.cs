@@ -36,12 +36,10 @@ namespace AdvancedProject1._0
             this.unit = newUnit;
             bool newRow = false;
 
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"SELECT * FROM Settings WHERE unitID=@Id", con))
             {
-                cmd.Parameters.AddWithValue("@Id", newUnit.GetUnitID());
+                cmd.Parameters.AddWithValue("@Id", newUnit.UnitID);
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.Read())
@@ -59,7 +57,7 @@ namespace AdvancedProject1._0
             {
                 using (SqlCommand cmd = new SqlCommand($"INSERT INTO Settings (unitID, commonValue, kitchenValue, bathroomValue) VALUES (@unitID, @commonV, @kitchenV, @bathroomV)", con))
                 {
-                    cmd.Parameters.AddWithValue("@unitID", newUnit.GetUnitID());
+                    cmd.Parameters.AddWithValue("@unitID", newUnit.UnitID);
                     cmd.Parameters.AddWithValue("@commonV", 0);
                     cmd.Parameters.AddWithValue("@kitchenV", 0);
                     cmd.Parameters.AddWithValue("@bathroomV", 0);
@@ -72,15 +70,13 @@ namespace AdvancedProject1._0
 
         public void SaveSettings()
         {
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"UPDATE Settings SET commonValue=@common, kitchenValue=@kitchen, bathroomValue=@bathroom WHERE unitID=@ID", con))
             {
                 cmd.Parameters.AddWithValue("@common", this.CommonValue);
                 cmd.Parameters.AddWithValue("@kitchen", this.KitchenValue);
                 cmd.Parameters.AddWithValue("@bathroom", this.BathroomValue);
-                cmd.Parameters.AddWithValue("@ID", this.unit.GetUnitID());
+                cmd.Parameters.AddWithValue("@ID", this.unit.UnitID);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
             }

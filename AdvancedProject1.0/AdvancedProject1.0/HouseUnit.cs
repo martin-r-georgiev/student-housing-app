@@ -11,17 +11,33 @@ namespace AdvancedProject1._0
 {
     class HouseUnit
     {
+        //Instance variables
         private int unitID;
         private List<User> tenantList;
         private string address;
         private int people;
         private int capacity;
 
+        //Properties
+        public int UnitID
+        {
+            get { return this.unitID; }
+        }
         public int Capacity
         {
             get { return capacity; }
+            set
+            {
+                if (value >= this.people) this.capacity = value;
+                else this.capacity = this.people;
+            }
+        }
+        public List<User> Tenants
+        {
+            get { return this.tenantList; }
         }
 
+        //Constructors
         public HouseUnit(int newUnitID, string newAddress, int newCapacity)
         {
             //TO DO: Check if UnitID is unique
@@ -34,12 +50,9 @@ namespace AdvancedProject1._0
 
         public HouseUnit(int unitIdentifier)
         {
-            //Creating & opening SQL Connection to database
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             SqlCommand cmd;
             SqlDataReader dataReader;
-
-            con.Open();
 
             cmd = new SqlCommand($"SELECT unitID, Address, Capacity FROM HUnitTable WHERE unitID=@unitID", con);
             cmd.Parameters.AddWithValue("@unitID", unitIdentifier);
@@ -70,16 +83,7 @@ namespace AdvancedProject1._0
             con.Close();
         }
 
-        public void SetCapacity(int newCapacity)
-        {
-            if (newCapacity >= this.people) this.capacity = newCapacity;
-            else this.capacity = this.people;
-        }
-
-        public int GetUnitID()
-        {
-            return this.unitID;
-        }
+        //Methods
 
         public string GetInfo()
         {
@@ -92,17 +96,12 @@ namespace AdvancedProject1._0
             else return false;
         }
 
-        public List<User> Tenants()
-        {
-            return this.tenantList;
-        }
-
         public void AddTenant(User newTenant)
         {
             bool isUnique = true;
             foreach(User tenant in tenantList)
             {
-                if(newTenant.GetUserID() == tenant.GetUserID())
+                if(newTenant.UserID == tenant.UserID)
                 {
                     isUnique = false;
                     break;
@@ -111,12 +110,10 @@ namespace AdvancedProject1._0
 
             if(isUnique && !IsAtCapacity())
             {
-                SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-                con.Open();
-
+                SqlConnection con = SqlConnectionHandler.GetSqlConnection();
                 using (SqlCommand cmd = new SqlCommand($"INSERT INTO UnitUserList (userID, unitID) VALUES (@userID, @unitID)", con))
                 {
-                    cmd.Parameters.AddWithValue("@userID", newTenant.GetUserID());
+                    cmd.Parameters.AddWithValue("@userID", newTenant.UserID);
                     cmd.Parameters.AddWithValue("@unitID", this.unitID);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
@@ -133,7 +130,7 @@ namespace AdvancedProject1._0
             int index = 0;
             for(int i = 0; i< tenantList.Count; i++)
             {
-                if(tenantList[i].GetUserID() == userID)
+                if(tenantList[i].UserID == userID)
                 {
                     index = i;
                     removedTenant = true;
@@ -143,12 +140,10 @@ namespace AdvancedProject1._0
 
             if(removedTenant)
             {
-                SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-                con.Open();
-
+                SqlConnection con = SqlConnectionHandler.GetSqlConnection();
                 using (SqlCommand cmd = new SqlCommand($"DELETE UnitUserList WHERE userID=@userID", con))
                 {
-                    cmd.Parameters.AddWithValue("@userid", tenantList[index].GetUserID());
+                    cmd.Parameters.AddWithValue("@userid", tenantList[index].UserID);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                 }
@@ -163,12 +158,10 @@ namespace AdvancedProject1._0
         {
             if(index >= 0 && index < tenantList.Count)
             {
-                SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-                con.Open();
-
+                SqlConnection con = SqlConnectionHandler.GetSqlConnection();
                 using (SqlCommand cmd = new SqlCommand($"DELETE UnitUserList WHERE userID=@userID", con))
                 {
-                    cmd.Parameters.AddWithValue("@userid", tenantList[index].GetUserID());
+                    cmd.Parameters.AddWithValue("@userid", tenantList[index].UserID);
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                 }
@@ -181,9 +174,7 @@ namespace AdvancedProject1._0
 
         public void InsertToDatabase()
         {
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"INSERT INTO HUnitTable (unitID, Address, Capacity) VALUES (@unitID, @address, @capacity)", con))
             {
                 cmd.Parameters.AddWithValue("@unitID", this.unitID);
@@ -197,9 +188,7 @@ namespace AdvancedProject1._0
 
         public void RemoveFromDatabase()
         {
-            SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
-            con.Open();
-
+            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
             using (SqlCommand cmd = new SqlCommand($"DELETE HUnitTable WHERE unitID=@unitID", con))
             {
                 cmd.Parameters.AddWithValue("@unitid", this.unitID);
