@@ -19,6 +19,7 @@ namespace AdvancedProject1._0
             InitializeComponent();
             pbEventImage.Image = Properties.Resources.QuestionMark;
             dtpEvent.Value = DateTime.Now;
+            if (new User(formLogin.userKey).IsUserAdmin()) cbGlobalEvent.Visible = true;
         }
 
         private void cbImageList_DropDown(object sender, EventArgs e)
@@ -53,6 +54,7 @@ namespace AdvancedProject1._0
             {
                 if (!string.IsNullOrEmpty(tbTitle.Text))
                 {
+                    if (cbGlobalEvent.Checked) CalendarItem.unitID = -1;
                     CalendarItem.AddEventToDB(dtpEvent.Value, colorHandler.BackColor, colorHandler.TextColor, tbTitle.Text, tbDescription.Text, pbEventImage.Image);
                     this.Close();
                 }
@@ -63,11 +65,6 @@ namespace AdvancedProject1._0
         private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void EventsPopup_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void TbTitle_Enter(object sender, EventArgs e)
@@ -87,14 +84,5 @@ namespace AdvancedProject1._0
                 tbTitle.ForeColor = Color.DarkGray;
             }
         }
-
-        
-
-        private void Panel3_MouseMove(object sender, MouseEventArgs e)
-        {
-           
-        }
-
-
     }
 }

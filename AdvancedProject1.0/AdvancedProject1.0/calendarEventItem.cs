@@ -152,17 +152,22 @@ namespace AdvancedProject1._0
         private void lblTitle_Click(object sender, EventArgs e)
         {
             //Show Event info(description, image, title, etc.)
-            if(!loggedInUser.IsUserAdmin())
+            if (this.ParentForm is CleaningSchedule)
             {
                 CleaningSchedule pForm = (CleaningSchedule)this.ParentForm;
                 pForm.ChangeDescription(this.description);
                 pForm.ChangePicture(this.Image);
+                pForm.ChangeTitle(this.Title);
             }
             else
             {
-                AdminCalendar pForm = (AdminCalendar)this.ParentForm;
-                pForm.ChangeDescription(this.description);
-                pForm.ChangePicture(this.Image);
+                if(this.ParentForm is AdminCalendar)
+                {
+                    AdminCalendar pForm = (AdminCalendar)this.ParentForm;
+                    pForm.ChangeDescription(this.description);
+                    pForm.ChangePicture(this.Image);
+                    pForm.ChangeTitle(this.Title);
+                } 
             }
             
         }
@@ -178,17 +183,7 @@ namespace AdvancedProject1._0
         private void calendarEventItem_SizeChanged(object sender, EventArgs e)
         {
             lblPlaceholder.ForeColor = lblTitle.ForeColor;
-            if (lblTitle.Font.Size < 6)
-            {
-                lblTitle.Visible = false;
-                lblPlaceholder.Visible = true;
-            }
-            else
-            {
-                lblTitle.Visible = true;
-                lblPlaceholder.Visible = false;
-                if(NewFontSize(lblTitle) > 0) lblTitle.Font = new Font(lblTitle.Font.FontFamily, NewFontSize(lblTitle));
-            }
+            if (NewFontSize(lblTitle) > 0) lblTitle.Font = new Font(lblTitle.Font.FontFamily, NewFontSize(lblTitle));
         }
 
         private void rightClickMenu_Opening(object sender, CancelEventArgs e)
@@ -224,6 +219,20 @@ namespace AdvancedProject1._0
             if (this.Completed) rightClickMenuItem1.Text = "Mark as completed";
             else rightClickMenuItem1.Text = "Mark as incomplete";
             lblTitle_DoubleClick(lblTitle, e);
+        }
+
+        private void lblTitle_FontChanged(object sender, EventArgs e)
+        {
+            if (lblTitle.Font.Size < 5.5)
+            {
+                lblTitle.Visible = false;
+                lblPlaceholder.Visible = true;
+            }
+            else
+            {
+                lblTitle.Visible = true;
+                lblPlaceholder.Visible = false;
+            }
         }
     }
 }

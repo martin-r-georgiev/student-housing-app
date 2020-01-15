@@ -24,6 +24,11 @@ namespace AdvancedProject1._0
             else rtbDescription.Text = "No event description";
         }
 
+        public void ChangeTitle(string title)
+        {
+            rtbTitle.Text = title;
+        }
+
         public void ChangePicture(Image img)
         {
             pbEventImage.Image = img;
@@ -105,7 +110,7 @@ namespace AdvancedProject1._0
                     colorHandler = EventColorHandler.GetColorHandler(EventType.Kitchen);
                     orderUser = scheduler.GetNextUser(EventType.Kitchen);
                     CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
-                                              $"On this day:\n{orderUser.GetName()} should clean the kitchen.", Properties.Resources.Cleaning);
+                                              $"On this day:\n{orderUser.GetName()} should clean the kitchen.", Properties.Resources.Dishes);
                     iterator = iterator.AddDays(settingsHandler.KitchenValue);
                 }
             }
@@ -120,7 +125,7 @@ namespace AdvancedProject1._0
                     colorHandler = EventColorHandler.GetColorHandler(EventType.Bathroom);
                     orderUser = scheduler.GetNextUser(EventType.Bathroom);
                     CalendarItem.SystemAddEvent(iterator, colorHandler.BackColor, colorHandler.TextColor, orderUser.GetFirstName(),
-                                              $"On this day:\n{orderUser.GetName()} should clean the bathroom and toilet facilities.", Properties.Resources.Toilet);
+                                              $"On this day:\n{orderUser.GetName()} should clean the bathroom and toilet facilities.", Properties.Resources.Cleaning);
                     iterator = iterator.AddDays(settingsHandler.BathroomValue);
                 }
             }

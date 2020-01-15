@@ -103,28 +103,12 @@ namespace AdvancedProject1._0
 
         private void cbShowHide_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbShowHide.Checked == true)
-            {
-                tbPassword.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                tbPassword.UseSystemPasswordChar = true;
-            }
+            tbPassword.UseSystemPasswordChar = !cbShowHide.Checked;
         }
 
         private void cbAdmin_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbAdmin.Checked)
-            {
-                lblHouseUnit.Visible = false;
-                cmbHouseUnits.Visible = false;
-            }
-            else
-            {
-                lblHouseUnit.Visible = true;
-                cmbHouseUnits.Visible = true;
-            }
+            lblHouseUnit.Visible = cmbHouseUnits.Visible = !cbAdmin.Checked;
         }
 
         private void btnRemoveUser_Click(object sender, EventArgs e)
@@ -166,18 +150,15 @@ namespace AdvancedProject1._0
 
         private void btnAddUnit_Click(object sender, EventArgs e)
         {
-            //TO DO: Check for empty textboxes
-            //TO DO: Clear textboxes
             if (Int32.TryParse(tbUnitID.Text, out int unitID) && Int32.TryParse(tbCapacity.Text, out int cap) && tbAddress.Text.Length > 0)
             {
                 SqlConnection con = new SqlConnection($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={Directory.GetParent(Environment.CurrentDirectory).Parent.FullName}\\HousingDB.mdf;Integrated Security=True");
                 SqlCommand cmd;
-                SqlDataReader dataReader;
                 con.Open();
 
                 cmd = new SqlCommand($"SELECT userID FROM UnitUserList WHERE unitID=@unitID", con);
                 cmd.Parameters.AddWithValue("@unitID", unitID);
-                dataReader = cmd.ExecuteReader();
+                SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.Read())
                 {
@@ -185,10 +166,9 @@ namespace AdvancedProject1._0
                 }
                 else
                 {
-                    if (tbUnitID.Text.Length == 3)
+                    if (tbUnitID.Text.Length == 3 && int.Parse(tbUnitID.Text) > 0)
                     {
-                        HouseUnit newUnit = new HouseUnit(unitID,
-                                        tbAddress.Text, cap);
+                        HouseUnit newUnit = new HouseUnit(unitID, tbAddress.Text, cap);
                         try
                         {
                             newUnit.InsertToDatabase();
@@ -199,7 +179,7 @@ namespace AdvancedProject1._0
                             MessageBox.Show(ex.Message);
                         }
                     }
-                    else MessageBox.Show("Please use a 3-Digit House Unit ID");
+                    else MessageBox.Show("Please use a 3-Digit House Unit ID. The ID needs to be a positive value.");
                 }
                 con.Close();
                 tbAddress.Clear();

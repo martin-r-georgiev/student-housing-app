@@ -278,9 +278,10 @@ namespace AdvancedProject1._0
             SqlCommand cmd;
             SqlDataReader dataReader;
 
-            cmd = new SqlCommand($"SELECT date, eventColor, eventTitle, titleColor, Id, completed, description, image FROM CalendarEvents WHERE date=@samedate AND houseUnit=@unit", con);
+            cmd = new SqlCommand($"SELECT date, eventColor, eventTitle, titleColor, Id, completed, description, image FROM CalendarEvents WHERE date=@samedate AND (houseUnit=@unit OR houseUnit=@global)", con);
             cmd.Parameters.AddWithValue("@samedate", this._rawdate.Date);
             cmd.Parameters.AddWithValue("@unit", unitID);
+            cmd.Parameters.AddWithValue("@global", -1);
             dataReader = cmd.ExecuteReader();
 
             if (dataReader.HasRows)

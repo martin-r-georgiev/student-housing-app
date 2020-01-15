@@ -37,6 +37,7 @@
             this.label42 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.cmbUnits = new System.Windows.Forms.ComboBox();
+            this.rtbTitle = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbEventImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,6 +138,17 @@
             this.cmbUnits.DropDown += new System.EventHandler(this.cmbUnits_DropDown);
             this.cmbUnits.SelectedIndexChanged += new System.EventHandler(this.cmbUnits_SelectedIndexChanged);
             // 
+            // rtbTitle
+            // 
+            this.rtbTitle.BackColor = System.Drawing.SystemColors.Control;
+            this.rtbTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtbTitle.Location = new System.Drawing.Point(1305, 232);
+            this.rtbTitle.Name = "rtbTitle";
+            this.rtbTitle.ReadOnly = true;
+            this.rtbTitle.Size = new System.Drawing.Size(279, 24);
+            this.rtbTitle.TabIndex = 21;
+            this.rtbTitle.Text = "";
+            // 
             // AdminCalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -144,6 +156,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1733, 815);
+            this.Controls.Add(this.rtbTitle);
             this.Controls.Add(this.cmbUnits);
             this.Controls.Add(this.lblYear);
             this.Controls.Add(this.lblMonth);
@@ -174,5 +187,6 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ComboBox cmbUnits;
+        private System.Windows.Forms.RichTextBox rtbTitle;
     }
 }

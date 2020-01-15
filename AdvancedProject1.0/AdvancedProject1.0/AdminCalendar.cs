@@ -35,6 +35,11 @@ namespace AdvancedProject1._0
             else rtbDescription.Text = "No event description";
         }
 
+        public void ChangeTitle(string title)
+        {
+            rtbTitle.Text = title;
+        }
+
         public void ChangePicture(Image img)
         {
             pbEventImage.Image = img;
