@@ -91,6 +91,11 @@ namespace AdvancedProject1._0
             {
                 panelBorderNotifications.Visible = true;
                 panelNotifications.Visible = true;
+                if (panelNotifications.Controls.Count < 4)
+                {
+                    panelNotifications.Size = new Size(173, (65 * panelNotifications.Controls.Count + 20));
+                    panelBorderNotifications.Size = new Size(177, (65 * panelNotifications.Controls.Count + 24));
+                }
             }
             else if (panelBorderNotifications.Visible == true)
             {

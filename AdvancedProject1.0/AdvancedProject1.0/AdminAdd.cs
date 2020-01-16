@@ -61,9 +61,12 @@ namespace AdvancedProject1._0
 
             if (tbUsername.Text.Length > 0 && tbPassword.Text.Length > 0 && tbFirstName.Text.Length > 0 && tbLastName.Text.Length > 0)
             {
-                if ((tbFirstName.Text.Contains("~")) || (tbFirstName.Text.Contains(" ")) || (tbFirstName.Text.Contains(":"))){
-                    MessageBox.Show("Invalid symbols!"); }
-                else {
+                if ((tbFirstName.Text.Contains("~")) || (tbFirstName.Text.Contains(" ")) || (tbFirstName.Text.Contains(":")))
+                {
+                    MessageBox.Show("Invalid symbols!");
+                }
+                else
+                {
                     User newUser = new User(tbUsername.Text, tbPassword.Text,
                                    tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
                     if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.UnitID = unitList[cmbHouseUnits.SelectedIndex].UnitID;
@@ -90,7 +93,7 @@ namespace AdvancedProject1._0
                         }
                     }
                 }
-                }
+            }
             else
             {
                 MessageBox.Show("Please fill in all empty boxes!");
@@ -170,7 +173,7 @@ namespace AdvancedProject1._0
                 }
                 else
                 {
-                    if (tbUnitID.Text.Length == 3 && int.Parse(tbUnitID.Text) > 0)
+                    if (unitID.ToString().Length == 3 && int.Parse(tbUnitID.Text) > 0 && cap > 0)
                     {
                         HouseUnit newUnit = new HouseUnit(unitID, tbAddress.Text, cap);
                         try

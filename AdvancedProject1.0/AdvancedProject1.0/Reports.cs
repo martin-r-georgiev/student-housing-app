@@ -37,26 +37,31 @@ namespace AdvancedProject1._0
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show($"Are you sure that you wish to delete this report request?", "Delete report", MessageBoxButtons.YesNo);
-            if (lblReporterName.Text.Length > 0 && dialogResult == DialogResult.Yes)
+            if (lblReporterName.Text != "Description of report")
             {
-                myReportsList = new ReportsList();
-                myReportsList.DeleteEntry(selectedReport.ReportId);
-                RefreshPanels();
-                RefreshTextboxes();
+                DialogResult dialogResult = MessageBox.Show($"Are you sure that you wish to delete this report request?", "Delete report", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    myReportsList = new ReportsList();
+                    myReportsList.DeleteEntry(selectedReport.ReportId);
+                    RefreshPanels();
+                    RefreshTextboxes();
+                }
             }
+            else MessageBox.Show("Please select a report first!");
 
         }
 
         private void btnReply_Click(object sender, EventArgs e)
         {
-            if (lblReporterName.Text.Length > 0 && tbReply.Text.Length > 0)
+            if (lblReporterName.Text != "Description of report" && tbReply.Text.Length > 0)
             {
                 myReportsList = new ReportsList();
                 myReportsList.ReplyTo(selectedReport.ReportId, tbReply.Text);
                 RefreshPanels();
                 RefreshTextboxes();
             }
+            else MessageBox.Show("Please select a report and/or write a reply!");
         }
         private void RefreshPanels()
         {

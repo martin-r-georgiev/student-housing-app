@@ -103,7 +103,7 @@ namespace AdvancedProject1._0
         {
             if (lbHistory.SelectedIndex > -1)
             {
-                if (lbHistory.Items[lbHistory.SelectedIndex].ToString().Split('$')[2].Contains(loggedInUser.FirstName))
+                if (lbHistory.Items[lbHistory.SelectedIndex].ToString().Split('$')[1].Contains(loggedInUser.FirstName))
                 {
                     allPayments = new Payments();
                     allPayments.RemovePayment(lbHistory.SelectedItem.ToString());

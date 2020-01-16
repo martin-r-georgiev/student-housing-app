@@ -48,7 +48,7 @@ namespace AdvancedProject1._0
 				string receiverId = dataReader.GetString(1);
 				User receiver = new User(receiverId);
 				double amount = Convert.ToDouble(dataReader.GetString(2));
-				string paymentLine = $" {sender.FirstName} Has to pay ${amount}$ to {receiver.FirstName}";
+				string paymentLine = $" {sender.FirstName} Has to pay ${amount} to {receiver.FirstName}";
 				paymentList.Add(paymentLine);
 			}
 			con.Close();
@@ -59,7 +59,7 @@ namespace AdvancedProject1._0
 			foreach (Payment p in payments)
 			{
 
-				if (paymentMsg.Split('$')[2].Contains(p.Receiver.FirstName) && Convert.ToDouble(paymentMsg.Split('$')[1]) == p.Amount && paymentMsg.Split('$')[0].Contains(p.Sender.FirstName))
+				if (paymentMsg.Split('$')[1].Contains(p.Receiver.FirstName) && Convert.ToDouble(paymentMsg.Split('$')[1].Split(' ')[0]) == p.Amount && paymentMsg.Split('$')[0].Contains(p.Sender.FirstName))
 				{
 					SqlConnection con = SqlConnectionHandler.GetSqlConnection();
 					using (SqlCommand cmd = new SqlCommand($"DELETE PaymentHistory WHERE Id=@paymentID AND Sender=@SenderID", con))
