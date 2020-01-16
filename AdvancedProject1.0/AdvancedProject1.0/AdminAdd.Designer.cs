@@ -90,11 +90,12 @@
             this.tabControl1.Controls.Add(this.tabHouseUnit);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl1.ItemSize = new System.Drawing.Size(170, 50);
-            this.tabControl1.Location = new System.Drawing.Point(24, 102);
+            this.tabControl1.Location = new System.Drawing.Point(32, 126);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(10, 8);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(898, 432);
+            this.tabControl1.Size = new System.Drawing.Size(1197, 532);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
@@ -104,10 +105,10 @@
             this.tabUser.Controls.Add(this.groupBox1);
             this.tabUser.Controls.Add(this.gbAssignUser);
             this.tabUser.Location = new System.Drawing.Point(4, 54);
-            this.tabUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabUser.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabUser.Name = "tabUser";
-            this.tabUser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUser.Size = new System.Drawing.Size(890, 374);
+            this.tabUser.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabUser.Size = new System.Drawing.Size(1189, 474);
             this.tabUser.TabIndex = 0;
             this.tabUser.Text = "User Controls";
             this.tabUser.UseVisualStyleBackColor = true;
@@ -127,9 +128,11 @@
             this.groupBox2.Controls.Add(this.lblLastName);
             this.groupBox2.Controls.Add(this.lblHouseUnit);
             this.groupBox2.Controls.Add(this.tbLastName);
-            this.groupBox2.Location = new System.Drawing.Point(28, 27);
+            this.groupBox2.Location = new System.Drawing.Point(37, 33);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(499, 335);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(665, 412);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Create a new user";
@@ -137,60 +140,59 @@
             // tbUsername
             // 
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbUsername.Location = new System.Drawing.Point(113, 57);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.tbUsername.Location = new System.Drawing.Point(151, 70);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(194, 27);
+            this.tbUsername.Size = new System.Drawing.Size(257, 32);
             this.tbUsername.TabIndex = 1;
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(17, 57);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsername.Location = new System.Drawing.Point(23, 70);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(84, 21);
+            this.lblUsername.Size = new System.Drawing.Size(103, 28);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(22, 104);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPassword.Location = new System.Drawing.Point(29, 128);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(79, 21);
+            this.lblPassword.Size = new System.Drawing.Size(97, 28);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password:";
             // 
             // cmbHouseUnits
             // 
+            this.cmbHouseUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHouseUnits.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmbHouseUnits.FormattingEnabled = true;
-            this.cmbHouseUnits.Location = new System.Drawing.Point(113, 243);
-            this.cmbHouseUnits.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbHouseUnits.Location = new System.Drawing.Point(151, 299);
+            this.cmbHouseUnits.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbHouseUnits.Name = "cmbHouseUnits";
-            this.cmbHouseUnits.Size = new System.Drawing.Size(194, 28);
+            this.cmbHouseUnits.Size = new System.Drawing.Size(257, 33);
             this.cmbHouseUnits.TabIndex = 15;
             this.cmbHouseUnits.DropDown += new System.EventHandler(this.cmbHouseUnits_DropDown);
             // 
             // tbPassword
             // 
             this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbPassword.Location = new System.Drawing.Point(113, 104);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.tbPassword.Location = new System.Drawing.Point(151, 128);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(194, 27);
+            this.tbPassword.Size = new System.Drawing.Size(257, 32);
             this.tbPassword.TabIndex = 3;
             this.tbPassword.UseSystemPasswordChar = true;
             // 
             // cbAdmin
             // 
             this.cbAdmin.AutoSize = true;
-            this.cbAdmin.Location = new System.Drawing.Point(113, 29);
-            this.cbAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.cbAdmin.Location = new System.Drawing.Point(151, 36);
+            this.cbAdmin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cbAdmin.Name = "cbAdmin";
-            this.cbAdmin.Size = new System.Drawing.Size(125, 25);
+            this.cbAdmin.Size = new System.Drawing.Size(155, 32);
             this.cbAdmin.TabIndex = 12;
             this.cbAdmin.Text = "Administrator";
             this.cbAdmin.UseVisualStyleBackColor = true;
@@ -199,10 +201,9 @@
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(12, 151);
-            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFirstName.Location = new System.Drawing.Point(16, 186);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(89, 21);
+            this.lblFirstName.Size = new System.Drawing.Size(110, 28);
             this.lblFirstName.TabIndex = 4;
             this.lblFirstName.Text = "First Name:";
             // 
@@ -218,10 +219,10 @@
             this.cbShowHide.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.cbShowHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbShowHide.ForeColor = System.Drawing.Color.White;
-            this.cbShowHide.Location = new System.Drawing.Point(313, 104);
-            this.cbShowHide.Margin = new System.Windows.Forms.Padding(4);
+            this.cbShowHide.Location = new System.Drawing.Point(417, 128);
+            this.cbShowHide.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cbShowHide.Name = "cbShowHide";
-            this.cbShowHide.Size = new System.Drawing.Size(30, 30);
+            this.cbShowHide.Size = new System.Drawing.Size(40, 37);
             this.cbShowHide.TabIndex = 11;
             this.cbShowHide.UseVisualStyleBackColor = false;
             this.cbShowHide.CheckedChanged += new System.EventHandler(this.cbShowHide_CheckedChanged);
@@ -229,10 +230,10 @@
             // tbFirstName
             // 
             this.tbFirstName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbFirstName.Location = new System.Drawing.Point(113, 151);
-            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbFirstName.Location = new System.Drawing.Point(151, 186);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(194, 27);
+            this.tbFirstName.Size = new System.Drawing.Size(257, 32);
             this.tbFirstName.TabIndex = 5;
             // 
             // btnAddNewTenant
@@ -244,10 +245,10 @@
             this.btnAddNewTenant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNewTenant.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddNewTenant.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddNewTenant.Location = new System.Drawing.Point(113, 285);
-            this.btnAddNewTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddNewTenant.Location = new System.Drawing.Point(151, 351);
+            this.btnAddNewTenant.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnAddNewTenant.Name = "btnAddNewTenant";
-            this.btnAddNewTenant.Size = new System.Drawing.Size(194, 36);
+            this.btnAddNewTenant.Size = new System.Drawing.Size(259, 44);
             this.btnAddNewTenant.TabIndex = 10;
             this.btnAddNewTenant.Text = "Add user";
             this.btnAddNewTenant.UseVisualStyleBackColor = false;
@@ -256,30 +257,28 @@
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(14, 197);
-            this.lblLastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLastName.Location = new System.Drawing.Point(19, 242);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(87, 21);
+            this.lblLastName.Size = new System.Drawing.Size(107, 28);
             this.lblLastName.TabIndex = 6;
             this.lblLastName.Text = "Last Name:";
             // 
             // lblHouseUnit
             // 
             this.lblHouseUnit.AutoSize = true;
-            this.lblHouseUnit.Location = new System.Drawing.Point(11, 243);
-            this.lblHouseUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHouseUnit.Location = new System.Drawing.Point(15, 299);
             this.lblHouseUnit.Name = "lblHouseUnit";
-            this.lblHouseUnit.Size = new System.Drawing.Size(90, 21);
+            this.lblHouseUnit.Size = new System.Drawing.Size(113, 28);
             this.lblHouseUnit.TabIndex = 8;
             this.lblHouseUnit.Text = "House Unit:";
             // 
             // tbLastName
             // 
             this.tbLastName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbLastName.Location = new System.Drawing.Point(113, 197);
-            this.tbLastName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbLastName.Location = new System.Drawing.Point(151, 242);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(194, 27);
+            this.tbLastName.Size = new System.Drawing.Size(257, 32);
             this.tbLastName.TabIndex = 7;
             // 
             // groupBox1
@@ -287,9 +286,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnRemoveUser);
             this.groupBox1.Controls.Add(this.cmbUserList);
-            this.groupBox1.Location = new System.Drawing.Point(562, 27);
+            this.groupBox1.Location = new System.Drawing.Point(749, 33);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(307, 131);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(409, 161);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Remove user from database";
@@ -297,10 +298,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 35);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(28, 43);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 21);
+            this.label4.Size = new System.Drawing.Size(55, 28);
             this.label4.TabIndex = 19;
             this.label4.Text = "User:";
             // 
@@ -313,10 +313,10 @@
             this.btnRemoveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveUser.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnRemoveUser.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRemoveUser.Location = new System.Drawing.Point(70, 79);
-            this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemoveUser.Location = new System.Drawing.Point(93, 97);
+            this.btnRemoveUser.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnRemoveUser.Name = "btnRemoveUser";
-            this.btnRemoveUser.Size = new System.Drawing.Size(221, 36);
+            this.btnRemoveUser.Size = new System.Drawing.Size(295, 44);
             this.btnRemoveUser.TabIndex = 13;
             this.btnRemoveUser.Text = "Remove user";
             this.btnRemoveUser.UseVisualStyleBackColor = false;
@@ -324,12 +324,13 @@
             // 
             // cmbUserList
             // 
+            this.cmbUserList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUserList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmbUserList.FormattingEnabled = true;
-            this.cmbUserList.Location = new System.Drawing.Point(70, 35);
-            this.cmbUserList.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbUserList.Location = new System.Drawing.Point(93, 43);
+            this.cmbUserList.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cmbUserList.Name = "cmbUserList";
-            this.cmbUserList.Size = new System.Drawing.Size(221, 28);
+            this.cmbUserList.Size = new System.Drawing.Size(293, 33);
             this.cmbUserList.TabIndex = 14;
             this.cmbUserList.DropDown += new System.EventHandler(this.cmbUserList_DropDown);
             // 
@@ -341,11 +342,11 @@
             this.gbAssignUser.Controls.Add(this.cmbAssignUnitList);
             this.gbAssignUser.Controls.Add(this.cmbAssignUserList);
             this.gbAssignUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbAssignUser.Location = new System.Drawing.Point(562, 187);
-            this.gbAssignUser.Margin = new System.Windows.Forms.Padding(2);
+            this.gbAssignUser.Location = new System.Drawing.Point(749, 230);
+            this.gbAssignUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbAssignUser.Name = "gbAssignUser";
-            this.gbAssignUser.Padding = new System.Windows.Forms.Padding(2);
-            this.gbAssignUser.Size = new System.Drawing.Size(307, 175);
+            this.gbAssignUser.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbAssignUser.Size = new System.Drawing.Size(409, 215);
             this.gbAssignUser.TabIndex = 16;
             this.gbAssignUser.TabStop = false;
             this.gbAssignUser.Text = "Assign user to House Unit";
@@ -359,10 +360,10 @@
             this.btnAssignUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssignUser.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAssignUser.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAssignUser.Location = new System.Drawing.Point(25, 125);
-            this.btnAssignUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAssignUser.Location = new System.Drawing.Point(33, 154);
+            this.btnAssignUser.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnAssignUser.Name = "btnAssignUser";
-            this.btnAssignUser.Size = new System.Drawing.Size(266, 36);
+            this.btnAssignUser.Size = new System.Drawing.Size(355, 44);
             this.btnAssignUser.TabIndex = 17;
             this.btnAssignUser.Text = "Assign user";
             this.btnAssignUser.UseVisualStyleBackColor = false;
@@ -371,42 +372,42 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(21, 36);
-            this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUser.Location = new System.Drawing.Point(28, 44);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(45, 21);
+            this.lblUser.Size = new System.Drawing.Size(55, 28);
             this.lblUser.TabIndex = 18;
             this.lblUser.Text = "User:";
             // 
             // lblHouseUnit2
             // 
             this.lblHouseUnit2.AutoSize = true;
-            this.lblHouseUnit2.Location = new System.Drawing.Point(21, 82);
-            this.lblHouseUnit2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHouseUnit2.Location = new System.Drawing.Point(28, 101);
             this.lblHouseUnit2.Name = "lblHouseUnit2";
-            this.lblHouseUnit2.Size = new System.Drawing.Size(90, 21);
+            this.lblHouseUnit2.Size = new System.Drawing.Size(113, 28);
             this.lblHouseUnit2.TabIndex = 17;
             this.lblHouseUnit2.Text = "House Unit:";
             // 
             // cmbAssignUnitList
             // 
+            this.cmbAssignUnitList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAssignUnitList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmbAssignUnitList.FormattingEnabled = true;
-            this.cmbAssignUnitList.Location = new System.Drawing.Point(115, 80);
-            this.cmbAssignUnitList.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbAssignUnitList.Location = new System.Drawing.Point(153, 98);
+            this.cmbAssignUnitList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbAssignUnitList.Name = "cmbAssignUnitList";
-            this.cmbAssignUnitList.Size = new System.Drawing.Size(176, 28);
+            this.cmbAssignUnitList.Size = new System.Drawing.Size(233, 33);
             this.cmbAssignUnitList.TabIndex = 1;
             this.cmbAssignUnitList.DropDown += new System.EventHandler(this.cmbAssignUnitList_DropDown);
             // 
             // cmbAssignUserList
             // 
+            this.cmbAssignUserList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAssignUserList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmbAssignUserList.FormattingEnabled = true;
-            this.cmbAssignUserList.Location = new System.Drawing.Point(70, 36);
-            this.cmbAssignUserList.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbAssignUserList.Location = new System.Drawing.Point(93, 44);
+            this.cmbAssignUserList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbAssignUserList.Name = "cmbAssignUserList";
-            this.cmbAssignUserList.Size = new System.Drawing.Size(221, 28);
+            this.cmbAssignUserList.Size = new System.Drawing.Size(293, 33);
             this.cmbAssignUserList.TabIndex = 0;
             this.cmbAssignUserList.DropDown += new System.EventHandler(this.cmbAssignUserList_DropDown);
             // 
@@ -415,10 +416,10 @@
             this.tabHouseUnit.Controls.Add(this.groupBox4);
             this.tabHouseUnit.Controls.Add(this.groupBox3);
             this.tabHouseUnit.Location = new System.Drawing.Point(4, 54);
-            this.tabHouseUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabHouseUnit.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabHouseUnit.Name = "tabHouseUnit";
-            this.tabHouseUnit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHouseUnit.Size = new System.Drawing.Size(890, 374);
+            this.tabHouseUnit.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabHouseUnit.Size = new System.Drawing.Size(1189, 474);
             this.tabHouseUnit.TabIndex = 1;
             this.tabHouseUnit.Text = "Add House Unit";
             this.tabHouseUnit.UseVisualStyleBackColor = true;
@@ -430,9 +431,11 @@
             this.groupBox4.Controls.Add(this.cmbUnitsList);
             this.groupBox4.Controls.Add(this.lblCapacity);
             this.groupBox4.Controls.Add(this.btnRemoveTenant);
-            this.groupBox4.Location = new System.Drawing.Point(450, 27);
+            this.groupBox4.Location = new System.Drawing.Point(600, 33);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(412, 321);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(549, 395);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Unassign users from House Unit";
@@ -440,30 +443,30 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(138, 38);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(184, 47);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(243, 21);
+            this.label5.Size = new System.Drawing.Size(301, 28);
             this.label5.TabIndex = 11;
             this.label5.Text = "Number of users in this House ID:";
             // 
             // lbTenantList
             // 
             this.lbTenantList.FormattingEnabled = true;
-            this.lbTenantList.ItemHeight = 21;
-            this.lbTenantList.Location = new System.Drawing.Point(142, 119);
-            this.lbTenantList.Margin = new System.Windows.Forms.Padding(2);
+            this.lbTenantList.ItemHeight = 28;
+            this.lbTenantList.Location = new System.Drawing.Point(189, 146);
+            this.lbTenantList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbTenantList.Name = "lbTenantList";
-            this.lbTenantList.Size = new System.Drawing.Size(239, 130);
+            this.lbTenantList.Size = new System.Drawing.Size(317, 144);
             this.lbTenantList.TabIndex = 9;
             // 
             // cmbUnitsList
             // 
+            this.cmbUnitsList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUnitsList.FormattingEnabled = true;
-            this.cmbUnitsList.Location = new System.Drawing.Point(265, 70);
-            this.cmbUnitsList.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbUnitsList.Location = new System.Drawing.Point(353, 86);
+            this.cmbUnitsList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbUnitsList.Name = "cmbUnitsList";
-            this.cmbUnitsList.Size = new System.Drawing.Size(116, 29);
+            this.cmbUnitsList.Size = new System.Drawing.Size(153, 36);
             this.cmbUnitsList.TabIndex = 7;
             this.cmbUnitsList.DropDown += new System.EventHandler(this.cmbUnits_DropDown);
             this.cmbUnitsList.SelectedIndexChanged += new System.EventHandler(this.cmbUnits_SelectedIndexChanged);
@@ -471,10 +474,9 @@
             // lblCapacity
             // 
             this.lblCapacity.AutoSize = true;
-            this.lblCapacity.Location = new System.Drawing.Point(138, 73);
-            this.lblCapacity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCapacity.Location = new System.Drawing.Point(184, 90);
             this.lblCapacity.Name = "lblCapacity";
-            this.lblCapacity.Size = new System.Drawing.Size(79, 21);
+            this.lblCapacity.Size = new System.Drawing.Size(99, 28);
             this.lblCapacity.TabIndex = 10;
             this.lblCapacity.Text = "[Capacity]";
             this.lblCapacity.Visible = false;
@@ -488,10 +490,10 @@
             this.btnRemoveTenant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveTenant.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnRemoveTenant.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRemoveTenant.Location = new System.Drawing.Point(142, 268);
-            this.btnRemoveTenant.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemoveTenant.Location = new System.Drawing.Point(189, 330);
+            this.btnRemoveTenant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemoveTenant.Name = "btnRemoveTenant";
-            this.btnRemoveTenant.Size = new System.Drawing.Size(239, 36);
+            this.btnRemoveTenant.Size = new System.Drawing.Size(319, 44);
             this.btnRemoveTenant.TabIndex = 8;
             this.btnRemoveTenant.Text = "Remove tenant";
             this.btnRemoveTenant.UseVisualStyleBackColor = false;
@@ -506,25 +508,29 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.lblUnitID);
             this.groupBox3.Controls.Add(this.tbCapacity);
-            this.groupBox3.Location = new System.Drawing.Point(28, 27);
+            this.groupBox3.Location = new System.Drawing.Point(37, 33);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(370, 261);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(493, 321);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Create a new House Unit";
             // 
             // tbAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(89, 104);
+            this.tbAddress.Location = new System.Drawing.Point(119, 128);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(194, 29);
+            this.tbAddress.Size = new System.Drawing.Size(257, 34);
             this.tbAddress.TabIndex = 4;
             // 
             // tbUnitID
             // 
-            this.tbUnitID.Location = new System.Drawing.Point(89, 54);
+            this.tbUnitID.Location = new System.Drawing.Point(119, 66);
+            this.tbUnitID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbUnitID.Name = "tbUnitID";
-            this.tbUnitID.Size = new System.Drawing.Size(194, 29);
+            this.tbUnitID.Size = new System.Drawing.Size(257, 34);
             this.tbUnitID.TabIndex = 1;
             // 
             // btnAddUnit
@@ -536,9 +542,10 @@
             this.btnAddUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddUnit.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddUnit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddUnit.Location = new System.Drawing.Point(89, 197);
+            this.btnAddUnit.Location = new System.Drawing.Point(119, 242);
+            this.btnAddUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddUnit.Name = "btnAddUnit";
-            this.btnAddUnit.Size = new System.Drawing.Size(194, 36);
+            this.btnAddUnit.Size = new System.Drawing.Size(259, 44);
             this.btnAddUnit.TabIndex = 2;
             this.btnAddUnit.Text = "Add unit";
             this.btnAddUnit.UseVisualStyleBackColor = false;
@@ -547,35 +554,39 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 104);
+            this.label1.Location = new System.Drawing.Point(17, 128);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 21);
+            this.label1.Size = new System.Drawing.Size(86, 28);
             this.label1.TabIndex = 3;
             this.label1.Text = "Address:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 152);
+            this.label2.Location = new System.Drawing.Point(13, 187);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 21);
+            this.label2.Size = new System.Drawing.Size(91, 28);
             this.label2.TabIndex = 5;
             this.label2.Text = "Capacity:";
             // 
             // lblUnitID
             // 
             this.lblUnitID.AutoSize = true;
-            this.lblUnitID.Location = new System.Drawing.Point(17, 57);
+            this.lblUnitID.Location = new System.Drawing.Point(23, 70);
+            this.lblUnitID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUnitID.Name = "lblUnitID";
-            this.lblUnitID.Size = new System.Drawing.Size(61, 21);
+            this.lblUnitID.Size = new System.Drawing.Size(77, 28);
             this.lblUnitID.TabIndex = 0;
             this.lblUnitID.Text = "Unit ID:";
             // 
             // tbCapacity
             // 
-            this.tbCapacity.Location = new System.Drawing.Point(89, 152);
+            this.tbCapacity.Location = new System.Drawing.Point(119, 187);
+            this.tbCapacity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbCapacity.Name = "tbCapacity";
-            this.tbCapacity.Size = new System.Drawing.Size(194, 29);
+            this.tbCapacity.Size = new System.Drawing.Size(257, 34);
             this.tbCapacity.TabIndex = 6;
             // 
             // btnBack
@@ -587,10 +598,10 @@
             this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Location = new System.Drawing.Point(15, 19);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(5);
+            this.btnBack.Location = new System.Drawing.Point(20, 23);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(36, 36);
+            this.btnBack.Size = new System.Drawing.Size(48, 44);
             this.btnBack.TabIndex = 2;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
@@ -603,8 +614,9 @@
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(952, 75);
+            this.panel1.Size = new System.Drawing.Size(1269, 92);
             this.panel1.TabIndex = 12;
             // 
             // label3
@@ -613,25 +625,26 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(64, 9);
+            this.label3.Location = new System.Drawing.Point(85, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(429, 54);
+            this.label3.Size = new System.Drawing.Size(543, 67);
             this.label3.TabIndex = 5;
             this.label3.Text = "Administrator controls";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // AdminAdd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(952, 556);
+            this.ClientSize = new System.Drawing.Size(1269, 684);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(968, 595);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(1285, 721);
             this.Name = "AdminAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAdd";
