@@ -143,5 +143,10 @@ namespace AdvancedProject1._0
                 PopulateCalendar(lastSelectedUnit.UnitID);
             }
         }
+
+        private void AdminCalendar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -109,9 +109,9 @@
             this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
             this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Location = new System.Drawing.Point(782, 9);
+            this.btnLogout.Location = new System.Drawing.Point(795, 12);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(56, 56);
+            this.btnLogout.Size = new System.Drawing.Size(40, 40);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -169,9 +169,9 @@
             this.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotification.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnNotification.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNotification.Location = new System.Drawing.Point(777, 105);
+            this.btnNotification.Location = new System.Drawing.Point(795, 126);
             this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(60, 60);
+            this.btnNotification.Size = new System.Drawing.Size(40, 40);
             this.btnNotification.TabIndex = 0;
             this.btnNotification.UseVisualStyleBackColor = false;
             this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
@@ -238,6 +238,7 @@
             this.Controls.Add(this.btnCleaning);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(862, 562);
             this.Name = "TenantMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TenantMain";

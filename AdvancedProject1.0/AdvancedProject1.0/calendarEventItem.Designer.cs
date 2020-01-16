@@ -46,10 +46,11 @@
             this.lblTitle.AutoEllipsis = true;
             this.lblTitle.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(-2, -7);
+            this.lblTitle.Location = new System.Drawing.Point(-2, -6);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Padding = new System.Windows.Forms.Padding(10);
-            this.lblTitle.Size = new System.Drawing.Size(127, 41);
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.lblTitle.Size = new System.Drawing.Size(95, 33);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -65,10 +66,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPlaceholder.AutoEllipsis = true;
             this.lblPlaceholder.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPlaceholder.Font = new System.Drawing.Font("Open Sans", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaceholder.Location = new System.Drawing.Point(-2, -8);
+            this.lblPlaceholder.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaceholder.Location = new System.Drawing.Point(-2, -6);
+            this.lblPlaceholder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPlaceholder.Name = "lblPlaceholder";
-            this.lblPlaceholder.Size = new System.Drawing.Size(127, 41);
+            this.lblPlaceholder.Size = new System.Drawing.Size(95, 33);
             this.lblPlaceholder.TabIndex = 1;
             this.lblPlaceholder.Text = " ★";
             this.lblPlaceholder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -85,46 +87,49 @@
             this.contentsPanel.BackColor = System.Drawing.Color.DarkRed;
             this.contentsPanel.Controls.Add(this.lblTitle);
             this.contentsPanel.Controls.Add(this.lblPlaceholder);
-            this.contentsPanel.Location = new System.Drawing.Point(3, 3);
+            this.contentsPanel.Location = new System.Drawing.Point(2, 2);
+            this.contentsPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.contentsPanel.Name = "contentsPanel";
-            this.contentsPanel.Size = new System.Drawing.Size(124, 26);
+            this.contentsPanel.Size = new System.Drawing.Size(93, 21);
             this.contentsPanel.TabIndex = 2;
             // 
             // rightClickMenu
             // 
+            this.rightClickMenu.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.rightClickMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.rightClickMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rightClickMenuItem1,
             this.rightClickMenuItem2});
             this.rightClickMenu.Name = "contextMenuStrip1";
-            this.rightClickMenu.Size = new System.Drawing.Size(197, 52);
+            this.rightClickMenu.Size = new System.Drawing.Size(169, 48);
             this.rightClickMenu.Opening += new System.ComponentModel.CancelEventHandler(this.rightClickMenu_Opening);
             // 
             // rightClickMenuItem1
             // 
             this.rightClickMenuItem1.Name = "rightClickMenuItem1";
-            this.rightClickMenuItem1.Size = new System.Drawing.Size(196, 24);
+            this.rightClickMenuItem1.Size = new System.Drawing.Size(168, 22);
             this.rightClickMenuItem1.Text = "Mark as complete";
             this.rightClickMenuItem1.Click += new System.EventHandler(this.rightClickMenuItem1_Click);
             // 
             // rightClickMenuItem2
             // 
             this.rightClickMenuItem2.Name = "rightClickMenuItem2";
-            this.rightClickMenuItem2.Size = new System.Drawing.Size(196, 24);
+            this.rightClickMenuItem2.Size = new System.Drawing.Size(168, 22);
             this.rightClickMenuItem2.Text = "Delete event";
             this.rightClickMenuItem2.Click += new System.EventHandler(this.rightClickMenuItem2_Click);
             // 
             // calendarEventItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.Controls.Add(this.contentsPanel);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "calendarEventItem";
-            this.Size = new System.Drawing.Size(130, 32);
+            this.Size = new System.Drawing.Size(97, 25);
             this.SizeChanged += new System.EventHandler(this.calendarEventItem_SizeChanged);
             this.contentsPanel.ResumeLayout(false);
             this.rightClickMenu.ResumeLayout(false);

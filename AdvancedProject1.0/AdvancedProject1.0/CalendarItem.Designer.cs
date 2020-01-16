@@ -43,22 +43,24 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblDate.Location = new System.Drawing.Point(3, 1);
+            this.lblDate.Location = new System.Drawing.Point(2, 1);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(43, 23);
+            this.lblDate.Size = new System.Drawing.Size(36, 17);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "Day";
             // 
             // lblWeekDay
             // 
             this.lblWeekDay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblWeekDay.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWeekDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWeekDay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblWeekDay.Location = new System.Drawing.Point(0, 0);
+            this.lblWeekDay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWeekDay.Name = "lblWeekDay";
-            this.lblWeekDay.Size = new System.Drawing.Size(169, 38);
+            this.lblWeekDay.Size = new System.Drawing.Size(127, 31);
             this.lblWeekDay.TabIndex = 1;
             this.lblWeekDay.Text = "DayOfWeek";
             this.lblWeekDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -70,8 +72,9 @@
             this.calendarDateBackground.Dock = System.Windows.Forms.DockStyle.Top;
             this.calendarDateBackground.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.calendarDateBackground.Location = new System.Drawing.Point(0, 5);
+            this.calendarDateBackground.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.calendarDateBackground.Name = "calendarDateBackground";
-            this.calendarDateBackground.Size = new System.Drawing.Size(169, 38);
+            this.calendarDateBackground.Size = new System.Drawing.Size(127, 31);
             this.calendarDateBackground.TabIndex = 2;
             // 
             // eventTablePanel
@@ -85,11 +88,12 @@
             this.eventTablePanel.Controls.Add(this.calendarEventList, 0, 0);
             this.eventTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eventTablePanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.eventTablePanel.Location = new System.Drawing.Point(0, 68);
+            this.eventTablePanel.Location = new System.Drawing.Point(0, 56);
+            this.eventTablePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.eventTablePanel.Name = "eventTablePanel";
             this.eventTablePanel.RowCount = 1;
             this.eventTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.eventTablePanel.Size = new System.Drawing.Size(169, 131);
+            this.eventTablePanel.Size = new System.Drawing.Size(127, 106);
             this.eventTablePanel.TabIndex = 3;
             // 
             // calendarEventList
@@ -98,9 +102,10 @@
             this.calendarEventList.AutoSize = true;
             this.calendarEventList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.calendarEventList.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.calendarEventList.Location = new System.Drawing.Point(84, 3);
+            this.calendarEventList.Location = new System.Drawing.Point(63, 2);
+            this.calendarEventList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.calendarEventList.Name = "calendarEventList";
-            this.calendarEventList.Size = new System.Drawing.Size(0, 125);
+            this.calendarEventList.Size = new System.Drawing.Size(0, 102);
             this.calendarEventList.TabIndex = 0;
             this.calendarEventList.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.calendarEventList_ControlRemoved);
             // 
@@ -110,9 +115,10 @@
             this.WeekDayPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.WeekDayPanel.Controls.Add(this.lblDate);
             this.WeekDayPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.WeekDayPanel.Location = new System.Drawing.Point(0, 43);
+            this.WeekDayPanel.Location = new System.Drawing.Point(0, 36);
+            this.WeekDayPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.WeekDayPanel.Name = "WeekDayPanel";
-            this.WeekDayPanel.Size = new System.Drawing.Size(169, 25);
+            this.WeekDayPanel.Size = new System.Drawing.Size(127, 20);
             this.WeekDayPanel.TabIndex = 3;
             // 
             // todayIndicator
@@ -121,13 +127,14 @@
             this.todayIndicator.Dock = System.Windows.Forms.DockStyle.Top;
             this.todayIndicator.Enabled = false;
             this.todayIndicator.Location = new System.Drawing.Point(0, 0);
+            this.todayIndicator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.todayIndicator.Name = "todayIndicator";
-            this.todayIndicator.Size = new System.Drawing.Size(169, 5);
+            this.todayIndicator.Size = new System.Drawing.Size(127, 5);
             this.todayIndicator.TabIndex = 1;
             // 
             // CalendarItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -135,8 +142,9 @@
             this.Controls.Add(this.WeekDayPanel);
             this.Controls.Add(this.calendarDateBackground);
             this.Controls.Add(this.todayIndicator);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CalendarItem";
-            this.Size = new System.Drawing.Size(169, 199);
+            this.Size = new System.Drawing.Size(127, 162);
             this.SizeChanged += new System.EventHandler(this.CalendarItem_SizeChanged);
             this.calendarDateBackground.ResumeLayout(false);
             this.eventTablePanel.ResumeLayout(false);
