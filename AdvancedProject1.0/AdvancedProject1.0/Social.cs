@@ -111,7 +111,6 @@ namespace AdvancedProject1._0
 
             if (tcChats.SelectedIndex == 0)
             {
-                newLine = $"{loggedInUser.FirstName} {loggedInUser.UnitID}: {newLine}";
                 generalChatLines.Add(newLine);
                 chats[1] = "ALL:\n";
                 foreach (string s in generalChatLines)

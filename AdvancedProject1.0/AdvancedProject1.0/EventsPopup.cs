@@ -13,6 +13,7 @@ namespace AdvancedProject1._0
     public partial class EventsPopup : Form
     {
         EventColorHandler colorHandler = new EventColorHandler();
+        bool emptyTitle = false;
 
         public EventsPopup()
         {
@@ -52,7 +53,7 @@ namespace AdvancedProject1._0
         {
             if(cbImageList.SelectedIndex != -1)
             {
-                if (!string.IsNullOrEmpty(tbTitle.Text))
+                if (!string.IsNullOrEmpty(tbTitle.Text) && emptyTitle)
                 {
                     if (cbGlobalEvent.Checked) CalendarItem.unitID = -1;
                     CalendarItem.AddEventToDB(dtpEvent.Value, colorHandler.BackColor, colorHandler.TextColor, tbTitle.Text, tbDescription.Text, pbEventImage.Image);
@@ -73,6 +74,7 @@ namespace AdvancedProject1._0
             {
                 tbTitle.Text = "";
                 tbTitle.ForeColor = Color.FromArgb(36, 42, 86);
+                emptyTitle = true;
             }
         }
 
@@ -82,6 +84,7 @@ namespace AdvancedProject1._0
             {
                 tbTitle.Text = "Title";
                 tbTitle.ForeColor = Color.DarkGray;
+                emptyTitle = false;
             }
         }
     }

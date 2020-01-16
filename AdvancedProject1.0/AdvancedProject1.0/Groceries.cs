@@ -64,32 +64,28 @@ namespace AdvancedProject1._0
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
-            if (tbPaid.TextLength != 0 && lbGroceries.Items.Count != 0)
+            if (Double.TryParse(tbPaid.Text, out double paid) && tbPaid.TextLength > 0)
             {
-                DialogResult dialogResult = MessageBox.Show($"Are you sure you wish to pay?", "Groceries payment", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if(lbGroceries.Items.Count != 0)
                 {
-                    double tbPrice;
-                    if (Double.TryParse(tbPaid.Text, out tbPrice))
+                    DialogResult dialogResult = MessageBox.Show($"Are you sure you wish to pay?", "Groceries payment", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
                     {
                         foreach (User u in Residents)
                         {
                             if (!u.FirstName.Equals(loggedInUser.FirstName))
                             {
-                                Payment newPayment = new Payment(u.UserID, loggedInUser.UserID, Math.Round(tbPrice / Residents.Count, 2), loggedInUser.UnitID);
+                                Payment newPayment = new Payment(u.UserID, loggedInUser.UserID, Math.Round(paid / Residents.Count, 2), loggedInUser.UnitID);
                             }
                         }
+                        RefreshHistory();
+                        ClearGroceries();
+                        NameSwap();
                     }
-                    RefreshHistory();
-                    ClearGroceries();
-                    NameSwap();
                 }
+                else MessageBox.Show("Add at least one product and specify a price!");
             }
-            else
-            {
-                MessageBox.Show("Add at least one product and specify a price!");
-            }
-            
+            else MessageBox.Show("Invalid input for price.");
         }
        
         private void lbGroceries_DoubleClick(object sender, EventArgs e)
@@ -214,11 +210,6 @@ namespace AdvancedProject1._0
         {
             if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
             else Application.Exit();
-        }
-
-        private void Groceries_Load(object sender, EventArgs e)
-        {
-
         }
     }
 
