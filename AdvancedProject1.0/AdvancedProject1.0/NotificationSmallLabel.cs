@@ -33,14 +33,14 @@ namespace AdvancedProject1._0
 
         private void NotificationSmallLabel_MouseEnter(object sender, EventArgs e)
         {
-            this.Size = new Size(132, 120);
-            this.lblDesc.Size = new Size(113, 87);
+            this.Size = new Size(148, 120);
+            this.lblDesc.Size = new Size(118, 87);
         }
 
         private void NotificationSmallLabel_MouseLeave(object sender, EventArgs e)
         {
-            this.Size = new Size(132, 60);
-            this.lblDesc.Size = new Size(113, 27);
+            this.Size = new Size(148, 60);
+            this.lblDesc.Size = new Size(118, 27);
             this.BackColor = Color.White;
         }
         private void NotificationSmallLabel_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -53,6 +53,11 @@ namespace AdvancedProject1._0
         private void NotificationSmallLabel_MouseClick(object sender, MouseEventArgs e)
         {
             this.BackColor = Color.Silver;
+        }
+
+        private void LblTitle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

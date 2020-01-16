@@ -281,6 +281,7 @@
     <Content Include="HousingDB_log.ldf">
       <DependentUpon>HousingDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Notifcation.png" />
     <None Include="Resources\QuestionMark.png" />
     <None Include="Resources\Groceries.png" />
     <None Include="Resources\Toilet.png" />

@@ -215,6 +215,11 @@ namespace AdvancedProject1._0
             if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")) { }
             else Application.Exit();
         }
+
+        private void Groceries_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

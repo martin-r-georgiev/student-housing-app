@@ -30,8 +30,10 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblNumber = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblReport = new System.Windows.Forms.Label();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -48,6 +50,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.lblNumber);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -57,15 +60,25 @@
             this.panel2.MouseEnter += new System.EventHandler(this.ReportPanel_MouseEnter);
             this.panel2.MouseLeave += new System.EventHandler(this.ReportPanel_MouseLeave);
             // 
+            // lblNumber
+            // 
+            this.lblNumber.AutoSize = true;
+            this.lblNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumber.Location = new System.Drawing.Point(4, 9);
+            this.lblNumber.Name = "lblNumber";
+            this.lblNumber.Size = new System.Drawing.Size(31, 15);
+            this.lblNumber.TabIndex = 3;
+            this.lblNumber.Text = "110";
+            // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(45, 9);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(61, 15);
+            this.lblName.Size = new System.Drawing.Size(33, 15);
             this.lblName.TabIndex = 1;
-            this.lblName.Text = "Kiril 110";
+            this.lblName.Text = "Kiril";
             this.lblName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ReportPanel_MouseClick);
             this.lblName.MouseEnter += new System.EventHandler(this.ReportPanel_MouseEnter);
             this.lblName.MouseLeave += new System.EventHandler(this.ReportPanel_MouseLeave);
@@ -94,6 +107,8 @@
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ReportPanel_MouseClick);
             this.MouseEnter += new System.EventHandler(this.ReportPanel_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.ReportPanel_MouseLeave);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +120,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblReport;
+        private System.Windows.Forms.Label lblNumber;
     }
 }

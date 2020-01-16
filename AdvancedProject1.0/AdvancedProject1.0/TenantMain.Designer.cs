@@ -37,12 +37,14 @@
             this.btnHouseRules = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNotification = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.panelNotifications = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNotification = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
+            this.panelBorderNotifications = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panelBorderNotifications.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCleaning
@@ -104,12 +106,12 @@
             this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(84)))), ((int)(((byte)(151)))));
             this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Location = new System.Drawing.Point(803, 12);
+            this.btnLogout.Location = new System.Drawing.Point(782, 9);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(32, 32);
+            this.btnLogout.Size = new System.Drawing.Size(56, 56);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -155,6 +157,25 @@
             this.panel1.Size = new System.Drawing.Size(846, 174);
             this.panel1.TabIndex = 18;
             // 
+            // btnNotification
+            // 
+            this.btnNotification.BackColor = System.Drawing.Color.Transparent;
+            this.btnNotification.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNotification.BackgroundImage")));
+            this.btnNotification.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNotification.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnNotification.FlatAppearance.BorderSize = 0;
+            this.btnNotification.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
+            this.btnNotification.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
+            this.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotification.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnNotification.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNotification.Location = new System.Drawing.Point(777, 105);
+            this.btnNotification.Name = "btnNotification";
+            this.btnNotification.Size = new System.Drawing.Size(60, 60);
+            this.btnNotification.TabIndex = 0;
+            this.btnNotification.UseVisualStyleBackColor = false;
+            this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
+            // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
@@ -170,22 +191,12 @@
             // panelNotifications
             // 
             this.panelNotifications.AutoScroll = true;
-            this.panelNotifications.BackColor = System.Drawing.Color.White;
-            this.panelNotifications.Location = new System.Drawing.Point(661, 174);
+            this.panelNotifications.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panelNotifications.Location = new System.Drawing.Point(2, 2);
             this.panelNotifications.Name = "panelNotifications";
             this.panelNotifications.Size = new System.Drawing.Size(173, 310);
             this.panelNotifications.TabIndex = 19;
             this.panelNotifications.Visible = false;
-            // 
-            // btnNotification
-            // 
-            this.btnNotification.Location = new System.Drawing.Point(673, 145);
-            this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(149, 23);
-            this.btnNotification.TabIndex = 0;
-            this.btnNotification.Text = "Show Notifications";
-            this.btnNotification.UseVisualStyleBackColor = true;
-            this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
             // 
             // btnReport
             // 
@@ -201,14 +212,23 @@
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.BtnReport_Click);
             // 
+            // panelBorderNotifications
+            // 
+            this.panelBorderNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
+            this.panelBorderNotifications.Controls.Add(this.panelNotifications);
+            this.panelBorderNotifications.Location = new System.Drawing.Point(661, 174);
+            this.panelBorderNotifications.Name = "panelBorderNotifications";
+            this.panelBorderNotifications.Size = new System.Drawing.Size(177, 314);
+            this.panelBorderNotifications.TabIndex = 20;
+            this.panelBorderNotifications.Visible = false;
+            // 
             // TenantMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(846, 522);
-            this.Controls.Add(this.panelNotifications);
             this.ClientSize = new System.Drawing.Size(846, 523);
+            this.Controls.Add(this.panelBorderNotifications);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnHouseRules);
@@ -225,6 +245,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelBorderNotifications.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +265,6 @@
         private System.Windows.Forms.Button btnNotification;
         private System.Windows.Forms.FlowLayoutPanel panelNotifications;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Panel panelBorderNotifications;
     }
 }

@@ -79,6 +79,7 @@
             this.ClientSize = new System.Drawing.Size(480, 228);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSendReport);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportPopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

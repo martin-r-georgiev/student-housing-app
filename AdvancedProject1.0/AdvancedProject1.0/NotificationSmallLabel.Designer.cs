@@ -42,6 +42,7 @@
             this.lblTitle.Size = new System.Drawing.Size(113, 23);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
+            this.lblTitle.Click += new System.EventHandler(this.LblTitle_Click);
             this.lblTitle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NotificationSmallLabel_MouseClick);
             this.lblTitle.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotificationSmallLabel_MouseDoubleClick);
             this.lblTitle.MouseEnter += new System.EventHandler(this.NotificationSmallLabel_MouseEnter);
@@ -51,7 +52,7 @@
             // 
             this.lblDesc.Location = new System.Drawing.Point(16, 29);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(113, 27);
+            this.lblDesc.Size = new System.Drawing.Size(138, 27);
             this.lblDesc.TabIndex = 1;
             this.lblDesc.Text = "Description";
             this.lblDesc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NotificationSmallLabel_MouseClick);
@@ -77,7 +78,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
             this.panel2.Location = new System.Drawing.Point(18, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(110, 1);
+            this.panel2.Size = new System.Drawing.Size(118, 1);
             this.panel2.TabIndex = 10;
             this.panel2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NotificationSmallLabel_MouseClick);
             this.panel2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotificationSmallLabel_MouseDoubleClick);
@@ -88,12 +89,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.lblTitle);
             this.Name = "NotificationSmallLabel";
-            this.Size = new System.Drawing.Size(132, 60);
+            this.Size = new System.Drawing.Size(148, 60);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NotificationSmallLabel_MouseClick);
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotificationSmallLabel_MouseDoubleClick);
             this.MouseEnter += new System.EventHandler(this.NotificationSmallLabel_MouseEnter);

@@ -87,21 +87,21 @@ namespace AdvancedProject1._0
 
         private void btnNotification_Click(object sender, EventArgs e)
         {
-            if (panelNotifications.Visible == false)
+            if (panelBorderNotifications.Visible == false)
             {
+                panelBorderNotifications.Visible = true;
                 panelNotifications.Visible = true;
-                btnNotification.Text = "Hide Notifications";
             }
-            else if (panelNotifications.Visible == true)
+            else if (panelBorderNotifications.Visible == true)
             {
+                panelBorderNotifications.Visible = false;
                 panelNotifications.Visible = false;
-                btnNotification.Text = "Show Notifications";
                 NotificationBtnUpdate();
             }
         }
         public void NotificationBtnUpdate()
         {
-            if (gath.GetAllIncompleteNotifications().Count > 0) btnNotification.Text = "Show notifications (!)";
+            if (gath.GetAllIncompleteNotifications().Count > 0) btnNotification.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Notifcation));
         }
         public void RefreshPanel()
         {

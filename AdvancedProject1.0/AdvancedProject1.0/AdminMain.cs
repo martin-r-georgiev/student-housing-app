@@ -66,19 +66,23 @@ namespace AdvancedProject1._0
 
         private void btnAnnouncements_Click(object sender, EventArgs e)
         {
-            if (btnAnnouncements.Text == "Make Announcement")
+            if (btnAnnouncements.Text == "Announce")
             {
                 btnAnnouncements.Text = "Send";
                 tbAnnouncement.Visible = true;
                 cbAnnouncementUnits.Visible = true;
+                panelComboBorder.Visible = true;
+                panelTextBorder.Visible = true;
                 cbAnnouncementUnits.SelectedIndex = 0;
 
             } else if (btnAnnouncements.Text == "Send")
             {
                 SendAnnouncement();
-                btnAnnouncements.Text = "Make Announcement";
+                btnAnnouncements.Text = "Announce";
                 tbAnnouncement.Visible = false;
                 cbAnnouncementUnits.Visible = false;
+                panelComboBorder.Visible = false;
+                panelTextBorder.Visible = false;
             }
         }
         private void PopulateUnitList()
@@ -118,6 +122,20 @@ namespace AdvancedProject1._0
             cbAnnouncementUnits.Items.Add("All");
             foreach (HouseUnit h in unitList)
                 cbAnnouncementUnits.Items.Add(h.UnitID);
+        }
+
+        private void AdminMain_Click(object sender, EventArgs e)
+        {
+            btnAnnouncements.Text = "Announce";
+            tbAnnouncement.Visible = false;
+            cbAnnouncementUnits.Visible = false;
+            panelComboBorder.Visible = false;
+            panelTextBorder.Visible = false;
+        }
+
+        private void CbAnnouncementUnits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

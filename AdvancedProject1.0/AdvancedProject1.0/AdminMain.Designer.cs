@@ -40,8 +40,12 @@
             this.btnAnnouncements = new System.Windows.Forms.Button();
             this.tbAnnouncement = new System.Windows.Forms.TextBox();
             this.cbAnnouncementUnits = new System.Windows.Forms.ComboBox();
+            this.panelComboBorder = new System.Windows.Forms.Panel();
+            this.panelTextBorder = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelComboBorder.SuspendLayout();
+            this.panelTextBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnHouseRules
@@ -111,7 +115,7 @@
             this.btnCalendar.FlatAppearance.BorderSize = 0;
             this.btnCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalendar.Location = new System.Drawing.Point(271, 252);
-            this.btnCalendar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCalendar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCalendar.Name = "btnCalendar";
             this.btnCalendar.Size = new System.Drawing.Size(120, 120);
             this.btnCalendar.TabIndex = 10;
@@ -127,7 +131,7 @@
             this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(846, 174);
             this.panel1.TabIndex = 19;
@@ -149,7 +153,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(58, 29);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(116, 116);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -158,17 +162,28 @@
             // 
             // btnAnnouncements
             // 
+            this.btnAnnouncements.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAnnouncements.BackgroundImage")));
+            this.btnAnnouncements.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAnnouncements.FlatAppearance.BorderSize = 0;
+            this.btnAnnouncements.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAnnouncements.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAnnouncements.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnnouncements.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAnnouncements.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnAnnouncements.Location = new System.Drawing.Point(12, 436);
             this.btnAnnouncements.Name = "btnAnnouncements";
-            this.btnAnnouncements.Size = new System.Drawing.Size(91, 75);
+            this.btnAnnouncements.Size = new System.Drawing.Size(91, 81);
             this.btnAnnouncements.TabIndex = 20;
-            this.btnAnnouncements.Text = "Make Announcement";
+            this.btnAnnouncements.Text = "Announce";
             this.btnAnnouncements.UseVisualStyleBackColor = true;
             this.btnAnnouncements.Click += new System.EventHandler(this.btnAnnouncements_Click);
             // 
             // tbAnnouncement
             // 
-            this.tbAnnouncement.Location = new System.Drawing.Point(109, 463);
+            this.tbAnnouncement.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbAnnouncement.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAnnouncement.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbAnnouncement.Location = new System.Drawing.Point(2, 2);
             this.tbAnnouncement.Multiline = true;
             this.tbAnnouncement.Name = "tbAnnouncement";
             this.tbAnnouncement.Size = new System.Drawing.Size(184, 48);
@@ -177,20 +192,43 @@
             // 
             // cbAnnouncementUnits
             // 
+            this.cbAnnouncementUnits.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbAnnouncementUnits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAnnouncementUnits.FormattingEnabled = true;
-            this.cbAnnouncementUnits.Location = new System.Drawing.Point(109, 436);
+            this.cbAnnouncementUnits.Location = new System.Drawing.Point(2, 2);
             this.cbAnnouncementUnits.Name = "cbAnnouncementUnits";
             this.cbAnnouncementUnits.Size = new System.Drawing.Size(184, 21);
             this.cbAnnouncementUnits.TabIndex = 22;
             this.cbAnnouncementUnits.Visible = false;
+            this.cbAnnouncementUnits.SelectedIndexChanged += new System.EventHandler(this.CbAnnouncementUnits_SelectedIndexChanged);
+            // 
+            // panelComboBorder
+            // 
+            this.panelComboBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
+            this.panelComboBorder.Controls.Add(this.cbAnnouncementUnits);
+            this.panelComboBorder.Location = new System.Drawing.Point(106, 436);
+            this.panelComboBorder.Name = "panelComboBorder";
+            this.panelComboBorder.Size = new System.Drawing.Size(188, 25);
+            this.panelComboBorder.TabIndex = 23;
+            this.panelComboBorder.Visible = false;
+            // 
+            // panelTextBorder
+            // 
+            this.panelTextBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
+            this.panelTextBorder.Controls.Add(this.tbAnnouncement);
+            this.panelTextBorder.Location = new System.Drawing.Point(106, 465);
+            this.panelTextBorder.Name = "panelTextBorder";
+            this.panelTextBorder.Size = new System.Drawing.Size(188, 52);
+            this.panelTextBorder.TabIndex = 24;
+            this.panelTextBorder.Visible = false;
             // 
             // AdminMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(846, 523);
-            this.Controls.Add(this.cbAnnouncementUnits);
-            this.Controls.Add(this.tbAnnouncement);
+            this.Controls.Add(this.panelTextBorder);
+            this.Controls.Add(this.panelComboBorder);
             this.Controls.Add(this.btnAnnouncements);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAddNew);
@@ -203,11 +241,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "А";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminMain_FormClosing);
+            this.Click += new System.EventHandler(this.AdminMain_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelComboBorder.ResumeLayout(false);
+            this.panelTextBorder.ResumeLayout(false);
+            this.panelTextBorder.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -224,5 +265,7 @@
         private System.Windows.Forms.Button btnAnnouncements;
         private System.Windows.Forms.TextBox tbAnnouncement;
         private System.Windows.Forms.ComboBox cbAnnouncementUnits;
+        private System.Windows.Forms.Panel panelComboBorder;
+        private System.Windows.Forms.Panel panelTextBorder;
     }
 }

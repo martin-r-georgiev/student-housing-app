@@ -37,7 +37,8 @@ namespace AdvancedProject1._0
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (lblReporterName.Text.Length > 0)
+            DialogResult dialogResult = MessageBox.Show($"Are you sure that you wish to delete this report request?", "Delete report", MessageBoxButtons.YesNo);
+            if (lblReporterName.Text.Length > 0 && dialogResult == DialogResult.Yes)
             {
                 myReportsList = new ReportsList();
                 myReportsList.DeleteEntry(selectedReport.ReportId);
@@ -86,6 +87,16 @@ namespace AdvancedProject1._0
         public void RefreshReplyTextbox()
         {
             tbReply.Text = "";
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Reports_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

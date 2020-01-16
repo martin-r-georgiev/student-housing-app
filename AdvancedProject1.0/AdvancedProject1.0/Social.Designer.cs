@@ -40,7 +40,7 @@
             this.tp2 = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tcChats.SuspendLayout();
             this.tp1.SuspendLayout();
@@ -169,7 +169,7 @@
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -177,18 +177,18 @@
             this.panel1.Size = new System.Drawing.Size(803, 82);
             this.panel1.TabIndex = 11;
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(54, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 65);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Social";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTitle.Location = new System.Drawing.Point(54, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(157, 65);
+            this.lblTitle.TabIndex = 5;
+            this.lblTitle.Text = "Social";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel2
             // 
@@ -210,6 +210,7 @@
             this.Controls.Add(this.tcChats);
             this.Controls.Add(this.btnSendChat);
             this.Controls.Add(this.tbChat);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Social";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -238,7 +239,7 @@
         private System.Windows.Forms.ListBox lbGeneralChat;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panel2;
     }
 }
