@@ -50,7 +50,7 @@
             // tbCommonRooms
             // 
             this.tbCommonRooms.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tbCommonRooms.Location = new System.Drawing.Point(180, 64);
+            this.tbCommonRooms.Location = new System.Drawing.Point(198, 64);
             this.tbCommonRooms.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbCommonRooms.Maximum = 7;
             this.tbCommonRooms.Name = "tbCommonRooms";
@@ -60,7 +60,7 @@
             // 
             // lblCRoomsValue
             // 
-            this.lblCRoomsValue.Location = new System.Drawing.Point(258, 109);
+            this.lblCRoomsValue.Location = new System.Drawing.Point(276, 109);
             this.lblCRoomsValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCRoomsValue.Name = "lblCRoomsValue";
             this.lblCRoomsValue.Size = new System.Drawing.Size(88, 23);
@@ -71,22 +71,22 @@
             // lblFrequencySub1
             // 
             this.lblFrequencySub1.AutoSize = true;
-            this.lblFrequencySub1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFrequencySub1.Location = new System.Drawing.Point(197, 33);
+            this.lblFrequencySub1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFrequencySub1.Location = new System.Drawing.Point(194, 22);
             this.lblFrequencySub1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFrequencySub1.Name = "lblFrequencySub1";
-            this.lblFrequencySub1.Size = new System.Drawing.Size(64, 17);
+            this.lblFrequencySub1.Size = new System.Drawing.Size(72, 20);
             this.lblFrequencySub1.TabIndex = 2;
             this.lblFrequencySub1.Text = "Every day";
             // 
             // lblCommonRooms
             // 
             this.lblCommonRooms.AutoSize = true;
-            this.lblCommonRooms.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblCommonRooms.Location = new System.Drawing.Point(15, 71);
+            this.lblCommonRooms.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCommonRooms.Location = new System.Drawing.Point(14, 64);
             this.lblCommonRooms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCommonRooms.Name = "lblCommonRooms";
-            this.lblCommonRooms.Size = new System.Drawing.Size(155, 17);
+            this.lblCommonRooms.Size = new System.Drawing.Size(176, 20);
             this.lblCommonRooms.TabIndex = 3;
             this.lblCommonRooms.Text = "Cleaning common rooms";
             // 
@@ -111,17 +111,17 @@
             // lblKitchen
             // 
             this.lblKitchen.AutoSize = true;
-            this.lblKitchen.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblKitchen.Location = new System.Drawing.Point(37, 151);
+            this.lblKitchen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblKitchen.Location = new System.Drawing.Point(54, 145);
             this.lblKitchen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKitchen.Name = "lblKitchen";
-            this.lblKitchen.Size = new System.Drawing.Size(102, 17);
+            this.lblKitchen.Size = new System.Drawing.Size(118, 20);
             this.lblKitchen.TabIndex = 7;
             this.lblKitchen.Text = "Cleaning kitchen";
             // 
             // lblKitchenValue
             // 
-            this.lblKitchenValue.Location = new System.Drawing.Point(258, 191);
+            this.lblKitchenValue.Location = new System.Drawing.Point(276, 191);
             this.lblKitchenValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKitchenValue.Name = "lblKitchenValue";
             this.lblKitchenValue.Size = new System.Drawing.Size(89, 23);
@@ -131,7 +131,7 @@
             // 
             // tbKitchen
             // 
-            this.tbKitchen.Location = new System.Drawing.Point(180, 145);
+            this.tbKitchen.Location = new System.Drawing.Point(198, 145);
             this.tbKitchen.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbKitchen.Maximum = 7;
             this.tbKitchen.Name = "tbKitchen";
@@ -142,17 +142,17 @@
             // lblBathroom
             // 
             this.lblBathroom.AutoSize = true;
-            this.lblBathroom.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblBathroom.Location = new System.Drawing.Point(13, 237);
+            this.lblBathroom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblBathroom.Location = new System.Drawing.Point(14, 230);
             this.lblBathroom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBathroom.Name = "lblBathroom";
-            this.lblBathroom.Size = new System.Drawing.Size(153, 17);
+            this.lblBathroom.Size = new System.Drawing.Size(178, 20);
             this.lblBathroom.TabIndex = 10;
             this.lblBathroom.Text = "Cleaning Bathroom/toilet";
             // 
             // lblBathroomValue
             // 
-            this.lblBathroomValue.Location = new System.Drawing.Point(258, 272);
+            this.lblBathroomValue.Location = new System.Drawing.Point(276, 272);
             this.lblBathroomValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBathroomValue.Name = "lblBathroomValue";
             this.lblBathroomValue.Size = new System.Drawing.Size(92, 23);
@@ -162,7 +162,7 @@
             // 
             // tbBathroom
             // 
-            this.tbBathroom.Location = new System.Drawing.Point(180, 230);
+            this.tbBathroom.Location = new System.Drawing.Point(198, 230);
             this.tbBathroom.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbBathroom.Maximum = 7;
             this.tbBathroom.Name = "tbBathroom";
@@ -173,11 +173,11 @@
             // lblFrequencySub2
             // 
             this.lblFrequencySub2.AutoSize = true;
-            this.lblFrequencySub2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFrequencySub2.Location = new System.Drawing.Point(372, 33);
+            this.lblFrequencySub2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFrequencySub2.Location = new System.Drawing.Point(394, 22);
             this.lblFrequencySub2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFrequencySub2.Name = "lblFrequencySub2";
-            this.lblFrequencySub2.Size = new System.Drawing.Size(82, 17);
+            this.lblFrequencySub2.Size = new System.Drawing.Size(93, 20);
             this.lblFrequencySub2.TabIndex = 11;
             this.lblFrequencySub2.Text = "Once a week";
             // 

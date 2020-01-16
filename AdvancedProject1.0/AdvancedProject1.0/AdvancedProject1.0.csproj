@@ -281,6 +281,10 @@
     <Content Include="HousingDB_log.ldf">
       <DependentUpon>HousingDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\NoNotification.png" />
+    <None Include="Resources\send.png" />
+    <None Include="Resources\Megaphone.png" />
+    <None Include="Resources\iconmonstr-megaphone-11-240.png" />
     <None Include="Resources\Notifcation.png" />
     <None Include="Resources\QuestionMark.png" />
     <None Include="Resources\Groceries.png" />

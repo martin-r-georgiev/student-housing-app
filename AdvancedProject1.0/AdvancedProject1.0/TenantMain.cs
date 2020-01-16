@@ -106,7 +106,8 @@ namespace AdvancedProject1._0
         }
         public void NotificationBtnUpdate()
         {
-            if (gath.GetAllIncompleteNotifications().Count > 0) btnNotification.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Notifcation));
+            if (gath.GetAllIncompleteNotifications().Count > 0) { btnNotification.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Notifcation)); }
+            else { btnNotification.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.NoNotification)); }
         }
         public void RefreshPanel()
         {
@@ -119,6 +120,16 @@ namespace AdvancedProject1._0
             {
                 notifications[i] = new NotificationSmallLabel(myNotifications[i]);
                 panelNotifications.Controls.Add(notifications[i]);
+            }
+        }
+
+        private void TenantMain_Click(object sender, EventArgs e)
+        {
+            if (panelBorderNotifications.Visible == true)
+            {
+                panelBorderNotifications.Visible = false;
+                panelNotifications.Visible = false;
+                NotificationBtnUpdate();
             }
         }
     }

@@ -66,19 +66,22 @@ namespace AdvancedProject1._0
 
         private void btnAnnouncements_Click(object sender, EventArgs e)
         {
-            if (btnAnnouncements.Text == "Announce")
+            if (btnAnnouncements.Tag.ToString() == "Announce")
             {
-                btnAnnouncements.Text = "Send";
+                btnAnnouncements.Tag = "Send";
+                btnAnnouncements.BackgroundImage = Properties.Resources.send;
                 tbAnnouncement.Visible = true;
                 cbAnnouncementUnits.Visible = true;
                 panelComboBorder.Visible = true;
                 panelTextBorder.Visible = true;
                 cbAnnouncementUnits.SelectedIndex = 0;
 
-            } else if (btnAnnouncements.Text == "Send")
+            }
+            else if (btnAnnouncements.Tag.ToString() == "Send")
             {
                 SendAnnouncement();
-                btnAnnouncements.Text = "Announce";
+                btnAnnouncements.Tag = "Announce";
+                btnAnnouncements.BackgroundImage = Properties.Resources.Megaphone;
                 tbAnnouncement.Visible = false;
                 cbAnnouncementUnits.Visible = false;
                 panelComboBorder.Visible = false;
@@ -126,7 +129,8 @@ namespace AdvancedProject1._0
 
         private void AdminMain_Click(object sender, EventArgs e)
         {
-            btnAnnouncements.Text = "Announce";
+            btnAnnouncements.Tag = "Announce";
+            btnAnnouncements.BackgroundImage = Properties.Resources.Megaphone;
             tbAnnouncement.Visible = false;
             cbAnnouncementUnits.Visible = false;
             panelComboBorder.Visible = false;
