@@ -48,7 +48,7 @@ namespace AdvancedProject1._0
 				string receiverId = dataReader.GetString(1);
 				User receiver = new User(receiverId);
 				double amount = Convert.ToDouble(dataReader.GetString(2));
-				string paymentLine = $"{sender.FirstName} Has to pay ${amount}$ to {receiver.FirstName}";
+				string paymentLine = $" {sender.FirstName} Has to pay ${amount}$ to {receiver.FirstName}";
 				paymentList.Add(paymentLine);
 			}
 			con.Close();

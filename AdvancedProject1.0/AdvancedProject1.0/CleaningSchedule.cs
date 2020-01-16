@@ -202,9 +202,11 @@ namespace AdvancedProject1._0
             spArduino.Open();
             timerArduino.Start();
             cbArduino.Visible = false;
+            lblSelectPort.Visible = false;
             lblGarbageName.Visible = true;
             lblGarbageStatus.Visible = true;
             pbGarbage.Visible = true;
+            pbGarbageIcon.Visible = true;
             spArduino.WriteLine("garbage");
         }
 
@@ -226,6 +228,11 @@ namespace AdvancedProject1._0
                     pbGarbage.Value = pbGarbage.Minimum;
                 }
             }
+        }
+
+        private void CleaningSchedule_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
