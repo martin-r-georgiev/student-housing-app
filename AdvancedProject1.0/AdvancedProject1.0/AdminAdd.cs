@@ -21,12 +21,7 @@ namespace AdvancedProject1._0
 
         List<User> AssignUserList = new List<User>();
 
-        public AdminAdd()
-        {
-            InitializeComponent();
-        }
-
-        private void AdminAdd_Load(object sender, EventArgs e)
+        private void RefreshUnitsList()
         {
             unitList.Clear();
 
@@ -43,6 +38,16 @@ namespace AdvancedProject1._0
             con.Close();
         }
 
+        public AdminAdd()
+        {
+            InitializeComponent();
+        }
+
+        private void AdminAdd_Load(object sender, EventArgs e)
+        {
+            RefreshUnitsList();
+        }
+
         private void btnAddNewTenant_Click(object sender, EventArgs e)
         {
 
@@ -54,16 +59,12 @@ namespace AdvancedProject1._0
             cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
             dataReader = cmd.ExecuteReader();
 
-
             if (tbUsername.Text.Length > 0 && tbPassword.Text.Length > 0 && tbFirstName.Text.Length > 0 && tbLastName.Text.Length > 0)
             {
                 User newUser = new User(tbUsername.Text, tbPassword.Text,
                                tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
                 if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.UnitID = unitList[cmbHouseUnits.SelectedIndex].UnitID;
-                if (dataReader.Read())
-                {
-                    MessageBox.Show("User with such username already exists!");
-                }
+                if (dataReader.Read()) MessageBox.Show("User with such username already exists!");
                 else
                 {
                     try
@@ -83,10 +84,7 @@ namespace AdvancedProject1._0
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Please fill in all empty boxes!");
-            }
+            else MessageBox.Show("Please fill in all empty boxes!");
             cmd.Dispose();
             dataReader.Close();
         }
@@ -120,8 +118,9 @@ namespace AdvancedProject1._0
                     targetUser.RemoveFromDatabase();
                     unit.RemoveTenant(targetUser.UserID);
                 }
+                RefreshUnitsList();
             }
-            cmbUserList.SelectedIndex = -1;
+            cmbUserList.SelectedIndex = cmbUnitsList.SelectedIndex = -1;
         }
 
         private void cmbUserList_DropDown(object sender, EventArgs e)
@@ -177,6 +176,7 @@ namespace AdvancedProject1._0
                     else MessageBox.Show("Please use a 3-Digit House Unit ID. The ID needs to be a positive value.");
                 }
                 con.Close();
+                RefreshUnitsList();
                 tbAddress.Clear();
                 tbCapacity.Clear();
                 tbUnitID.Clear();
@@ -185,23 +185,13 @@ namespace AdvancedProject1._0
 
         private void cmbHouseUnits_DropDown(object sender, EventArgs e)
         {
+            RefreshUnitsList();
             cmbHouseUnits.Items.Clear();
-            unitList.Clear();
-
-            SqlConnection con = SqlConnectionHandler.GetSqlConnection();
-
-            SqlCommand cmd = new SqlCommand($"SELECT unitID FROM HUnitTable", con);
-            SqlDataReader dataReader = cmd.ExecuteReader();
-
-            while (dataReader.Read())
+            for(int i = 0; i < unitList.Count; i ++)
             {
-                //cmbHouseUnits.Items.Add($"Housing Unit [{dataReader.GetInt32(0)}]");
-                HouseUnit newUnit = new HouseUnit(dataReader.GetInt32(0)); 
+                HouseUnit newUnit = new HouseUnit(unitList[i].UnitID);
                 cmbHouseUnits.Items.Add(newUnit.GetInfo());
-                unitList.Add(newUnit);
             }
-            con.Close();
-
         }
 
         private void RefreshText()
@@ -230,14 +220,13 @@ namespace AdvancedProject1._0
 
         private void cmbUnits_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbUnitsList.SelectedIndex != -1)
+            lbTenantList.Items.Clear();
+            if (cmbUnitsList.SelectedIndex != -1)
             {
                 lblCapacity.Text = $"{unitList[cmbUnitsList.SelectedIndex].Tenants.Count}/{unitList[cmbUnitsList.SelectedIndex].Capacity} Tenants";
                 lblCapacity.Visible = true;
 
-                targetUnit = unitList[cmbUnitsList.SelectedIndex];
-
-                lbTenantList.Items.Clear();
+                targetUnit = unitList[cmbUnitsList.SelectedIndex];   
                 foreach (User user in unitList[cmbUnitsList.SelectedIndex].Tenants)
                 {
                     lbTenantList.Items.Add(user.Name);
@@ -253,7 +242,8 @@ namespace AdvancedProject1._0
                 targetUnit.RemoveAt(lbTenantList.SelectedIndex);
                 lbTenantList.Items.RemoveAt(lbTenantList.SelectedIndex);
 
-                lblCapacity.Text = $"{targetUnit.Tenants.Count}/{targetUnit.Capacity} Tenants";                
+                lblCapacity.Text = $"{targetUnit.Tenants.Count}/{targetUnit.Capacity} Tenants";
+                RefreshUnitsList();
             }
             else MessageBox.Show("Please select a tenant first.");
         }
@@ -265,7 +255,8 @@ namespace AdvancedProject1._0
                 unitList[cmbAssignUnitList.SelectedIndex].AddTenant(AssignUserList[cmbAssignUserList.SelectedIndex]);
                 AssignUserList[cmbAssignUserList.SelectedIndex].UnitID = (int)cmbAssignUnitList.SelectedItem;
                 AssignUserList.RemoveAt(cmbAssignUserList.SelectedIndex);
-                cmbAssignUserList.SelectedIndex = -1;
+                cmbAssignUserList.SelectedIndex = cmbUnitsList.SelectedIndex = - 1;
+                RefreshUnitsList();
             }
             else MessageBox.Show("Please make your selection(s).");
         }
