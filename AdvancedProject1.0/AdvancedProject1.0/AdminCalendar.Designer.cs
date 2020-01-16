@@ -283,6 +283,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(1240, 772);
             this.Name = "AdminCalendar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminCalendar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminCalendar_FormClosing);
             this.Load += new System.EventHandler(this.AdminCalendar_Load);
