@@ -30,7 +30,7 @@ namespace AdvancedProject1._0
             get { return reporterId; }
             set
             {
-                reporterId = value; this.lblName.Text = $"{Reporter.GetFirstName()}"; this.lblNumber.Text = $"{Reporter.GetHouseID()}";
+                reporterId = value; this.lblName.Text = $"{Reporter.FirstName}"; this.lblNumber.Text = $"{Reporter.UnitID}";
             }
         }
         public Report CurrentReport

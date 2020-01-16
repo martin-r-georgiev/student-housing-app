@@ -102,3 +102,6 @@ C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\Adva
 C:\Users\Aleksandar\Desktop\Fontys Stuff\Project\Git\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1.0.csproj.CopyComplete
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.NotificationSmallLabel.resources
 D:\Archive\University\Advanced project\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.ReportPanel.resources
+C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.AdminCalendar.resources
+C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.NotificationSmallLabel.resources
+C:\Users\vanko\Desktop\Uni\Fontys\Projects\AP - Student schedule\advanced-phase-group-8\AdvancedProject1.0\AdvancedProject1.0\obj\Debug\AdvancedProject1._0.ReportPanel.resources
