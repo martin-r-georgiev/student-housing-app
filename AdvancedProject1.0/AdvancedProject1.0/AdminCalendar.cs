@@ -55,7 +55,6 @@ namespace AdvancedProject1._0
         {
             CalendarPanel.SuspendLayout();
             while (CalendarPanel.Controls.Count > 0) CalendarPanel.Controls[0].Dispose();
-            CalendarItem[] itemList = new CalendarItem[38];
             CalendarItem.unitID = tenantUnitID;
             DateTime now = DateTime.Now;
             lblMonth.Text = DateTime.Now.ToString("MMMM");
@@ -65,17 +64,12 @@ namespace AdvancedProject1._0
             if (startDate.DayOfWeek != DayOfWeek.Monday) startDate = GetPreviousWeekday(startDate, DayOfWeek.Monday);
             for (int i = 0; startDate <= endDate; i++)
             {
-                itemList[i] = new CalendarItem();
-                itemList[i].RawDate = startDate;
-                itemList[i].Date = startDate.ToString("dd");
-                itemList[i].LoadEvents();
-                if (DateTime.Compare(startDate, DateTime.Today) == 0)
-                {
-                    itemList[i].IsToday(Color.BlueViolet);
-                }
-                itemList[i].WeekDay = startDate.DayOfWeek.ToString();
-                if (i > 6) itemList[i].HideHeader(true);
-                CalendarPanel.Controls.Add(itemList[i]);
+                CalendarItem newItem = new CalendarItem();
+                newItem.RawDate = startDate;
+                newItem.LoadEvents();
+                if (DateTime.Compare(startDate, DateTime.Today) == 0) newItem.IsToday(Color.BlueViolet);
+                if (i > 6) newItem.HideHeader(true);
+                CalendarPanel.Controls.Add(newItem);
                 startDate = startDate.AddDays(1);
             }
             CalendarPanel.ResumeLayout();

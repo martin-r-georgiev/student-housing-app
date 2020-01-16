@@ -14,32 +14,30 @@ namespace AdvancedProject1._0
 {
     public partial class CalendarItem : UserControl
     {
-        public CalendarItem()
-        {
-            InitializeComponent();
-            this.todayIndicator.Visible = false;
-            this.CalendarItem_SizeChanged(this, EventArgs.Empty);
-            this.Disposed += OnDispose;
-        }
-
+        //Instance variables
         private static User loggedInUser = new User(formLogin.userKey);
-        private string _date;
+        private string _day;
         private DateTime _rawdate;
         private string _dayofweek;
         public static int unitID;
 
-        public string Date
+        //Properties
+        public string Day
         {
-            get { return _date; }
-            set { _date = value; lblDate.Text = _date; }
+            get { return _day; }
+            set { _day = value; lblDate.Text = _day; }
         }
 
         public DateTime RawDate
         {
             get { return _rawdate; }
             set
-            { 
+            {
                 _rawdate = value.Date;
+                //Handling Date
+                _day = lblDate.Text = value.ToString("dd");
+                //Handling Weekdays
+                _dayofweek = lblWeekDay.Text = value.DayOfWeek.ToString();
                 if (value.DayOfWeek == DayOfWeek.Saturday || value.DayOfWeek == DayOfWeek.Sunday)
                 {
                     this.lblDate.ForeColor = SystemColors.HotTrack;
@@ -81,6 +79,16 @@ namespace AdvancedProject1._0
             }
         }
 
+        //Constructor
+        public CalendarItem()
+        {
+            InitializeComponent();
+            this.todayIndicator.Visible = false;
+            this.CalendarItem_SizeChanged(this, EventArgs.Empty);
+            this.Disposed += OnDispose;
+        }
+
+        //Methods
         public static void SystemAddEvent(DateTime date, Color eventColor, Color titleColor, string title, string description, Image img)
         {
             SqlConnection con = SqlConnectionHandler.GetSqlConnection();
@@ -182,7 +190,7 @@ namespace AdvancedProject1._0
             newEvent.Description = description;
             newEvent.Image = img;
             calendarEventList.Controls.Add(newEvent);
-            AddEventToDB(this._rawdate, eventColor, textColor, title, description, img);
+            AddEventToDB(this.RawDate, eventColor, textColor, title, description, img);
         }
 
         public void AddEvent(string title, Color eventColor, Color textColor, string description)
@@ -194,7 +202,7 @@ namespace AdvancedProject1._0
             newEvent.Id = ReturnCurrentID();
             newEvent.Description = description;
             calendarEventList.Controls.Add(newEvent);
-            AddEventToDB(this._rawdate, eventColor, textColor, title, description);
+            AddEventToDB(this.RawDate, eventColor, textColor, title, description);
         }
 
         public void AddEvent(string title, Color eventColor, Color textColor)
@@ -205,7 +213,7 @@ namespace AdvancedProject1._0
             newEvent.TextColor = textColor;
             newEvent.Id = ReturnCurrentID();
             calendarEventList.Controls.Add(newEvent);
-            AddEventToDB(this._rawdate, eventColor, textColor, title);
+            AddEventToDB(this.RawDate, eventColor, textColor, title);
         }
 
         public void AddEvent(string title, Color eventColor)
@@ -216,7 +224,7 @@ namespace AdvancedProject1._0
             newEvent.Id = ReturnCurrentID();
             MessageBox.Show($"{newEvent.Id}");
             calendarEventList.Controls.Add(newEvent);
-            AddEventToDB(this._rawdate, eventColor, Color.Black, title);
+            AddEventToDB(this.RawDate, eventColor, Color.Black, title);
         }
 
         public void HideHeader(bool flag)
@@ -267,7 +275,7 @@ namespace AdvancedProject1._0
             SqlDataReader dataReader;
 
             cmd = new SqlCommand($"SELECT date, eventColor, eventTitle, titleColor, Id, completed, description, image FROM CalendarEvents WHERE date=@samedate AND (houseUnit=@unit OR houseUnit=@global)", con);
-            cmd.Parameters.AddWithValue("@samedate", this._rawdate.Date);
+            cmd.Parameters.AddWithValue("@samedate", this.RawDate.Date);
             cmd.Parameters.AddWithValue("@unit", unitID);
             cmd.Parameters.AddWithValue("@global", -1);
             dataReader = cmd.ExecuteReader();

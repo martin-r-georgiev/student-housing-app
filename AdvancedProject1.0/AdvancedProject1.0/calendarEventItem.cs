@@ -88,11 +88,6 @@ namespace AdvancedProject1._0
             set { _image = value; }
         }
 
-        public void SetHeight(int newHeight)
-        {
-            this.Height = newHeight;
-        }
-
         public static float NewFontSize(Label label)
         {
             Size size = label.Size;
