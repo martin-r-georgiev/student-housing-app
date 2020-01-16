@@ -76,6 +76,7 @@
             this.lblPlaceholder.FontChanged += new System.EventHandler(this.lblTitle_FontChanged);
             this.lblPlaceholder.Click += new System.EventHandler(this.lblTitle_Click);
             this.lblPlaceholder.DoubleClick += new System.EventHandler(this.lblTitle_DoubleClick);
+            this.lblPlaceholder.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTitle_MouseDown);
             this.lblPlaceholder.MouseEnter += new System.EventHandler(this.lblTitle_MouseEnter);
             this.lblPlaceholder.MouseLeave += new System.EventHandler(this.lblTitle_MouseLeave);
             // 

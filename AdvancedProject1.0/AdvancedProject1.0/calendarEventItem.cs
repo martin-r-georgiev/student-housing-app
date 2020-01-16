@@ -196,7 +196,7 @@ namespace AdvancedProject1._0
             }
             con.Close();
 
-            if (loggedInUser.UserID == createdBy) rightClickMenuItem2.Visible = true;
+            if (loggedInUser.UserID == createdBy || loggedInUser.IsAdmin) rightClickMenuItem2.Visible = true;
             else rightClickMenuItem2.Visible = false;
         }
 
