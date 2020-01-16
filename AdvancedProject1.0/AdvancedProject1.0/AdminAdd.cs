@@ -61,30 +61,40 @@ namespace AdvancedProject1._0
 
             if (tbUsername.Text.Length > 0 && tbPassword.Text.Length > 0 && tbFirstName.Text.Length > 0 && tbLastName.Text.Length > 0)
             {
-                User newUser = new User(tbUsername.Text, tbPassword.Text,
-                               tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
-                if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.UnitID = unitList[cmbHouseUnits.SelectedIndex].UnitID;
-                if (dataReader.Read()) MessageBox.Show("User with such username already exists!");
-                else
-                {
-                    try
+                if ((tbFirstName.Text.Contains("~")) || (tbFirstName.Text.Contains(" ")) || (tbFirstName.Text.Contains(":"))){
+                    MessageBox.Show("Invalid symbols!"); }
+                else {
+                    User newUser = new User(tbUsername.Text, tbPassword.Text,
+                                   tbFirstName.Text, tbLastName.Text, cbAdmin.Checked);
+                    if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) newUser.UnitID = unitList[cmbHouseUnits.SelectedIndex].UnitID;
+                    if (dataReader.Read())
                     {
-                        if (!unitList[cmbHouseUnits.SelectedIndex].IsAtCapacity())
-                        {
-                            newUser.InsertToDatabase();
-                            MessageBox.Show("Successfully added new user.");
-                            if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
-                            RefreshText();
-                        }
-                        else MessageBox.Show("This housing unit has reached its tenant capacity.");
+                        MessageBox.Show("User with such username already exists!");
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show(ex.Message);
+                        try
+                        {
+                            if (!unitList[cmbHouseUnits.SelectedIndex].IsAtCapacity())
+                            {
+                                newUser.InsertToDatabase();
+                                MessageBox.Show("Successfully added new user.");
+                                if (!cbAdmin.Checked && cmbHouseUnits.SelectedIndex != -1) unitList[cmbHouseUnits.SelectedIndex].AddTenant(newUser);
+                                RefreshText();
+                            }
+                            else MessageBox.Show("This housing unit has reached its tenant capacity.");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
                 }
+                }
+            else
+            {
+                MessageBox.Show("Please fill in all empty boxes!");
             }
-            else MessageBox.Show("Please fill in all empty boxes!");
             cmd.Dispose();
             dataReader.Close();
         }
