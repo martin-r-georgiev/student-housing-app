@@ -106,11 +106,11 @@ namespace AdvancedProject1._0
         }
         private void SendMessage()
         {
-            string newLine = $"[{DateTime.Now.ToString(@"h\:mm tt")}]  -{loggedInUser.UnitID}- {loggedInUser.FirstName}: {tbChat.Text}";
             chats = chat.Split('~');
 
             if (tcChats.SelectedIndex == 0)
             {
+                string newLine = $"[{DateTime.Now.ToString(@"h\:mm tt")}]  -{loggedInUser.UnitID}- {loggedInUser.FirstName}: {tbChat.Text}";
                 generalChatLines.Add(newLine);
                 chats[1] = "ALL:\n";
                 foreach (string s in generalChatLines)
@@ -120,7 +120,7 @@ namespace AdvancedProject1._0
 
             if (tcChats.SelectedIndex == 1)
             {
-                newLine = $"{loggedInUser.FirstName}: {newLine}";
+                string newLine = $"[{DateTime.Now.ToString(@"h\:mm tt")}] {loggedInUser.FirstName}: {tbChat.Text}";
                 chatLines.Add(newLine);
                 //Add the new line to a list
                 for (int i = 0; i < chats.Length; i++)
