@@ -223,6 +223,7 @@ namespace AdvancedProject1._0
                         if (index == users.Count - 1) returnUser = users[0];
                         else returnUser = users[++index];
                     }
+                    else returnUser = users[0];
                 }
             }
             return returnUser;
