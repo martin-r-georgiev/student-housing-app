@@ -13,7 +13,7 @@ namespace AdvancedProject1._0
     public partial class EventsPopup : Form
     {
         EventColorHandler colorHandler = new EventColorHandler();
-        bool emptyTitle = false;
+        bool emptyTitle = true;
 
         public EventsPopup()
         {
