@@ -19,9 +19,9 @@ namespace AdvancedProject1._0
 
                 return connection;
             }
-            catch(SqlException)
+            catch(Exception e)
             {
-                // Connection failed
+                Console.WriteLine("Error: {0}", e.ToString());
             }
             return null;
         }
